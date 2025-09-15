@@ -1,0 +1,3 @@
+-Necesito crear una web para una empresa utilizando Bootstrap4 y Jquery que contenga lo básico pero con animaciones utilizando por ejemplo aos
+-Crea un section que muestre un slider con swiper.js que contenga 3 imágenes
+

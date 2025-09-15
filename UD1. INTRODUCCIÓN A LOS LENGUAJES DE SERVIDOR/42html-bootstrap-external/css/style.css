@@ -1,0 +1,71 @@
+/* Estilos generales */
+body {
+    font-family: 'Roboto', sans-serif;
+    padding-top: 56px; /* Para compensar el navbar fijo */
+}
+
+/* Main Section */
+.main-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/main_background.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    min-height: 500px;
+    color: white;
+}
+
+/* Iconos de servicios */
+.icon-box {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    border-radius: 50%;
+}
+
+/* Tarjetas de portafolio */
+.portfolio-item {
+    transition: transform 0.3s;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Formulario de contacto */
+#contactForm .form-control {
+    border-radius: 0;
+    border: 1px solid #ddd;
+    padding: 12px;
+}
+
+#contactForm .form-control:focus {
+    box-shadow: none;
+    border-color: #007bff;
+}
+
+/* Footer */
+footer a {
+    color: white;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #007bff;
+    text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-section {
+        text-align: center;
+    }
+    
+    .main-section h1 {
+        font-size: 2.5rem;
+    }
+}

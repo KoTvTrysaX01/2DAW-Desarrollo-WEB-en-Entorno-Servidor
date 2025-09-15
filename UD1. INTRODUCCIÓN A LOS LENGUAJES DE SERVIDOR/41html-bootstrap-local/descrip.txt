@@ -1,0 +1,15 @@
+Ejemplo avanzado con código html+css+js
+---------------------------------------
+-En este ejemplo se ha utilizado IA para generar la plantilla de la página web
+-Se usa BOOTSTRAP para disponer de clases de estilos CSS predefinidas lo que simplifica el trabajo en HTML
+-Se usa JQUERY para acceder a los elementos del DOM de HTML de forma más simple que con Javascript directamente
+
+Archivos enlazados con link o script de forma local
+---------------------------------------------------
+-Todos los archivos enlazados con link o script se han descargado localmente para no depender de dominios externos
+
+-Se han inorporado extensiones como:
+-->webfonts: para disponer varias fuentes de letra
+-->fontawesome: para disponer de varios iconos y recursos
+-->aos: para hacer efectos de animación a elementos de html
+-->swiper: para hacer galerías de imágenes con animación

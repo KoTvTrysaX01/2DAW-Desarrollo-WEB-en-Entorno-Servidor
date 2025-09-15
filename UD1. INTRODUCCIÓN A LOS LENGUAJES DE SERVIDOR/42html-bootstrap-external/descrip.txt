@@ -1,0 +1,26 @@
+Ejemplo avanzado con código html+css+js
+---------------------------------------
+-En este ejemplo se ha utilizado IA para generar la plantilla de la página web
+-Se usa BOOTSTRAP para disponer de clases de estilos CSS predefinidas lo que simplifica el trabajo en HTML
+-Se usa JQUERY para acceder a los elementos del DOM de HTML de forma más simple que con Javascript directamente 
+
+Archivos enlazados con link o script externos
+---------------------------------------------
+Un CDN (Content Delivery Network o Red de Distribución de Contenido) es una red de servidores distribuidos geográficamente que entrega archivos de forma rápida a los usuarios según su ubicación. 
+En lugar de descargar los archivos desde tu propio servidor, el navegador los descarga desde uno de estos servidores optimizados.
+Esto crea una dependencia de los servidores externos pero nos puede aportar:
+-una mayor velocidad de carga ya que suelen ser más rápidos que la mayoría de dominios
+-un mayor ancho de banda para la descarga pues libera el de nuestro dominio
+-evitar saturaciones con muchas visitas
+-mejor mantenimiemto por no tener que actualizar las versiones manualmente
+
+Los repositorios de librerías Javascript y CSS en internet más usados son:
+-Google Hosted Libraries (https://ajax.googleapis.com)
+-cdnjs de Cloudflare (https://cdnjs.cloudflare.com)
+-jsDelivr (https://cdn.jsdelivr.net)
+-unpkg (https://unpkg.com)
+
+A tener en cuenta
+-Google: más limitado y no tan actualizado
+-jsDelivr y cdnjs: muy rápidos, confiables y actualizados
+-unpkg: útil si ya usas paquetes NPM o sistemas modernos
