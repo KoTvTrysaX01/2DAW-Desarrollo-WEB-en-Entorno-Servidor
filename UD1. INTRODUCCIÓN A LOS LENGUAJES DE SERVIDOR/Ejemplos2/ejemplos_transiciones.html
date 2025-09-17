@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo de Transiciones CSS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .caja {
+      width: 150px;
+      height: 150px;
+      background-color: #4CAF50;
+      margin: 0 auto;
+      border-radius: 8px;
+
+      /* ========== TRANSICIONES BÁSICAS ========== */
+      transition-property: background-color, transform; /* Qué propiedades cambiarán suavemente */
+      transition-duration: 1s;     /* Duración de la transición (1 segundo) */
+      transition-timing-function: ease; /* Curva de velocidad (ease, linear, ease-in, ease-out, etc.) */
+      transition-delay: 0s;        /* Retraso antes de iniciar la transición */
+    }
+
+    /* Estado al pasar el ratón por encima */
+    .caja:hover {
+      background-color: #f44336;   /* Cambia color de fondo */
+      transform: scale(1.2) rotate(10deg); /* Escala y rota suavemente */
+    }
+  </style>
+</head>
+<body>
+  <h1>Ejemplo de Transiciones CSS</h1>
+  <p>Pasa el ratón sobre el cuadro para ver la transición.</p>
+  
+  <div class="caja"></div>
+</body>
+</html>

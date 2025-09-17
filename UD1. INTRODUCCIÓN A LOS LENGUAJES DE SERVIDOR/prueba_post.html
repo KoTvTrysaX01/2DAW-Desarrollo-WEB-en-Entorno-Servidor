@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Prueba POST</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        form {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+
+        h2 {
+            color: #4CAF50;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Prueba de peticiones POST</h1>
+
+    <!-- ========================= -->
+    <!-- 1. POST clásico con FORM  -->
+    <!-- ========================= -->
+    <h2>POST con formulario HTML</h2>
+    <!-- 
+    - Este formulario envía los datos al servidor usando method="POST".
+    - action="https://httpbin.org/post" indica la URL de destino.
+    - target="_blank" abre la respuesta en una nueva pestaña.
+  -->
+    <form action="https://httpbin.org/post" method="POST" target="_self">
+        <!-- Los inputs se envían como pares clave=valor en formato x-www-form-urlencoded -->
+        <label>Usuario: <input type="text" name="usuario" value="admin"></label><br><br>
+        <label>Clave: <input type="password" name="clave" value="1234"></label><br><br>
+        <button type="submit">Enviar POST</button>
+    </form>
+    <p>
+        <em>El formulario envía datos en formato <b>application/x-www-form-urlencoded</b>
+            (ejemplo: usuario=admin&clave=1234).</em>
+    </p>
+
+    <!-- ============================= -->
+    <!-- 2. POST con fetch (AJAX/JS)   -->
+    <!-- ============================= -->
+    <h2>POST con JavaScript (fetch)</h2>
+    <!-- Botón que dispara el fetch() -->
+    <button id="btnFetch">Enviar POST con fetch()</button>
+
+    <!-- Contenedor para mostrar la respuesta de la API -->
+    <h3>Respuesta de la API:</h3>
+    <pre id="respuesta"></pre>
+
+    <script>
+        // Capturamos el botón y le asignamos un evento click
+        document.getElementById("btnFetch").addEventListener("click", function () {
+
+            // Usamos fetch() para enviar un POST
+            fetch("https://httpbin.org/post", {
+                method: "POST",   // Especificamos POST
+                headers: {
+                    "Content-Type": "application/json" // Indicamos que el body es JSON
+                },
+                // Enviamos el cuerpo en formato JSON
+                body: JSON.stringify({
+                    usuario: "admin",
+                    clave: "1234"
+                })
+            })
+                // Convertimos la respuesta a objeto JSON
+                .then(res => res.json())
+                .then(data => {
+                    // Mostramos la respuesta en el <pre>, con formato bonito
+                    document.getElementById("respuesta").textContent =
+                        JSON.stringify(data, null, 2);
+                })
+                // Si ocurre un error, lo mostramos en consola
+                .catch(err => console.error("Error en la petición:", err));
+        });
+    </script>
+</body>
+
+</html>

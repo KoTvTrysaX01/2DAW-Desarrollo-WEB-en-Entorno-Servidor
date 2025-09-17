@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo Responsive con Media Queries</title>
+  <style>
+    /* ===== Estilo base (Mobile First) ===== */
+    body {
+      font-size: 6px;      /* Tamaño de fuente por defecto en móviles */
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f9f9f9;
+    }
+
+    h1 {
+      color: #4CAF50;
+    }
+
+    p {
+      line-height: 1.5;
+    }
+
+    /* ===== Tablet (>= 768px) ===== */
+    @media (min-width: 768px) {
+      body {
+        font-size: 18px;    /* Aumentamos tamaño de fuente en pantallas medianas */
+        background-color: #eef7ff; /* Color de fondo distinto para ver el cambio */
+      }
+    }
+
+    /* ===== Desktop (>= 1024px) ===== */
+    @media (min-width: 1024px) {
+      body {
+        font-size: 40px;    /* Aumentamos más la fuente en pantallas grandes */
+        background-color: #fff0f0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Ejemplo de Media Queries</h1>
+  <p>
+    Este texto cambia de tamaño según el ancho de la pantalla:
+  </p>
+  <ul>
+    <li><strong>Móvil:</strong> 16px (pantallas < 768px)</li>
+    <li><strong>Tablet:</strong> 18px (pantallas ≥ 768px)</li>
+    <li><strong>Desktop:</strong> 20px (pantallas ≥ 1024px)</li>
+  </ul>
+  <p>
+    Prueba a cambiar el tamaño de la ventana o abre esta página en tu móvil, tablet o
+    ordenador de escritorio para ver el efecto.
+  </p>
+</body>
+</html>
