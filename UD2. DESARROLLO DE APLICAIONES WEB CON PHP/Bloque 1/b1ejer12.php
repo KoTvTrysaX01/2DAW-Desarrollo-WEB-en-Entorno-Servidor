@@ -3,7 +3,7 @@ if(!isset($_GET['opcion'])) {
     echo "<h1>Elige la opción</h1><br>";
 }else{
     if(!is_string($_GET['opcion'])){
-        echo "Value is not a string<br>";
+        echo "El valor no es una cadena<br>";
     }else{
         $opcion = $_GET['opcion'];
         switch($opcion){
@@ -18,6 +18,7 @@ if(!isset($_GET['opcion'])) {
                 break;
             default:
                 echo "La opción '{$opcion}' no es una opción correcta<br>";
+				break;
         }
     }
 }

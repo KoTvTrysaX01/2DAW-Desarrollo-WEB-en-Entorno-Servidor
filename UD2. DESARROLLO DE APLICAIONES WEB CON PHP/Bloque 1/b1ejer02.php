@@ -1,19 +1,18 @@
 <?php
-$random=rand(1, 10);
 if(!isset($_GET['nota'])) {
-    echo "La nota no es encontrado<br>";
-    echo "Pulsa en <a href='?nota=$random'>random</a> para generar un random number<br>";
+    echo "No se pudo encontrar la nota<br>";
 }else{
     if(!ctype_digit($_GET['nota'])){
         echo "Valor '{$_GET['nota']}' no es una nota<br>";
-        echo "Pulsa en <a href='?nota=$random'>random</a> para generar un random number<br>";
     }else{
         $nota = $_GET['nota'];
         if($nota >= 5 ){
-            echo "La nota es {$nota}. Aprobado.";
+            echo "La nota es {$nota}. Aprobado.<br>";
         }else{
-            echo "La nota es {$nota}. Suspenso.";
+            echo "La nota es {$nota}. Suspenso.<br>";
         }
     }
 }
+$random=rand(1, 10);
+echo "<br>Pulsa en <a href='?nota=$random'>random</a> para generar una nota aleatoria";
 ?>

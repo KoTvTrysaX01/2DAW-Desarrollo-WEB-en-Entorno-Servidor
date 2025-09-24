@@ -1,11 +1,12 @@
 <?php
 if(!isset($_GET['dia'])) {
-    echo "El día no es encontrado<br>";
+    echo "No se pudo encontrar el día<br>";
 }else{
     if(!ctype_digit($_GET['dia'])){
-        echo "Valor '{$_GET['dia']}' no es una dia<br>";
+        echo "Valor '{$_GET['dia']}' no es un dia<br>";
     }else{
         $dia = $_GET['dia'];
+        echo "El día introducido: {$dia}<br>";
         switch($dia){
             case 1:
                 echo "Es Lunes<br>";
@@ -30,9 +31,10 @@ if(!isset($_GET['dia'])) {
                 break;
             default:
                 echo "{$dia} no es un dia de la semana<br>";
+                break;
         }
     }
 }
 $random=rand(1, 7);
-echo "Pulsa en <a href='?dia=$random'>random</a> para generar un random dia automaticamente<br>";
+echo "<br>Pulsa en <a href='?dia=$random'>random</a> para generar un día aleatorio";
 ?>

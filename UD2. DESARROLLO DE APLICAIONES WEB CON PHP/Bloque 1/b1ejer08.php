@@ -1,18 +1,18 @@
 <?php
-if(!isset($_GET['char'])) {
-    echo "El char no es encontrado<br>";
+if(!isset($_GET['letra'])) {
+    echo "No se pudo encontrar la letra<br>";
 }else{
-    if(!ctype_alpha($_GET['char'])){
-        echo "Valor '{$_GET['char']}' no es un char<br>";
+    if(!ctype_alpha($_GET['letra'])){
+        echo "Valor '{$_GET['letra']}' no es una letra<br>";
     }else{
-        $char = strtolower($_GET['char']);
-        if(str_contains("aoiuye", $char)){
-            echo "El char {$char} es vocal<br>";
+        $letra = strtolower($_GET['letra']);
+        if(preg_match("/a|o|i|u|y|e/", $letra)){
+            echo "El letra {$letra} es vocal.<br>";
         }else{
-            echo "El char {$char} es consonante<br>";
+            echo "El letra {$letra} es consonante.<br>";
         }
     }
 }
 $random = chr(rand(97,122));
-echo "Pulsa en <a href='?char=$random'>random</a> para generar un random char automaticamente<br>";
+echo "<br>Pulsa en <a href='?letra=$random'>random</a> para generar una letra aleatioria";
 ?>

@@ -1,18 +1,18 @@
 <?php
 if(!isset($_GET['numero'])) {
-    echo "El numero no es encontrado<br>";
+    echo "No se pudo encontrar el número<br>";
 }else{
     if(!is_numeric($_GET['numero'])){
-        echo "Valor '{$_GET['numero']}' no es un numero<br>";
+        echo "Valor '{$_GET['numero']}' no es un número<br>";
     }else{
         $numero = $_GET['numero'];
       if($numero >= 0){
-        echo "El numero {$numero} es positivo<br>";
+        echo "El número {$numero} es positivo<br>";
       }else{
-        echo "El numero {$numero} es negativo<br>";
+        echo "El número {$numero} es negativo<br>";
       }
     }
 }
 $random=rand(-10, 10);
-echo "Pulsa en <a href='?numero=$random'>random</a> para generar un random numero automaticamente<br>";
+echo "<br>Pulsa en <a href='?numero=$random'>random</a> para generar un número aleatorio";
 ?>

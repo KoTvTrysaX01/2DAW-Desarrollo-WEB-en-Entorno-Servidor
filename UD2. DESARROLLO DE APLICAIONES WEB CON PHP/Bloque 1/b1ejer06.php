@@ -1,21 +1,20 @@
 <?php
-if(!isset($_GET['char'])) {
-    echo "El char no es encontrado<br>";
+if(!isset($_GET['letra'])) {
+    echo "No se pudo encontrar la letra<br>";
 }else{
-    if(!ctype_alpha($_GET['char'])){
-        echo "Valor '{$_GET['char']}' no es un char<br>";
+    if(!ctype_alpha($_GET['letra'])){
+        echo "Valor '{$_GET['letra']}' no es una letra<br>";
     }else{
-        $char = $_GET['char'];
-      if($char === 'S'){
-        echo "El char {$char} = 'S'<br>";
-      }else if($char === 'N'){
-        echo "El char {$char} = 'N'<br>";
+        $letra = strtoupper($_GET['letra']);
+      if($letra === 'S'){
+        echo "El letra {$letra} = 'S'<br>";
+      }else if($letra === 'N'){
+        echo "El letra {$letra} = 'N'<br>";
       }else{
-        echo "El char {$char} no es ni 'S' ni 'N'";
+        echo "El letra {$letra} no es ni 'S' ni 'N'<br>";
       }
     }
 }
-echo "Pulsa en <a href='?char=S'>S</a> para generar un URL con 'S'<br> o <a href='?char=N'>N</a> para generar un URL con 'N'";
-// $random=rand(-10, 10);
-// echo "Pulsa en <a href='?char=$random'>random</a> para generar un random char automaticamente<br>";
+$random = chr(rand(97,122));
+echo "<br>Pulsa en <a href='?letra=$random'>random</a> para generar una letra aleatioria";
 ?>

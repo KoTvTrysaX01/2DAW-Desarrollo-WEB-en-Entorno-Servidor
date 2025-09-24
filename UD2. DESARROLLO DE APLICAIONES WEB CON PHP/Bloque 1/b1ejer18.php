@@ -1,11 +1,11 @@
 <?php
 if (!isset($_GET['años'])) {
 
-    echo "Los años no han encontrado<br>";
+    echo "No se pudo encontrar los años.<br>";
 
 } else {
     if (!ctype_digit($_GET['años'])) {
-        echo "El valor no es un numero<br>";
+        echo "El valor no es un dígito.<br>";
     } else {
         $años = $_GET['años'];
         switch($años){
@@ -22,11 +22,11 @@ if (!isset($_GET['años'])) {
                 echo"Aumento de 10%<br>Tú salario: 40.000€ + 10% = " . 40000 + (40000 / 100 * 10) . "€";
                 break;
             default:
-                echo "Unknown value";
+                echo "Valor desconocido";
                 break; 
         }
     }
 }
 $random = rand(1, 12);
-echo "<br>Pulsa en <a href='?años=$random'>random</a> para generar un random number<br>";
+echo "<br>Pulsa en <a href='?años=$random'>random</a> para generar un número aleatorio<br>";
 ?>

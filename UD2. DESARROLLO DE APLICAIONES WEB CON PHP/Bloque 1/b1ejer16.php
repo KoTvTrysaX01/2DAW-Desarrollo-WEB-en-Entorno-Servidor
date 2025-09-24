@@ -1,9 +1,9 @@
 <?php
 if(!isset($_GET['importe'])) {
-    echo "El importe no ha encontrado.<br>";
+    echo "No pudo encontrar el importe.<br>";
 }else{
     if(!ctype_digit($_GET['importe'])){
-        echo "El importe no es un digito<br>";
+        echo "El valor no es un dígito<br>";
     }else{
         $importe = $_GET['importe'];
         echo "El importe bruto: " . number_format($importe) ."€<br><br>";
@@ -16,5 +16,5 @@ if(!isset($_GET['importe'])) {
     }
 }
 $random = rand(10000,20000);
-echo "<br>Pulsa en <a href='?importe=$random'>random</a> para generar un importe bruto random<br>";
+echo "<br>Pulsa en <a href='?importe=$random'>random</a> para generar un importe bruto random aleatorio.";
 ?>
