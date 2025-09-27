@@ -19,10 +19,12 @@
 
 <?php
     if (!isset($_GET['fecha'])) {
-    echo "<h2 style='text-align: center;' >Uno o más valores no están establecidos</h2>";
+    echo "<h3 style='text-align: center;' >Uno o más valores no están establecidos</h3>";
 } else {
     $fecha = date_create($_GET['fecha']);
-    date_add($fecha, date_interval_create_from_date_string("1 day"));
-    echo date_format($fecha,"Y/m/d");
+    echo "<h3>El día introducido: " . date_format($fecha, "Y-m-d")  . "</h3>";
+
+    $manana = date('Y-m-d', strtotime(date_format($fecha,"Y/m/d") .' +1 day'));
+    echo "<h3>El día siguiente: " . $manana . "</h3>";
 }
 ?>

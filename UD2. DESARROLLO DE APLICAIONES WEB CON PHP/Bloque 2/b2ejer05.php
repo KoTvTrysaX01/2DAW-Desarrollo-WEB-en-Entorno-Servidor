@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +14,6 @@
         }
     </style>
 </head>
-
 <body>
     <form>
         <div class="container">
@@ -26,9 +24,8 @@
             </div>
             <br>
             <div>
-                <label for="centimos">Cantidad de centimos: </label>
+                <label for="centimos">Cantidad de céntimos: </label>
                 <input type="number" min=0 max=99 id="centimos" name="centimos" value="0" />
-
             </div>
             <br>
             <input type="submit" />
@@ -36,7 +33,6 @@
         </div>
     </form>
 </body>
-
 </html>
 
 <?php
@@ -48,11 +44,11 @@ if (!isset($_GET['euros']) || !isset($_GET['centimos'])) {
     } else {
         $euro = $_GET['euros'];
         $centimos = $_GET['centimos'];
-        echo $euro . "," . $centimos . "€<br>";
+        echo "<br>Cantidad ingresada: " . $euro . "," . $centimos . "€<br>";
+        echo "La mínima cantidad de monedas: <br><br>";
 
-        $dos_euros;
-        $un_euro;
-
+        // $dos_euros = 0;
+        // $un_euro = 0;
         // $cincuenta_cent = 0;
         // $vente_cent = 0;
         // $diez_cent = 0;
@@ -60,53 +56,46 @@ if (!isset($_GET['euros']) || !isset($_GET['centimos'])) {
         // $dos_cent = 0;
         // $un_cent = 0;
 
-        while ($euro != 0) {
-            if(($euro % 2) == 1){
-                $un_euro++;
-                $euro--;
-            }else{
-                $dos_euro++;
-                $euro -2;
+        $monedas = [0, 0, 0, 0, 0, 0, 0, 0];
+        for ($i = $euro; $i > 0; $i) {
+            if ($i >= 2) {
+                $monedas[0]++;
+                $i -= 2;
+            } else {
+                $monedas[1]++;
+                $i -= 1;
             }
         }
 
-
-        // while ($centimos != 0) {
-        //     if(($centimos - 50) >= 0){
-        //         $cincuenta_cent += 1;
-        //         $centimos -= -50;
-        //     }
-        //     elseif(($centimos - 20) >= 0){
-        //         $vente_cent += 1;
-        //         $centimos -= 20;
-        //     }
-        //     elseif(($centimos - 10) >= 0){
-        //         $diez_cent += 1;
-        //         $centimos -= 10;
-        //     }
-        //     elseif(($centimos - 5) >= 0){
-        //         $cinco_cent += 1;
-        //         $centimos -= 5;
-        //     }
-        //     elseif(($centimos - 2) >= 0){
-        //         $dos_cent += 1;
-        //         $centimos -= 2;
-        //     }
-        //     elseif(($centimos - 1) >= 0){
-        //         $un_cent += 1;
-        //         $centimos--;
-        //     }
-        // }
-
-        echo "Dos euros: ". $dos_euros . "<br>";
-        echo "Un euro: " . $un_euro  . "<br>";
-
-        echo "Cincuenta centimos: ". $cincuenta_cent . "<br>";
-        echo "Vente centimos: " . $vente_cent  . "<br>";
-        echo "Diez centimos: ". $diez_cent . "<br>";
-        echo "Cinco centimos: " . $cinco_cent  . "<br>";
-        echo "Dos centimos: ". $dos_cent . "<br>";
-        echo "Un centimo: " . $un_cent  . "<br>";
+        for ($i = $centimos; $i > 0; $i) {
+            if ($i >= 50) {
+                $monedas[2]++;
+                $i -= 50;
+            } elseif ($i >= 20) {
+                $monedas[3]++;
+                $i -= 20;
+            } elseif ($i >= 10) {
+                $monedas[4]++;
+                $i -= 10;
+            } elseif ($i >= 5) {
+                $monedas[5]++;
+                $i -= 5;
+            } elseif ($i >= 2) {
+                $monedas[6]++;
+                $i -= 2;
+            } else{
+                $monedas[7]++;
+                $i -= 1;
+            }
+        }
+        echo "Dos euros: " . $monedas[0] . "<br>";
+        echo "Un euro: " . $monedas[1]  . "<br><br>";
+        echo "Cincuenta céntimos: ". $monedas[2] . "<br>";
+        echo "Veinte céntimos: " . $monedas[3]  . "<br>";
+        echo "Diez céntimos: ". $monedas[4] . "<br>";
+        echo "Cinco céntimos: " . $monedas[5]  . "<br>";
+        echo "Dos céntimos: ". $monedas[6] . "<br>";
+        echo "Un céntimo: " . $monedas[7]  . "<br>";
     }
 }
 ?>
