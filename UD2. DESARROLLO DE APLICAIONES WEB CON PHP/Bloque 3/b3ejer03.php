@@ -22,3 +22,4 @@ $random3 = rand(1, 100);
 $random4 = rand(1, 100);
 $random5 = rand(1, 100);
 echo "<br>Pulsa en <a href='?num1=$random1&num2=$random2&num3=$random3&num4=$random4&num5=$random5'>random</a> para generar 5 números aleatorios";
+?>
