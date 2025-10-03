@@ -1,6 +1,6 @@
 <?php
 if (!isset($_GET['cadena'])) {
-    echo "No se pudo encontrar el valor <br>";
+    echo "<h2>No se pudo encontrar el valor</h2><br>";
 }
 elseif(!ctype_alpha($_GET['cadena'])) {
     echo "El valor no es una cadena <br>";

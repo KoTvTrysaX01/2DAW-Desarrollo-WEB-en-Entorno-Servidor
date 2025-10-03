@@ -1,6 +1,6 @@
 <?php
 if (!isset($_GET['letras'])) {
-    echo "No se pudo encontrar el valor <br>";
+    echo "<h2>No se pudo encontrar el valor</h2><br>";
 }
 elseif(!ctype_alpha($_GET['letras'])) {
     echo "El valor no son letras <br>";

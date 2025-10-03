@@ -1,6 +1,6 @@
 <?php
 if (!isset($_GET['dias'])) {
-    echo "No se pudo encontrar el valor <br>";
+    echo "<h2>No se pudo encontrar el valor</h2><br>";
 }
 elseif(!ctype_digit($_GET['dias'])) {
     echo "El valor no es un número <br>";
@@ -13,5 +13,5 @@ elseif(!ctype_digit($_GET['dias'])) {
     echo $nextday;
 }
 $random = rand(1, 100);
-echo "<br>Pulsa en <a href='?dias=$random'>random</a> para generar un número de dias aleatorio";
+echo "<br><br>Pulsa en <a href='?dias=$random'>random</a> para generar un número de dias aleatorio";
 ?>

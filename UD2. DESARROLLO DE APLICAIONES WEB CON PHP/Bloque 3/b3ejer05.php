@@ -1,6 +1,6 @@
 <?php
 if (!isset($_GET['numero'])) {
-    echo "No se pudo encontrar el valor <br>";
+    echo "<h2>No se pudo encontrar el valor</h2><br>";
 }
 elseif(!ctype_digit($_GET['numero'])) {
     echo "El valor no es un número <br>";
@@ -11,5 +11,5 @@ elseif(!ctype_digit($_GET['numero'])) {
     echo $resultado;
 }
 $random = rand(1, 999999);
-echo "<br>Pulsa en <a href='?numero=$random'>random</a> para generar un número aleatorio";
+echo "<br><br>Pulsa en <a href='?numero=$random'>random</a> para generar un número aleatorio";
 ?>
