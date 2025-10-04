@@ -8,5 +8,6 @@ foreach($numeros as $clase => $numero){
 }
 
 $avg = $suma / count($numeros);
-echo "Suma = " . $suma . ", numero = " . $numero . ", Avg = " . $avg;
+echo "La suma es: " . $suma . "<br>";
+echo "El promedio de venta por día es: " . $avg;
 ?>

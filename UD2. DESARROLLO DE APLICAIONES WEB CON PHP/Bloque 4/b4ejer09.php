@@ -1,5 +1,5 @@
 <?php
-$nombres_m = ["Pedro", "Antonio", "José", "Vadim", "Luis", "Saba", "Hector", "Ricardo", "Aaron", "Nestor"];
+$nombres_m = ["Pedro", "Antonio", "José", "Vadim", "Luis", "Saba", "Héctor", "Ricardo", "Aarón", "Néstor"];
 $nombres_f = ["Ana", "Andrea", "Mar", "Tania", "Kristina", "Bela", "Malori", "Lina", "Amalia", "Elisa"];
 $nombres_todos = [];
 

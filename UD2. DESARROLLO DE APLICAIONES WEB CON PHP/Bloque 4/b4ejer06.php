@@ -7,40 +7,40 @@ for ($i = 0; $i < 12; $i++) {
                 echo $i + 1 . ". En Enero se han visto " . $meses[$i] . " películas<br>";
                 break;
             case 2:
-                echo $i . ". En Febrero se han visto " . $meses[$i] . " películas<br>";
+                echo $i + 1 . ". En Febrero se han visto " . $meses[$i] . " películas<br>";
                 break;
             case 3:
-                echo $i . ". En Abril se han visto " . $meses[$i] . " películas<br>";
+                echo $i + 1 . ". En Abril se han visto " . $meses[$i] . " películas<br>";
                 break;
             case 4:
-                echo $i . ". En Marzo se han visto " . $meses[$i] . " películas<br>";
+                echo $i + 1 . ". En Marzo se han visto " . $meses[$i] . " películas<br>";
                 break;
             case 5:
-                echo $i . ". En Mayo se han visto " . $meses[$i] . " películas<br>";
+                echo $i + 1 . ". En Mayo se han visto " . $meses[$i] . " películas<br>";
                 break;
             case 6:
-                echo $i . ". En Junio se han visto " . $meses[$i] . " películas<br>";
+                echo $i + 1 . ". En Junio se han visto " . $meses[$i] . " películas<br>";
                 break;
             case 7:
-                echo $i . ". En Julio se han visto " . $meses[$i] . " películas<br>";
+                echo $i + 1 . ". En Julio se han visto " . $meses[$i] . " películas<br>";
                 break;
             case 8:
-                echo $i . ". En Agosto se han visto " . $meses[$i] . " películas<br>";
+                echo $i + 1 . ". En Agosto se han visto " . $meses[$i] . " películas<br>";
                 break;
             case 9:
-                echo $i . ". En Septiembre se han visto " . $meses[$i] . " películas<br>";
+                echo $i + 1 . ". En Septiembre se han visto " . $meses[$i] . " películas<br>";
                 break;
             case 10:
-                echo $i . ". En Octubre se han visto " . $meses[$i] . " películas<br>";
+                echo $i + 1 . ". En Octubre se han visto " . $meses[$i] . " películas<br>";
                 break;
             case 11:
-                echo $i . ". En Noviembre se han visto " . $meses[$i] . " películas<br>";
+                echo $i + 1 . ". En Noviembre se han visto " . $meses[$i] . " películas<br>";
                 break;
             case 12:
-                echo $i . ". En Diciembre se han visto " . $meses[$i] . " películas";
+                echo $i + 1 . ". En Diciembre se han visto " . $meses[$i] . " películas";
                 break;
             default:
-                echo $i . ". Error<br>";
+                echo $i + 1 . ". Error<br>";
                 break;
         }
     }
