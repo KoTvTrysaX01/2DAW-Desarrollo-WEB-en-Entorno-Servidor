@@ -1,6 +1,10 @@
 <?php
 if (!isset($_GET['cadena'])) {
+<<<<<<< HEAD
     echo "<h2>El valor de 'cadena' no está establecido.</h2>";
+=======
+    echo "<h2>No se pudo encontrar el valor</h2><br>";
+>>>>>>> dd5d9fc7a1f039d2cb388c0796c7f220d9f010fa
 }
 elseif(!ctype_alpha($_GET['cadena'])) {
     echo "<h2>El valor deben ser una cadena</h2>";

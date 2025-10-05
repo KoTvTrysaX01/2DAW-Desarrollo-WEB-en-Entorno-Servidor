@@ -1,6 +1,10 @@
 <?php
 if (!isset($_GET['dias'])) {
+<<<<<<< HEAD
     echo "<h2>El valor de 'dias' no está establecido.</h2>";
+=======
+    echo "<h2>No se pudo encontrar el valor</h2><br>";
+>>>>>>> dd5d9fc7a1f039d2cb388c0796c7f220d9f010fa
 }
 elseif(!ctype_digit($_GET['dias'])) {
     echo "<h2>El valor deben ser un número</h2>";
