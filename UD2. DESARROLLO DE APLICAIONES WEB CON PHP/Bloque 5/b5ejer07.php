@@ -1,9 +1,10 @@
 <?php
 // Hay que especificar la ubicación de la carpeta
-$miDir = "C:\\Users\\elshin\\Desktop\\p07fotos\\images";
+$miDir = "C:\\Users\\usuario\\Desktop\\p07fotos\\images";
 
 function recorrerCarpeta($dir)
 {
+    echo $dir . "<br>";
     $archivos = scandir($dir);
     foreach ($archivos as $clave => $archivo) {
         echo "<tr><td>" . $clave . "</td> <td>". $archivo . "</td></tr>";

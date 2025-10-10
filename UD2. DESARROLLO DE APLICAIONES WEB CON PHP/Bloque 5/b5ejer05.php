@@ -1,7 +1,7 @@
 <?php
-// $miMail = "abc__123@abc---123.es"; // cumple
+$miMail = "abc__123@abc---123.es"; // cumple
 // $miMail = "abc_._123@ab.c---12.3.es"; // cumple
-$miMail = "abc...123@abc-.--12._3.es"; // NO cumple
+// $miMail = "abc...123@abc-.--12._3.es"; // NO cumple
 
 function checkMail($email)
 {

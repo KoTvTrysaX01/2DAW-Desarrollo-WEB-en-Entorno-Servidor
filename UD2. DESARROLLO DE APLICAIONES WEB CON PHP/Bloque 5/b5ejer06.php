@@ -14,9 +14,10 @@ function sumArray($numeros){
     return $suma;
 }
 
+print_r($numeros);
 if (!sumArray($numeros)) {
-    echo "Uno de los valores no era un número";
+    echo "<br>Uno de los valores no era un número";
 } else {
-    echo "La suma de los números introducidos es: " . sumArray($numeros);
+    echo "<br>La suma de los números introducidos es: " . sumArray($numeros);
 }
 ?>
