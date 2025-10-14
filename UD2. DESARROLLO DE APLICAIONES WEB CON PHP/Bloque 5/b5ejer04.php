@@ -1,22 +1,23 @@
 <?php
-$miMatricula = "1234-XX";
-
 function checkMatricula($matricula)
 {
-    if (strlen($matricula) == 7 || strlen($matricula) == 8) {
-        if ($matricula[4] == '-') {
-            if (ctype_digit(substr($matricula, 0, 4)) && ctype_alpha(substr($matricula, 5))) {
-                return true;
+    if ((strlen($matricula) == 7) || (strlen($matricula) == 8)) {
+        if (ctype_digit(substr($matricula, 0, 4))) {
+            if (ctype_upper(substr($matricula, 5))) {
+                if ($matricula[4] === '-') {
+                    return true;
+                }
             }
         }
-    }else{
+    } else {
         return false;
     }
 }
 
-if (checkMatricula($miMatricula)) {
-    echo "La matricula '" . $miMatricula . "' cumple con el formato.";
+
+if (checkMatricula("9599-XX")) {
+    echo "Cumple con el formato";
 } else {
-    echo "La matricula '" . $miMatricula . "' NO cumple con el formato.";
+    echo "No cumple con el formato";
 }
 ?>

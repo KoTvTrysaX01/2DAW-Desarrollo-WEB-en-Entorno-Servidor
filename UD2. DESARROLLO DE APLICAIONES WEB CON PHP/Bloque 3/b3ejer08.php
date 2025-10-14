@@ -19,4 +19,4 @@ elseif(!ctype_alpha($_GET['letras'])) {
         }
     }
 }
-?>
+?> 

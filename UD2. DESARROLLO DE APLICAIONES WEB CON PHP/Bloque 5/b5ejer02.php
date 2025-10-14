@@ -9,17 +9,21 @@ function potencias()
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        table,
-        td {
+        table {
+            border: 1px solid black;
+        }
+
+        td{
             border: 1px solid black;
             text-align: center;
         }
     </style>
-    <title>Bloque 5 - b5ejer02</title>
+    <title>Document</title>
 </head>
 
 <body>
@@ -27,5 +31,4 @@ function potencias()
         <?php potencias() ?>
     </table>
 </body>
-
 </html>
