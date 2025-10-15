@@ -1,9 +1,67 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $mensaje = "";
+    if (!isset($_GET['euros']) || !isset($_GET['centimos'])) {
+        $mensaje = "Uno o más valores no están establecidos";
+    } elseif (!is_numeric($_GET['euros']) || !is_numeric($_GET['centimos'])) {
+        $mensaje = "Los valores introducidos no son correctos";
+    } else {
+        $euro = $_GET['euros'];
+        $centimos = $_GET['centimos'];
+        $mensaje =  "Cantidad ingresada: " . $euro . "," . $centimos . "€";
+
+        $monedas = array(
+            'Dos euros' => 0,
+            'Un euro' => 0,
+            'Cincuenta céntimos' => 0,
+            'Veinte céntimos' => 0,
+            'Diez céntimos' => 0,
+            'Cinco céntimos' => 0,
+            'Dos céntimos' => 0,
+            'Un céntimo' => 0
+        );
+
+        for ($i = $euro; $i > 0; $i) {
+            if ($i >= 2) {
+                $monedas['Dos euros']++;
+                $i -= 2;
+            } else {
+                $monedas['Un euro']++;
+                $i -= 1;
+            }
+        }
+
+        for ($i = $centimos; $i > 0; $i) {
+            if ($i >= 50) {
+                $monedas['Cincuenta céntimos']++;
+                $i -= 50;
+            } elseif ($i >= 20) {
+                $monedas['Veinte céntimos']++;
+                $i -= 20;
+            } elseif ($i >= 10) {
+                $monedas['Diez céntimos']++;
+                $i -= 10;
+            } elseif ($i >= 5) {
+                $monedas['Cinco céntimos']++;
+                $i -= 5;
+            } elseif ($i >= 2) {
+                $monedas['Dos céntimos']++;
+                $i -= 2;
+            } else {
+                $monedas['Un céntimo']++;
+                $i -= 1;
+            }
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bloque 2 - Ejercicio 5</title>
+    <title>Bloque 6 - Ejercicio 3</title>
     <style>
         .container {
             border: 1px solid black;
@@ -14,6 +72,7 @@
         }
     </style>
 </head>
+
 <body>
     <form>
         <div class="container">
@@ -31,71 +90,18 @@
             <input type="submit" />
             <br>
         </div>
+        <h2 style='text-align: center;'> <?php echo $mensaje; ?></h2>
+        <?php
+        if(isset($monedas)){
+            echo "<p style='text-align: center; font-weight: bold;'>La cantidad mínima de monedas: </p>";
+            foreach ($monedas as $clave => $moneda) {
+                if (!($moneda === 0)) {
+                    echo "<p style='text-align: center;'>" . $clave . " = " . $moneda . "</p>";
+                }
+            }
+        }
+        ?>
     </form>
 </body>
+
 </html>
-
-<?php
-if (!isset($_GET['euros']) || !isset($_GET['centimos'])) {
-    echo "<h2 style='text-align: center;' >Uno o más valores no están establecidos</h2>";
-} else {
-    if ($_GET['euros'] == "" || $_GET['centimos'] == "") {
-        echo "<h2 style='text-align: center;' >Uno o más valores no están establecidos</h2>";
-    } else {
-        $euro = $_GET['euros'];
-        $centimos = $_GET['centimos'];
-        echo "<br>Cantidad ingresada: " . $euro . "," . $centimos . "€<br>";
-        echo "La mínima cantidad de monedas: <br><br>";
-
-        // $dos_euros = 0;
-        // $un_euro = 0;
-        // $cincuenta_cent = 0;
-        // $vente_cent = 0;
-        // $diez_cent = 0;
-        // $cinco_cent = 0;
-        // $dos_cent = 0;
-        // $un_cent = 0;
-
-        $monedas = [0, 0, 0, 0, 0, 0, 0, 0];
-        for ($i = $euro; $i > 0; $i) {
-            if ($i >= 2) {
-                $monedas[0]++;
-                $i -= 2;
-            } else {
-                $monedas[1]++;
-                $i -= 1;
-            }
-        }
-
-        for ($i = $centimos; $i > 0; $i) {
-            if ($i >= 50) {
-                $monedas[2]++;
-                $i -= 50;
-            } elseif ($i >= 20) {
-                $monedas[3]++;
-                $i -= 20;
-            } elseif ($i >= 10) {
-                $monedas[4]++;
-                $i -= 10;
-            } elseif ($i >= 5) {
-                $monedas[5]++;
-                $i -= 5;
-            } elseif ($i >= 2) {
-                $monedas[6]++;
-                $i -= 2;
-            } else{
-                $monedas[7]++;
-                $i -= 1;
-            }
-        }
-        echo "Dos euros: " . $monedas[0] . "<br>";
-        echo "Un euro: " . $monedas[1]  . "<br><br>";
-        echo "Cincuenta céntimos: ". $monedas[2] . "<br>";
-        echo "Veinte céntimos: " . $monedas[3]  . "<br>";
-        echo "Diez céntimos: ". $monedas[4] . "<br>";
-        echo "Cinco céntimos: " . $monedas[5]  . "<br>";
-        echo "Dos céntimos: ". $monedas[6] . "<br>";
-        echo "Un céntimo: " . $monedas[7]  . "<br>";
-    }
-}
-?>

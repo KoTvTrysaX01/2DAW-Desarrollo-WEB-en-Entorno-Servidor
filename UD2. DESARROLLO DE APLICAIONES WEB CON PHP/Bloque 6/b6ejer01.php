@@ -1,43 +1,45 @@
 <?php
-$mensaje = "";
-if (!isset($_GET['temporada']) || !isset($_GET['num_noches']) || !isset($_GET['habitacion'])) {
-    $mensaje =  "Uno o más valores no están establecidos";
-} elseif (!ctype_alpha($_GET['temporada']) || !is_numeric($_GET['num_noches']) || !ctype_alpha($_GET['habitacion'])) {
-    $mensaje = "Los valores introducidos no son correctas";
-} else {
-    $temporada = $_GET['temporada'];
-    $num_noches = $_GET['num_noches'];
-    $habitacion = $_GET['habitacion'];
-    $total = 0;
-
-    if ($habitacion === "vistas" || $habitacion === "interior") {
-        switch ($habitacion) {
-            case "vistas":
-                $total = $num_noches * 80;
-                break;
-            case "interior":
-                $total = $num_noches * 60;
-                break;
-        }
-        switch ($temporada) {
-            case "alta":
-                // $total = $total + ($total / 100 * 20);
-                $mensaje = "Su total es: " . $total + ($total / 100 * 20) . "€";
-                break;
-            case "media":
-                // $total = $total;
-                $mensaje = "Su total es: " . $total . "€";
-                break;
-            case "baja":
-                // $total = $total - ($total / 100 * 10);
-                $mensaje = "Su total es: " . $total - ($total / 100 * 20) . "€";
-                break;
-            default:
-                $mensaje = "Temporada no reconocida";
-                break;
-        }
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $mensaje = "";
+    if (!isset($_GET['temporada']) || !isset($_GET['num_noches']) || !isset($_GET['habitacion'])) {
+        $mensaje =  "Uno o más valores no están establecidos";
+    } elseif (!ctype_alpha($_GET['temporada']) || !is_numeric($_GET['num_noches']) || !ctype_alpha($_GET['habitacion'])) {
+        $mensaje = "Los valores introducidos no son correctos";
     } else {
-        $mensaje = "Habitacion no reconocida";
+        $temporada = $_GET['temporada'];
+        $num_noches = $_GET['num_noches'];
+        $habitacion = $_GET['habitacion'];
+        $total = 0;
+
+        if ($habitacion === "vistas" || $habitacion === "interior") {
+            switch ($habitacion) {
+                case "vistas":
+                    $total = $num_noches * 80;
+                    break;
+                case "interior":
+                    $total = $num_noches * 60;
+                    break;
+            }
+            switch ($temporada) {
+                case "alta":
+                    // $total = $total + ($total / 100 * 20);
+                    $mensaje = "Su total es: " . $total + ($total / 100 * 20) . "€";
+                    break;
+                case "media":
+                    // $total = $total;
+                    $mensaje = "Su total es: " . $total . "€";
+                    break;
+                case "baja":
+                    // $total = $total - ($total / 100 * 10);
+                    $mensaje = "Su total es: " . $total - ($total / 100 * 20) . "€";
+                    break;
+                default:
+                    $mensaje = "Temporada no reconocida";
+                    break;
+            }
+        } else {
+            $mensaje = "Habitacion no reconocida";
+        }
     }
 }
 ?>

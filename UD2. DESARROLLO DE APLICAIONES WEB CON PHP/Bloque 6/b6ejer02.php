@@ -1,10 +1,55 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $mensaje = "";
+    if (!isset($_GET['altura_olas']) || !isset($_GET['dir_viento']) || !isset($_GET['temperatura'])) {
+        $mensaje =  "Uno o más valores no están establecidos";
+    } elseif (!is_numeric($_GET['altura_olas']) || !ctype_alpha($_GET['dir_viento']) || !is_numeric($_GET['temperatura'])) {
+        $mensaje = "Los valores introducidos no son correctos";
+    } else {
+        $altura_olas = $_GET['altura_olas'];
+        $dir_viento = strtolower($_GET['dir_viento']);
+        $temperatura = $_GET['temperatura'];
+
+        switch (true) {
+            case (str_contains($dir_viento, 'e') || str_contains($dir_viento, 's')):
+                if ($altura_olas < 1 && $temperatura < 20) {
+                    $mensaje = "Nivel de Peligrosidad:  " . 4;
+                } elseif ($altura_olas < 1 && $temperatura >= 20) {
+                    $mensaje = "Nivel de Peligrosidad:  " . 3;
+                } elseif ($altura_olas >= 1 && $temperatura < 20) {
+                    $mensaje = "Nivel de Peligrosidad:  " . 5;
+                } else {
+                    $mensaje = "Nivel de Peligrosidad:  " . 4;
+                }
+                break;
+
+            case (str_contains($dir_viento, 'o') || str_contains($dir_viento, 'n')):
+                if ($altura_olas < 1 && $temperatura < 20) {
+                    $mensaje = "Nivel de Peligrosidad:  " . 2;
+                } elseif ($altura_olas < 1 && $temperatura >= 20) {
+                    $mensaje = "Nivel de Peligrosidad:  " . 1;
+                } elseif ($altura_olas >= 1 && $temperatura < 20) {
+                    $mensaje = "Nivel de Peligrosidad:  " . 3;
+                } else {
+                    $mensaje = "Nivel de Peligrosidad:  " . 2;
+                }
+                break;
+
+            default:
+                $mensaje = "Un error";
+                break;
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bloque 2 - Ejercicio 4</title>
+    <title>Bloque 6 - Ejercicio 2</title>
     <style>
         .container {
             border: 1px solid black;
@@ -40,55 +85,11 @@
             <br>
 
             <input type="submit" />
+            <br>
         </div>
+        <br><br>
+        <h2 style='text-align: center;'> <?php echo $mensaje; ?></h2>
     </form>
 </body>
 
 </html>
-
-
-<?php
-if (!isset($_GET['altura_olas']) || !isset($_GET['dir_viento']) || !isset($_GET['temperatura'])) {
-    echo "<h2 style='text-align: center;' >Uno o más valores no están establecidos</h2>";
-} else {
-    $altura_olas = $_GET['altura_olas'];
-    $dir_viento = $_GET['dir_viento'];
-    $temperatura = $_GET['temperatura'];
-
-    switch($dir_viento){
-        case "es":
-            if($altura_olas < 1 && $temperatura < 20){
-                echo "<h2 style='text-align: center;'> Nivel de Peligrosidad:  " . 4 . "</h2>";
-            }
-            elseif($altura_olas < 1 && $temperatura >= 20){
-                echo "<h2 style='text-align: center;'> Nivel de Peligrosidad:  " . 3 . "</h2>";
-            }
-            elseif($altura_olas >= 1 && $temperatura < 20){
-                echo "<h2 style='text-align: center;'> Nivel de Peligrosidad:  " . 5 . "</h2>";
-            }
-            else{
-                echo "<h2 style='text-align: center;'> Nivel de Peligrosidad:  " . 4 . "</h2>";
-            }
-            break;
-
-        case "on":
-            if($altura_olas < 1 && $temperatura < 20){
-                echo "<h2 style='text-align: center;'> Nivel de Peligrosidad:  " . 2 . "</h2>";
-            }
-            elseif($altura_olas < 1 && $temperatura >= 20){
-                echo "<h2 style='text-align: center;'> Nivel de Peligrosidad:  " . 1 . "</h2>";
-            }
-            elseif($altura_olas >= 1 && $temperatura < 20){
-                echo "<h2 style='text-align: center;'> Nivel de Peligrosidad:  " . 3 . "</h2>";
-            }
-            else{
-                echo "<h2 style='text-align: center;'> Nivel de Peligrosidad:  " . 2 . "</h2>";
-            }
-            break;
-
-        default:
-            echo "Un error";
-            break;
-    }
-}
-?>
