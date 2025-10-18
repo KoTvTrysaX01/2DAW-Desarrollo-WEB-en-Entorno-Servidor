@@ -95,7 +95,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         <br>
         <input type="submit" />
         <br><br>
-        <h2 style='text-align: center;'> <?php echo $mensaje; ?></h2>
+
+        <?php
+        if (isset($_GET['temporada']) && isset($_GET['num_noches']) && isset($_GET['habitacion'])) {
+        ?>
+            <div style="text-align: center;">
+                <h3>Temporada: <?php echo $temporada; ?></h3>
+                <h3>Numero de noches: <?php echo $num_noches; ?></h3>
+                <h3>Habitación: <?php echo $habitacion; ?></h3>
+            </div>
+        <?php
+        }
+        ?>
+        <h2> <?php echo $mensaje; ?></h2>
+
     </form>
 </body>
 

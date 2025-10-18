@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 </head>
 
 <body>
-    <form>
+    <form style="text-align: center;">
         <div class="container">
             <br>
             <div>
@@ -71,9 +71,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             </div>
 
             <div>
-                <label for="dir_viento">¿Cual es la dirección del viento?</label><br>
+                <label for="dir_viento">¿Cual es la dirección del viento?</label>
                 <input type="radio" id="es" name="dir_viento" value="es">
-                <label for="es">E, S</label><br>
+                <label for="es">E, S</label>
                 <input type="radio" id="on" name="dir_viento" value="on">
                 <label for="on">O, N</label><br><br>
             </div>
@@ -88,7 +88,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             <br>
         </div>
         <br><br>
-        <h2 style='text-align: center;'> <?php echo $mensaje; ?></h2>
+        <?php
+        if (isset($_GET['altura_olas']) && isset($_GET['dir_viento']) && isset($_GET['temperatura'])) {
+        ?>
+            <div style="text-align: center;">
+                <h3>Altura de olas: <?php echo $altura_olas; ?></h3>
+                <h3>Dirrecion del viento: <?php echo $dir_viento; ?></h3>
+                <h3>Temperatura: <?php echo $temperatura; ?></h3>
+            </div>
+        <?php
+        }
+        ?>
+        <h2> <?php echo $mensaje; ?></h2>
+
     </form>
 </body>
 

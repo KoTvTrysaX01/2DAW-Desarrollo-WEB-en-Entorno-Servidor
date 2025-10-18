@@ -1,0 +1,206 @@
+<!-- Hero Section -->
+  <section class="hero-section text-center">
+    <div class="container">
+      <h1 class="display-4 fw-bold mb-3">ALQUILER VEHÍCULOS BALMIS</h1>
+      <p class="lead mb-4">Estamos aquí para ayudarte. Contáctanos para cualquier consulta.</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Customer Service Section -->
+    <section class="mb-5">
+      <div class="row text-center mb-4">
+        <div class="col-12">
+          <h2 class="mb-4">ATENCIÓN AL CLIENTE</h2>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="alert alert-info text-center">
+            <p class="mb-0 lead">Nuestra empresa dispone de un equipo profesional para atender a nuestros clientes, tanto en temas comerciales como técnicos, pudiendo asesorar adecuadamente ante las diferentes situaciones que se puedan plantear con nuestros productos o servicios.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="mb-5">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card contact-card text-center">
+            <div class="card-body p-4">
+              <div class="contact-icon">
+                <i class="bi bi-telephone"></i>
+              </div>
+              <h5 class="card-title">Teléfono</h5>
+              <p class="card-text">Disponibles 24/7 para emergencias</p>
+              <p class="fw-bold text-primary">666 555 444</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+          <div class="card contact-card text-center">
+            <div class="card-body p-4">
+              <div class="contact-icon">
+                <i class="bi bi-envelope"></i>
+              </div>
+              <h5 class="card-title">Email</h5>
+              <p class="card-text">Respondemos en menos de 24 horas</p>
+              <p class="fw-bold text-primary">info@alquilervehiculosbalmis.com</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+          <div class="card contact-card text-center">
+            <div class="card-body p-4">
+              <div class="contact-icon">
+                <i class="bi bi-geo-alt"></i>
+              </div>
+              <h5 class="card-title">Oficinas</h5>
+              <p class="card-text">Aeropuerto y Estación de Tren</p>
+              <p class="fw-bold text-primary">Alicante, España</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="mb-5">
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12506.88276029065!2d-0.4908031!3d38.3459955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6235da3b9dab4b%3A0x7ef8b5e7b64d0e64!2sAlicante!5e0!3m2!1ses!2ses!4v1641234567890!5m2!1ses!2ses" 
+          width="100%" 
+          height="400" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </section>
+
+    <!-- Reservation Form Section -->
+    <section class="mb-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="form-section">
+            <div class="text-center mb-4">
+              <h3 class="mb-3">FORMULARIO DE RESERVA</h3>
+              <p class="lead">Por favor, cumplimenta nuestro formulario de reserva para que podamos comprobar la disponibilidad.</p>
+            </div>
+            
+            <form id="idFormulario" name="nFormulario" method="GET" action="contacto-datos.htm">
+              <!-- Name Field -->
+              <div class="mb-4">
+                <label for="idNombre" class="form-label">Nombre completo</label>
+                <input type="text" class="form-control" id="idNombre" name="nNombre" maxlength="255" placeholder="Introduce tu nombre completo" required>
+              </div>
+              
+              <!-- Email Field -->
+              <div class="mb-4">
+                <label for="idEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="idEmail" name="nEmail" maxlength="255" placeholder="tu@email.com" required>
+              </div>
+              
+              <!-- Date Field -->
+              <div class="mb-4">
+                <label for="idFecha" class="form-label">Fecha de reserva</label>
+                <input type="date" class="form-control" id="idFecha" name="nFecha" maxlength="10" required>
+              </div>
+              
+              <!-- Car Selection -->
+              <div class="mb-4">
+                <label for="idSelect" class="form-label">Selecciona el coche</label>
+                <select class="form-select" id="idSelect" name="nSelect" required>
+                  <option value="" selected disabled>Selecciona un vehículo</option>
+                  <option value="KIA-PICANTO">KIA PICANTO</option>
+                  <option value="SEAT-MII">SEAT MII</option>
+                  <option value="NISSAN-MICRA">NISSAN MICRA</option>
+                  <option value="FIAT-500">FIAT 500</option>
+                  <option value="VW-UP">VW UP</option>
+                  <option value="OPE-ADAM">OPEL ADAM</option>
+                  <option value="SMART-FORTWO">SMART FORTWO</option>
+                  <option value="ABARTH-500">ABARTH 500</option>
+                </select>
+              </div>
+              
+              <!-- Insurance Radio Buttons -->
+              <div class="mb-4">
+                <label class="form-label">¿Quiere contratar seguro?</label>
+                <div class="radio-group">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="idSeguro1" name="nSeguro" value="1">
+                    <label class="form-check-label" for="idSeguro1">Sí</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="idSeguro2" name="nSeguro" value="2" checked>
+                    <label class="form-check-label" for="idSeguro2">No</label>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Observations Textarea -->
+              <div class="mb-4">
+                <label for="idObs" class="form-label">Observaciones</label>
+                <textarea class="form-control" id="idObs" name="nObs" rows="5" placeholder="Anyade cualquier información adicional que consideres importante..."></textarea>
+              </div>
+              
+              <!-- Privacy Checkbox -->
+              <div class="mb-4">
+                <div class="checkbox-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="idLOPD" name="nLOPD" required>
+                    <label class="form-check-label" for="idLOPD">
+                      Acepto la política de protección de datos
+                    </label>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-submit" id="idGrabar" name="btnGrabar">
+                <i class="bi bi-check-circle me-2"></i>Comprobar disponibilidad del coche
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional Contact Info -->
+    <section class="mb-5">
+      <div class="row">
+        <div class="col-lg-6 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><i class="bi bi-clock me-2"></i>Horario de atención</h5>
+              <ul class="list-unstyled">
+                <li><strong>Lunes a Viernes:</strong> 8:00 - 20:00</li>
+                <li><strong>Sábados:</strong> 9:00 - 14:00</li>
+                <li><strong>Domingos y festivos:</strong> Cerrado</li>
+                <li><strong>Emergencias 24/7:</strong> 666 555 444</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><i class="bi bi-info-circle me-2"></i>Información adicional</h5>
+              <ul class="list-unstyled">
+                <li><i class="bi bi-check text-success me-2"></i>Respuesta en menos de 2 horas</li>
+                <li><i class="bi bi-check text-success me-2"></i>Presupuesto sin compromiso</li>
+                <li><i class="bi bi-check text-success me-2"></i>Asesoramiento personalizado</li>
+                <li><i class="bi bi-check text-success me-2"></i>Múltiples formas de pago</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>

@@ -1,0 +1,343 @@
+<!-- Hero Section -->
+  <section class="hero-section text-center">
+    <div class="container">
+      <h1 class="display-4 fw-bold mb-3">ALQUILER VEHÍCULOS BALMIS</h1>
+      <p class="lead mb-4">Encuentra el vehículo perfecto para tus necesidades</p>
+      <a href="#vehicles" class="btn btn-primary btn-lg">Ver vehículos disponibles</a>
+    </div>
+  </section>
+
+  <!-- Filter Section -->
+  <section class="container mb-5">
+    <div class="filter-section">
+      <div class="row g-3 align-items-center">
+        <div class="col-md-3">
+          <label for="vehicleType" class="form-label fw-bold">Tipo de vehículo</label>
+          <select class="form-select" id="vehicleType">
+            <option selected>Todos los vehículos</option>
+            <option>Utilitarios</option>
+            <option>Compactos</option>
+            <option>SUV</option>
+            <option>Deportivos</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label for="priceRange" class="form-label fw-bold">Precio por hora</label>
+          <select class="form-select" id="priceRange">
+            <option selected>Todos los precios</option>
+            <option>Hasta 50€</option>
+            <option>50€ - 60€</option>
+            <option>Más de 60€</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label for="passengers" class="form-label fw-bold">Número de pasajeros</label>
+          <select class="form-select" id="passengers">
+            <option selected>Cualquier capacidad</option>
+            <option>2 pasajeros</option>
+            <option>4 pasajeros</option>
+            <option>5 pasajeros</option>
+          </select>
+        </div>
+        <div class="col-md-3 d-flex align-items-end mt-auto">
+          <button class="btn btn-primary w-100">Aplicar filtros</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vehicles Section -->
+  <section id="vehicles" class="container">
+    <h2 class="text-center mb-5">NUESTROS VEHÍCULOS DISPONIBLES</h2>
+    
+    <!-- First Row of Vehicles -->
+    <div class="row">
+      <!-- KIA PICANTO -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card vehicle-card">
+          <div class="vehicle-image">
+            <img src="img/alquiler/kia_picanto.png" class="card-img-top" alt="KIA PICANTO">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">KIA PICANTO</h5>
+            
+            <table class="specs-table">
+              <tr>
+                <td>Emisiones CO<sub>2</sub></td>
+                <td>119 g/km</td>
+              </tr>
+              <tr>
+                <td>Personas</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>Puertas</td>
+                <td>4</td>
+              </tr>
+              <tr>
+                <td>Aire acondicionado</td>
+                <td>Sí</td>
+              </tr>
+            </table>
+            
+            <div class="price-tag">59€/hora</div>
+            <button class="btn btn-primary reserve-btn">Reservar ahora</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- SEAT MII -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card vehicle-card">
+          <div class="vehicle-image">
+            <img src="img/alquiler/seat_m2.png" class="card-img-top" alt="SEAT MII">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">SEAT MII</h5>
+            
+            <table class="specs-table">
+              <tr>
+                <td>Emisiones CO<sub>2</sub></td>
+                <td>105 g/km</td>
+              </tr>
+              <tr>
+                <td>Personas</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>Puertas</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>Aire acondicionado</td>
+                <td>Sí</td>
+              </tr>
+            </table>
+            
+            <div class="price-tag">64€/hora</div>
+            <button class="btn btn-primary reserve-btn">Reservar ahora</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- NISSAN MICRA -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card vehicle-card">
+          <div class="vehicle-image">
+            <img src="img/alquiler/nissan_micra.png" class="card-img-top" alt="NISSAN MICRA">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">NISSAN MICRA</h5>
+            
+            <table class="specs-table">
+              <tr>
+                <td>Emisiones CO<sub>2</sub></td>
+                <td>119 g/km</td>
+              </tr>
+              <tr>
+                <td>Personas</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>Puertas</td>
+                <td>4</td>
+              </tr>
+              <tr>
+                <td>Aire acondicionado</td>
+                <td>Sí</td>
+              </tr>
+            </table>
+            
+            <div class="price-tag">56€/hora</div>
+            <button class="btn btn-primary reserve-btn">Reservar ahora</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- FIAT 500 -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card vehicle-card">
+          <div class="vehicle-image">
+            <img src="img/alquiler/fiat_500.png" class="card-img-top" alt="FIAT 500">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">FIAT 500</h5>
+            
+            <table class="specs-table">
+              <tr>
+                <td>Emisiones CO<sub>2</sub></td>
+                <td>115 g/km</td>
+              </tr>
+              <tr>
+                <td>Personas</td>
+                <td>4</td>
+              </tr>
+              <tr>
+                <td>Puertas</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>Aire acondicionado</td>
+                <td>Sí</td>
+              </tr>
+            </table>
+            
+            <div class="price-tag">45€/hora</div>
+            <button class="btn btn-primary reserve-btn">Reservar ahora</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Second Row of Vehicles -->
+    <div class="row">
+      <!-- VW UP -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card vehicle-card">
+          <div class="vehicle-image">
+            <img src="img/alquiler/vw_up.png" class="card-img-top" alt="VW UP">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">VW UP</h5>
+            
+            <table class="specs-table">
+              <tr>
+                <td>Emisiones CO<sub>2</sub></td>
+                <td>105 g/km</td>
+              </tr>
+              <tr>
+                <td>Personas</td>
+                <td>4</td>
+              </tr>
+              <tr>
+                <td>Puertas</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td>Aire acondicionado</td>
+                <td>Sí</td>
+              </tr>
+            </table>
+            
+            <div class="price-tag">55€/hora</div>
+            <button class="btn btn-primary reserve-btn">Reservar ahora</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- OPEL ADAM -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card vehicle-card">
+          <div class="vehicle-image">
+            <img src="img/alquiler/opel_adam.png" class="card-img-top" alt="OPEL ADAM">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">OPEL ADAM</h5>
+            
+            <table class="specs-table">
+              <tr>
+                <td>Emisiones CO<sub>2</sub></td>
+                <td>118 g/km</td>
+              </tr>
+              <tr>
+                <td>Personas</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>Puertas</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>Aire acondicionado</td>
+                <td>Sí</td>
+              </tr>
+            </table>
+            
+            <div class="price-tag">68€/hora</div>
+            <button class="btn btn-primary reserve-btn">Reservar ahora</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- SMART FORTWO -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card vehicle-card">
+          <div class="vehicle-image">
+            <img src="img/alquiler/smart_fortwo.png" class="card-img-top" alt="SMART FORTWO">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">SMART FORTWO</h5>
+            
+            <table class="specs-table">
+              <tr>
+                <td>Emisiones CO<sub>2</sub></td>
+                <td>93 g/km</td>
+              </tr>
+              <tr>
+                <td>Personas</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td>Puertas</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td>Aire acondicionado</td>
+                <td>Sí</td>
+              </tr>
+            </table>
+            
+            <div class="price-tag">38€/hora</div>
+            <button class="btn btn-primary reserve-btn">Reservar ahora</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- ABARTH 500 -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card vehicle-card">
+          <div class="vehicle-image">
+            <img src="img/alquiler/abarth_500.png" class="card-img-top" alt="ABARTH 500">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">ABARTH 500</h5>
+            
+            <table class="specs-table">
+              <tr>
+                <td>Emisiones CO<sub>2</sub></td>
+                <td>151 g/km</td>
+              </tr>
+              <tr>
+                <td>Personas</td>
+                <td>4</td>
+              </tr>
+              <tr>
+                <td>Puertas</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td>Aire acondicionado</td>
+                <td>Sí</td>
+              </tr>
+            </table>
+            
+            <div class="price-tag">58€/hora</div>
+            <button class="btn btn-primary reserve-btn">Reservar ahora</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <div class="bg-light p-5 rounded">
+          <h3>¿No encuentras lo que buscas?</h3>
+          <p class="mb-4">Contáctanos y te ayudaremos a encontrar el vehículo perfecto para tus necesidades.</p>
+          <a href="index.php?page=contacto" class="btn btn-primary btn-lg">Contactar con nosotros</a>
+        </div>
+      </div>
+    </div>
+  </section>
