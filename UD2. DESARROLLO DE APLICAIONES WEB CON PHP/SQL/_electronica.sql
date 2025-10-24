@@ -1,5 +1,3 @@
-
-
 -- Crear la tabla electronica
 CREATE TABLE IF NOT EXISTS electronica (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -62,10 +60,8 @@ INSERT INTO electronica (nombre, categoria, precio, fabricante, stock) VALUES
 ("AMD X870", "Placa Base", 120,00, "MSI", false),
 ("Intel B760M", "Placa Base", 190,00, "Gigabyte", true),
 ("Intel Z790", "Placa Base", 130,99, "Zotac", true),
-("Intel 610M", "Placa Base", 80,99, "NZXT", true)
-
+("Intel 610M", "Placa Base", 80,99, "NZXT", true);
 -- Mostrar mensaje de confirmación
-SELECT 'Tabla creada y datos insertados correctamente' AS mensaje;
-
+-- SELECT 'Tabla creada y datos insertados correctamente' AS mensaje;
 COMMIT;
 
