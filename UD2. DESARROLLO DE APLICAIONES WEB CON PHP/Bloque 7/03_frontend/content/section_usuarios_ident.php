@@ -25,10 +25,6 @@
 								VALUES ('adminbd',  '".password_hash('5678',PASSWORD_DEFAULT)."')");
 		sqlQuery($sqlBD, "INSERT INTO usuarios(usuario,clave) 
 								VALUES ('user',  	  '".password_hash('1234',PASSWORD_DEFAULT)."')");
-		sqlQuery($sqlBD, "INSERT INTO usuarios(usuario,clave) 
-								VALUES ('reis',  	  '".password_hash('1234',PASSWORD_DEFAULT)."')");
-		sqlQuery($sqlBD, "INSERT INTO usuarios(usuario,clave) 
-								VALUES ('vadim',  	  '".password_hash('1234',PASSWORD_DEFAULT)."')");
 		sqlFinTrans($sqlBD);
 	}
 
@@ -266,5 +262,3 @@
             </div>
         </div>
     </div>
-
-

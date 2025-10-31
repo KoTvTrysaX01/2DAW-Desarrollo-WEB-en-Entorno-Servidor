@@ -1,7 +1,7 @@
 <?php
 
-require_once "include_mysql.php";
-require_once "include_vars.php";
+require_once "../dao/include_mysql.php";
+require_once "../dao/include_vars.php";
 
 $sqlBD = sqlConecta($hostSql, $userSql, $passSql, $basedatosSql);
 
@@ -22,7 +22,7 @@ if (isset($_GET['edit'])) {
 	$valores['id'] = addslashes(trim($_GET['edit']));
 	if ($valores['id'] != "") {
 		// SQL select
-		$sqlSelect = "SELECT * FROM electronica WHERE id='" . $valores['id'] . "'";
+		$sqlSelect = "SELECT * FROM electronica WHERE id='".$valores['id']."'";
 		$sqlCursor = sqlQuery($sqlBD, $sqlSelect);
 		$electronica = sqlObtenerRegistro($sqlBD, $sqlCursor);
 
@@ -82,7 +82,6 @@ if ($grabar) {
 	// Longitudes 
 	if (
 		(strlen($valores['nombre']) < 5) ||
-		(strlen($valores['categoria']) < 3) ||
 		(strlen($valores['precio']) <= 0) ||
 		(strlen($valores['fabricante']) < 4) ||
 		(strlen($valores['stock']) == null)
@@ -110,7 +109,7 @@ if ($grabar) {
 						";
 	} else {
 		// El id se genera automáticamente porque es AUTO_INCREMENT en MySQL
-		$sqlIns = "INSERT INTO electronica (nombre, categoria, precio, fabricante) 
+		$sqlIns = "INSERT INTO electronica (nombre, categoria, precio, fabricante, stock) 
 							VALUES (
 								 '" . $valores['nombre'] . "',
 								 '" . $valores['categoria'] . "',
@@ -422,7 +421,7 @@ sqlDesconecta($sqlBD);
 			// VOLVER
 			$("#btnVolver").on("click", function() {
 				// Recargar los datos iniciales
-				window.location.href = "electronica_crud.php";
+				window.location.href = "../index.php?page=electronica";
 			});
 		});
 	</script>

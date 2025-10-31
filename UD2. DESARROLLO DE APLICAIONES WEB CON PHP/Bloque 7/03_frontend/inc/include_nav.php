@@ -21,9 +21,9 @@
           </li>
 		  <?php if ($_SESSION['usuario']!="") { ?>
           <li class="nav-item">
-            <a 	class="nav-link <?php if ($config['nav_active']=="mensajes") echo $config['classActive']; ?>" 
-				<?php if ($config['nav_active']=="mensajes") echo $config['ariaActive']; ?> 
-				href="index.php?page=mensajes">Mensajes</a>
+            <a 	class="nav-link <?php if ($config['nav_active']=="electronica") echo $config['classActive']; ?>" 
+				<?php if ($config['nav_active']=="electronica") echo $config['ariaActive']; ?> 
+				href="index.php?page=electronica">Electronica</a>
           </li>
 		  <?php } ?>
         </ul>

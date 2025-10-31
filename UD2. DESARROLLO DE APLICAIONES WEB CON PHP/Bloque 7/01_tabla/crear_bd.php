@@ -21,7 +21,7 @@ $db = new mysqli($hostSql, $userSql, $passSql);
 $db->set_charset("utf8");
 
 // Leer el archivo .sql
-$sql = file_get_contents('./_bd_tienda.sql');
+$sql = file_get_contents('../resources/_bd_tienda.sql');
 // Ejecutar múltiples consultas
 if ($db->multi_query($sql)) {
     do {
