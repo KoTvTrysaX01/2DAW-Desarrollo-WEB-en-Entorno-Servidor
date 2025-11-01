@@ -22,7 +22,7 @@ $db = new mysqli($hostSql, $userSql, $passSql, $basedatosSql);
 $db->set_charset("utf8");
 
 // Leer el archivo .sql
-$sql = file_get_contents('../resources/_electronica.sql');
+$sql = file_get_contents('./_electronica.sql');
 // Ejecutar múltiples consultas
 if ($db->multi_query($sql)) {
     do {

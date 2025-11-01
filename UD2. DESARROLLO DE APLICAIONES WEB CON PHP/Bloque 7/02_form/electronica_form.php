@@ -1,7 +1,7 @@
 <?php
 
-require_once "../resources/include_mysql.php";
-require_once "../resources/include_vars.php";
+require_once "./include_mysql.php";
+require_once "./include_vars.php";
 
 $sqlBD = sqlConecta($hostSql, $userSql, $passSql, $basedatosSql);
 
