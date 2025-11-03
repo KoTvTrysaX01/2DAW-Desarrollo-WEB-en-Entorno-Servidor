@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Foodie Express</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 400px;
+            overflow-y: auto;
+            max-height: 90vh;
+        }
+
+        .container h2 {
+            margin-bottom: 20px;
+            color: #ff5722;
+        }
+
+        .input-box {
+            width: 100%;
+            margin: 10px 0;
+            text-align: left;
+        }
+
+        .input-box input, .input-box select, .input-box textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn {
+            background: #ff5722;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background: #e64a19;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form>
+            <!-- Basic Details -->
+            <div class="input-box">
+                <label>Full Name</label>
+                <input type="text" placeholder="Enter your name" required>
+            </div>
+            <div class="input-box">
+                <label>Email</label>
+                <input type="email" placeholder="Enter your email" required>
+            </div>
+            <div class="input-box">
+                <label>Phone Number</label>
+                <input type="tel" placeholder="Enter your phone number" required>
+            </div>
+            <div class="input-box">
+                <label>Date of Birth</label>
+                <input type="date" required>
+            </div>
+
+            <!-- Login Details -->
+            <div class="input-box">
+                <label>Username</label>
+                <input type="text" placeholder="Choose a username" required>
+            </div>
+            <div class="input-box">
+                <label>Password</label>
+                <input type="password" placeholder="Enter password" required>
+            </div>
+            <div class="input-box">
+                <label>Confirm Password</label>
+                <input type="password" placeholder="Confirm password" required>
+            </div>
+
+            <!-- Delivery Details -->
+            <div class="input-box">
+                <label>Address</label>
+                <textarea placeholder="Enter your full address" rows="3" required></textarea>
+            </div>
+            <div class="input-box">
+                <label>Landmark</label>
+                <input type="text" placeholder="e.g., Near City Mall">
+            </div>
+            <div class="input-box">
+                <label>Preferred Delivery Instructions</label>
+                <textarea placeholder="e.g., Leave at the doorstep" rows="2"></textarea>
+            </div>
+
+            <!-- Food Preferences -->
+            <div class="input-box">
+                <label>Dietary Preferences</label>
+                <select>
+                    <option>None</option>
+                    <option>Vegetarian</option>
+                    <option>Non-Vegetarian</option>
+                    <option>Vegan</option>
+                    <option>Gluten-Free</option>
+                </select>
+            </div>
+            <div class="input-box">
+                <label>Favorite Cuisine</label>
+                <select>
+                    <option>North Indian</option>
+                    <option>South Indian</option>
+                   
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <!-- Payment & Offers -->
+            <div class="input-box">
+                <label>Preferred Payment Method</label>
+                <select>
+                    <option>Credit/Debit Card</option>
+                    <option>UPI</option>
+                    <option>Cash on Delivery</option>
+                    <option>Wallet</option>
+                </select>
+            </div>
+            <div class="input-box">
+                <label>Discount Code (if any)</label>
+                <input type="text" placeholder="Enter code">
+            </div>
+
+            <!-- Marketing Preferences -->
+            <div class="input-box">
+                <label>Receive Promotional Offers?</label>
+                <select>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn">Sign Up</button>
+        </form>
+    </div>
+
+</body>
+</html>

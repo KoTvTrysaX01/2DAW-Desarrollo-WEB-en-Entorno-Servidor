@@ -1,0 +1,240 @@
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('../background.jpg') no-repeat center center/cover;
+            color: #333;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to right, #ff512f, #dd2476);
+            padding: 15px 50px;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo {
+            font-family: 'Lobster', cursive;
+            font-size: 32px;
+        }
+        
+        .right-section {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .button {
+            background-color: white;
+            color: #ff512f;
+            padding: 10px 15px;
+            font-weight: bold;
+            border-radius: 20px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 14px;
+        }
+        
+        .button:hover {
+            background-color: #ff512f;
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: rgba(255, 87, 34, 0.9);
+            color: white;
+            font-weight: bold;
+        }
+        
+        .hero h1 {
+            font-size: 42px;
+        }
+        
+        .hero button {
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 30px;
+            background: white;
+            color: #ff512f;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .hero button:hover {
+            background: #ff512f;
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #ff5722;
+            padding: 15px 0;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        
+        nav ul li a {
+            background-color: white;
+            color: #ff512f;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            background-color: #ff512f;
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        .restaurants {
+            padding: 50px;
+            text-align: center;
+            color: #ffffff;
+        }
+       
+       
+        
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: white;
+            font-size: 14px;
+            margin-top: 30px;
+        }/* Dropdown Button */
+.dropbtn {
+    background-color: #ffffff; /* Golden Yellow */
+    color: #ff512f;
+    padding: 14px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    display: block;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Dropdown Menu */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 180px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Dropdown Links */
+.dropdown-content a {
+    color: black;
+    padding: 12px 15px;
+    text-decoration: none;
+    display: block;
+    font-weight: bold;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Hover Effects */
+.dropdown-content a:hover {
+    background-color: #e8960a;
+    color: white;
+}
+
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Button Hover & Focus Effects */
+.dropbtn:hover,
+.dropbtn:focus {
+    background-color: #ff8f06;
+    transform: scale(1.05);
+    outline: none;
+}
+
+/* Navigation Alignment */
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+/* Slider Wrapper */
+.slider {
+    width: 80%;
+    max-width: 800px;
+    height: 600px;
+    margin: 30px auto;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Sliding Images Container */
+.slider-container {
+    display: flex;
+     /* Enough width to loop smoothly */
+    animation: slideAnimation 10s linear infinite; /* Continuous smooth animation */
+}
+
+/* Individual Slide */
+.slide {
+    width: 850px;
+    height: 750px;
+    flex-shrink: 0;
+}
+
+.slide img {
+    width: 50%;
+    height:70%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Keyframe Animation for Continuous, Ultra-Smooth Loop */
+@keyframes slideAnimation {
+    0% { transform: translateX(0); }
+    16.6% { transform: translateX(-800px); }
+    33.2% { transform: translateX(-1600px); }
+    49.8% { transform: translateX(-2400px); }
+    66.4% { transform: translateX(-3200px); }
+    83% { transform: translateX(-4000px); }
+    95% { transform: translateX(-5000px); }
+
+    100% { transform: translateX(0); } /* Smoothly loops back */
+}

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie Express</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            background: url('juice.jpg') no-repeat center center/cover;
+
+        }
+
+        .header {
+             
+            
+            display: flex;
+            justify-content: center; /* Center the title */
+            align-items: center;
+          background: #e11aef; /* Darker pink for hover */
+            ;
+            padding: 20px;
+            position: relative;
+            width: 1100 px; /* Allows absolute positioning for right section */
+        }
+        h2{
+            color:#90009b;
+        }
+        .title {
+            
+            font-family: 'Lobster', cursive;
+           
+            font-weight: bold;
+            font-style: italic;
+            color: white;
+        
+            margin-right: auto;
+           
+            font-size: 28px; /* Slightly smaller for better alignment */
+         
+            
+            
+           
+          
+
+        }
+        
+        .right-section {
+            display: flex;
+            gap: 10px;
+            position: absolute;
+            right: 20px; /* Aligns buttons to the right */
+        }
+        
+        .button {
+            background-color: #008080;
+            color: white;
+            padding: 10px 15px;
+            font-weight: bold;
+            border-radius: 5px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .button:hover {
+            background-color: #e64a19;
+        }
+        
+
+        .logo {
+            font-family: 'Lobster', cursive;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .search-bar input {
+            padding: 8px;
+            width: 200px;
+            border-radius: 5px;
+            border: none;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%); 
+        }
+
+        .search-bar {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%); /* Centers the search bar */
+            display: flex;
+            align-items: center;
+           
+            padding: 5px;
+          
+           
+            justify-content: space-between;
+        }
+        
+        .search-bar button {
+            padding: 8px;
+            background: #d84315;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+      transform: translateX(380%);
+        }
+        
+        .search-bar button i {
+            color: #29B6F6; /* Light Blue Search Icon */
+            font-size: 18px;
+      
+        }
+
+        .cart {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #4B0082;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            background-color: #008080;
+                        color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            background-color: #bf360c;
+        }
+
+        .food-section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .scroll-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 10px;
+            white-space: nowrap;
+            scroll-behavior: smooth;
+        }
+
+        .food-item {
+            flex: 0 0 auto;
+            width: 250px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .food-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .food-item img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .rating {
+            display: inline-block;
+            padding: 5px;
+            background-color: green;
+            color: white;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .price {
+            display: block;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .order-btn {
+            background: #f41660;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .order-btn:hover {
+            background: #d63384; /* Darker pink for hover */
+            transform: scale(1.05);
+        }
+
+        .wishlist {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            color: #ff4081;
+            transition: 0.3s;
+        }
+        .wishlist:hover {
+            transform: scale(1.2);
+        }
+        img {
+            width: 350px; /* Adjust width as needed */
+            height: 250px; /* Adjust height as needed */
+            object-fit: cover; /* Ensures the image is cropped properly */
+            border-radius: 10px; /* Adds rounded corners */
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Adds a soft shadow */
+        }
+        
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+            background: #4e342e;
+            margin-top: 20px;
+        }
+        .dropbtn {
+            background-color: #008080; /* Same as other menu items */
+            color: rgb(255, 255, 255);
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+            display: block;
+        }
+        
+        /* Dropdown menu styles */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 150px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            color: rgb(255, 255, 255);
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #e8960a;
+        }
+        
+        /* Show dropdown on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        /* Fix alignment in navigation */
+        nav ul {
+            display: flex;
+            align-items: center; /* Aligns all buttons properly */
+            gap: 10px;
+        }
+        .dropbtn:hover,
+.dropbtn:focus {
+    background-color: #ff8f06; /* Color change on touch or hover */
+    outline: none;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header">
+     <div class="title">Foodie Express</div>
+     
+     <div class="search-bar">
+         <input type="text" placeholder="Search food...">
+         <button>🔍</button>
+     </div>
+    
+     <div class="right-section">
+         <div class="button">Customer Reviews 🍕</div>
+         <div class="button">Cart 🛒</div>
+     </div>
+ </div>
+ 
+     </header>
+
+    <nav>
+        <ul>
+            <li><a href="front page.html">Home</a></li>
+            <li><a href="northindian.html">North Indian</a></li>
+            <li><a href="southindian.html">South Indian</a></li>
+            <li><a href="veg.html">Veg</a></li>
+            <li><a href="nonveg.html">Non-Veg</a></li>
+            <li><div class="dropdown">
+                <button class="dropbtn" onclick="toggleDropdown()">Juice</button>
+                <div class="dropdown-content" id="dropdownMenu">
+                    <a href="dessert.html">dessert</a>
+                     <a href="juice.html">Juice</a>
+                    <a href="snacks.html">Snacks</a>
+                    <a href="preorder.html">pre orders</a>
+                </div>
+            </div></li>
+        </ul>
+    </nav>
+    <section class="food-section">
+        <h2>Sip & Chill</h2>
+        <div class="scroll-container">
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//b6f6aaf6bbbc41dc/th.jpg?Expires=1836226476&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=jxfW6OdbZz~TG-Ju4bG4dixt0DX6KuOetuY-0a1Ty0ur0Dl06VFNr2RGFTHwPv5dMnnuSggGdtz9brQtIPU5sdMrVzf5lXzEha4Ylq7rFi9IE~lHBdf31NsuMAyCYVKJPEoZXjVYRvZjLl~Ro4u47wN9Y0ttIfA~8MuXHPyYtv5wRLLcb2fjdURF6PjJ9IxhUtSQP46UQjTk-sy8lMshBmmgkmdkDFpQrLkWeoc1WXeq2tUqAgaFAyYqXfG5ED7f~65~Zd2mEigT0BpxDu3r-Xv9HZOniAFEgj87m4Gz35LkSwHKnNSMUBxCtFW8B4Rykd3BUas9izPXau41hj9kPA__" alt="Mango Juice">
+                <h3>Mango Juice</h3>
+                <p>Refreshing mango blend with <p></p>a tropical twist</p>
+                <span class="rating">4.8★</span>
+                <span class="price">₹90</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+            
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//037d1a9249a844a6/th.jpg?Expires=1836226492&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=Hig2wS9t5NBBXRWw0dmuEjhFHqdMC9boFoLRiMYWiv~CRPkQz0lWkA5mA5Ui4jO5lO19HvJm6HKer2EjduXHsZP2tCcpXwJSRlJEG6rswdih8d9qoz5BRVirRztvvuoGy9TZLdGmuj3uaR32eeMIWvfcd9C~5GDKfljpip~4XQxsGjHNzWMoXnZA4ns~Dh2Ea3vhhH8zDhEZGZYQlkWxUkvonF6aDZD0JsXLS032n~DSBlRkM8er47Caj3pTqQRt72yjlxeBSFr8lYkgaQMYKGatWIIoC~ocgRlaLH2gKXxatg9XYgKZn4Zpbpql0IBIHAlFoaSsFVQDHP9AZn5bPg__" alt="Watermelon Juice">
+                <h3>Watermelon Juice</h3>
+                <p>Hydrating and naturally sweet<p></p> watermelon juice</p>
+                <span class="rating">4.7★</span>
+                <span class="price">₹80</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+            
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//d230e8d609b945e6/th.jpg?Expires=1836226512&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=Ik8z9mD8jN39rP6zNwZee5uCc3oSwKt~0IgDRj5T6FIYMDJ7fUxRx2IG3rgNwJyQ0IntjgC8aLLICA1d3KoAJz3SSQK6DwTs9iLg3Q1kx5E5t4lNoYQEkbT1ufGxzdJctYGpj9JlCIjuEfuDLaxlmPxRbi-j7Z8i0O5vXMyYesSAq-0XcJ5OaCTDsaNRTYgqpyeKo9zsB--GeV38fWO1USsEttOkgbvYkfrGU44dAm2uus1t7hFpUNZAFbmc2qr1LBxi~65I-nsiNWUtNuhZsctB2m~f2S30CyU3uofbMyEPYK7xicEP0kt0SspbCNNU519FFFDPFIUq~ghsTwIfQw__" alt="Orange Juice">
+                <h3>Orange Juice</h3>
+                <p>Freshly squeezed citrus burst <p></p>.<p><p></p>
+                <p></p><span class="rating">4.9★</span>
+                <span class="price">₹100</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+            
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//16c9b904f0594474/th.jpg?Expires=1836226526&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=D1Em-PrDujRb0TP0PC2LMqupSONs8fduwRwV809Qy4pwcy7~w~XEG6FadhGB~qr-bJIIGVFwZyqYpt3edsFtFmPaamQZigY3YGqLzSv2OiufpTDJb3Raf2ldUP~SsNm5qxmguikTL0ZWOKIw7SDBtT-Ibmaapdybq9SXBYZmI-Vj-uiRTI97vc--aUNUmtCNdapMncCCtYW3PPsYo7FV3QULsmvjW4Td755ITUhLY98k9oWk7KGm0WFcTMsePuxxG3VM545UYFH1TyHwwm22li7W5WptBgS1NwOawYuOeQ4lTcwfSEGl8-7PCEbgQVLQWGJiPXWZDAH1iQD~yNRxAQ__" alt="Pineapple Juice">
+                <h3>Pineapple Juice</h3>
+                <p>Tangy and tropical pineapple <p></p>delight</p>
+                <span class="rating">4.8★</span>
+                <span class="price">₹110</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+            
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//b02b68c2eab748ae/th.jpg?Expires=1836226537&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=1VesFFvFqyDqgrq64UPb9QK6SqHH8sbsINqUto3vtkv60GY0SCCUa9CkWdOImEKLgY6t1Ym-Dbl~YB5w4AbyWSdAZOYhYGf5SqYihXqt7Xtx1JubnupgV4UGMl9jDVBeioxJnCP~xYm8fxqyntASPT8EXyk0HvpmDfe-C1bmBrCaDEZeZqdPbAieNPUxDt31TTCFsCLNy4CJhxDoBapRWW1QmGVPrYuxMGfanSkIKWaCuMvN8N8fckkdXJ~FKRp1TUFcUE3wkXCulOgtwemZj02iqwH~LXbk3gNftDO0SmNTjfYSoOWQUaFKC~idNQ0Dg4tVRyQCG3aIvitk83K2kQ__" alt="Apple Juice">
+                <h3>Apple Juice</h3>
+                <p>Sweet and crisp apple goodness</p>.<p></p>
+                <span class="rating">4.6★</span>
+                <span class="price">₹120</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+            
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//4e2296556ac44243/th.jpg?Expires=1836226545&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=FkKSQSYxUWPTYqzBs9mTHNcxzytePbbEOVPqGCLM1WP8JXvqah3YjHWOhWvcwUBv43kDpTMabdpMzy2vhk8~Fjp5VHF3mB4F83TwM5YGLlkoRlGn2AbCg~igJSeB9f-zHxrqWL1NNKEiw9B3LioSd1VB9kgWg596fbscyoDtYsbVCk-ef~lPH2Z4H7raV~ddjCbh2lXf6CJgO34OwpSqbuqOh83RsDrHmULlab-Y3pN0PyjA2z5ahlu~b34Cj9sMpOfDWhK7T94igOXeu2CgJY1th5RnjUvyULs3gfZ6spsEqsSUwTx7Y-kSzRlQaHtGAbKfZ2nBySlRsJ~tBSg6MA__" alt="Grape Juice">
+                <h3>Grape Juice</h3>
+                <p>Rich in antioxidants and bursting<p></p> with flavor</p>
+                <span class="rating">4.7★</span>
+                <span class="price">₹110</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+            
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//e15d2d7e1c504a58/th.jpg?Expires=1836226560&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=PVa0-pQwk5NLB08RQ~4~8DdXXwiRSLk~gSpBpX6aEHpL4nmSzcqS-~LQruDVcOCTEYoMyYfeiAQLF71MAPzrTA4ADlr5pwuagCairCaysxpIettVlAWlBE0F-3GlXBbAKzfCbj68zMxJINoy~hHygaWCj3nM11OzI6tPJreFJccMs10sOblUdJF42YSzLEp6jPi2ylFQz6R~PR9p31HScz0kUrthmdA-KfOFTASM21wBTGva6fy6wVeSfhEUpq5E5WIodqn8bbmJchMcaOSFLjvEMlu-G9HPceN2G7GJZBPhNZv8C6phwQUaKijicB9wiADGE1i-P3r548atWfmpvA__" alt="Pomegranate Juice">
+                <h3>Pomegranate Juice</h3>
+                <p>Boosts immunity and refreshes<p></p> instantly</p>
+                <span class="rating">4.9★</span>
+                <span class="price">₹130</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+            
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//e87fe489ade4402e/th.jpg?Expires=1836226569&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=jtaoTdTXixbeFDP8eAwsA~OHohQBUqeSplAoXmuvjztjcdgbGkoM0aK7qUmnv5YIYJcFcW3whQP-gI8NO87PHQRNCfxW11iOiGLbSjs0QSDnP4MW9fkk7lyVEFDmbDksMtwSO0xMhTYyLjKPexXKj5PJp-35SLwI0tJsUSO6NHZnp5I-w2tCYtunkUss55vId57Iftlx-f58~WBQnxtJBzNVScbGDAa02A~p9SzQ-hm6LcX6EmWgQe9qFizoEZyQQDSwZS5l8m243qm-d3thH~-2tuh7xSSypsUToWhjRtaE0Rfix73NWTNtqsbryJvc5yMNW9lvcns96ko5-lSFiw__" alt="Lemonade">
+                <h3>Lemonade</h3>
+                <p>Classic sweet and tangy <p></p>refreshment</p>
+                <span class="rating">4.7★</span>
+                <span class="price">₹70</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+            
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//31378552f0e44f14/th.jpg?Expires=1836226579&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=a4MF1a4PCusC3SjfmGLQ99ZOgW3Mowc6VzkLzWp1K3nEtr6jNUJNtn2kmdZ3fejlAmMjPVmR36HuBhdFwpws~eSoNWCZUSEiu1VfhCmnWEnm4cJnMh6~ag8WDpUPQaJTABrls2CHK4JO9ZoRZvpyafA0LWhS4QvaeFnt~ZQB48heZiXfaniCvd4qCSXFAhlNNMbGD~~gh~pP8RHfnvDwlSvI5mRoah7Q4bA6BfeXY4Jfz3GAmrb~ZWlIfKMyonmhZ0W~GDMEiQAXQf7rdxQ5x1wqHBxh4MUPsFRg76hfR4O9DOqGkH38dxZaTQe370vrHrJsTqBNHj8HJX6NHE7VIg__" alt="Strawberry Shake">
+                <h3>Strawberry Shake</h3>
+                <p>Creamy and sweet strawberry <p></p>indulgence</p>
+                <span class="rating">4.8★</span>
+                <span class="price">₹140</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+            
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//be2ad9c1fbe34dfe/th.jpg?Expires=1836226587&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=fI0VdD8pgWX4BbQIvGgnKVYYAocuEQvQ4zpNPNqeKPKCORnGxLIEayn~vPPO6WSrPrzlBwT0XDQ4cVMigb3x14xxCY9KnljVx7NTMiGcBaB~K0h~nzEL6V7swzlXvVkyUXbi2H2933KOATmB8dQIrH2NsDEmOq~PtU6zQQRVBwLzFJms93oy1gurp56q1MGvve9RLm7MxDdZIIAV2EaZjkh2U2Wnc1oQbM1jYqDbeMgGOmUCGXbDP0ZUxElwr6bMchwSFjF9DQP89MScWoyOKVognr3GlGWbN-hOFf9-BnkCKe70WK6w8RKfmNiBTFVSjFb-KlUySkSOdNkKrLDU4w__" alt="Coconut Water">
+                <h3>Coconut Water</h3>
+                <p>Pure and hydrating natural <p></p>drink</p>
+                <span class="rating">4.9★</span>
+                <span class="price">₹60</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+            
+            
+        </div>
+    </section>
+
+
+    <footer>
+        <p>&copy; 2025 Foodie Express. All rights reserved.</p>
+    </footer>
+</body>
+</html>

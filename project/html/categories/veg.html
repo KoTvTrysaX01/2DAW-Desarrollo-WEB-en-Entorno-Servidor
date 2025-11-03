@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie Express</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            background: url('veg.pn.jpg') no-repeat center center/cover;
+
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            padding: 15px 20px;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Lobster', cursive;
+            font-size: 32px;
+            font-weight: bold;
+        }
+        h2{
+            color: #1dd526;
+        }
+
+        .search-bar input {
+            padding: 8px;
+            width: 200px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .search-bar button {
+            padding: 8px;
+            background: #d84315;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        
+        .buttons-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        .custom-btn {
+            padding: 10px 15px;
+            background: #fac106;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .custom-btn:hover {
+            background: #D4AF37;
+        }
+
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #5a5a5a;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            background-color: #fac106;
+                        color: rgb(0, 0, 0);
+            padding: 10px 15px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            background-color:  #D4AF37;
+        }
+
+        .food-section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .scroll-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 10px;
+            white-space: nowrap;
+            scroll-behavior: smooth;
+        }
+
+        .food-item {
+            flex: 0 0 auto;
+            width: 250px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .food-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .food-item img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .rating {
+            display: inline-block;
+            padding: 5px;
+            background-color: green;
+            color: white;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .price {
+            display: block;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .order-btn {
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .order-btn:hover {
+            background-color:  #D4AF37;
+        }
+
+        .wishlist {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            color: red;
+        }
+        img {
+            width: 350px; /* Adjust width as needed */
+            height: 250px; /* Adjust height as needed */
+            object-fit: cover; /* Ensures the image is cropped properly */
+            border-radius: 10px; /* Adds rounded corners */
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Adds a soft shadow */
+        }
+        
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+            background: #333333;
+            margin-top: 20px;
+        }
+        .dropbtn {
+            background-color: #fac106; /* Same as other menu items */
+            color: black;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+            display: block;
+        }
+        
+        /* Dropdown menu styles */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 150px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            color: black;
+            padding: 5px 10px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        
+        /* Show dropdown on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        /* Fix alignment in navigation */
+        nav ul {
+            display: flex;
+            align-items: center; /* Aligns all buttons properly */
+            gap: 10px;
+        }
+        .dropbtn:hover,
+.dropbtn:focus {
+    background-color: #D4AF37; /* Color change on touch or hover */
+    outline: none;
+}
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Foodie Express</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search food...">
+            <button>🔍</button>
+        </div>
+        <div class="buttons-container">
+            
+            <button class="custom-btn">Customer Review</button>
+            <button class="custom-btn">Cart 🛒</button>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="front page.html">Home</a></li>
+            <li><a href="northindian.html">North Indian</a></li>
+            <li><a href="southindian.html">South Indian</a></li>
+            <li><a href="#">Veg</a></li>
+            <li><a href="nonveg.html">Non-Veg</a></li>
+            <li><div class="dropdown">
+                <button class="dropbtn" onclick="toggleDropdown()">Chill outs</button>
+                <div class="dropdown-content" id="dropdownMenu">
+                    <a href="dessert.html">dessert</a>
+                     <a href="juice.html">Juice</a>
+                    <a href="snacks.html">Snacks</a>
+                    <a href="preorder.html">pre orders</a>
+                </div>
+            </div></li>
+        </ul>
+    </nav>
+    <section class="food-section">
+        <h2>Pure Veg Magic</h2>
+        <div class="scroll-container">
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//6307e4c989b44267/Aloo-Gobi-Square.jpg?Expires=1836052050&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=XQ3G7qJLaGp3VP6xN6FUaK7giBJhPkbHyEhEOsaimmppfGLCzVEUqTGef1l07dipLjOmddp8LIl70q4GKOTSNZUFmD8zU3oLEKyvFCo5mRA5QqqwPZz9NtKdPzqM8w3epaM4Ne8tp2ZXIgiSt5xnrkorTufnzRjodRFrIPUZKzCpDIoK1qCgNYRxnNN6Chu2wI~RDZG8oIC~nBJbWVC2vx12zXpbyTHPVWhrply1luUfzP01uaWri5i7oipRii2RBWFI~6RSB7BzlJPDIiuSzrsZky5I74Y3k6w1Lj6kT7-xVJu8gMfNbcTUqbYIqzgStnxCWFp-mPEYev4EoC7CMA__" alt="Aloo Gobi">
+                <h3>Aloo Gobi</h3>
+                <p>Cauliflower and Potatoes cooked with  <P></P>Indian spices</p>
+                <span class="rating">4.6★</span>
+                <span class="price">₹180</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+            
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//ab09e5f8accc40de/th.jpg?Expires=1836052065&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=eIcuxn0WRnv0Bu1txpeNUJmSRXHLzsBpJq8lLPyAfMipsYuQQIFmaFdrj5lzDvHtZjx6zVk8RAr7Rq6MURybYkPWeeYm1DK4j6ceI6NY1ydMji~HpWAYZpxV18FOPun-tjotIjmd5CQsoe~4DloKbN8-gN55mc~2cgkUZMkDTQxNNRWSV~oq1Y9fNMShkH2NxGYVpLAlF397XsWMz6P~J-DGuMCWse9dJPHEL0cOo7v33uUrTXXS8kc1s8h7-QhMDLbyV2KXPLgtLB-1SXFYw0GWZRX~hhSHOIWnKJvcGeGCmKctjlqDkfuT6p~uypMcveZ8nEuS8-g4CwKKvt8uMw__" alt="Paneer Butter Masala">
+                <h3>Paneer Butter Masala</h3>
+                <p>Cottage cheese cooked in a creamy  <P></P>tomato gravy</p>
+                <span class="rating">4.8★</span>
+                <span class="price">₹250</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+            
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//aa876a985b6845ec/palak-panerer.jpg?Expires=1836052086&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=zm8T0iLhihLBYSKhx4aCha5xQ6BY7ZhTGtqQCNwF~s7hpKJaxJ9DQM6~vKkpq30pj534LwGDf1dzfWy125zGHkFzDLIta0MziFA1xHt~mbHdtCNASjA0MD8-UPgwB3VK5YE8VczahJI8IjUp5OadDisxs3vmQi3KS6YosmDrOiY4vwrS6eoP6dbmClMy4HzV0TxuaQPD50wZMzqKcsXKdu7T7V1DN94dZENtDF1sbELi1AuDyu7jg5TIfp~vRtoZb3eb6FPJ~uDuS82vk9~UTgSqgoNe9zfk9X-F~WDlFAWjJk4SP0LUzNKH9NnsvqAX0G6JKOY0IcYkRn7EAQPcXw__" alt="Palak Paneer">
+                <h3>Palak Paneer</h3>
+                <p>Spinach and cottage cheese cooked  <P></P>with spices</p>
+                <span class="rating">4.7★</span>
+                <span class="price">₹240</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+            
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//d9bd4c5508a74e24/chana-masala-recipe.jpg?Expires=1836052107&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=03PT3fx1ZQzanzQHsNXYbR-obUpjEB4bnUpVOQQguw1GnQVDjuAV7Syq1lTCstc~IHQpMkTL5K5-iddRm185Paz5Un2-Eaor91nqvEy5~8x-WPiP~Qlv4DmbLnrghbXtQcNR~fTonjdQeTHmOIMC36V9O2Fh86sDoBsklnVaaeW3mBE1Wj~iPgW~UuS~EzUMm4w5Cb2EAhwAvOw2WpOltdy9paYJgt24bSFK8S~i5BgiTcdlbXTpHav1Eky0VPObBzGkMz5jafswMglchef9tWSFTGL9jTuV3ZY2L3P-u6vwc5jDHdqg8Qo-cTt9lYTnEkKBnxG98-Mmgdihu~bgYA__" alt="Chana Masala">
+                <h3>Chana Masala</h3>
+                <p>Spiced chickpea curry<P></P> and so mujch spices <P></P>
+                <span class="rating">4.5★</span>
+                <span class="price">₹170</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+            
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//ced7cc8df09e47ac/dal-tadka-instagram-1-scaled.jpg?Expires=1836052136&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=bf5nrrTYCM6JHcKFluY8aRYBuU4cPwEDTGgJKUGiWlsGLV~qwfkay92e1VFGjq-j~RcDe~C-rmj0mS6b2GnhcR1nIMzEpF3jTKMVkz7jyKmSpimPbJTE6xmdzL2FWdpW7oxyocCKxPu2MSjNjXGQW97jDcWA71erLwsdR~aCT5YEjNFBLQB2QduvTTZ5keCrLcqg1O3RrvMv7d2lt2qn-sRkNbLRjC6RWZ9gIsvk8UE9PkSucvUQdUSL8pbGqVW1ysg7RNNNp-utbfWT0VUwNUeMdAvQOK0OZfJtg9hv4dL6uI1X5tPHgclxh6mm3WMo99IDbz8JHn389e0YrjTyhA__" alt="Dal Tadka">
+                <h3>Dal Tadka</h3>
+                <p>Yellow lentils tempered with  <P></P>garlic and spices</p>
+                <span class="rating">4.6★</span>
+                <span class="price">₹160</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+            
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//cb529792ba434386/Vegtable_Biryani.webp?Expires=1836052155&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=zmE5eTqhVWvJ5NKh7zMVRopSWDEH-HZIjysLO7~2ca51Q4MTRUJ~09gac~h1XC4o8mJIdBVBeORCRc3NTuYbPyy7hkRrl6Pbb3j0JrRAhPYVCAbJM8rUOObirg5UjfhZrA66vlSjWhmjtduCAg0g2iavrfc4qGhPctVADILueTMp~RF69gvtDmrq9rykYAz-49NlnnK1~eKmY9m3M5gggFS7nJEfbdT2DLgTIw5v0VRuBeOrh9CUT5PIrLN4-7EmHerM8IeCwILCnjiskJUO8farz1qtCYB6owNoDoaL8Gpu312K4bXqJnsvR4nF-x1hnUFD2nIlfODGQ-ij-9l7OA__" alt="Vegetable Biryani">
+                <h3>Vegetable Biryani</h3>
+                <p>Fragrant rice cooked with mixed  <P></P>vegetables and spices</p>
+                <span class="rating">4.7★</span>
+                <span class="price">₹220</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+            
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//93f648e821ef4af2/Baingan-Bharta-500x500.jpg?Expires=1836052173&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=1BTT7MABsRiysVfkzMZKafQBss~YwX24GPKJvMAcdXoXXetWQMEIQKfxDxoPIK87d6AzUfbegcnAlAUrvrNJP1rlf8HFbPe6P5yhq1eAFQjiYAa4vURKYuNLei87BDbKAcUqZRkIMzoy0G~L~2Z0gkGZs76P9W0QY4JvjJ4aTUlhX9-lHSO~Oj9wH712NZfnKie9VyN7Nm4Y4qZdfXlQnVESWa~xSElESv~vTmnxNg-eLaInBUBWvmkQNB2iEAojuBofqkziipBSj46YWnnP-5bcb-Ep-yMV3ZDceSuEvkimxXiw0hdjEohpig0tgYLc2ttwwJGSI3nJHMT8UXtq8w__" alt="Baingan Bharta">
+                <h3>Baingan Bharta</h3>
+                <p>Smoky mashed eggplant with  <P></P> Indian spices</p>
+                <span class="rating">4.6★</span>
+                <span class="price">₹190</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+            
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//c98963c862c2410a/Authentic-Punjabi-Rajma-Recipe.jpg?Expires=1836052187&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=0zrntaPrjk90g5sAQjWVB9xlN3RX0Ov-TWh6-FXZWgsf-Vjt~Lyy31OTVq7Z08ArkfhvTcDQGyDP-HahcwhoGIbd6y5ndSEaEqM~ZE2xtUa7aBECJ8RXVmPsuTMWe7suiW4iaySlwnBwinxFjHkO2xoeVJvKgL14B~tMoBbLTjevtiPwupUTwCIGWKudkOYfmKUqP9WJMcdWjzkDx3D4OzI70JBUDTiXyDUiIetZpWv9liPvn22YxdMGQZfmV9R4HuAcBIkN3iSbCQOgAmW1MagWWSvQvSUtXTrZAWbs0HtRxKaIQyY431jmWTZvRyq0sUZy3DE4P-ep90dNA-QbcA__" alt="Rajma Masala">
+                <h3>Rajma Masala</h3>
+                <p>Red kidney beans curry</p>
+                <span class="rating">4.6★</span>
+                <span class="price">₹180</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+            
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//70fc256344b844d7/th.jpg?Expires=1836052199&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=25W-DhNTtVhWPsMvBxK-4iGk37W4ee6Klun3gYiYbJzBv01Pq7XGsNjSfpPflcdIXEz5AbWK5T12dmooRcXQc4RtHOnqlUZbBzt~MOyRPHhgdHYKslYjK9pi9xHoUHxLXK9KOeMYbR8QpXWkgLPbrD0jY1E4ClFIsYnbpcMf3Y647-RGkkrZuRcr-LTccSUXjpIepdU0tEnWvXsfRgZM4azaGhsn7eA2obV4tylXI-1iJcjDuY07Qx5jM7GzPsnakNmgCkz61Hmpl1FWie6kuNC33wPPWvh07fIB7xfYugfQ4nK9kNubir6uJkidecgk3hIJ3G1nYZuWd0D~NC0l3g__" alt="Matar Paneer">
+                <h3>Matar Paneer</h3>
+                <p>Green peas and cottage cheese in  <P></P>tomato-based gravy</p>
+                <span class="rating">4.7★</span>
+                <span class="price">₹230</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+            
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//0d4ca13d0f354810/th.jpg?Expires=1836052209&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=Sl9FJCBqwdx0~ChtXqcGVlgbCRUqyor87iZco3tfqYE6VAdkzS6MxhHgPl4m-ao-jvVF5SMftchePq9-mP7DN0UWMQWIsOw3tn1lE~p8o2m1h0dTQT8F-dtxd-jdXAScGfK1BqVdKlepNBxUganlWsiuwApKj6xfZY3jxxcd-~XLl~4HYEsBsb1bpYae~mu4~ZCPr0DtuWs6~IPbxKHBjDL~~XpspTBrap2APonPUi-FQuXxQil6xZXmJEbkJC-n7254fOehm~tiKrMtVFkweUyf7beVV~fjnFdv5hJAFHtwhpkvtgvKUXv7kk~Ws9l-xOzL0sUX3DCJPFULW8mdkw__" alt="Mix Veg Curry">
+                <h3>Mix Veg Curry</h3>
+                <p>Seasonal vegetables cooked in a  <P></P> rich gravy</p>
+                <span class="rating">4.5★</span>
+                <span class="price">₹200</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+            
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//aa025206338a4aa7/th.jpg?Expires=1836052219&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=wXaZsdMA5RrR7SFAdC4rKIPwly0PBSHDpRZ7rTNl1mb8MQ6wEoycaBGwD0nZ2RUdVKyHYe7AjrNRfssV7dNl08e-aGL5vxT7kL7zi-GJSsHee~jaeyYqei6vpLb-n-ULRQ-2SilLHWA3P9LY~VX9~PORxqn7NvqLNAdPmVD9Vy2ketxAvSpVUmmEcthf8Q3Du2nnJ~uREUragYbK6p4lfo0dfT3Na7a-NXrhfkr2QcNe24m1rfwSoWBnj07eH3VW7JHR9rq0Df2ZoW9hIShbrYOHfy2LJaO6c1YgZ6fFCc0-8uFJ3CQZ137~U6nh6Iaj1cXps1FVDzsrxAF6rExLAQ__" alt="Paneer Tikka">
+                <h3>Paneer Tikka</h3>
+                <p>Grilled spiced cottage cheese cubes</p>
+                <span class="rating">4.8★</span>
+                <span class="price">₹260</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+            
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//32f354115ee64292/th.jpg?Expires=1836052234&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=ZAmjrqinrUFwrgVrf7IlxKh-MH2xw7vhL4L8uYIM4YfEgRjj9XibJiXCfaZG~uvL4oCMKLLZpqmy-~f1blwhnGiw-G6M-LOJroTTDXVIzDYF~iALWdvOvIIOUZMKISJt7j89RJ39BPLPbUH4GIaedmxv58Mi9O1pyjqNbx-U3viqUzpBYc6e5An9E6ws7~AlZCESM10FvvoBwS9sqXRR2DegXjzmougHf8CnYw2XdI-unqDdxRihpQBpgirey6qNGMRTTflj2IwW6v8cu2mf-R4bHYJCB8fvSDNBpQChL1VseMnEN7JAiJd1n50iCcWep0IkCbLihy6FQ3lk-OqnxQ__" alt="Malai Kofta">
+                <h3>Malai Kofta</h3>
+                <p>Paneer and potato balls in a creamy  <P></P>sauce</p>
+                <span class="rating">4.8★</span>
+                <span class="price">₹270</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+            
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//b695fb27f2f04de6/th.jpg?Expires=1836052249&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=OyF0DyfNB4dIzfz3XJBtHk~NZVAhgKdONiZMfC5kAUNjSeoVkbSKY8AU47NLnJBhVDR~Z7by1la~vbpN94XllfeD7EEubvjfQwRkla7ZmX7S7qhNBy3Vzz41NuYyhZAK0LA-G0LlPFUo91pZ-R5ZFxtDWYV2NJ6~l2BbZJg79dcEdISXWZ8oXb-rgZoWf8Kgse6nvotSsf7Vh33sz1v8FCzt92ZGx79iKmkFfwRqgpaRaxd~UZelu6LbS1fH2PrzcsF16AQRqa5EG8OLaBQ78AIk37I7mWWnNOAsBdpe0Kq9hPMJAdNHHYzZAjr0EIidhi0UEIfPdgPf2ptcYrX7mA__" alt="Stuffed Paratha">
+                <h3>Stuffed Paratha</h3>
+                <p>Whole wheat bread stuffed with spiced  <P></P> potatoes or paneer</p>
+                <span class="rating">4.5★</span>
+                <span class="price">₹150</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+            
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//c307cb8d93d64648/th.jpg?Expires=1836052260&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=iA7hgCq095fG4~TIrJuQQYieIxSfvr7y98Iro3TSw1Gr2KbvJzIBX0pE6CcAN6wUN3jzwwTnaQWjPBcGaF7sHbJCGTdfDjUFHQBTjNhicgqwoT9hC4XF7u8m10nEgl7OWAZsuepr-eGgLHLP7dEwrVFh80RZt~Lf7ufhKIVYxGrwMaewqjaaFwuu9AIqMfkbyKleaIpbIQAyLlCkQw7cIBBCwcikt7biX7NZPWgAop5v5AYKEntLsdf4KZigKnYjy0ILKt-Q4coi8WPs~HSoDEOs9lTw-FFxV2Rpwguf8Da4jIxHUa~hsBbY29jS33cQYB7VkHJnuDxTSNC4cd6QCA__" alt="Vegetable Pulao">
+                <h3>Vegetable Pulao</h3>
+                <p>Flavored rice cooked with vegetables</p> <P></P>
+                <span class="rating">4.6★</span>
+                <span class="price">₹190</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+            
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//8647c0b324bb4e02/th.jpg?Expires=1836052271&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=TkuCfllie4NDSh4KmRB~LoqmK9GxehA1T0EYmHBIs5B9UbcFrJQx4g6ggX3R0MyT0R6DlBNodpOPixZ7Fye7yc7yzWdmdPMBh-ouE8zpXa~jPQryN9qqGiyPOLAxrQ0s6c3uqv~oZiBWpLX9N6KJ80b5mQDuGHB5NrtDiwkm7sI52fk0rq~gn41K91LDpPZZ-PfwC51Fln30JVvt6bbyqn2i1GsTWkG16O7FNrnR4HU3YB8uF8xkkE22hEHAZUynU4Lf2FmCkzZHeerhyndRnLMn3D830~Uz6nZlsDYZurGF68neovraZditYy1KeHGa8776oWlfWrq6n5~HlXuLow__" alt="Kadai Paneer">
+                <h3>Kadai Paneer</h3>
+                <p>Paneer cooked with capsicum and <P></P>
+                     onion in a spicy gravy</p>
+                <span class="rating">4.7★</span>
+                <span class="price">₹250</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+            
+        </div>
+    </section>
+
+
+    <footer>
+        <p>&copy; 2025 Foodie Express. All rights reserved.</p>
+    </footer>
+</body>
+</html>

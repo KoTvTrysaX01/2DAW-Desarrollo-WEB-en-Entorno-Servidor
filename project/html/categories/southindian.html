@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie Express</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            background: url('southbg.jpg') no-repeat center center/cover;
+
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ff9800;
+            padding: 10px 20px;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 60px; /* Adjust header height */
+        }
+        
+        .logo {
+            font-family: 'Lobster', cursive;
+            font-size: 28px; /* Slightly smaller for better alignment */
+            font-weight: bold;
+        }
+        
+         .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border-radius: 5px;
+            padding: px;
+          
+        }
+        
+        .search-bar button {
+            padding: 8px;
+            background: #d84315;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+      transform: translateX(120%);
+        }
+        
+        .search-bar button i {
+            color: #29B6F6; /* Light Blue Search Icon */
+            font-size: 18px;
+      
+        }
+      .search-bar input {
+            padding: 8px;
+            width: 150px;
+            border: none ;
+            outline: none;
+            border-radius: 25px;
+        }
+        
+        
+        .buttons-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        .custom-btn {
+            padding: 10px 15px;
+            background: #F8E9D2;
+            color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .custom-btn:hover {
+            background: #D4AF37;
+        }
+
+        
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #4e342e;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            background-color: #ff7043;
+                        color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            background-color: #bf360c;
+        }
+
+        .food-section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .scroll-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 10px;
+            white-space: nowrap;
+            scroll-behavior: smooth;
+        }
+
+        .food-item {
+            flex: 0 0 auto;
+            width: 250px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .food-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .food-item img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .rating {
+            display: inline-block;
+            padding: 5px;
+            background-color: green;
+            color: white;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .price {
+            display: block;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .order-btn {
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .order-btn:hover {
+            background-color: #bf360c;
+        }
+
+        .wishlist {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            color: red;
+        }
+        img {
+            width: 350px; /* Adjust width as needed */
+            height: 250px; /* Adjust height as needed */
+            object-fit: cover; /* Ensures the image is cropped properly */
+            border-radius: 10px; /* Adds rounded corners */
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Adds a soft shadow */
+        }
+        
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+            background: #4e342e;
+            margin-top: 20px;
+        }
+        .dropbtn {
+            background-color: #ff7043; /* Same as other menu items */
+            color: rgb(255, 255, 255);
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+            display: block;
+        }
+        
+        /* Dropdown menu styles */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 150px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            color: rgb(255, 255, 255);
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #e8960a;
+        }
+        
+        /* Show dropdown on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        /* Fix alignment in navigation */
+        nav ul {
+            display: flex;
+            align-items: center; /* Aligns all buttons properly */
+            gap: 10px;
+        }
+        h2{
+            color: #ff9204;
+        }
+        .dropbtn:hover,
+.dropbtn:focus {
+    background-color: #ff8f06; /* Color change on touch or hover */
+    outline: none;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Foodie Express</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search food...">
+            <button>🔍</button>
+        </div>
+        <div class="buttons-container">
+            
+            <button class="custom-btn">Customer Review</button>
+            <button class="custom-btn">Cart 🛒</button>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="front page.html">Home</a></li>
+            <li><a href="northindian.html">North Indian</a></li>
+            <li><a href="southindian.html">South Indian</a></li>
+            <li><a href="veg.html">Veg</a></li>
+            <li><a href="nonveg.html">Non-Veg</a></li>
+            <li><div class="dropdown">
+                <button class="dropbtn" onclick="toggleDropdown()">Chill outs</button>
+                <div class="dropdown-content" id="dropdownMenu">
+                    <a href="dessert.html">dessert</a>
+                     <a href="juice.html">Juice</a>
+                    <a href="snacks.html">Snacks</a>
+                    <a href="preorder.html">pre orders</a>
+                </div>
+            </div></li>
+        </ul>
+    </nav>
+    <section class="food-section">
+        <h2>Namma Tiffin Spot</h2>
+        <div class="scroll-container">
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//727b530cb87e45ac/desktop-wallpaper-here-s-where-you-ll-find-the-best-dosas-in-chennai-masala-dosa.jpg?Expires=1835971493&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=PHP6PR68O5U3JzGLkj~sN8~4HGEBRqZAaYdr~~ExXee9xFS2iGLgybYk3PVb5ey6sNcz6sODUMm73K27D2h7I0sO8eRJ3ydai1NtPtQ~k8t1nsEc0tkrjrNBjxio-wivvov~Y9bmXvn3EmbvN~iLJYlTZoCMJYHt5WC-kI8cecx5Zhvd7vyJyDofkmTysPz-zlgXhXS3Q0Ca8xMjG8gAAlkeOGlMS~YZexIiUAYLQLIuKlYH~dKyj5uURvX7vJKDdN2mAEii2XYYDfH~GTwVfySYQPW~3TEm2TFIemRaCM1Stp3xwZTGoNFHVbNnQk7T8iph4cHOGJnQDPFAm-ol6A__" alt="Dosa">
+                <h3>Dosa</h3>
+                <p>Thin, crispy crepe made from <p></p> rice and lentils.</p>
+                <span class="rating">4.7★</span>
+                <span class="price">₹100</span>
+                <button class="order-btn">Order Now</button>
+            </div>
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//7ac56576c4714f18/th.jpg?Expires=1835971747&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=tLamAz0HHnFurygeFBnxpHqGIDP~ZxP4Mh7Bvc1H08Paxg-hNjzBan1bY~f1oNSODQbNdguaRr6Ox2gG3LQFxbFgudzT-wSj390HJFbmLh3Aujnfu4JMZ1yWFDY2sH3ZM0a2ooVKvy9hnOfZCreqVBBwxmM-Clk7N9aOOyv06KgiEoBgOhu9cCKLq9g8ac1GA6rSqnKbJuLq8s17pSMh531jBEAjhmwJ7DjhJTzwrzQlMpYPS8OP2BhU3LaPJaoUPTLnIhWB~Odsnq7NtxIYMNXhdxBxamGDLQhIZdjlhafj5ShLoeXwlOAj412K3G4pybZPLT4Lj-yWYBmzF4hRSw__" alt="Idli">
+                <h3>Idli</h3>
+                <p>Soft, steamed rice cakes perfect<p></p> for breakfast.</p>
+                <span class="rating">4.8★</span>
+                <span class="price">₹80</span>
+                <button class="order-btn">Order Now</button>
+            </div>
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//09be2dec4bf44c0e/th.jpg?Expires=1835971774&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=1BsVwK66qh6zavtrkAqY1Q3mAyFlBa5McDFy3jZ7TQVJnE80vSyjTkh4bCk0jXOuWCRCGzuXKqZiejnFgqi0JVPpsoPv-CdRsO8Y7UW25TrSzZlIx45NOD7tkc651nuQ2aAQvslY61O-uBDeka0~LCZT4tkMd0qkWdfsr8AJVzHmg9orCpPRwl5pDVsTrLwnt6pTFfBe3nH~YkWSssya7BiWzIFiMYbeOMaRZx9DtsHuMOiIl7HolzVp-VrW2ofM94L8JJJBZreo9W5GYLIl78xavhPhrQlrOkqxJRlBmzpQJZdvVI8LNMOt2II6E-3uRMWBBBsHXgNIh5ecZuI2xQ__" alt="Sambar">
+                <h3>Sambar</h3>
+                <p>Spiced lentil stew with<p></p> vegetables.</p>
+                <span class="rating">4.6★</span>
+                <span class="price">₹90</span>
+                <button class="order-btn">Order Now</button>
+            </div>
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//a87e404c1d0f4c58/th.jpg?Expires=1835971814&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=v00SvgRY7jxkU2-6rTn-mj40AzqWQFk1Rqao5NcDEAwpxxF9UEom2BtBvcRmw~Cpw0~Kw91XTRqH83eYwEnYJy2Xf1XDF0D2vVKKuxfpk0Kghxq-QcjVyPMM6pS8tA3SopQWgP6F6Zb2lAz8xuA-J~vwM5~qjLIn8ldPtGWce~Q~NLaYdr~-HtUu34j9Psc4aYORuic1G0MbwAQ8jQYVaFPeImPqb99hi~uH0j-FXiZv0ptbdiFfZWGf150JUKdkA7TIRWob~okQrdVUGPneADeFnevY7Zx8haKPxd~ISil~u08m~kKCGyV5Ztf3ovDtQG9WFivaPMnTG8FX8kAgwA__" alt="Vada">
+                <h3>Vada</h3>
+                <p>Crunchy and delicious lentil<p></p> fritters.</p>
+                <span class="rating">4.7★</span>
+                <span class="price">₹60</span>
+                <button class="order-btn">Order Now</button>
+            </div>
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//015b8597b15c4dcf/th.jpg?Expires=1835971831&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=XkUY0ibdHzyeT43RPQxm3xwSk5vxZjLqa50wG~FUxCOdzkmB8z5wb7500nvBTvlbAUtfFzoGDLAP8SL7aWaht6GjcGJQ2majRd24SCAiwJbi7tDnTH0arZeDTg2GP5ZfPs-sKISy0gRHrO5H9xcy0sYMO6cqfrMQvLX4P-P1zMKHCw6iM5gDES7CHWtIrirUm55UZc7uDJsi3~gV15Ki5XfCSWIeJvEb2H20-es7LRXqWYLy7g9Vc1VPCiJKhFnUfaBRIcA0tIFvqAUv5QlkyUmUTLF6jp5LwffciRhI5FNyXujvhBzab6qunVHkdB5rNYQxlC3SMlsipiaCn-UQZA__" alt="Appam">
+                <h3>Appam</h3>
+                <p>Soft-centered, crispy-edged<p></p> rice pancakes.</p>
+                <span class="rating">4.8★</span>
+                <span class="price">₹110</span>
+                <button class="order-btn">Order Now</button>
+            </div>
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//ced3c7cacae24e71/th.jpg?Expires=1835971916&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=yjUzuVN4KCzpnIUilcw4S4ffR5TLVQ9PLrOJl7H7vCD6DB6J8GSdkOMQ4w7aWZ75nA~H2qR3lFaLKk7rrLSVIAR0ncDpHwTI8xvMMUCsmCe7DBTMD63ifOsRl0SbrnhopQaS~n1tVKVynYCVDUD6t2iaaFQ87G6K88~3yzxRHKk~RnCZ2yL5xcYiJcA-TMRw6ORDKq96FpIfI3H0klAOLEzI8Ob0k7jj49ewXBP9O5kvWervPdPdopXM3VPNTqNx94PGlvtjpsHSXnx8OXRH~R9OXkgJjylCxXYpSlK7IGwhUkeFPbdMgEaAdpt-gV8PgGwG~Drcy8lx4je1jmGRiA__" alt="Puttu">
+                <h3>Puttu</h3>
+                <p>Steamed cylindrical rice cake<p></p> with coconut.</p>
+                <span class="rating">4.6★</span>
+                <span class="price">₹70</span>
+                <button class="order-btn">Order Now</button>
+            </div>
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//0d20098c2b764506/th.jpg?Expires=1835971954&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=UxDHIoiECk7PQwguiaK1Yka1h3YfOBGP56SboY4kz6TlfxQiH~C5dy9eKyq1S-UgTlQDDH-I8dK039dqbWU~XEMNEgBTU4qrp1e6hlZyp9785Q9bMsTOmdAKdYdHViys3JIXSNcGzYh0yVYJLhWzeynxqkR4Y8ofXXB6-VTUU0ciln8NCTSbwtTWDwoTfITPtVWUUScwa4E7sE99rXd0VmSzgr~IzCwojJa-zQ3alj0QdBAvKoBWJll77P~5Dho0tkNJQdYF4GuVd15CViUq4~CXkAoPf~ymtR-Vxi6GefEPp~TMHm827iuy6vbzlJJepLC-KCx681Xxw6PfsCvaTQ__" alt="Upma">
+                <h3>Upma</h3>
+                <p>Savory semolina porridge, perfect<p></p> for breakfast.</p>
+                <span class="rating">4.5★</span>
+                <span class="price">₹60</span>
+                <button class="order-btn">Order Now</button>
+            </div>
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//aa4de46d4b69407b/th.jpg?Expires=1835972010&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=F0VAkDV7OfDUcKuyQoshSaU~3a8iF9DevfEMxoXVn6W8t-zyaKIWqOPa7SMk~w3ejWpySQynbHeNIWZUSetBTDh9WgXJlUIhJGMtnSG2D90OuxD-57Umr5KVhGV6vHt6JI0qFxsKvNyTH95WgyGsjysPhaQsOr2Wb9dw9B1zU5LPMIGYXIUH81SGLiK0vdx-1qrGCs3GGlrQqZkjq1JDpwwmvbCV~LH~TH~1yWbu9ixVjuCm3AgsvJuU0z8paq-uCv300CnfamOvLSHM-7EGHF-dMVJT06cA1v6YXcF1tq9rZzQovSgzv5XO~2hsuQVmqll3FhoTniTYAaSYhdj1cQ__ "alt="Pongal">
+                <h3>Pongal</h3>
+                <p>Comforting dish made with rice <p></p>and lentils.</p>
+                <span class="rating">4.7★</span>
+                <span class="price">₹90</span>
+                <button class="order-btn">Order Now</button>
+            </div>
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//81dbe90f37254399/screenshot_1741414482514.png?Expires=1836022492&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=hsCGLAqoqZVn2y3cs6JkURjhsubpOj07bOnQy9MBua-Jxzu1KVGjzdEa5VP5Oej4FMEgrSlkuAeqnWhToeIKmJDVTlkKSN6WgWMVEW3WbvuNCa0KeHq5s6tizXeeasBAH3q0AGvVIDfNDmrI4a3QrK~pSs3WUNv8TCWiBwGewYSv83SkFRTiuAR69xSSm-sOIJ10~73c9hC5WItYpDRCDsgzk0vG7oxxvt2qQWuVEiF7K2bFDVGeYn1NT4xSQ5ic3aWhEtaCenqJrzqaLlB2tWWyp9NIQkeHm1zm38AKUV4~H36UQAjcYrwaRMP5sk8ixsRKoYasvZ1G8rGiW40TjQ__" alt="Bisi Bele Bath">
+                <h3>Bisi Bele Bath</h3>
+                <p>Spicy, flavorful rice dish from<p></p> Karnataka.</p>
+                <span class="rating">4.7★</span>
+                <span class="price">₹120</span>
+                <button class="order-btn">Order Now</button>
+            </div>
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//c0a44f24d30b4c06/th.jpg?Expires=1835972048&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=de8aKupvkCd6F0LlfQ2EsVWWnWkmBOfRNAMipqzVw9nwkv3O1HQewAcIurAVbbK1JOwzgXq~jKejNCrhCqK4NsbY2BD1RSDbjCL2ueIZ2EjdlnA9YOf9wtNlW1WMP-mZm4xonLweBH9cQ0K3SK29UqNF0RmkdFe1KcGf4tQP3wYq-YJqXOoHPuiaD4P1s3t0HdioxHXXjr5RUG~IyB81Bb9t4ddRwdfWnj2MUrCKEiF2z7Hqd1k315h8Fx97pNV9GxVQhET3ppEacwjMtugKAMElMCLYHUroPER2Dcpj6IEaLWa4a~msPlbjnieNQ5Y1axkEIzlp-WRiF7PTCx8qpw__" alt="Chettinad Chicken">
+                <h3>Chettinad Chicken</h3>
+                <p>Spicy, aromatic chicken curry<p></p> from Tamil Nadu.</p>
+                <span class="rating">4.9★</span>
+                <span class="price">₹180</span>
+                <button class="order-btn">Order Now</button>
+            </div>
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//c2dde7d73e134f92/th.jpg?Expires=1835972099&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=2YnGbxDdGlOJXUWzpkOQeYjNewNqWr29GoVw~~bl7wpDvsE2j40x8wohnAHFmT3xSuGzt4FoKpjVgOvvVb45cyA0xql-NjuUHPbJz7H2p1Kjksd4yPxcxyr5OGHbJqmrN-f9yoDsRRlLF1BMmzZXhEr5-33n-ESH~1OxWNRgWB7LmrDVycAqbRjUbLBh~8AolVTOCxbhIODxigK63YR~tLG~xGu7pamGC9TgYkTuQJg2f5xTPBUizf0w0iJboVPSDH3-WwkiOVQhCz7TCWrEbKIDs9zQFHGeMTTLgx0LaTGVfD~~s~8iBi7nl~WLRP6twi5By5rTZXzU5Ub0XQ4PTg__" alt="Parotta">
+                <h3>Parotta</h3>
+                <p>Layered, flaky flatbread best <p></p>enjoyed with curry.</p>
+                <span class="rating">4.8★</span>
+                <span class="price">₹50</span>
+                <button class="order-btn">Order Now</button>
+            </div>
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//bfb457a32fed49d0/th.jpg?Expires=1835972127&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=x0vOUo7WOp6uk7uIJLJtRcg~-jwSjlQkXO9ZsP9curOnS2TGYt-2goGzDWdnz2EDC6jVsTzGj-e-gSinAUyk9wMBSDqTx6viFbCcIMozs6w9bbvnKfqb~9hsmdqMtL~FONlQNErV9sW4fuxuHtZWJGVuxURLOJNuqtcjFBFN4waxbh4TNzprB8~dB5JqmHxtdF7vuTWKZ~GQ-P5gukRwYroHe~rLvfvyKY~Bq8pu09fbstViKbZdE8a6OAzKc6PP-0-UGPAdunM9epacQK3Vkh3aoChEF6BoZmqLLy8fZ-aK953sxekimErSpJLnKxNs9S339D0bSudjydpY~6g5Fw__" alt="Rasam">
+                <h3>Rasam</h3>
+                <p>Spicy, tangy tamarind-based <p></p>soup.</p>
+                <span class="rating">4.7★</span>
+                <span class="price">₹50</span>
+                <button class="order-btn">Order Now</button>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <p>&copy; 2025 Foodie Express. All rights reserved.</p>
+    </footer>
+</body>
+</html>

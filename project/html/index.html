@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie Express</title>
+    <link media="all" rel="stylesheet" type="text/css" href="./styles/index.css">
+    <!-- <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@300;400;600&display=swap');
+    </style> -->
+    <!-- <style>
+        
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('background.jpg') no-repeat center center/cover;
+            color: #333;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to right, #ff512f, #dd2476);
+            padding: 15px 50px;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            font-family: 'Lobster', cursive;
+            font-size: 32px;
+        }
+
+        .right-section {
+            display: flex;
+            gap: 15px;
+        }
+
+        .button {
+            background-color: white;
+            color: #ff512f;
+            padding: 10px 15px;
+            font-weight: bold;
+            border-radius: 20px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 14px;
+        }
+
+        .button:hover {
+            background-color: #ff512f;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: rgba(255, 87, 34, 0.9);
+            color: white;
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+        }
+
+        .hero button {
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 30px;
+            background: white;
+            color: #ff512f;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hero button:hover {
+            background: #ff512f;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #ff5722;
+            padding: 15px 0;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            background-color: white;
+            color: #ff512f;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #ff512f;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .restaurants {
+            padding: 50px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: white;
+            font-size: 14px;
+            margin-top: 30px;
+        }
+
+        /* Dropdown Button */
+        .dropbtn {
+            background-color: #ffffff;
+            /* Golden Yellow */
+            color: #ff512f;
+            padding: 14px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 18px;
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+            display: block;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        /* Dropdown Menu */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 180px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        /* Dropdown Links */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 15px;
+            text-decoration: none;
+            display: block;
+            font-weight: bold;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* Hover Effects */
+        .dropdown-content a:hover {
+            background-color: #e8960a;
+            color: white;
+        }
+
+        /* Show dropdown on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Button Hover & Focus Effects */
+        .dropbtn:hover,
+        .dropbtn:focus {
+            background-color: #ff8f06;
+            transform: scale(1.05);
+            outline: none;
+        }
+
+        /* Navigation Alignment */
+        nav ul {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Slider Wrapper */
+        .slider {
+            width: 80%;
+            max-width: 800px;
+            height: 600px;
+            margin: 30px auto;
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Sliding Images Container */
+        .slider-container {
+            display: flex;
+            /* Enough width to loop smoothly */
+            animation: slideAnimation 10s linear infinite;
+            /* Continuous smooth animation */
+        }
+
+        /* Individual Slide */
+        .slide {
+            width: 850px;
+            height: 750px;
+            flex-shrink: 0;
+        }
+
+        .slide img {
+            width: 50%;
+            height: 70%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Keyframe Animation for Continuous, Ultra-Smooth Loop */
+        @keyframes slideAnimation {
+            0% {
+                transform: translateX(0);
+            }
+
+            16.6% {
+                transform: translateX(-800px);
+            }
+
+            33.2% {
+                transform: translateX(-1600px);
+            }
+
+            49.8% {
+                transform: translateX(-2400px);
+            }
+
+            66.4% {
+                transform: translateX(-3200px);
+            }
+
+            83% {
+                transform: translateX(-4000px);
+            }
+
+            95% {
+                transform: translateX(-5000px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+
+            /* Smoothly loops back */
+        }
+    </style> -->
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <div class="logo">Foodie Express</div>
+            <div class="right-section">
+                <a href="customer.html" class="button">Customer Reviews 🍕</a>
+                <a href="cart.html" class="button">Cart 🛒</a>
+
+                <a href="los.html" class="button">Login</a>
+
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Order Your Favorite Food Anytime, Anywhere</h1>
+        <p>Fast delivery & amazing discounts on every order!</p>
+        <button>Order Now</button>
+    </section>
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="northindian.html">North Indian</a></li>
+            <li><a href="southindian.html">South Indian</a></li>
+            <li><a href="veg.html">Veg</a></li>
+            <li><a href="nonveg.html">Non-Veg</a></li>
+            <li>
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="toggleDropdown()">Chill outs</button>
+                    <div class="dropdown-content" id="dropdownMenu">
+                        <a href="dessert.html">dessert</a>
+                        <a href="juice.html">Juice</a>
+                        <a href="snacks.html">Snacks</a>
+                        <a href="preorder.html">pre orders</a>
+                    </div>
+                </div>
+            <li>
+        </ul>
+    </nav>
+
+    <section class="restaurants">
+        <h2>Today's special offers</h2>
+        <section class="slider">
+            <div class="slider-container">
+                <div class="slide"><img
+                        src="https://media-hosting.imagekit.io//ce089f597efa4f19/Special%20Dessert%20Ads%20-%20Made%20with%20PosterMyWall.jpg?Expires=1836280941&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=dd9e5bcd4ii0mO4uo8YsIWJ9Ba30CI4QFbX--XmrKHlvvMo9-AwtPl1jqEkPmQ6iXKZYKWbCftC2BE37KUUUz~xR4BDMlfqu6P7qOHnOOOrbQafjtwaqiB~nwsSy3FhI8RCTZJx-kPPG3-j75cPBOEZs7Gkvqp1oJ67i1vXxrncHuQKBuorkKgd~JUnLSjxcGOtbFllEhNUreB4k7VsVOZr7kDxbCeUU~VXczrSxCG53uV6rUs0uuKzIZ7ayRvifoyn7o-NvQKszb6K1buN5y7HMqYAWp0jUIpybC3kfWyrolgkK6vAAi5EAO6jRMB8w0RxYxpn-9WzZMVzx0EutoQ__"
+                        alt="Image 1"></div>
+                <div class="slide"><img
+                        src="https://media-hosting.imagekit.io//632f2e8159b449e2/Cake%20advertising%20poster%20-%20Made%20with%20PosterMyWall.jpg?Expires=1836281102&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=wxZtjqHU~rVvWDnEIWkhF9JY6xClXskFwnuABf8jt-R4n86jYJ4TGqijpxHVO3vjE8S1Rt10byOfZmcFFRv6u~ty5lcKZ53QWoZxJo9KOeEdDuqFyvyzjR1QkHpESselGKjb~tti7dlIy6WWnwPm~Ko25kvLlnrFskfHUYND1LvwMnlpYFWtk1xFwnLZls6JFU9KEDZUO6Bhs0io1FbR0d5gzq7bOJe9Yl74rJSazZjJBIvK1Lst2L5VXa9K7ipUGoccR726REKQsHv984pHCjq6iqpIcoPKHWmXPFnk0b~M-L41DhpbPo4WMgFZ3THyOTxlP2kS0ToPmhIGe3V-CA__"
+                        alt="Image 1"></div>
+                <div class="slide"><img
+                        src="https://media-hosting.imagekit.io//298da27c021f4bf7/screenshot_1741673312848.png?Expires=1836281316&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=GxqDZ6lku~AAd3mdhspiYE2kThth2E2yHOzt8KtQ98zM47LThq4pakarJW3knMs2hXi8udrCTwHVQYDj3CxPRXgQiisKayt1VgnWqx24VjvMj9qvOr32WrPdsswluA6OcrtNWg~mBlO7yvIHJxjDOaTGuKMCAaj8n2tal~pX5OeCRpn4UE9Td8eNtCKBMgVWZQ1c8iPRPY391oUDMGjzLrdzLSW7Odw0mieCsWKuzHMg2veb2e9~zQeqQYgWg9luuze0jjJ-qDexOYfeo38bHNZSKKRs1PdFnrhMw-WGCp452CLtOq3qxIBpxRYWADGOid3JWBZ1NKoeCOQu0Eb~cg__"
+                        alt="Image 1"></div>
+                <div class="slide"><img
+                        src="https://media-hosting.imagekit.io//f120b9a9f5224403/screenshot_1741673426016.png?Expires=1836281429&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=VVEkZlrpoaZfGYC4ht5A1a2RU~1IZw6T30zxixvUN3eLkBpd-txNgS~WhQ0U5b4jao4Jf1SHMlMl8Y~OkeNiOVqFUrCqMNWgW0cx3Dvx6n6W89hAO4LYu2IcIiJ4fc0bhXbFLsicAHwYm7sCo6PQOjD73EBX1YSR0Oqr2e6iOTjOcZvv8THOputCJdQQZMvmd7g6~ZBIChn5DunnQnl8hxB5GPPEjStpGTVaxT~Jg2mesWIOMjFaqB~8c-AyCSxHL9EoNntWLiKF~wrQCGakpnng4Z7hHqnJWKapBxDxK6bXnuaGuPXjPdiI51QhSh3qaj46CPGx8Jr2nx8u4yeuTg__"
+                        alt="Image 1"></div>
+                <div class="slide"><img
+                        src="https://media-hosting.imagekit.io//283e2a1b524746d5/24ccc9fa276f0113f7bc79636c079a56.jpg?Expires=1836281575&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=QB~dIrTRx1LoQAfx7AvlkP3Pz8yCLEO0dN~4k5D9zpYeV6Pg9hA6mOyQ8FGwc-ITWCWmP2xqqoqv8qQquH31CAPziCJJYhyBSGu8rSi7pUBK1~lw7O~uTEwx-OOkm6h-31Aj~p3doaCwgMr9lgmkev5KmFYLaKmj3M1VoGEhQzJ71AhSKUncwpzaLHNPceizhZQb-OQ5hqtcjNDY44Sn2L1Dhuiiw~GTDlSKBR-jo7YerH0BbSmNf3v~Ot-XU9PsVxqCzQj4REsTWujwYqDn~xeI4DSnI-yYBL3T6oYfZda0YEyHHq6kdcy64Q1efyYWfZgKUHc9HCy45baQ5l7scA__"
+                        alt="Image 1"></div>
+                <div class="slide"><img
+                        src="https://media-hosting.imagekit.io//17eed96fabdb4b9a/screenshot_1741673641874.png?Expires=1836281645&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=c9CTNtVzG80ZLVL2F~7QLXD~Ts0CFWh3qeytw-87BEPx848iSieuL7ilZW~0vbF5g85q5QdGZRA4D6wBiSIsEvz8JRQtjtSX1chcuLLcMlZ-FhPrSFDjQm5kIzCIn-JoBvOtMaWJaxY6GC2Qk7ju2~l6xHQpj5sW6PVL88-FjcM7tdH5pkinva8mvUImg53GRta2WyLt~W2DyyNsDBqNypXC0goTfyVyMG4O5nC1B~afnSLYjlpkybRrl0ujNVE4HEYeW8Obyhi0MmV4ZQ9IwWOnpTnSCSWuMHyWqLN~-jYPaSvjtSJmoz~O5tv5Ks8G~2DtIoHVPEdvKD159w7glg__"
+                        alt="Image 1"></div>
+            </div>
+
+        </section>
+
+        </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Foodie Express. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
