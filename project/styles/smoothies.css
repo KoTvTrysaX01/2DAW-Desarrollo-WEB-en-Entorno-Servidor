@@ -9,66 +9,16 @@
 
  }
 
- .header {
-
-
+ header {
      display: flex;
-     justify-content: center;
-     /* Center the title */
+     justify-content: space-between;
      align-items: center;
-     background: #16bbe4;
-     /* Darker pink for hover */
-     ;
-     padding: 20px;
-     position: relative;
-     width: 1100 px;
-     /* Allows absolute positioning for right section */
- }
-
- .title {
-
-     font-family: 'Lobster', cursive;
-
-     font-weight: bold;
-     font-style: italic;
+     background: #C0392B;
+     padding: 15px 20px;
      color: white;
-
-     margin-right: auto;
-
-     font-size: 28px;
-     /* Slightly smaller for better alignment */
-
-
-
-
-
-
- }
-
- .right-section {
-     display: flex;
-     gap: 10px;
-     position: absolute;
-     right: 20px;
-     /* Aligns buttons to the right */
- }
-
- .custom-btn {
-     background-color: #C62828;
-     color: white;
-     padding: 10px 15px;
-     font-weight: bold;
-     border-radius: 5px;
-     text-decoration: none;
-     display: flex;
-     align-items: center;
-     gap: 5px;
-     cursor: pointer;
-     transition: background 0.3s ease;
- }
-
- .custom-btn:hover {
-     background-color: #e64a19;
+     position: sticky;
+     top: 0;
+     z-index: 1000;
  }
 
 
@@ -83,23 +33,6 @@
      width: 200px;
      border-radius: 5px;
      border: none;
-     position: absolute;
-     left: 50%;
-     transform: translateX(-50%);
- }
-
- .search-bar {
-     position: absolute;
-     left: 50%;
-     transform: translateX(-50%);
-     /* Centers the search bar */
-     display: flex;
-     align-items: center;
-
-     padding: 5px;
-
-
-     justify-content: space-between;
  }
 
  .search-bar button {
@@ -108,19 +41,27 @@
      border: none;
      border-radius: 5px;
      cursor: pointer;
-     transform: translateX(380%);
  }
 
- .search-bar button i {
-     color: #29B6F6;
-     /* Light Blue Search Icon */
-     font-size: 18px;
 
+ .buttons-container {
+     display: flex;
+     gap: 10px;
  }
 
- .cart {
-     font-size: 24px;
+ .custom-btn {
+     padding: 10px 15px;
+     background: #F8E9D2;
+     color: rgb(0, 0, 0);
+     border: none;
+     border-radius: 5px;
+     font-weight: bold;
      cursor: pointer;
+     transition: 0.3s;
+ }
+
+ .custom-btn:hover {
+     background: #D4AF37;
  }
 
 

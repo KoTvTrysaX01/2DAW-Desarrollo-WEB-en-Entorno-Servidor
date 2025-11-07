@@ -27,9 +27,7 @@
       font-weight: bold;
   }
 
-  h2 {
-      color: #1dd526;
-  }
+
 
   .search-bar input {
       padding: 8px;
@@ -67,6 +65,9 @@
       background: #D4AF37;
   }
 
+  h2 {
+      color: #1dd526;
+  }
 
   nav {
       display: flex;

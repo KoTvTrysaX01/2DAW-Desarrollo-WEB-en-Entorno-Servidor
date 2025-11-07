@@ -9,80 +9,60 @@
 
  }
 
- header {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     background-color: #ff9800;
-     padding: 10px 20px;
-     color: white;
-     position: sticky;
-     top: 0;
-     z-index: 1000;
-     height: 60px;
-     /* Adjust header height */
- }
-
- .logo {
-     font-family: 'Lobster', cursive;
-     font-size: 28px;
-     /* Slightly smaller for better alignment */
-     font-weight: bold;
- }
-
- .search-bar {
-     display: flex;
-     align-items: center;
-     background-color: white;
-     border-radius: 5px;
-     padding: px;
-
- }
-
- .search-bar button {
-     padding: 8px;
-     background: #d84315;
-     border: none;
-     border-radius: 5px;
-     cursor: pointer;
-     transform: translateX(120%);
- }
-
- .search-bar button i {
-     color: #29B6F6;
-     /* Light Blue Search Icon */
-     font-size: 18px;
-
- }
-
- .search-bar input {
-     padding: 8px;
-     width: 150px;
-     border: none;
-     outline: none;
-     border-radius: 25px;
- }
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #C0392B;
+    padding: 15px 20px;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
 
- .buttons-container {
-     display: flex;
-     gap: 10px;
- }
+.logo {
+    font-family: 'Lobster', cursive;
+    font-size: 32px;
+    font-weight: bold;
+}
 
- .custom-btn {
-     padding: 10px 15px;
-     background: #F8E9D2;
-     color: rgb(0, 0, 0);
-     border: none;
-     border-radius: 5px;
-     font-weight: bold;
-     cursor: pointer;
-     transition: 0.3s;
- }
+.search-bar input {
+    padding: 8px;
+    width: 200px;
+    border-radius: 5px;
+    border: none;
+}
 
- .custom-btn:hover {
-     background: #D4AF37;
- }
+.search-bar button {
+    padding: 8px;
+    background: #d84315;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.buttons-container {
+    display: flex;
+    gap: 10px;
+}
+
+.custom-btn {
+    padding: 10px 15px;
+    background: #F8E9D2;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.custom-btn:hover {
+    background: #D4AF37;
+}
 
 
 
