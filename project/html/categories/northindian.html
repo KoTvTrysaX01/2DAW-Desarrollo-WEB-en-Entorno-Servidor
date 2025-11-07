@@ -5,324 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foodie Express</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f8f8;
-
-            background: url('northbg.png') no-repeat center center/cover;
-
-        }
-
-        .header {
-
-
-            display: flex;
-            justify-content: center;
-            /* Center the title */
-            align-items: center;
-            background-color: red;
-            padding: 20px;
-            position: relative;
-            width: 1100 px;
-            /* Allows absolute positioning for right section */
-        }
-
-        .title {
-
-            font-family: 'Lobster', cursive;
-
-            font-weight: bold;
-            font-style: italic;
-            color: white;
-
-            margin-right: auto;
-
-            font-size: 28px;
-            /* Slightly smaller for better alignment */
-
-
-
-
-
-
-        }
-
-        .right-section {
-            display: flex;
-            gap: 10px;
-            position: absolute;
-            right: 20px;
-            /* Aligns buttons to the right */
-        }
-
-        .button {
-            background-color: #ff5722;
-            color: white;
-            padding: 10px 15px;
-            font-weight: bold;
-            border-radius: 5px;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .button:hover {
-            background-color: #e64a19;
-        }
-
-
-        .logo {
-            font-family: 'Lobster', cursive;
-            font-size: 32px;
-            font-weight: bold;
-        }
-
-        .search-bar input {
-            padding: 8px;
-            width: 200px;
-            border-radius: 5px;
-            border: none;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .search-bar {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            /* Centers the search bar */
-            display: flex;
-            align-items: center;
-
-            padding: 5px;
-
-
-            justify-content: space-between;
-        }
-
-        .search-bar button {
-            padding: 8px;
-            background: #d84315;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transform: translateX(380%);
-        }
-
-        .search-bar button i {
-            color: #29B6F6;
-            /* Light Blue Search Icon */
-            font-size: 18px;
-
-        }
-
-        .cart {
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #333;
-            padding: 10px;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 15px;
-        }
-
-        nav ul li {
-            display: inline;
-        }
-
-        nav ul li a {
-            background-color: #ff5722;
-            color: white;
-            padding: 10px 15px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: 0.3s ease-in-out;
-        }
-
-        nav ul li a:hover {
-            background-color: #e64a19;
-        }
-
-        .food-section {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .scroll-container {
-            display: flex;
-            overflow-x: auto;
-            gap: 20px;
-            padding: 10px;
-            white-space: nowrap;
-            scroll-behavior: smooth;
-        }
-
-        .food-item {
-            flex: 0 0 auto;
-            width: 250px;
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-align: left;
-            position: relative;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .food-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .food-item img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        .rating {
-            display: inline-block;
-            padding: 5px;
-            background-color: green;
-            color: white;
-            border-radius: 5px;
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        .price {
-            display: block;
-            font-size: 16px;
-            font-weight: bold;
-            margin-top: 5px;
-        }
-
-        .order-btn {
-            background-color: #ff5722;
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            font-size: 14px;
-            cursor: pointer;
-            border-radius: 5px;
-            width: 100%;
-            margin-top: 10px;
-            transition: 0.3s;
-        }
-
-        .order-btn:hover {
-            background-color: #e64a19;
-        }
-
-        .dropbtn:hover,
-        .dropbtn:focus {
-            background-color: #ff5755;
-            /* Color change on touch or hover */
-            outline: none;
-        }
-
-        .wishlist {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 20px;
-            cursor: pointer;
-            color: red;
-        }
-
-        img {
-            width: 350px;
-            /* Adjust width as needed */
-            height: 250px;
-            /* Adjust height as needed */
-            object-fit: cover;
-            /* Ensures the image is cropped properly */
-            border-radius: 10px;
-            /* Adds rounded corners */
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-            /* Adds a soft shadow */
-        }
-
-
-        footer {
-            text-align: center;
-            padding: 10px;
-            background: #333;
-            color: white;
-            margin-top: 20px;
-        }
-
-        .dropbtn {
-            background-color: #ff5722;
-            /* Same as other menu items */
-            color: rgb(255, 255, 255);
-            padding: 10px 15px;
-            font-size: 16px;
-            font-weight: bold;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            text-align: center;
-            width: 100%;
-            display: block;
-        }
-
-        /* Dropdown menu styles */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: white;
-            min-width: 150px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-            border-radius: 5px;
-            z-index: 1;
-        }
-
-        .dropdown-content a {
-            color: rgb(255, 255, 255);
-            padding: 10px 15px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #ddd;
-        }
-
-        /* Show dropdown on hover */
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        /* Fix alignment in navigation */
-        nav ul {
-            display: flex;
-            align-items: center;
-            /* Aligns all buttons properly */
-            gap: 10px;
-        }
-
-        h2 {
-            color: #ff2f2f;
-        }
-    </style>
+    <link rel="stylesheet" href="../../styles/northindian.css">
 </head>
 
 <body>
@@ -368,7 +51,7 @@
         <h2>Naan-Stop Delights</h2>
         <div class="scroll-container">
             <div class="food-item">
-                <img src="https://media-hosting.imagekit.io//b1753b9d9ad14c76/th.jpg?Expires=1835796419&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=CGBCKTyh0EZ1WXD5tVWUmLLexGKiPCsDXgwYgVS7NKcfGOowcPHetTRdDLAwzANZk9DJuQh62bLbeL73pe206ySmpvyzj~FLBNP3N9ZxJaZWJB2Wu0IrAHGv9IjvhcFp7~RC5pAifpORQSNIRIsrpHpwp~JtnDTiFfB3w7ki3tiDI53kpRTSyX~~BiXoPJIcOluUIbcLeQ2CXoGBi7bzpbJ6Cp8C6vnC1Vuofx1R-JMAj904~F9u0wfpQHam80Pg6j3pEO3lTvj7eBOl5W24dwZ3GVdeYNzQYEEcwNm5BCpxBj5g2onxkmrb36hV-0h2PwCt4RElElsVgXjKWGugDA__"
+                <img src="../../assets/ice-cream/geleto/Banana_Splite.png"
                     alt="Aloo Gobi">
                 <h3>Aloo Gobi</h3>
                 <p>Cauliflower and Potatoes cooked
@@ -379,7 +62,7 @@
                 <span class="wishlist">❤️</span>
             </div>
             <div class="food-item">
-                <img src="https://media-hosting.imagekit.io//c75358604a0447ed/th.jpg?Expires=1835796503&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=1KSOnUu4tJm5hXj6oJrJlP4J6keWlhDUxuaoXJNo8sPGbc7iDa9gbtMd2QfkShA9y1WhqGRxegvimPUjLmYBJdhhHqAqNB1CzqoBff9VmdVBdo91UE26DjH06xa9mrX6c7U~XRpoLTUabw-rfssFMw9KxAiy~pZ1JFxRmfT5UDI5e5kYZn7sl3nAaRRUYFf3ViiUh9XgaWJCN9SWZQeeyqX8xPYHLJGyx~QQC4DeCcM6XejvVRmqyjC34d9sgF9YHgZIiss6HZKaR~Bg76E1FGUJ5PFHIHwxSBc8hlrPz29CzwQHVrw7pYvAS9NjFHZmjUEMbnd3zvN~YwZ5Im1N3g__"
+                <img src="../../assets/ice-cream/geleto/Bombón_Praline.png"
                     alt="Bhindi Masala">
                 <h3>Bhindi Masala</h3>
                 <p>Spiced Okra dish with onions
@@ -390,7 +73,7 @@
                 <span class="wishlist">❤️</span>
             </div>
             <div class="food-item">
-                <img src="https://media-hosting.imagekit.io//4b523f928805401a/th.jpg?Expires=1835796545&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=WtdpvjH1-0mkrnRYI-HVfbli0PbJxWuoFvw8snEck2bTaL2sk~2WQlLEnbGL74R1Egs79x1UG07rytnqxzPkNcQG~MdFuSeEReRyfXOPGNc9Eq2viy8kKRrN-QFZW6ch0NAlQfklOy2rlBDBMQ1qfKQ2aOa1n7Ju-oPa0AugQEFaUT-Tq2Ck92aJgvvbya-HO1XqmT6OHGHgY19-zTuLlEQEpbuNi9fcTjT2hlBNaMkExRZHvnThwoaSW8tOjVwRW6ivHSd6wkaR~30F3iiqfKVNYVv4C~8TDnETqdCYsfQEVZihRz2a0Md7hxQ8ywrZJK63sx1hLaHWgK3F5Xl2iA__"
+                <img src="../../assets/ice-cream/geleto/Cherry_Vainilla.png"
                     alt="Aloo Paratha">
                 <h3>Aloo Paratha</h3>
                 <p>Stuffed potato flatbread served
@@ -401,7 +84,7 @@
                 <span class="wishlist">❤️</span>
             </div>
             <div class="food-item">
-                <img src="https://media-hosting.imagekit.io//b2b77789c07d4661/th.jpg?Expires=1835796581&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=QTqCRsYXoGPwXV1qaTuEZI1nCDErHWN0Xq8KZ9ugwkr5ItpBteblvrjvKJwadF10ggMnHygzZQg9Xq4q2-JdUb03tSR~Vr5WselwbRF5VfQdcP~bcDF9hGdsC0rq~OGLNeY0uokd2G8xge2IZdfOC6381LxlWIBtUUsuMVKpffLhwfum0SRL8vRVVx1qb2WE85mmMzEu9jlOSmocH8FGApNNbEjXgzAslru3mIzi4BLEHfLDYZ~hVWnTBR7cp5~fh0ecT-vtokKfUxmK8my-AWwSzseK4Fsd-P5~Hk260LSTtkrP~UCDcb1IsN8ctwHgj7HEi4PKE46dFQFc~5qr0g__"
+                <img src="../../assets/ice-cream/geleto/Chocolate_Dubai.png"
                     alt="Rajma Masala">
                 <h3>Rajma Masala</h3>
                 <p>Red kidney beans cooked in
@@ -412,7 +95,7 @@
                 <span class="wishlist">❤️</span>
             </div>
             <div class="food-item">
-                <img src="https://media-hosting.imagekit.io//6cde8dc911a24315/th.jpg?Expires=1835796605&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=etUrnFE2bITcnFsdIZegrn7HIpLsQ2T0PMTMeRBKwfrRcoW9T-NuDkUWgdtXKmggQ1fg1ypnCYPSs1Vw6FQfCcHwQLnExw~Je1ERFZ17DveN0v-yirUvBODn~IGBZ1I2FnSl~aHPHrwurahQ8QUVuDa~RkNeDhfzl1ssxtOe5HuLZCSBSTkf7HFpIv6DLxlYFpdzaqX9s8JO8dAQIRIKB7KXdoBLjv8YXgZYaCvOpxFLI~UTE8tefxLk~8QeQHdAI7LBTtmh2VoXUb0moOgO8MJ4R~W2k4GB~ybGi3lvafpWJIF1Jifo3vlaHTtaI~EiXzaRa0CAQU8Hh6QvJbD9Wg__"
+                <img src="../../assets/ice-cream/geleto/Coco_Rock.png"
                     alt="Malai Kofta">
                 <h3>Malai Kofta</h3>
                 <p>Paneer dumplings in creamy
@@ -423,7 +106,7 @@
                 <span class="wishlist">❤️</span>
             </div>
             <div class="food-item">
-                <img src="https://media-hosting.imagekit.io//e5227f0aa0ad4cc0/th.jpg?Expires=1835796635&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=n2SNbdjPoJjTEiNdEPOzYvBenuRchD19hlwWb8eDgYQzSAzUFRK3qf69cw8gWjsegjk6fNrxtF~3ZDgi-D8HqbtKagbT3gOKDQ02pBNEwQjvfRuJV5YwKFvSqhZ1kmQDnRt0mdGYjdtCDJdedpoMOTSIT6hnMz~dfdnCBShLHmu5x1sbkXbz2lo1OsvHrBBM6hmdxpvk6G6xegYANiE6gO1qITzga69OB8rg0vQBAjZ1Kz3FutF0vUHy0kTx8qMzCLftxLigCHwvdQBy0hXIsihdIxICIB522FOoKaQDRgrBI-YQVlWv5dpb4m4v8L4xzHvTsmvWbWn3dB4LSvPfaw__"
+                <img src="../../assets/ice-cream/geleto/Cookies_&_Cream.png"
                     alt="Kachori">
                 <h3>Kachori</h3>
                 <p>Flaky deep-fried snack stuffed
@@ -434,7 +117,7 @@
                 <span class="wishlist">❤️</span>
             </div>
             <div class="food-item">
-                <img src="https://media-hosting.imagekit.io//bfc49b73def14dcd/th.jpg?Expires=1835796652&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=tmoCvpMx~bzkVr5rqOcirq9Ai0kXLw-OTHTxaQvlehlqkMnHenEC98uEIv1p1eiVsCGJqcRUtFWaMVbQXtwauB71okGipuvMsKOH398z3ARMmWHdbDaUOVH6kjqNXJXX9WqiEIYWC8LqL-MWdTC9YWj-NYszdPK2J1L5-E~ODpbra0RKnDuKkswZrdLKi2ylk2hNzLWfBgkg3WnH4BxGswCpa0akA9~iBd-yBh5ROxYmin9FI-oEUEDxmgojB3~w4EV2Si4nKjV9hi9uzaJ6OW~k0MYs7iZgQePNUBzND6oLvuIOHJ3keCEBppkIZDJmAeC165N7DluJjgmll4~6EQ__"
+                <img src="../../assets/ice-cream/geleto/Cremino_Tropical.png"
                     alt="Dum Aloo">
                 <h3>Dum Aloo</h3>
                 <p>Baby potatoes in rich tomato
@@ -445,7 +128,7 @@
                 <span class="wishlist">❤️</span>
             </div>
             <div class="food-item">
-                <img src="https://media-hosting.imagekit.io//ded26124f459409a/th.jpg?Expires=1835796673&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=kMHQvgXwEHcdtroVkRvmTvr6L0ErL~S4T~87s3lIGJPaxFkHcuwUDLhDJl1fpOnBJhT0b9-60vGIJzqDg85GNfRyosizqNI0mg8Jhkten8J-qKd-oc1Qx-PSr7gAx7R2~tn3im58N2fsa3ZDqgxSq4FefOIk9Bm~naGS~3j00gcE98171Wc4cK~RtQXScR82Djkbz2HSLb2Ae1CHe~PxcD1UIdA8Qe4UhESJedtFwNc5l~mJRJ6IIZk8gQn~9NhoAT0G34oYRujuaUksSnx8KLltMhdTzDVUJ~3hfj3Z5dxAIfrQ8i3ozo5r2GTg2RdEu8VFg3J2tjf~QxWpIToo~w__"
+                <img src="../../assets/ice-cream/geleto/Dulce_De_Leche.png"
                     alt="Dal Baati">
                 <h3>Dal Baati</h3>
                 <p>Traditional Rajasthani dish
@@ -456,7 +139,7 @@
                 <span class="wishlist">❤️</span>
             </div>
             <div class="food-item">
-                <img src="https://media-hosting.imagekit.io//183e58fd839846bc/th.jpg?Expires=1835796691&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=gCjXXt0~yGyMPVqxUvO8vLTP7aCT3JZqnOYeoovr1~TFbQttJQ2h0bBmY01tjMOfUZrhRKwyN4KzpBkIGSvAs34AErShZjgiuPnjv849MSJP9QRKUCjKEG1LusJ8gKSgaviy~3fSdG4kEy0DYRrrTO73dDh4Ggh9yCMgzELIo~nmjS6Qw1GdHq80DhQ35ENQSZaox-p3Ws9dg9T4YJM~k2freQSspLOcnPn8LFf5c6JHIi-k0xnLvE7w5-iM9g5nuPK7moHH3EH9DcKXuZAMWEyQwPtQfwc0px7oP4NIYl7ZAwQABzkz2zkj83u5sFQE6GijP-mXWZTJZPa8IW2Vyg__"
+                <img src="../../assets/ice-cream/geleto/King_Bueno.png"
                     alt="Dhokla">
                 <h3>Dhokla</h3>
                 <p>Steamed gram flour cake,
@@ -467,7 +150,7 @@
                 <span class="wishlist">❤️</span>
             </div>
             <div class="food-item">
-                <img src="https://media-hosting.imagekit.io//882dc19626934b5a/th.jpg?Expires=1835796704&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=kmPIsO12VikotC1wwdFHOWJ3dypu6F1A7-gSQfkipGzeWZ8DxMij2Q7V9v1kODHammu9Ojkbe3OBj0PbEXWYifvq7~Z0JNsEZylBH9hoDYV-~WvrvyGt5OYXhMU3KvTdh2eK3Qz~Hq1J-aXMl7KaHyeuV0dOCKrhLo1o0QLYbqLaZwNvr4FByzOBIlMfDY8F90xueEpa9w~ba5iM2a7OJvp0j770S7Fl2~GexXouhURHb2RxH3T3cXTMNCThF07w6pZouZky4O9wGbWm97c35Fut0X-4ovot0timABZm84tiEo6I3awNn~0Pv-KvoBkwNHWMizbzkOIzxMeQrcOlAw__"
+                <img src="../../assets/ice-cream/geleto/Lemon_Pie.png"
                     alt="Samosa">
                 <h3>Samosa</h3>
                 <p>Spiced potato-filled deep-

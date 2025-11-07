@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+
+            background: url('../assets/indian/northbg.png') no-repeat center center/cover;
+
+        }
+
+        .header {
+
+
+            display: flex;
+            justify-content: center;
+            /* Center the title */
+            align-items: center;
+            background-color: red;
+            padding: 20px;
+            position: relative;
+            width: 1100 px;
+            /* Allows absolute positioning for right section */
+        }
+
+        .title {
+
+            font-family: 'Lobster', cursive;
+
+            font-weight: bold;
+            font-style: italic;
+            color: white;
+
+            margin-right: auto;
+
+            font-size: 28px;
+            /* Slightly smaller for better alignment */
+
+
+
+
+
+
+        }
+
+        .right-section {
+            display: flex;
+            gap: 10px;
+            position: absolute;
+            right: 20px;
+            /* Aligns buttons to the right */
+        }
+
+        .button {
+            background-color: #ff5722;
+            color: white;
+            padding: 10px 15px;
+            font-weight: bold;
+            border-radius: 5px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #e64a19;
+        }
+
+
+        .logo {
+            font-family: 'Lobster', cursive;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .search-bar input {
+            padding: 8px;
+            width: 200px;
+            border-radius: 5px;
+            border: none;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .search-bar {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            /* Centers the search bar */
+            display: flex;
+            align-items: center;
+
+            padding: 5px;
+
+
+            justify-content: space-between;
+        }
+
+        .search-bar button {
+            padding: 8px;
+            background: #d84315;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transform: translateX(380%);
+        }
+
+        .search-bar button i {
+            color: #29B6F6;
+            /* Light Blue Search Icon */
+            font-size: 18px;
+
+        }
+
+        .cart {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            background-color: #ff5722;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            background-color: #e64a19;
+        }
+
+        .food-section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .scroll-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 10px;
+            white-space: nowrap;
+            scroll-behavior: smooth;
+        }
+
+        .food-item {
+            flex: 0 0 auto;
+            width: 250px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .food-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .food-item img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .rating {
+            display: inline-block;
+            padding: 5px;
+            background-color: green;
+            color: white;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .price {
+            display: block;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .order-btn {
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .order-btn:hover {
+            background-color: #e64a19;
+        }
+
+        .dropbtn:hover,
+        .dropbtn:focus {
+            background-color: #ff5755;
+            /* Color change on touch or hover */
+            outline: none;
+        }
+
+        .wishlist {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            color: red;
+        }
+
+        img {
+            width: 350px;
+            /* Adjust width as needed */
+            height: 250px;
+            /* Adjust height as needed */
+            object-fit: cover;
+            /* Ensures the image is cropped properly */
+            border-radius: 10px;
+            /* Adds rounded corners */
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            /* Adds a soft shadow */
+        }
+
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+            color: white;
+            margin-top: 20px;
+        }
+
+        .dropbtn {
+            background-color: #ff5722;
+            /* Same as other menu items */
+            color: rgb(255, 255, 255);
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+            display: block;
+        }
+
+        /* Dropdown menu styles */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 150px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: rgb(255, 255, 255);
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        /* Show dropdown on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Fix alignment in navigation */
+        nav ul {
+            display: flex;
+            align-items: center;
+            /* Aligns all buttons properly */
+            gap: 10px;
+        }
+
+        h2 {
+            color: #ff2f2f;
+        }
