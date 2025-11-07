@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie Express</title>
+    <link rel="stylesheet" href="../../../styles/smoothies.css">
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <div class="title">Foodie Express</div>
+
+            <div class="search-bar">
+                <input type="text" placeholder="Search food...">
+                <button>🔍</button>
+            </div>
+
+            <div class="right-section">
+                <button class="custom-btn" onclick="location.href='../../special/customer.html'">Customer
+                    Review</button>
+                <button class="custom-btn" onclick="location.href='../../special/cart.html'">Cart 🛒</button>
+            </div>
+        </div>
+
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../icepops.html">Ice-Pops</a></li>
+            <li><a href="../gelato.html">Gelato</a></li>
+            <li><a href="../alfajeros.html">Alfajeros</a></li>
+            <li><a href="../chocolate.html">Chocolate</a></li>
+            <li>
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="toggleDropdown()">Bebidas</button>
+                    <div class="dropdown-content" id="dropdownMenu">
+                        <a href="milkshakes.html">Milkshakes</a>
+                        <a href="jugo.html">Jugo</a>
+                        <a href="#">Smoothies</a>
+                        <a href="preorder.html">Pre Orders</a>
+                    </div>
+                </div>
+            <li>
+        </ul>
+    </nav>
+    <section class="food-section">
+        <h2>The Crunch Bunch</h2>
+
+        <div class="scroll-container">
+
+
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//5c1ddffa4c964dd3/th.jpg?Expires=1836226676&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=o2bK5q7g4xsm3E5oA~SJ5TxXSOtXM81BIbhWbCJkue4fe559qfhJIh7JJpWIxX6y2W5hoUgIwXJbab66bJ6Sn9Og4RLEpGQI6rJWXO~GswzMY3INWv2p-Rfg8mLTFYHAemtdtcVzJiFiJcobk6nRZRhmtoqByO7JsZTNM3xrkmR3PdHRXAgJaQQ8x6UHeyRQfGo-erVxgVgX3HTVIcoRKoLuGBmb2N3I6U3-3UbDK~IunZdp0OaZBOQ60eXQJJiyf-hDSdUPHYoRZ0mVm0js~9iYQs5ql67EGZW3I9ZLc-D6SPnfPqPsQkzoelyeV~TonIyJulsQ4SQWg92WyQGuvw__"
+                    alt="Pakora">
+                <h3>Samosa</h3>
+                <p>Spicy and crispy potato-filled
+                <p></p> delight</p>
+                <span class="rating">4.8★</span>
+                <span class="price">₹30</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//d1063f6b93a0454e/th.jpg?Expires=1836226699&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=XKq2b2GOAAk91Ku0bLZx9zj0qaIYIVtvh-YrFS33iKvvoWqHp0TtvGi1MBCcRP1T~SiSmyOSCCx-oFITeH1t2h3eHjFpvsc1FEcXqpjUg7UfcCgMnrQLUItwWtJAn9POl7liqx3oEbDH8pEeKnD6kk46Schbm9wilWTxgHcoHadFI7GlaltrZPmoa~2mKBzST5tLthowCpzTcwRgH9LPEwIr0mUkXvTpKw21rCFRdgZVSUaFVLXn8DFhymLvZe2AA5RxzBgWFp89-bSRbvNKNAloGh-PIrQlyavgMZ7TH8-Mbzeqosue90NImbbMaG1pkD-rg~22FTxHjyspe9cmng__"
+                    alt="Pakora">
+                <h3>Pakora</h3>
+                <p>Crispy and flavorful deep-fried
+                <p></p>fritters</p>
+                <span class="rating">4.7★</span>
+                <span class="price">₹40</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+
+
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//316e92151cd04aa6/th.jpg?Expires=1836226719&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=LTRO6mnLJKymCr5L62DRQn2FMghJ9FaaqwkUNXQsD~m2KL0fJzcGwd4QHlCotuaWBLII4zxOl-WG41hMhiTJIf8MMaXIa0iM5YQf2bh~M0rwmac6Tsx5LXFym8l2xuHLrtVeR~lBWIgRS-roTXGYRWfMpcqKVn5ZUgPqJVpsE58GGy2ZxPqVF-4OMg0Dtfw4FXBkW5YasIAuhjdikhE6gUUa1jSezENahoq1N2oFZW46zyBcmU~ZTU9sJaHcewoSpF6RbeXOF6Qnbu2CySBg4Ew~2yXr3ihrxhssz4lIlLyOF2-v0nvE-cIa7KeGhgH~SoCAIhm3Xj7aUdPsp58rGw__"
+                    alt="Masala Puri">
+                <h3>Masala Puri</h3>
+                <p>Spicy and tangy street food
+                <p></p>sensation</p>
+                <span class="rating">4.9★</span>
+                <span class="price">₹50</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//7dad56fba7c5454a/th.jpg?Expires=1836226737&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=U8HRZ1817xzwqLUImW47gxx7lOariuo3lix24yhZ~-2v4~AYUc-~fISTYmhkHHWEI0oxuSgLpNnToCNDhKXcq2G2GaM4eMUDZM7W5sF2iHmvxG6SdSm8XgetBhndYkB0cefSIvr4CREZne-cebHHvuJEVQoVf6AmZFLYbHC6HOEphhyuUsqITYbigSoroM-taPgp0xy2SCcyJsq787SipXz2mp2ttIs4Y7YmWPodKSbCM0EMx19is2Ruc8Z-uDnoboCJDnq6y0MyhHZpOAQlIYWM3fIyZOH95e7cE0KhiyaJfi~HI0Ltwdjrb8REl-VNVSSz1B3T~6s2Hy8lj6PFDw__"
+                    alt="Pani Puri">
+                <h3>Pani Puri</h3>
+                <p>Crunchy puris filled with spicy
+                <p></p>tangy water</p>
+                <span class="rating">4.9★</span>
+                <span class="price">₹40</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//b8e732b296044e4b/th.jpg?Expires=1836226758&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=loIbM-gQE5cYuqRo0sfHC7MCfdoYcow~BhxKuA1dd7NWborAMsC-wmpXFCRXeUcLglBKiYNlmqlo~hv63S1sMqVSuXU8r21u77t4K0z4y9Cl2h0hybok96Cb3UJNIiGrjt1SJNFY8Vy7EjAQDM7PwDaJhs8nYkf94LwPbXXWyeDKEQOUcK1IM5noWNIi0tgD1TflZsMJRlHT58xAXn7qIJdjh8dXewc4W5R~YShmO0-XhErrqxmqDqO0y513p7behHdc~W2NyTndxxiFTskJw1YweY55UXrouGYGkwObQ7YxJxk3lFjb3q5oGDn5M--zv~vSHJk2Gg~XFm1l5gYOaw__"
+                    alt="Bhel Puri">
+                <h3>Bhel Puri</h3>
+                <p>Light and tangy puffed rice
+                <p></p>snack</p>
+                <span class="rating">4.8★</span>
+                <span class="price">₹45</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//a549653d1f17466e/th.jpg?Expires=1836226777&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=QVfxsYUCXjV8XXHjctISYXFXGjnic7cYUf5K~zmEeNaI8JUiKN0GiZIGTPXlwezB7zMt3xUSGmUHKfVynLWB73GYqnTawlnuctDLzpOzlFui0iLGx5mN-by8-R1yHcQ3IOupFLe9Gw7A7BZo2M1h-4DMrmTFpAWFpVREC6YRIB3UV4t7jCKSsPccgZHhSerxdpZrIkYnrBuYipsGE7Aej-XZxyVnP9HRwL8ilYjJe-ZFdF84WtJUxV-3~J2vXn3l91AdvZryq5jkzVcpy-wN5sO5sonmmaBB9~kobd9UiPm1q5f-PBhFZVXKaaGAACDLxdH1IjGdAZe-I9azzaeTLg__"
+                    alt="Dhokla">
+                <h3>Dhokla</h3>
+                <p>Soft and spongy fermented rice
+                <p></p> cakes</p>
+                <span class="rating">4.7★</span>
+                <span class="price">₹55</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//a467de11cec64a99/th.jpg?Expires=1836226812&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=C-qtMB15vlta9mEVoWOgtFtNT~gtw2QerYh3X~-bsUa2dtjg3RqaMdBEPIuWdXLUb5DWcSt6~ygC5-qraZzGKARGJNwZQIKUZh-nFin6Y6oVVpQBXvCIJGD0MnMAEgl4sfOnZoGcSjYg28gYjiCNOQDVOaDxW3frpKiPxDER--idBko~4xJPHI9b8LVXftxTT1SsxdyRZAtJJp9aX79OibuPuvAxrQtpJY1GmqnstxoiiKGCBKEwY5UkKx1qcKd5RQje0bvreFTwAjlWqzFqBJfReihiRIoS7DX~M6~7iUNFODS5ucatQEd9ZPNyfi3z6DEKJFL4SYbdR7MNVS~v~g__"
+                    alt="Vada Pav">
+                <h3>Vada Pav</h3>
+                <p>Spicy potato patty in a soft
+                <p></p> bun</p>
+                <span class="rating">4.9★</span>
+                <span class="price">₹35</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//9ee667776b024722/th.jpg?Expires=1836226823&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=JrOCcsCUI2nGVaTONa6SCy0o3htpM7fuibYaUj3mTY2o3XG97WpQYhu1ajrqhmBWeYJ-zzdaC1HHQN5K5JFV91aEEFHPyP~FHYsMnlTnFBCRZcqLZJg~w42gcBtRwg9Eb9~AgVtqXys20IsUtEHO0pgOSUybZwO4o9Xr-5is3~tCPABmsK0bb9FxrXCGhG5yMR195XbgXw3fkhzZEwCZl8-XrkwtezmHhYdzSXnPzYs0Z066SDBSBFXMFTez4o8D07GOnwNcrIFpbsnWVEbbflW02KoJMxO32A0wIAFh6v1oE6G2DhNbPq0eEezV4O4bqfaOt9ViOX9JEzucKDPbSQ__"
+                    alt="Onion Rings">
+                <h3>Onion Rings</h3>
+                <p>Crispy golden battered onion
+                <p></p> slices</p>
+                <span class="rating">4.6★</span>
+                <span class="price">₹70</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//ec815391749b45d9/th.jpg?Expires=1836226853&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=0JzymAyh5hQxufBBy3LIHr6DjOzt-XtxealdjQJoPj89bnBh9RojYGQ07wpWtwVXoTkWtDMEfLb9o2hh-3X6n3~jda~aDmUjebNWgFelHxQXQY9vF01qXu7oT8pwZCWra6Y49RkvqF2qHtAmMVL~z6mq4ift25LbsnIb3xqJm1ZvJWb~LaDVZK09o-9TEUbzu~G-2VvHBXlwyTueywbLGmpenVWl~P~xihf6cYvVHUtpci5FqWbV-ZKvmUJlj4q14L6lX61T1j-eLFOOLy9-8zOxyNo-y1VnXHMOGq0Dd9-LXPLlF1A77j56lYXGibFDkqVx10kdWzyKdcn2cO4xNg__"
+                    alt="French Fries">
+                <h3>French Fries</h3>
+                <p>Golden and crispy potato
+                <p></p> fries</p>
+                <span class="rating">4.8★</span>
+                <span class="price">₹80</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//c72ea5a5684e4c96/th.jpg?Expires=1836226878&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=LFd7rsrOc~-AZaji5M~vtXBacRoG2tzsXShsUNNINC2BgT9xAPeqvNrSR6hesTm3K-dEtAfdzTAxpxJaQFKxc8UZcS1WhMK5SB3Cth5GRwvbovRafDP-WaPgEi~ryCQlR3jDIipEMSongzSZrsoZfRP7lSBOTjO31i5IGaV1HeD3VjaMQd~45jOqIxqTyeLet3yOwwMBLbQst9yn28CSOLf04VRv5MaXYdIFVjuPKxjQEQSnIiKxU1QPx0~HVyorgIckmVgMOFgUfxn1L8NHhib10RxZikQQ8IkO2WrkmOqbdNHcBUPODK8m-yENnkT5C-EawNUbfKEITSkgVE9CtQ__"
+                    alt="Spring Rolls">
+                <h3>Spring Rolls</h3>
+                <p>Stuffed crispy rolls with
+                <p></p>spicy filling</p>
+                <span class="rating">4.7★</span>
+                <span class="price">₹90</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//121f8086b8f247d0/th.jpg?Expires=1836226906&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=hiGO~Vlg12SpEoKXMYxtm0UB16YZT-neIfBhJP8mwrCbFpQpv~LUAHJugtYXWCwktBM4YE4b3QWheTgYZJltAmn3bFa6LTOswv2q~mSwG~~lbMAkBZYs86dS2045JBvBds020HTS~e1upTy0Upv6~h4X1jHOWOLin9cbYgMqG9lhkl66IF4URvWtYX1an6-VgPC9eYQBWOrKsXBzGX8yINcSrGGqTDajwGkONYGH~rVMEC00p0dLxEfBQJ7ptWcMubJ2bc8Y4MJsQeZnTyWOfrwNfydxvUmseQiCnNEd-nh7drAeY9Y3yDlyDf2oYixGonbg70XkwCYoapsScUH~Tw__"
+                    alt="Cheese Balls">
+                <h3>Cheese Balls</h3>
+                <p>Crunchy and cheesy bite-sized
+                <p></p> delights</p>
+                <span class="rating">4.9★</span>
+                <span class="price">₹100</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//f1298b2804c54d42/th.jpg?Expires=1836226922&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=QaKbDdB4JdwWNpNmrOqeNCHSlS6cJacYMfOfN-I-zPJtixxZwuYN1nxiLW9wepKJKKh8R2Gw5kzt6fDW-aqOh2Tvq8YpvyAe7uJhJtdQS4BYyVCVpWH1Ki4on1vWDGAB2H6zcL46dB~gx~nehCUlJ0xBVjsgwoQBDu6MIafMqXDPU-JZBcfPLv49bLYInQ05bXAxXKRdtf5PLvTqWmkC593E1Ymbug16y7eU6pQb3fkwPJcwNCRCcoYqpnRkrrsfdhdYh7YwohJdD2PBLWD4jVilP56-srVnM~AtvQ1Ah1ArKBb0JEPbnMwKWtQV1xT4mnPPyb2aJDBVFQGGWgZOug__"
+                    alt="Pav Bhaji">
+                <h3>Pav Bhaji</h3>
+                <p>Spicy mashed vegetable curry
+                <p></p> with buttered buns</p>
+                <span class="rating">4.9★</span>
+                <span class="price">₹120</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//004d1af45d7742b8/th.jpg?Expires=1836226950&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=IzlVzh3iqTcXpr8shBkcn41W-ZvL9jo6IJSU4Od6pdyunuLe19sjTSD5oScelcEw-~KjifeNbCSFCpruM3RZ5Ss68dSuF6vLHBf5Tcf-dj02V4uYGmKIx6cxa2OXRXS8D980PmBNKJcdJXhk87QXe50d6UlppqSkxdrpe8ZrSOeDgpY5pu6ILzvowwgqJ1gMBFusYas0OCIdvVQBltQSmFyLU7xhnQXcmeodpyAyW5w-KQdoib8ykOa~a2ho6XIDYBDv3WlEoPwo7oolVBLrpOSa5iUSebZLyBoPO8ahOGjIHA62nySI2uIvaOlv3cll6wKa8JI-BXGdrr6r7y8EoQ__"
+                    alt="Momos">
+                <h3>Momos</h3>
+                <p>Steamed dumplings with flavorful
+                <p></p> stuffing</p>
+                <span class="rating">4.8★</span>
+                <span class="price">₹110</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//a5bbaf81c392405d/th.jpg?Expires=1836226980&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=oV5J9JoNAhsYRZJMDKWOGe7c5FSpH~bJLg7Cq3eSR1t6E9BFGV05m746GnwN1NMAaHvgzi1b4R0i7MQcrVe28U03vG2dZ~aXNCYAwBSAa9t-E6x4TY4bxz2rwwyJvcfaYuE3FOIxS6epAODf6Dc40yH8FXSqV7h~HrLqBZ~G54a4GCbw6GUV2bXMVJ9T29DxSKFgYwqWuUoqNKg4wEZZlkj4rJN4Xeb5l9TnrIpbVMVrk7zS8SZt16zcoHjF7V1W9wa9TocXB2TIkim~el-13R3n87v-xEs~dBhzQwbOawiD58K0jAs7DF2LwTnbNNMMCMYO00z0rVbv3t9ayWIpXA__"
+                    alt="Bread Pakora">
+                <h3>Bread Pakora</h3>
+                <p>Deep-fried bread slices with spicy
+                <p></p>filling</p>
+                <span class="rating">4.7★</span>
+                <span class="price">₹50</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//d6039fd99ea54fd1/th.jpg?Expires=1836226994&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=IirUTEYccIxSxvQCv6SyGJkjrkdeU8x2~UyphJksYts7cwOPuVgXWf-XSSH-T3tbV7fQWLVuOc4lZ8GRaKsdrLKcJcGwLJBoPKj8M5HllxElTn-Iwyo6OxJLZaXKu1G9vyEViZsJXASEuJJnR6XjHq0dMYC9evjjl29j~IH~bjRsHBhL1U8KoeqtaCg0l4222Ba7NKd4D~TPGVTo3vvc7anwkEEQjW6yLyy0hBUQDLgwaFEDYOwA5jVR3J7JI05I8dYqdUkqz1N5dFW4E1ArAPP93BG6FzOwdApPKMql0TRoDihx1t17Q-JMhuAdd3V70C5rCdSqLK2INXOGPFK5iw__"
+                    alt="Paneer Tikka">
+                <h3>Paneer Tikka</h3>
+                <p>Grilled cottage cheese marinated with
+                <p></p> spices</p>
+                <span class="rating">4.9★</span>
+                <span class="price">₹130</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+
+
+
+        </div>
+    </section>
+
+
+    <footer>
+        <p>&copy; 2025 Foodie Express. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

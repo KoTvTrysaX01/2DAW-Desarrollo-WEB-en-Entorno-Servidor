@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie Express</title>
+    <link rel="stylesheet" href="../../../styles/jugo.css">
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <div class="title">Foodie Express</div>
+
+            <div class="search-bar">
+                <input type="text" placeholder="Search food...">
+                <button>🔍</button>
+            </div>
+            <div class="right-section">
+                <button class="custom-btn" onclick="location.href='../../special/customer.html'">Customer
+                    Review</button>
+                <button class="custom-btn" onclick="location.href='../../special/cart.html'">Cart 🛒</button>
+            </div>
+        </div>
+
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../icepops.html">Ice-Pops</a></li>
+            <li><a href="../gelato.html">Gelato</a></li>
+            <li><a href="../alfajeros.html">Alfajeros</a></li>
+            <li><a href="../chocolate.html">Chocolate</a></li>
+            <li>
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="toggleDropdown()">Bebidas</button>
+                    <div class="dropdown-content" id="dropdownMenu">
+                        <a href="milkshakes.html">Milkshakes</a>
+                        <a href="#">Jugo</a>
+                        <a href="smoothies.html">Smoothies</a>
+                        <a href="preorder.html">Pre Orders</a>
+                    </div>
+                </div>
+            <li>
+        </ul>
+    </nav>
+    <section class="food-section">
+        <h2>Sip & Chill</h2>
+        <div class="scroll-container">
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//b6f6aaf6bbbc41dc/th.jpg?Expires=1836226476&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=jxfW6OdbZz~TG-Ju4bG4dixt0DX6KuOetuY-0a1Ty0ur0Dl06VFNr2RGFTHwPv5dMnnuSggGdtz9brQtIPU5sdMrVzf5lXzEha4Ylq7rFi9IE~lHBdf31NsuMAyCYVKJPEoZXjVYRvZjLl~Ro4u47wN9Y0ttIfA~8MuXHPyYtv5wRLLcb2fjdURF6PjJ9IxhUtSQP46UQjTk-sy8lMshBmmgkmdkDFpQrLkWeoc1WXeq2tUqAgaFAyYqXfG5ED7f~65~Zd2mEigT0BpxDu3r-Xv9HZOniAFEgj87m4Gz35LkSwHKnNSMUBxCtFW8B4Rykd3BUas9izPXau41hj9kPA__"
+                    alt="Mango Juice">
+                <h3>Mango Juice</h3>
+                <p>Refreshing mango blend with
+                <p></p>a tropical twist</p>
+                <span class="rating">4.8★</span>
+                <span class="price">₹90</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//037d1a9249a844a6/th.jpg?Expires=1836226492&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=Hig2wS9t5NBBXRWw0dmuEjhFHqdMC9boFoLRiMYWiv~CRPkQz0lWkA5mA5Ui4jO5lO19HvJm6HKer2EjduXHsZP2tCcpXwJSRlJEG6rswdih8d9qoz5BRVirRztvvuoGy9TZLdGmuj3uaR32eeMIWvfcd9C~5GDKfljpip~4XQxsGjHNzWMoXnZA4ns~Dh2Ea3vhhH8zDhEZGZYQlkWxUkvonF6aDZD0JsXLS032n~DSBlRkM8er47Caj3pTqQRt72yjlxeBSFr8lYkgaQMYKGatWIIoC~ocgRlaLH2gKXxatg9XYgKZn4Zpbpql0IBIHAlFoaSsFVQDHP9AZn5bPg__"
+                    alt="Watermelon Juice">
+                <h3>Watermelon Juice</h3>
+                <p>Hydrating and naturally sweet
+                <p></p> watermelon juice</p>
+                <span class="rating">4.7★</span>
+                <span class="price">₹80</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//d230e8d609b945e6/th.jpg?Expires=1836226512&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=Ik8z9mD8jN39rP6zNwZee5uCc3oSwKt~0IgDRj5T6FIYMDJ7fUxRx2IG3rgNwJyQ0IntjgC8aLLICA1d3KoAJz3SSQK6DwTs9iLg3Q1kx5E5t4lNoYQEkbT1ufGxzdJctYGpj9JlCIjuEfuDLaxlmPxRbi-j7Z8i0O5vXMyYesSAq-0XcJ5OaCTDsaNRTYgqpyeKo9zsB--GeV38fWO1USsEttOkgbvYkfrGU44dAm2uus1t7hFpUNZAFbmc2qr1LBxi~65I-nsiNWUtNuhZsctB2m~f2S30CyU3uofbMyEPYK7xicEP0kt0SspbCNNU519FFFDPFIUq~ghsTwIfQw__"
+                    alt="Orange Juice">
+                <h3>Orange Juice</h3>
+                <p>Freshly squeezed citrus burst
+                <p></p>.<p>
+                <p></p>
+                <p></p><span class="rating">4.9★</span>
+                <span class="price">₹100</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//16c9b904f0594474/th.jpg?Expires=1836226526&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=D1Em-PrDujRb0TP0PC2LMqupSONs8fduwRwV809Qy4pwcy7~w~XEG6FadhGB~qr-bJIIGVFwZyqYpt3edsFtFmPaamQZigY3YGqLzSv2OiufpTDJb3Raf2ldUP~SsNm5qxmguikTL0ZWOKIw7SDBtT-Ibmaapdybq9SXBYZmI-Vj-uiRTI97vc--aUNUmtCNdapMncCCtYW3PPsYo7FV3QULsmvjW4Td755ITUhLY98k9oWk7KGm0WFcTMsePuxxG3VM545UYFH1TyHwwm22li7W5WptBgS1NwOawYuOeQ4lTcwfSEGl8-7PCEbgQVLQWGJiPXWZDAH1iQD~yNRxAQ__"
+                    alt="Pineapple Juice">
+                <h3>Pineapple Juice</h3>
+                <p>Tangy and tropical pineapple
+                <p></p>delight</p>
+                <span class="rating">4.8★</span>
+                <span class="price">₹110</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//b02b68c2eab748ae/th.jpg?Expires=1836226537&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=1VesFFvFqyDqgrq64UPb9QK6SqHH8sbsINqUto3vtkv60GY0SCCUa9CkWdOImEKLgY6t1Ym-Dbl~YB5w4AbyWSdAZOYhYGf5SqYihXqt7Xtx1JubnupgV4UGMl9jDVBeioxJnCP~xYm8fxqyntASPT8EXyk0HvpmDfe-C1bmBrCaDEZeZqdPbAieNPUxDt31TTCFsCLNy4CJhxDoBapRWW1QmGVPrYuxMGfanSkIKWaCuMvN8N8fckkdXJ~FKRp1TUFcUE3wkXCulOgtwemZj02iqwH~LXbk3gNftDO0SmNTjfYSoOWQUaFKC~idNQ0Dg4tVRyQCG3aIvitk83K2kQ__"
+                    alt="Apple Juice">
+                <h3>Apple Juice</h3>
+                <p>Sweet and crisp apple goodness</p>.<p></p>
+                <span class="rating">4.6★</span>
+                <span class="price">₹120</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//4e2296556ac44243/th.jpg?Expires=1836226545&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=FkKSQSYxUWPTYqzBs9mTHNcxzytePbbEOVPqGCLM1WP8JXvqah3YjHWOhWvcwUBv43kDpTMabdpMzy2vhk8~Fjp5VHF3mB4F83TwM5YGLlkoRlGn2AbCg~igJSeB9f-zHxrqWL1NNKEiw9B3LioSd1VB9kgWg596fbscyoDtYsbVCk-ef~lPH2Z4H7raV~ddjCbh2lXf6CJgO34OwpSqbuqOh83RsDrHmULlab-Y3pN0PyjA2z5ahlu~b34Cj9sMpOfDWhK7T94igOXeu2CgJY1th5RnjUvyULs3gfZ6spsEqsSUwTx7Y-kSzRlQaHtGAbKfZ2nBySlRsJ~tBSg6MA__"
+                    alt="Grape Juice">
+                <h3>Grape Juice</h3>
+                <p>Rich in antioxidants and bursting
+                <p></p> with flavor</p>
+                <span class="rating">4.7★</span>
+                <span class="price">₹110</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//e15d2d7e1c504a58/th.jpg?Expires=1836226560&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=PVa0-pQwk5NLB08RQ~4~8DdXXwiRSLk~gSpBpX6aEHpL4nmSzcqS-~LQruDVcOCTEYoMyYfeiAQLF71MAPzrTA4ADlr5pwuagCairCaysxpIettVlAWlBE0F-3GlXBbAKzfCbj68zMxJINoy~hHygaWCj3nM11OzI6tPJreFJccMs10sOblUdJF42YSzLEp6jPi2ylFQz6R~PR9p31HScz0kUrthmdA-KfOFTASM21wBTGva6fy6wVeSfhEUpq5E5WIodqn8bbmJchMcaOSFLjvEMlu-G9HPceN2G7GJZBPhNZv8C6phwQUaKijicB9wiADGE1i-P3r548atWfmpvA__"
+                    alt="Pomegranate Juice">
+                <h3>Pomegranate Juice</h3>
+                <p>Boosts immunity and refreshes
+                <p></p> instantly</p>
+                <span class="rating">4.9★</span>
+                <span class="price">₹130</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//e87fe489ade4402e/th.jpg?Expires=1836226569&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=jtaoTdTXixbeFDP8eAwsA~OHohQBUqeSplAoXmuvjztjcdgbGkoM0aK7qUmnv5YIYJcFcW3whQP-gI8NO87PHQRNCfxW11iOiGLbSjs0QSDnP4MW9fkk7lyVEFDmbDksMtwSO0xMhTYyLjKPexXKj5PJp-35SLwI0tJsUSO6NHZnp5I-w2tCYtunkUss55vId57Iftlx-f58~WBQnxtJBzNVScbGDAa02A~p9SzQ-hm6LcX6EmWgQe9qFizoEZyQQDSwZS5l8m243qm-d3thH~-2tuh7xSSypsUToWhjRtaE0Rfix73NWTNtqsbryJvc5yMNW9lvcns96ko5-lSFiw__"
+                    alt="Lemonade">
+                <h3>Lemonade</h3>
+                <p>Classic sweet and tangy
+                <p></p>refreshment</p>
+                <span class="rating">4.7★</span>
+                <span class="price">₹70</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//31378552f0e44f14/th.jpg?Expires=1836226579&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=a4MF1a4PCusC3SjfmGLQ99ZOgW3Mowc6VzkLzWp1K3nEtr6jNUJNtn2kmdZ3fejlAmMjPVmR36HuBhdFwpws~eSoNWCZUSEiu1VfhCmnWEnm4cJnMh6~ag8WDpUPQaJTABrls2CHK4JO9ZoRZvpyafA0LWhS4QvaeFnt~ZQB48heZiXfaniCvd4qCSXFAhlNNMbGD~~gh~pP8RHfnvDwlSvI5mRoah7Q4bA6BfeXY4Jfz3GAmrb~ZWlIfKMyonmhZ0W~GDMEiQAXQf7rdxQ5x1wqHBxh4MUPsFRg76hfR4O9DOqGkH38dxZaTQe370vrHrJsTqBNHj8HJX6NHE7VIg__"
+                    alt="Strawberry Shake">
+                <h3>Strawberry Shake</h3>
+                <p>Creamy and sweet strawberry
+                <p></p>indulgence</p>
+                <span class="rating">4.8★</span>
+                <span class="price">₹140</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+
+            <div class="food-item">
+                <img src="https://media-hosting.imagekit.io//be2ad9c1fbe34dfe/th.jpg?Expires=1836226587&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=fI0VdD8pgWX4BbQIvGgnKVYYAocuEQvQ4zpNPNqeKPKCORnGxLIEayn~vPPO6WSrPrzlBwT0XDQ4cVMigb3x14xxCY9KnljVx7NTMiGcBaB~K0h~nzEL6V7swzlXvVkyUXbi2H2933KOATmB8dQIrH2NsDEmOq~PtU6zQQRVBwLzFJms93oy1gurp56q1MGvve9RLm7MxDdZIIAV2EaZjkh2U2Wnc1oQbM1jYqDbeMgGOmUCGXbDP0ZUxElwr6bMchwSFjF9DQP89MScWoyOKVognr3GlGWbN-hOFf9-BnkCKe70WK6w8RKfmNiBTFVSjFb-KlUySkSOdNkKrLDU4w__"
+                    alt="Coconut Water">
+                <h3>Coconut Water</h3>
+                <p>Pure and hydrating natural
+                <p></p>drink</p>
+                <span class="rating">4.9★</span>
+                <span class="price">₹60</span>
+                <button class="order-btn">Order Now</button>
+                <span class="wishlist">❤️</span>
+            </div>
+
+
+        </div>
+    </section>
+
+
+    <footer>
+        <p>&copy; 2025 Foodie Express. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

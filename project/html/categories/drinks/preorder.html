@@ -1,458 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foodie Express</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f8f8;
-            background: url('cake.jpg') no-repeat center center/cover;
-
-        }
-
-        .header {
-             
-            
-            display: flex;
-            justify-content: center; /* Center the title */
-            align-items: center;
-            background-color: #5D4037; /* Darker pink for hover */
-            ;
-            padding: 20px;
-            position: relative;
-            width: 1100 px; /* Allows absolute positioning for right section */
-        }
-        
-        .title {
-            
-            font-family: 'Lobster', cursive;
-           
-            font-weight: bold;
-            font-style: italic;
-            color: white;
-        
-            margin-right: auto;
-           
-            font-size: 28px; /* Slightly smaller for better alignment */
-         
-            
-            
-           
-          
-
-        }
-        
-        .right-section {
-            display: flex;
-            gap: 10px;
-            position: absolute;
-            right: 20px; /* Aligns buttons to the right */
-        }
-        
-        .button {
-            background-color: #ff5722;
-            color: white;
-            padding: 10px 15px;
-            font-weight: bold;
-            border-radius: 5px;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        
-        .button:hover {
-            background-color: #e64a19;
-        }
-        
-
-        .logo {
-            font-family: 'Lobster', cursive;
-            font-size: 32px;
-            font-weight: bold;
-        }
-
-        .search-bar input {
-            padding: 8px;
-            width: 200px;
-            border-radius: 5px;
-            border: none;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%); 
-        }
-
-        .search-bar {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%); /* Centers the search bar */
-            display: flex;
-            align-items: center;
-           
-            padding: 5px;
-          
-           
-            justify-content: space-between;
-        }
-        
-        .search-bar button {
-            padding: 8px;
-            background: #d84315;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-      transform: translateX(380%);
-        }
-        
-        .search-bar button i {
-            color: #29B6F6; /* Light Blue Search Icon */
-            font-size: 18px;
-      
-        }
-
-        .cart {
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-
-        nav {
-            display: flex;
-            justify-content: center;
-            color: #f9ffcd;
-            padding: 10px;
-            background-color: #FFF3E0;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 15px;
-        }
-
-        nav ul li {
-            display: inline;
-        }
-
-        nav ul li a {
-            background-color: #ff7043;
-                        color: white;
-            padding: 10px 15px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: 0.3s ease-in-out;
-        }
-
-        nav ul li a:hover {
-            background-color: #bf360c;
-        }
-
-        .food-section {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .scroll-container {
-            display: flex;
-            overflow-x: auto;
-            gap: 20px;
-            padding: 10px;
-            white-space: nowrap;
-            scroll-behavior: smooth;
-        }
-
-        .food-item {
-            flex: 0 0 auto;
-            width: 250px;
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-align: left;
-            position: relative;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .food-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .food-item img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        .rating {
-            display: inline-block;
-            padding: 5px;
-            background-color: green;
-            color: white;
-            border-radius: 5px;
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        .price {
-            display: block;
-            font-size: 16px;
-            font-weight: bold;
-            margin-top: 5px;
-        }
-
-        .order-btn {
-            background: #5D4037;
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            font-size: 14px;
-            cursor: pointer;
-            border-radius: 5px;
-            width: 100%;
-            margin-top: 10px;
-            transition: 0.3s;
-        }
-
-        .order-btn:hover {
-            background: #d63384; /* Darker pink for hover */
-            transform: scale(1.05);
-        }
-
-        .wishlist {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 20px;
-            cursor: pointer;
-            color: #ff4081;
-            transition: 0.3s;
-        }
-        .wishlist:hover {
-            transform: scale(1.2);
-        }
-        img {
-            width: 350px; /* Adjust width as needed */
-            height: 250px; /* Adjust height as needed */
-            object-fit: cover; /* Ensures the image is cropped properly */
-            border-radius: 10px; /* Adds rounded corners */
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Adds a soft shadow */
-        }
-        
-
-        footer {
-            text-align: center;
-            padding: 10px;
-            background: #333;
-            background: #4e342e;
-            margin-top: 20px;
-        }
-        .dropbtn {
-            background-color: #ff7043; /* Same as other menu items */
-            color: rgb(255, 255, 255);
-            padding: 10px 15px;
-            font-size: 16px;
-            font-weight: bold;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            text-align: center;
-            width: 100%;
-            display: block;
-        }
-        
-        /* Dropdown menu styles */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: white;
-            min-width: 150px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-            border-radius: 5px;
-            z-index: 1;
-        }
-        
-        .dropdown-content a {
-            color: rgb(255, 255, 255);
-            padding: 10px 15px;
-            text-decoration: none;
-            display: block;
-        }
-        
-        .dropdown-content a:hover {
-            background-color: #e8960a;
-        }
-        
-        /* Show dropdown on hover */
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        h2{
-            color: #b53514;
-        }
-        
-        /* Fix alignment in navigation */
-        nav ul {
-            display: flex;
-            align-items: center; /* Aligns all buttons properly */
-            gap: 10px;
-        }
-        .dropbtn:hover,
-.dropbtn:focus {
-    background-color: #ff8f06; /* Color change on touch or hover */
-    outline: none;
-}
-    </style>
+    <link rel="stylesheet" href="../../../styles/preorder.css">
 </head>
+
 <body>
     <header>
         <div class="header">
-     <div class="title">Foodie Express</div>
-     
-     <div class="search-bar">
-         <input type="text" placeholder="Search food...">
-         <button>🔍</button>
-     </div>
-    
-     <div class="right-section">
-         <div class="button">Customer Reviews 🍕</div>
-         <div class="button">Cart 🛒</div>
-     </div>
- </div>
- 
-     </header>
+            <div class="title">Foodie Express</div>
+
+            <div class="search-bar">
+                <input type="text" placeholder="Search food...">
+                <button>🔍</button>
+            </div>
+
+            <div class="right-section">
+                <button class="custom-btn" onclick="location.href='../../special/customer.html'">Customer
+                    Review</button>
+                <button class="custom-btn" onclick="location.href='../../special/cart.html'">Cart 🛒</button>
+            </div>
+        </div>
+
+    </header>
 
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="northindian.html">North Indian</a></li>
-            <li><a href="southindian.html">South Indian</a></li>
-            <li><a href="veg.html">Veg</a></li>
-            <li><a href="nonveg.html">Non-Veg</a></li>
-            <li><div class="dropdown">
-                <button class="dropbtn" onclick="toggleDropdown()">Pre-orders</button>
-                <div class="dropdown-content" id="dropdownMenu">
-                    <a href="dessert.html">dessert</a>
-                     <a href="juice.html">Juice</a>
-                    <a href="snacks.html">Snacks</a>
-                    <a href="preorder.html">pre orders</a>
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../icepops.html">Ice-Pops</a></li>
+            <li><a href="../gelato.html">Gelato</a></li>
+            <li><a href="../alfajeros.html">Alfajeros</a></li>
+            <li><a href="../chocolate.html">Chocolate</a></li>
+            <li>
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="toggleDropdown()">Bebidas</button>
+                    <div class="dropdown-content" id="dropdownMenu">
+                        <a href="milkshakes.html">Milkshakes</a>
+                        <a href="jugo.html">Jugo</a>
+                        <a href="smoothies.html">Smoothies</a>
+                        <a href="#">Pre Orders</a>
+                    </div>
                 </div>
-            </div></li>
+            <li>
         </ul>
     </nav>
     <section class="food-section">
         <h2>The Sweet Spot</h2>
         <div class="scroll-container">
             <div class="food-item">
-                <img src="https://media-hosting.imagekit.io//f9b65694c2fd467d/th.jpg?Expires=1836225995&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=vRQMZ8JjdQpGQLJA-RY~hAX2qZ-4JHSsnzA3AHDc6Inv1NGpWTaIsfI4WLiPNfM7GbItQAlWh1cLdWM8f6qe4MxE1pkad3qw68kYfUdzqtg3sdCmn0pCKoPrFyjjZ810cfeB2A-ShIppAbvvbMRLdGiTQZDk9wSoHdOTHNhJrTHn7RWHgwZSeC4lzDK1iyZPjeZxPmBTdScFdRvsta~JMzZxTXTn8OQ27vYjXnHYabyJmiK1RkbCrJpa6UsvMchV~3s8ZhE6ggM9nLGXG78dhUOywffq6ImNtBxbbSPtf3Hd3DsbopRNvfzdRjBh2abzYvRMpk1VZX44MNb2p2w4MQ__" alt="3-Tier Chocolate Cake">
+                <img src="https://media-hosting.imagekit.io//f9b65694c2fd467d/th.jpg?Expires=1836225995&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=vRQMZ8JjdQpGQLJA-RY~hAX2qZ-4JHSsnzA3AHDc6Inv1NGpWTaIsfI4WLiPNfM7GbItQAlWh1cLdWM8f6qe4MxE1pkad3qw68kYfUdzqtg3sdCmn0pCKoPrFyjjZ810cfeB2A-ShIppAbvvbMRLdGiTQZDk9wSoHdOTHNhJrTHn7RWHgwZSeC4lzDK1iyZPjeZxPmBTdScFdRvsta~JMzZxTXTn8OQ27vYjXnHYabyJmiK1RkbCrJpa6UsvMchV~3s8ZhE6ggM9nLGXG78dhUOywffq6ImNtBxbbSPtf3Hd3DsbopRNvfzdRjBh2abzYvRMpk1VZX44MNb2p2w4MQ__"
+                    alt="3-Tier Chocolate Cake">
                 <h3>3-Tier Chocolate Cake</h3>
-                <p>Delicious triple-layered<p></p> chocolate cake for special occasions</p>
+                <p>Delicious triple-layered
+                <p></p> chocolate cake for special occasions</p>
                 <span class="rating">4.9★</span>
                 <span class="price">₹2500</span>
                 <button class="order-btn">Preorder Now</button>
                 <span class="wishlist">❤️</span>
             </div>
-            
+
             <div class="food-item">
-                <img src="https://media-hosting.imagekit.io//2f36e404d73d43bd/Vanilla-Cake.png?Expires=1836226043&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=llbvL0dhDiGcjoglvPG2jshdduZvYWMY6~2ecNwSkXY~MudwCcMUkheMP8Oj1uUvdz800XRrFOCqLz5nhkmpe8tURZeBUXKJXph2Ora-mDMOT9h7YbX9fTpQXkVreAnxt1j71KnHohMWAJ8~JD7rd~t6kWjxB65uV8uxDuJHlkOoGvEu6fOBaZ8dwlSP1LPKCQ9Z10p2Y2jEchthzmqjQMVeFI1N3d-7vWR0flWIzKkQcTuzn~jZZT8t8dGr8UrKwKh3rPUZ5BbMiy8BaM7Jg8xs9Bkbtn7gafUfaWJajVFNygjHf0AWhm85ZwHOkwa4fV~R05zLSXeC8FdKDmgVLg__" alt="Royal Vanilla Cake">
+                <img src="https://media-hosting.imagekit.io//2f36e404d73d43bd/Vanilla-Cake.png?Expires=1836226043&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=llbvL0dhDiGcjoglvPG2jshdduZvYWMY6~2ecNwSkXY~MudwCcMUkheMP8Oj1uUvdz800XRrFOCqLz5nhkmpe8tURZeBUXKJXph2Ora-mDMOT9h7YbX9fTpQXkVreAnxt1j71KnHohMWAJ8~JD7rd~t6kWjxB65uV8uxDuJHlkOoGvEu6fOBaZ8dwlSP1LPKCQ9Z10p2Y2jEchthzmqjQMVeFI1N3d-7vWR0flWIzKkQcTuzn~jZZT8t8dGr8UrKwKh3rPUZ5BbMiy8BaM7Jg8xs9Bkbtn7gafUfaWJajVFNygjHf0AWhm85ZwHOkwa4fV~R05zLSXeC8FdKDmgVLg__"
+                    alt="Royal Vanilla Cake">
                 <h3>Royal Vanilla Cake</h3>
-                <p>Classic vanilla layered cake<p></p> topped with rich cream</p>
+                <p>Classic vanilla layered cake
+                <p></p> topped with rich cream</p>
                 <span class="rating">4.8★</span>
                 <span class="price">₹2300</span>
                 <button class="order-btn">Preorder Now</button>
                 <span class="wishlist">❤️</span>
             </div>
-            
+
             <div class="food-item">
-                <img src="https://media-hosting.imagekit.io//6fdac59180a4424f/th.jpg?Expires=1836226065&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=vi8zHtWw6vQ~XzoQTZrlEVg2tIq1Rm4PcYRh-aCjvNbSiDfU0Vxy-6NcUPiCKsFbfAVvGKuCLbqQ0NqzNAAHpwYuuZJWHq9nDTXfyurUQgUBsmFxNGTur7DFakB0zQHy1rVyW-dSlqtgwujT7r1ailxy4LLwB6Pm8a~8LfdUffEs0c7kPzIv2OTz36KtQESeYUS5y06PulqbIZxrj7zj4Ep4slfKFqqb1BsQ4HjhfPfhbmTqGEcq2QGvD4DlXLfx38pNLakT2o0Qb0q3EpWUOwTh7iVdgfWOuSv5~aRX1IL2~nxSR8-gHOJQDzBdALVISy7nVtdSaqFVZamNznNzFA__" alt="Wedding Special Red Velvet Cake">
+                <img src="https://media-hosting.imagekit.io//6fdac59180a4424f/th.jpg?Expires=1836226065&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=vi8zHtWw6vQ~XzoQTZrlEVg2tIq1Rm4PcYRh-aCjvNbSiDfU0Vxy-6NcUPiCKsFbfAVvGKuCLbqQ0NqzNAAHpwYuuZJWHq9nDTXfyurUQgUBsmFxNGTur7DFakB0zQHy1rVyW-dSlqtgwujT7r1ailxy4LLwB6Pm8a~8LfdUffEs0c7kPzIv2OTz36KtQESeYUS5y06PulqbIZxrj7zj4Ep4slfKFqqb1BsQ4HjhfPfhbmTqGEcq2QGvD4DlXLfx38pNLakT2o0Qb0q3EpWUOwTh7iVdgfWOuSv5~aRX1IL2~nxSR8-gHOJQDzBdALVISy7nVtdSaqFVZamNznNzFA__"
+                    alt="Wedding Special Red Velvet Cake">
                 <h3>Wedding Special Red Velvet<p></p> Cake</h3>
-                <p>Elegant red velvet cake with<p></p> cream cheese frosting</p>
+                <p>Elegant red velvet cake with
+                <p></p> cream cheese frosting</p>
                 <span class="rating">5.0★</span>
                 <span class="price">₹3000</span>
                 <button class="order-btn">Preorder Now</button>
                 <span class="wishlist">❤️</span>
             </div>
-            
+
             <div class="food-item">
-                <img src="https://media-hosting.imagekit.io//5814b693bb45454a/th.jpg?Expires=1836226085&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=0eeqrva9xr2Al9221FW7ZVxx~4Zeei0GK81PyZHSr42NKDFROBUECzE~xg4G~Szc~zNZqFusIPhNVXiKRySDY~~HbbfVUfx5Zd84AuwUYMFTZE-bDpYDD7nJnDdfBpuLaK4U~nqv9~jAy2qx8rrrZlqsjf~MTTtb9EVmcIin652GoW50U5Z67QHw6X0hndqM1LNY14oDFz~cQIL7yxYP7J8jF6Yt2RZVaOSc6Dy8p3pk5d4~Z-6-T44vxRc9CKWZSwAOEo~Oxf~wtflC4jfnAt8V1YwE24q53Zg0Y3pXlybX41iaXNPRj3jqPMDPg9wb0JaNYkfkAL-BKZrxp93vUg__" alt="Fruit Overload Cake">
+                <img src="https://media-hosting.imagekit.io//5814b693bb45454a/th.jpg?Expires=1836226085&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=0eeqrva9xr2Al9221FW7ZVxx~4Zeei0GK81PyZHSr42NKDFROBUECzE~xg4G~Szc~zNZqFusIPhNVXiKRySDY~~HbbfVUfx5Zd84AuwUYMFTZE-bDpYDD7nJnDdfBpuLaK4U~nqv9~jAy2qx8rrrZlqsjf~MTTtb9EVmcIin652GoW50U5Z67QHw6X0hndqM1LNY14oDFz~cQIL7yxYP7J8jF6Yt2RZVaOSc6Dy8p3pk5d4~Z-6-T44vxRc9CKWZSwAOEo~Oxf~wtflC4jfnAt8V1YwE24q53Zg0Y3pXlybX41iaXNPRj3jqPMDPg9wb0JaNYkfkAL-BKZrxp93vUg__"
+                    alt="Fruit Overload Cake">
                 <h3>Fruit Overload Cake</h3>
-                <p>Rich vanilla cake topped with<p></p> seasonal fresh fruits</p>
+                <p>Rich vanilla cake topped with
+                <p></p> seasonal fresh fruits</p>
                 <span class="rating">4.7★</span>
                 <span class="price">₹2800</span>
                 <button class="order-btn">Preorder Now</button>
                 <span class="wishlist">❤️</span>
             </div>
-            
+
             <div class="food-item">
-                <img src="https://media-hosting.imagekit.io//b046d4a122ab420d/th.jpg?Expires=1836226106&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=D0O1tBciQMAj~QoM~KVgnWYSmKWYvAbcZa0wJ-cDQYdHfr-lm3oNV0YTPNY8U8V8n15iPf8zxKQpb~Gn3vUan1w7AeuS5XGLVt3ZvG8kgjkQyPcP40-Oooe9VL9bKBicvVg7jMV~fTJKKKGhR-VMckAr8X7qyLL8~MFlgq~PFAOHJpjE-2gQga8KoWOviUI~0TA15tQ1eoFfavjr-vw4uL8yw7u~gOpaxng5XkughbAFgU6SXOC9Kx0Yk7JoLJ563jbedSjNHNylPGkPONYYxDM02VN-sf4Kvm7PBwT6a4aIsjqDLAlYLGLLHAeyDIusC~QPNIe7iu8BETskDlilxA__" alt="Butterscotch Crunch Cake">
+                <img src="https://media-hosting.imagekit.io//b046d4a122ab420d/th.jpg?Expires=1836226106&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=D0O1tBciQMAj~QoM~KVgnWYSmKWYvAbcZa0wJ-cDQYdHfr-lm3oNV0YTPNY8U8V8n15iPf8zxKQpb~Gn3vUan1w7AeuS5XGLVt3ZvG8kgjkQyPcP40-Oooe9VL9bKBicvVg7jMV~fTJKKKGhR-VMckAr8X7qyLL8~MFlgq~PFAOHJpjE-2gQga8KoWOviUI~0TA15tQ1eoFfavjr-vw4uL8yw7u~gOpaxng5XkughbAFgU6SXOC9Kx0Yk7JoLJ563jbedSjNHNylPGkPONYYxDM02VN-sf4Kvm7PBwT6a4aIsjqDLAlYLGLLHAeyDIusC~QPNIe7iu8BETskDlilxA__"
+                    alt="Butterscotch Crunch Cake">
                 <h3>Butterscotch Crunch Cake</h3>
-                <p>Crispy butterscotch with creamy <p></p>layers for a perfect bite</p>
+                <p>Crispy butterscotch with creamy
+                <p></p>layers for a perfect bite</p>
                 <span class="rating">4.8★</span>
                 <span class="price">₹2600</span>
                 <button class="order-btn">Preorder Now</button>
                 <span class="wishlist">❤️</span>
             </div>
-            
+
             <div class="food-item">
-                <img src="https://media-hosting.imagekit.io//acea22eed5c64834/th.jpg?Expires=1836226143&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=ZPWKRQyqdVsUv5mFpzwxFr5DlDliUGzpFHDibCbe4t2tNUzO9xp7h2YUqMNkpYI9McqIWTCYqV5HdzNJKGqJUNayb5QBPi9vTPNHbWo3GPY6fohEmUPt2NaxRjSEOeOXnEhuDLz6T4BBY4eqeK43F47N~IyzU0ZOIlpc~lH~AkWjX8mKq4AjC6O1V4FxnYvt98uBAYjQ9eCszgJhPfxOeTEyKv~XI7suih0zvtfgqnNOlNeTbZcExxJDQi-oRy157xgTdWdHcwZaHnH58UV3RBbz~nRbZhjPNoRDGgdW43XbgU34Sqz6j5DD1ohParF8D~L8Pia2HgcSqnX9MlPqRA__" alt="Rainbow Layer Cake">
+                <img src="https://media-hosting.imagekit.io//acea22eed5c64834/th.jpg?Expires=1836226143&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=ZPWKRQyqdVsUv5mFpzwxFr5DlDliUGzpFHDibCbe4t2tNUzO9xp7h2YUqMNkpYI9McqIWTCYqV5HdzNJKGqJUNayb5QBPi9vTPNHbWo3GPY6fohEmUPt2NaxRjSEOeOXnEhuDLz6T4BBY4eqeK43F47N~IyzU0ZOIlpc~lH~AkWjX8mKq4AjC6O1V4FxnYvt98uBAYjQ9eCszgJhPfxOeTEyKv~XI7suih0zvtfgqnNOlNeTbZcExxJDQi-oRy157xgTdWdHcwZaHnH58UV3RBbz~nRbZhjPNoRDGgdW43XbgU34Sqz6j5DD1ohParF8D~L8Pia2HgcSqnX9MlPqRA__"
+                    alt="Rainbow Layer Cake">
                 <h3>Rainbow Layer Cake</h3>
-                <p>Vibrant multi-colored cake <p></p>for a fun celebration</p>
+                <p>Vibrant multi-colored cake
+                <p></p>for a fun celebration</p>
                 <span class="rating">4.9★</span>
                 <span class="price">₹3100</span>
                 <button class="order-btn">Preorder Now</button>
                 <span class="wishlist">❤️</span>
             </div>
-            
+
             <div class="food-item">
-                <img src="https://media-hosting.imagekit.io//8fac1788418e42cc/th.jpg?Expires=1836226163&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=lYy8bhXjjgxAGURf39HwkmxR4tiR6cbOhlQVh6Vj3l1TO8nZWHmnBV1edcOVRPaLZrtamWaQZwVA0VfgZmoe9z~CiymijtgwmbI9vLzWBcNj3riN3K1NH56~W2rl1agvI4aTC2V95xcZ2wMBB3j9vWRHkKzE2qNyjc1alLZceGxFDTlKCYzBXyct0YXBMOxnr2BgYz7qwU6UuoEGjpBnBFmhPQV6XpG~4CaTCDWk0aPZ6tNRmJJ7ToiRrF118nqSV~BICQNVCx0ZrMpw6rdXazxkudZa~CKDZMSbiEx36TFRxqOFUXyQ0GgvYeEm7v4Xxsaun7kYndjcP35Zc5by7g__" alt="Dark Forest Cake">
+                <img src="https://media-hosting.imagekit.io//8fac1788418e42cc/th.jpg?Expires=1836226163&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=lYy8bhXjjgxAGURf39HwkmxR4tiR6cbOhlQVh6Vj3l1TO8nZWHmnBV1edcOVRPaLZrtamWaQZwVA0VfgZmoe9z~CiymijtgwmbI9vLzWBcNj3riN3K1NH56~W2rl1agvI4aTC2V95xcZ2wMBB3j9vWRHkKzE2qNyjc1alLZceGxFDTlKCYzBXyct0YXBMOxnr2BgYz7qwU6UuoEGjpBnBFmhPQV6XpG~4CaTCDWk0aPZ6tNRmJJ7ToiRrF118nqSV~BICQNVCx0ZrMpw6rdXazxkudZa~CKDZMSbiEx36TFRxqOFUXyQ0GgvYeEm7v4Xxsaun7kYndjcP35Zc5by7g__"
+                    alt="Dark Forest Cake">
                 <h3>Dark Forest Cake</h3>
-                <p>Rich chocolate sponge with cherry<p></p> and cream filling</p>
+                <p>Rich chocolate sponge with cherry
+                <p></p> and cream filling</p>
                 <span class="rating">4.7★</span>
                 <span class="price">₹2750</span>
                 <button class="order-btn">Preorder Now</button>
                 <span class="wishlist">❤️</span>
             </div>
-            
+
             <div class="food-item">
-                <img src="https://media-hosting.imagekit.io//de272c32e2844399/th.jpg?Expires=1836226191&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=2492z8dYRz5Kf4FRmNgqP5Lgtk91B92J5WB~~1uOCvBM~G-1qceUf-AP7z2wAuQRFJQ6vFq7S8oe4CaR~kIuqAZ70WDRfu~yAqo6eL660G7GI0lbOSceHJ0nW7LoUAjyCKUly19BJZd59yshDcpuv-zgwrTRW0cWc14D7OJ4SJzeq6TuTC6hzPE5hrjrYuV3S1yqHUO8UpvOFARCeCIfd9csDoYVaNE-g0b7sW37XpxFdTQ8X-1g3x3jqj4XA1Kvory5YB6atrIk6g31m3ZHLhO~-4V8k3ER19UqdguJnPqZClYASALaHO638jiMqJblK2nQSqJNE1kF4rA8uMOGfA__" alt="Caramel Drizzle Cake">
+                <img src="https://media-hosting.imagekit.io//de272c32e2844399/th.jpg?Expires=1836226191&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=2492z8dYRz5Kf4FRmNgqP5Lgtk91B92J5WB~~1uOCvBM~G-1qceUf-AP7z2wAuQRFJQ6vFq7S8oe4CaR~kIuqAZ70WDRfu~yAqo6eL660G7GI0lbOSceHJ0nW7LoUAjyCKUly19BJZd59yshDcpuv-zgwrTRW0cWc14D7OJ4SJzeq6TuTC6hzPE5hrjrYuV3S1yqHUO8UpvOFARCeCIfd9csDoYVaNE-g0b7sW37XpxFdTQ8X-1g3x3jqj4XA1Kvory5YB6atrIk6g31m3ZHLhO~-4V8k3ER19UqdguJnPqZClYASALaHO638jiMqJblK2nQSqJNE1kF4rA8uMOGfA__"
+                    alt="Caramel Drizzle Cake">
                 <h3>Caramel Drizzle Cake</h3>
-                <p>Soft sponge cake topped with <p></p> homemade caramel sauce</p>
+                <p>Soft sponge cake topped with
+                <p></p> homemade caramel sauce</p>
                 <span class="rating">4.8★</span>
                 <span class="price">₹2900</span>
                 <button class="order-btn">Preorder Now</button>
                 <span class="wishlist">❤️</span>
             </div>
-            
+
             <div class="food-item">
-                <img src="https://media-hosting.imagekit.io//cd212c96acba4c3a/th.jpg?Expires=1836226210&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=FY9jSuy2mosHnyXgK064OQk7P4un-zl~wYfVPvpyZPBT3qMCz5o5x4ahk8OuVDGqNlnEHNkzM7BO~MymtNFPxyuNGkluEDQA8RJajosx3Hgxl0r~WHIwdUvZMeNQIZ-QrjpiB2dV30MwpJzA0sUuH7Wxyy9~xhP4KG23w8nFOgRarn6T9BdWpe3Lssiym4peXx~pnq08HQg2kXSbTLW6hi1c7hZct-9xZELpj2UwRuE3jx3O5ygDhHEq-LPUz-r-ya~p5OxyT03V0N7KflegELAdzYple5GdzsPRGQVo7EGsnajfqfUpoHf0dp6pfc7ZZQCRr4Kt~i8pK-b4Uy5Uuw__" alt="Black Forest Cake">
+                <img src="https://media-hosting.imagekit.io//cd212c96acba4c3a/th.jpg?Expires=1836226210&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=FY9jSuy2mosHnyXgK064OQk7P4un-zl~wYfVPvpyZPBT3qMCz5o5x4ahk8OuVDGqNlnEHNkzM7BO~MymtNFPxyuNGkluEDQA8RJajosx3Hgxl0r~WHIwdUvZMeNQIZ-QrjpiB2dV30MwpJzA0sUuH7Wxyy9~xhP4KG23w8nFOgRarn6T9BdWpe3Lssiym4peXx~pnq08HQg2kXSbTLW6hi1c7hZct-9xZELpj2UwRuE3jx3O5ygDhHEq-LPUz-r-ya~p5OxyT03V0N7KflegELAdzYple5GdzsPRGQVo7EGsnajfqfUpoHf0dp6pfc7ZZQCRr4Kt~i8pK-b4Uy5Uuw__"
+                    alt="Black Forest Cake">
                 <h3>Black Forest Cake</h3>
-                <p>Classic German dessert with <p></p>rich chocolate and cherry layers</p>
+                <p>Classic German dessert with
+                <p></p>rich chocolate and cherry layers</p>
                 <span class="rating">5.0★</span>
                 <span class="price">₹2700</span>
                 <button class="order-btn">Preorder Now</button>
                 <span class="wishlist">❤️</span>
             </div>
-            
+
             <div class="food-item">
-                <img src="https://media-hosting.imagekit.io//91ddcbb023564167/th.jpg?Expires=1836226225&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=MSxnIrQRvioOuBNk8AKbDbd8hI0JMIGME7eOnQKO~H~BUGparwAjli8OyOumuVsnkX-v8nJ-mFVhimWFPFtjFiDuP9RA9jAFIZL9fdKDLi2fvUtovGa6L0w9Q-0m-E3UZXoCESal-93A23mtCruX3PIUBPKz5FLIkHR7EouEpl9eNhdGCQAk0athB9r-JWvwH1MJ6QRb-lfnnJokns8U2KmkpxBEsBZlt-7q8lUyYBp9ziOE5VhZVFYbkcQqhBmQrqGLLaD6GRHTgUESfSeR0OVlh5Ver7lVJQHW~lVT9liI7C4ATuPJKD5Ha~fs1L-akxO0v8sB-z7ZuXhXbLINfA__" alt="Oreo Crunch Cake">
+                <img src="https://media-hosting.imagekit.io//91ddcbb023564167/th.jpg?Expires=1836226225&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=MSxnIrQRvioOuBNk8AKbDbd8hI0JMIGME7eOnQKO~H~BUGparwAjli8OyOumuVsnkX-v8nJ-mFVhimWFPFtjFiDuP9RA9jAFIZL9fdKDLi2fvUtovGa6L0w9Q-0m-E3UZXoCESal-93A23mtCruX3PIUBPKz5FLIkHR7EouEpl9eNhdGCQAk0athB9r-JWvwH1MJ6QRb-lfnnJokns8U2KmkpxBEsBZlt-7q8lUyYBp9ziOE5VhZVFYbkcQqhBmQrqGLLaD6GRHTgUESfSeR0OVlh5Ver7lVJQHW~lVT9liI7C4ATuPJKD5Ha~fs1L-akxO0v8sB-z7ZuXhXbLINfA__"
+                    alt="Oreo Crunch Cake">
                 <h3>Oreo Crunch Cake</h3>
-                <p>Oreo-infused cake with creamy<p></p> chocolate layers</p>
+                <p>Oreo-infused cake with creamy
+                <p></p> chocolate layers</p>
                 <span class="rating">4.9★</span>
                 <span class="price">₹2850</span>
                 <button class="order-btn">Preorder Now</button>
                 <span class="wishlist">❤️</span>
             </div>
-            
-            
-            
+
+
+
         </div>
     </section>
 
@@ -461,4 +180,5 @@
         <p>&copy; 2025 Foodie Express. All rights reserved.</p>
     </footer>
 </body>
+
 </html>

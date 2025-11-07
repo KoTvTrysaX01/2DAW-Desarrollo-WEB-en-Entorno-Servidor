@@ -1,0 +1,258 @@
+  @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+  body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+      background: url('veg.pn.jpg') no-repeat center center/cover;
+
+  }
+
+  header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(135deg, #4CAF50, #2E7D32);
+      padding: 15px 20px;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+  }
+
+  .logo {
+      font-family: 'Lobster', cursive;
+      font-size: 32px;
+      font-weight: bold;
+  }
+
+  h2 {
+      color: #1dd526;
+  }
+
+  .search-bar input {
+      padding: 8px;
+      width: 200px;
+      border-radius: 5px;
+      border: none;
+  }
+
+  .search-bar button {
+      padding: 8px;
+      background: #d84315;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+  }
+
+
+  .buttons-container {
+      display: flex;
+      gap: 10px;
+  }
+
+  .custom-btn {
+      padding: 10px 15px;
+      background: #fac106;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+  }
+
+  .custom-btn:hover {
+      background: #D4AF37;
+  }
+
+
+  nav {
+      display: flex;
+      justify-content: center;
+      background-color: #5a5a5a;
+      padding: 10px;
+  }
+
+  nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+  }
+
+  nav ul li {
+      display: inline;
+  }
+
+  nav ul li a {
+      background-color: #fac106;
+      color: rgb(0, 0, 0);
+      padding: 10px 15px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: 0.3s ease-in-out;
+  }
+
+  nav ul li a:hover {
+      background-color: #D4AF37;
+  }
+
+  .food-section {
+      padding: 20px;
+      text-align: center;
+  }
+
+  .scroll-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      padding: 10px;
+      white-space: nowrap;
+      scroll-behavior: smooth;
+  }
+
+  .food-item {
+      flex: 0 0 auto;
+      width: 250px;
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: left;
+      position: relative;
+      transition: transform 0.3s ease-in-out;
+  }
+
+  .food-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .food-item img {
+      width: 100%;
+      border-radius: 10px;
+  }
+
+  .rating {
+      display: inline-block;
+      padding: 5px;
+      background-color: green;
+      color: white;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: bold;
+  }
+
+  .price {
+      display: block;
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 5px;
+  }
+
+  .order-btn {
+      background-color: #ff5722;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 5px;
+      width: 100%;
+      margin-top: 10px;
+      transition: 0.3s;
+  }
+
+  .order-btn:hover {
+      background-color: #D4AF37;
+  }
+
+  .wishlist {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 20px;
+      cursor: pointer;
+      color: red;
+  }
+
+  img {
+      width: 350px;
+      /* Adjust width as needed */
+      height: 250px;
+      /* Adjust height as needed */
+      object-fit: cover;
+      /* Ensures the image is cropped properly */
+      border-radius: 10px;
+      /* Adds rounded corners */
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+      /* Adds a soft shadow */
+  }
+
+
+  footer {
+      text-align: center;
+      padding: 10px;
+      background: #333;
+      background: #333333;
+      margin-top: 20px;
+  }
+
+  .dropbtn {
+      background-color: #fac106;
+      /* Same as other menu items */
+      color: black;
+      padding: 10px 15px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: center;
+      width: 100%;
+      display: block;
+  }
+
+  /* Dropdown menu styles */
+  .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 150px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+      z-index: 1;
+  }
+
+  .dropdown-content a {
+      color: black;
+      padding: 5px 10px;
+      text-decoration: none;
+      display: block;
+  }
+
+  .dropdown-content a:hover {
+      background-color: #ddd;
+  }
+
+  /* Show dropdown on hover */
+  .dropdown:hover .dropdown-content {
+      display: block;
+  }
+
+  /* Fix alignment in navigation */
+  nav ul {
+      display: flex;
+      align-items: center;
+      /* Aligns all buttons properly */
+      gap: 10px;
+  }
+
+  .dropbtn:hover,
+  .dropbtn:focus {
+      background-color: #D4AF37;
+      /* Color change on touch or hover */
+      outline: none;
+  }
