@@ -4,63 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Foodie Express</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background: linear-gradient(to right, #ff7e5f, #feb47b);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            width: 350px;
-        }
-
-        .container h2 {
-            margin-bottom: 20px;
-            color: #ff5722;
-        }
-
-        .input-box {
-            width: 100%;
-            margin: 10px 0;
-        }
-
-        .input-box input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .btn {
-            background: #ff5722;
-            color: white;
-            border: none;
-            padding: 10px;
-            width: 100%;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .btn:hover {
-            background: #e64a19;
-        }
-    </style>
+    <link rel="stylesheet" href="../../styles/login.css">
 </head>
 <body>
 
@@ -74,8 +18,8 @@
                 <input type="password" placeholder="Password" required>
             </div>
             <button type="submit" class="btn">Login</button>
+            <button class="btn">Go Back</button>
         </form>
     </div>
-
 </body>
 </html>

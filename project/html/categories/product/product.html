@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">Foodie Express</div>
+        <div class="buttons-container">
+            <button class="custom-btn" onclick="location.href='../special/customer.html'">Customer Review ✨</button>
+            <button class="custom-btn" onclick="location.href='../special/cart.html'">Cart 🛒</button>
+            <button class="custom-btn" onclick="location.href='../login/los.html'">Login 🚪</button>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="#">Ice-Pops</a></li>
+            <li><a href="gelato.html">Gelato</a></li>
+            <li><a href="alfajeros.html">Alfajeros</a></li>
+            <li><a href="chocolate.html">Chocolate</a></li>
+            <li>
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="toggleDropdown()">Bebidas</button>
+                    <div class="dropdown-content" id="dropdownMenu">
+                        <a href="drinks/milkshakes.html">Milkshakes</a>
+                        <a href="drinks/jugo.html">Jugo</a>
+                        <a href="drinks/smoothies.html">Smoothies</a>
+                        <a href="drinks/preorder.html">Pre Orders</a>
+                    </div>
+                </div>
+            <li>
+        </ul>
+    </nav>
+    <main class="container">
+
+        <!-- Left Column / Headphones Image -->
+        <div class="left-column">
+            <img data-image="red" class="active" src="../../../assets/ice-cream/ice-bar/Caramel_Gold.png" alt="">
+        </div>
+
+
+        <!-- Right Column -->
+        <div class="right-column">
+
+            <!-- Product Description -->
+            <div class="product-description">
+                <span>Headphones</span>
+                <h1>Beats EP</h1>
+                <p>The preferred choice of a vast range of acclaimed DJs. Punchy, bass-focused sound and high isolation.
+                    Sturdy headband and on-ear cushions suitable for live performance</p>
+            </div>
+
+            <!-- Product Pricing -->
+            <div class="product-price">
+                <div class="prices">
+                    <span class="price-now">148$</span>
+                    <span class="price-before">160$</span>
+                </div>
+
+                <a href="#" class="cart-btn">Add to cart</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Foodie Express. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

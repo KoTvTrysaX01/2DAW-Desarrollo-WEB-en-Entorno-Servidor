@@ -10,84 +10,87 @@
 
 <body>
     <header>
-        <div class="header">
-            <div class="logo">Helado Express</div>
-            <div class="right-section">
-                <a href="./special/customer.html" class="button">Customer Reviews 🍧</a>
-                <a href="./special/cart.html" class="button">Cart 🛒</a>
-                <a href="./login/los.html" class="button">Login</a>
-            </div>
+        <div class="logo">Helado Express</div>
+        <div class="right-section">
+            <a href="./special/customer.html" class="button">Table of Products 📋</a>
+            <a href="./special/customer.html" class="button">Customer Reviews 🍧</a>
+            <a href="./special/cart.html" class="button">Cart 🛒</a>
+            <a href="./special/history.html" class="button">History 📒</a>
+            <a href="./login/los.html" class="button">Login 🚪</a>
         </div>
     </header>
-
-    <section class="hero">
-        <h1>Order Your Favorite Food Anytime, Anywhere</h1>
-        <p>Fast delivery & amazing discounts on every order!</p>
-        <button>Order Now</button>
-    </section>
-
     <nav>
         <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="categories/icepops.html">Ice-Pops</a></li>
-            <li><a href="categories/gelato.html">Gelato</a></li>
-            <li><a href="categories/alfajeros.html">Alfajeros</a></li>
-            <li><a href="categories/chocolate.html">Chocolate</a></li>
+            <li><a href="./categories/ice-creams.html">Ice Creams</a></li>
+            <li><a href="./categories/ice-bars.html">Ice Bars</a></li>
+            <li><a href="./categories/cookies.html">Cookies</a></li>
+            <li><a href="./categories/chocolates.html">Chocolates</a></li>
             <li>
                 <div class="dropdown">
-                    <button class="dropbtn" onclick="toggleDropdown()">Bebidas</button>
+                    <button class="dropbtn" onclick="toggleDropdown()">Drinks</button>
                     <div class="dropdown-content" id="dropdownMenu">
-                        <a href="categories/drinks/milkshakes.html">Milkshakes</a>
-                        <a href="categories/drinks/jugo.html">Jugo</a>
-                        <a href="categories/drinks/smoothies.html">Smoothies</a>
-                        <a href="categories/drinks/preorder.html">Pre Orders</a>
+                        <a href="./categories/drinks/milkshakes.html">Milkshakes</a>
+                        <a href="./categories/drinks/juices.html">Juices</a>
+                        <a href="./categories/drinks/smoothies.html">Smoothies</a>
                     </div>
                 </div>
             <li>
         </ul>
     </nav>
-
+    <section class="hero">
+        <div>
+            <h1>All your faves, all in one place. </h1>
+            <p>Discover our wide range of the most exclusive products, handmade creations made with top quality
+                ingredients.
+            </p>
+            <button>Order Now</button>
+        </div>
+    </section>
     <section class="restaurants">
         <h2>Today's special offers</h2>
         <div class="carousel">
             <div class="group">
                 <div class="card">
-                    <img src="../assets/ice-cream/icpops/Caramel_Gold.png" alt="Caramel_Gold">
+                    <img src="../assets/heladeria/ice-bars/Caramel_Gold.png" alt="Caramel_Gold"
+                        onclick="location.href='./categories/product/product.html'">
                 </div>
                 <div class="card">
-                    <img src="../assets/ice-cream/milkshakes/Bananalicious.jpg" alt="Bananalicious">
+                    <img src="../assets/heladeria/milkshakes/Bananalicious.png" alt="Bananalicious">
                 </div>
                 <div class="card">
-                    <img src="../assets/ice-cream/alfajores/Caja_White_Chocolate_&_Walnut.png" alt="Caja_White_Chocolate_">
+                    <img src="../assets/heladeria/cookies/Caja_White_Chocolate_&_Walnut.png"
+                        alt="Caja_White_Chocolate_">
                 </div>
                 <div class="card">
-                    <img src="../assets/ice-cream/gelato/Bombón_Praline.png" alt="Bombón_Praline">
+                    <img src="../assets/heladeria/ice-creams/Bombón_Praline.png" alt="Bombón_Praline">
                 </div>
                 <div class="card">
-                    <img src="../assets/ice-cream/juice/Green_Power.jpg" alt="Green_Power">
+                    <img src="../assets/heladeria/juices/Green_Power.png" alt="Green_Power">
                 </div>
                 <div class="card">
-                    <img src="../assets/ice-cream/smoothies/Dragon_Fruit_Mix.png" alt="Dragon_Fruit_Mix">
+                    <img src="../assets/heladeria/smoothies/Dragon_Fruit_Mix.png" alt="Dragon_Fruit_Mix">
                 </div>
             </div>
             <div aria-hidden class="group">
                 <div class="card">
-                    <img src="../assets/ice-cream/icpops/Caramel_Gold.png" alt="Caramel_Gold">
+                    <img src="../assets/heladeria/ice-bars/Caramel_Gold.png" alt="Caramel_Gold">
                 </div>
                 <div class="card">
-                    <img src="../assets/ice-cream/milkshakes/Bananalicious.jpg" alt="Bananalicious">
+                    <img src="../assets/heladeria/milkshakes/Bananalicious.png" alt="Bananalicious">
                 </div>
                 <div class="card">
-                    <img src="../assets/ice-cream/alfajores/Caja_White_Chocolate_&_Walnut.png" alt="Caja_White_Chocolate_">
+                    <img src="../assets/heladeria/cookies/Caja_White_Chocolate_&_Walnut.png"
+                        alt="Caja_White_Chocolate_">
                 </div>
                 <div class="card">
-                    <img src="../assets/ice-cream/gelato/Cremino_Tropical.png" alt="Cremino_Tropical">
+                    <img src="../assets/heladeria/ice-creams/Bombón_Praline.png" alt="Bombón_Praline">
                 </div>
                 <div class="card">
-                    <img src="../assets/ice-cream/juice/Green_Power.jpg" alt="Green_Power">
+                    <img src="../assets/heladeria/juices/Green_Power.png" alt="Green_Power">
                 </div>
                 <div class="card">
-                    <img src="../assets/ice-cream/smoothies/Dragon_Fruit_Mix.png" alt="Dragon_Fruit_Mix">
+                    <img src="../assets/heladeria/smoothies/Dragon_Fruit_Mix.png" alt="Dragon_Fruit_Mix">
                 </div>
             </div>
         </div>

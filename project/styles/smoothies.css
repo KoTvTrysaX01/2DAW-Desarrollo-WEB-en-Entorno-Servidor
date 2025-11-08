@@ -1,266 +1,298 @@
- @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@300;400;600&display=swap');
 
- body {
-     font-family: Arial, sans-serif;
-     margin: 0;
-     padding: 0;
-     background-color: #f8f8f8;
-     background: url('snacks.jpg') no-repeat center center/cover;
+:root {
+    --box-shadow: rgba(0, 0, 0, 0.2);
+    --header-bg-color-1: rgb(82, 0, 189);
+    --header-bg-color-2: rgb(167, 0, 158);
+    --header-text-color: rgb(255, 0, 0);
 
- }
+    --button-bg-color: rgb(82, 0, 189);
+    --button-text-color: rgb(255, 0, 0);
+    --button-bg-active:rgb(231, 0, 220);
+    --button-text-active: rgb(82, 0, 189);
 
- header {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     background: #C0392B;
-     padding: 15px 20px;
-     color: white;
-     position: sticky;
-     top: 0;
-     z-index: 1000;
- }
+    --nav-bg-color: rgba(201, 0, 191, 0.8);
 
+    --foods-bg-color: rgba(255, 192, 255, 0.685);
+    --foods-text-color: rgb(255, 255, 255);
+    --food-bg-color: rgb(167, 0, 158);
+    --food-bg-hover: rgb(141, 0, 134);
+    --food-img-bg: rgba(255, 255, 255, 0.3);
 
- .logo {
-     font-family: 'Lobster', cursive;
-     font-size: 32px;
-     font-weight: bold;
- }
+    --footer-bg-color: rgb(60, 0, 138);
+    --footer-text-color: rgb(255, 0, 0);
+}
 
- .search-bar input {
-     padding: 8px;
-     width: 200px;
-     border-radius: 5px;
-     border: none;
- }
+body {
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('../assets/heladeria/bg/smoothies.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 
- .search-bar button {
-     padding: 8px;
-     background: #d84315;
-     border: none;
-     border-radius: 5px;
-     cursor: pointer;
- }
+}
 
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, var(--header-bg-color-1), var(--header-bg-color-2));
+    padding: 15px 50px;
+    color: var(--header-text-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px var(--box-shadow);
+}
 
- .buttons-container {
-     display: flex;
-     gap: 10px;
- }
+.logo {
+    font-family: 'Lobster', cursive;
+    font-size: 32px;
+}
 
- .custom-btn {
-     padding: 10px 15px;
-     background: #F8E9D2;
-     color: rgb(0, 0, 0);
-     border: none;
-     border-radius: 5px;
-     font-weight: bold;
-     cursor: pointer;
-     transition: 0.3s;
- }
+.right-section {
+    display: flex;
+    gap: 15px;
+}
 
- .custom-btn:hover {
-     background: #D4AF37;
- }
+.button {
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    padding: 10px 15px;
+    font-weight: bold;
+    border-radius: 20px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    font-size: 14px;
+}
 
+.button:hover {
+    background-color: var(--button-text-color);
+    color: var(--button-bg-color);
+    transform: scale(1.05);
+}
 
- nav {
-     display: flex;
-     justify-content: center;
-     background-color: #E6E6FA;
-     padding: 10px;
- }
+nav {
+    display: flex;
+    justify-content: center;
+    background: var(--nav-bg-color);
+    padding: 15px 0;
+    box-shadow: 0px 4px 6px var(--box-shadow);
+}
 
- nav ul {
-     list-style: none;
-     display: flex;
-     gap: 15px;
- }
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2em;
+}
 
- nav ul li {
-     display: inline;
- }
+nav ul li a {
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    padding: 12px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
 
- nav ul li a {
-     background-color: #C62828;
-     color: white;
-     padding: 10px 15px;
-     text-decoration: none;
-     font-weight: bold;
-     border-radius: 5px;
-     transition: 0.3s ease-in-out;
- }
-
- nav ul li a:hover {
-     background-color: #bf360c;
- }
-
- .food-section {
-     padding: 20px;
-     text-align: center;
- }
-
- .scroll-container {
-     display: flex;
-     overflow-x: auto;
-     gap: 20px;
-     padding: 10px;
-     white-space: nowrap;
-     scroll-behavior: smooth;
- }
-
- .food-item {
-     flex: 0 0 auto;
-     width: 250px;
-     background: white;
-     padding: 15px;
-     border-radius: 10px;
-     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-     text-align: left;
-     position: relative;
-     transition: transform 0.3s ease-in-out;
- }
-
- .food-item:hover {
-     transform: scale(1.05);
-     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
- }
-
- .food-item img {
-     width: 100%;
-     border-radius: 10px;
- }
-
- .rating {
-     display: inline-block;
-     padding: 5px;
-     background-color: green;
-     color: white;
-     border-radius: 5px;
-     font-size: 14px;
-     font-weight: bold;
- }
-
- .price {
-     display: block;
-     font-size: 16px;
-     font-weight: bold;
-     margin-top: 5px;
- }
-
- .order-btn {
-     background: #1681f4;
-     color: white;
-     border: none;
-     padding: 8px 12px;
-     font-size: 14px;
-     cursor: pointer;
-     border-radius: 5px;
-     width: 100%;
-     margin-top: 10px;
-     transition: 0.3s;
- }
-
- .order-btn:hover {
-     background: #d63384;
-     /* Darker pink for hover */
-     transform: scale(1.05);
- }
-
- h2 {
-     color: #43e9ff;
- }
-
- .wishlist {
-     position: absolute;
-     top: 10px;
-     right: 10px;
-     font-size: 20px;
-     cursor: pointer;
-     color: #ff4081;
-     transition: 0.3s;
- }
-
- .wishlist:hover {
-     transform: scale(1.2);
- }
-
- img {
-     width: 350px;
-     /* Adjust width as needed */
-     height: 250px;
-     /* Adjust height as needed */
-     object-fit: cover;
-     /* Ensures the image is cropped properly */
-     border-radius: 10px;
-     /* Adds rounded corners */
-     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-     /* Adds a soft shadow */
- }
+nav ul li a:hover {
+    background: var(--button-text-color);
+    color: var(--button-bg-color);
+    transform: scale(1.05);
+}
 
 
- footer {
-     text-align: center;
-     padding: 10px;
-     background: #333;
-     background: #4e342e;
-     margin-top: 20px;
- }
+/* Dropdown Button */
+.dropbtn {
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    padding: 14px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    display: block;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
- .dropbtn {
-     background-color: #C62828;
-     /* Same as other menu items */
-     color: rgb(255, 255, 255);
-     padding: 10px 15px;
-     font-size: 16px;
-     font-weight: bold;
-     border: none;
-     border-radius: 8px;
-     cursor: pointer;
-     text-align: center;
-     width: 100%;
-     display: block;
- }
+/* Dropdown Menu */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--button-bg-color);
+    min-width: 180px;
+    box-shadow: 0px 4px 6px var(--box-shadow);
+    border-radius: 5px;
+    z-index: 1;
+    overflow: hidden;
+}
 
- /* Dropdown menu styles */
- .dropdown-content {
-     display: none;
-     position: absolute;
-     background-color: white;
-     min-width: 150px;
-     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-     border-radius: 5px;
-     z-index: 1;
- }
+/* Dropdown Links */
+.dropdown-content a {
+    color: var(--button-text-color);
+    padding: 12px 15px;
+    text-decoration: none;
+    display: block;
+    font-weight: bold;
+    transition: background 0.3s ease, color 0.3s ease;
+}
 
- .dropdown-content a {
-     color: rgb(255, 255, 255);
-     padding: 10px 15px;
-     text-decoration: none;
-     display: block;
- }
+/* Hover Effects */
+.dropdown-content a:hover {
+    background: var(--button-text-color);
+    color: var(--button-bg-color);
+}
 
- .dropdown-content a:hover {
-     background-color: #e8960a;
- }
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
- /* Show dropdown on hover */
- .dropdown:hover .dropdown-content {
-     display: block;
- }
+/* Button Hover & Focus Effects */
+.dropbtn:hover,
+.dropbtn:focus {
+    background: var(--button-text-color);
+    color: var(--button-bg-color);
+    transform: scale(1.05);
+    outline: none;
+}
 
- /* Fix alignment in navigation */
- nav ul {
-     display: flex;
-     align-items: center;
-     /* Aligns all buttons properly */
-     gap: 10px;
- }
+.food-section {
+    padding: 10px;
+    margin: 2em 1em;
+    border-radius: 15px;
+    text-align: center;
+    background-color: var(--foods-bg-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
- .dropbtn:hover,
- .dropbtn:focus {
-     background-color: #ff8f06;
-     /* Color change on touch or hover */
-     outline: none;
- }
+
+}
+
+.food-section h2 {
+    align-self: center;
+    width: 12vw;
+    padding: 0.5em 3em;
+    color: var(--button-text-color);
+    background-color: var(--button-bg-color);
+    border-radius: 10px;
+}
+
+.filtros {
+    padding: 2em 0em;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.filter-button {
+    width: 9em;
+    font-size: 1em;
+    padding: 0.7em 1em;
+    background: var(--button-bg-color);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filter-active {
+    background: var(--button-bg-active);
+    color: var(--button-text-active);
+}
+
+.filter-button:hover {
+    background: var(--button-text-color);
+    color: var(--button-bg-color);
+}
+
+.scroll-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+.food-item {
+    width: 15vw;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--foods-text-color);
+    background: var(--food-bg-color);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--box-shadow);
+    text-align: left;
+
+    transition: transform 0.3s ease-in-out;
+}
+
+.food-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px var(--box-shadow);
+    background-color: var(--food-bg-hover);
+}
+
+.food-item img {
+    border-radius: 10px;
+    background-color: var(--food-img-bg);
+    width: 80%;
+    height: 20em;
+    padding: 10px 0px 10px 10px;
+    box-shadow: 2px 2px 10px var(--box-shadow);
+}
+
+.price {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.order-btn {
+    background: var(--button-bg-color);
+    color: var(--button-text-color);
+    border: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.order-btn:hover {
+    background: var(--button-text-color);
+    color: var(--button-bg-color);
+}
+
+footer {
+    min-height: 50px;
+    text-align: center;
+    padding: 10px;
+    background: var(--footer-bg-color);
+    color: var(--footer-text-color);
+    font-size: 16px;
+}

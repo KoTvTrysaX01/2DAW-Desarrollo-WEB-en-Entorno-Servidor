@@ -1,55 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart - Foodie Express</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f8f8f8;
-            text-align: center;
-            padding: 20px;
-        }
-        .container {
-            background: white;
-            padding: 20px;
-            width: 60%;
-            margin: auto;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: center;
-        }
-        th {
-            background: #ff5722;
-            color: white;
-        }
-        .btn {
-            background: #ff5722;
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .btn:hover {
-            background: #e64a19;
-        }
-        .total {
-            font-size: 18px;
-            margin-top: 15px;
-        }
-    </style>
-</head>  
+    <link rel="stylesheet" href="../../styles/cart.css">
+</head>
+
 <body>
 
     <div class="container">
@@ -76,13 +34,14 @@
                 <td>₹150</td>
             </tr>
         </table>
-        
+
         <div class="total">
             <strong>Total: ₹899</strong>
         </div>
 
         <button class="btn">Proceed to Checkout</button>
     </div>
-
+    <button class="btn-back">Go Back</button>
 </body>
+
 </html>
