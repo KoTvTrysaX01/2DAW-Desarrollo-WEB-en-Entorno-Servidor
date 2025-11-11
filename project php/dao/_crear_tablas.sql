@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS
         precio DECIMAL(4, 2) NOT NULL,
         descripcion VARCHAR(300) NOT NULL,
         imagen VARCHAR(100) NOT NULL,
+        attributes VARCHAR(100) NOT NULL,
         stock BOOLEAN NOT NULL
     );
 
@@ -16,13 +17,21 @@ DELETE FROM ice_bars;
 
 -- Insertar todas la ice_bars
 INSERT INTO
-    ice_bars (nombre, precio, descripcion, imagen, stock)
+    ice_bars (
+        nombre,
+        precio,
+        descripcion,
+        imagen,
+        attributes,
+        stock
+    )
 VALUES
     (
         "Strawberry",
         3.00,
         "Ice pop made with fresh strawberries from our region.",
         "./assets/ice_bars/Strawberry.png",
+        "berries",
         true
     ),
     (
@@ -30,6 +39,7 @@ VALUES
         2.99,
         "Ice pop made with freshly squeezed lemon juice.",
         "./assets/ice_bars/Lemon.png",
+        "fruits",
         false
     ),
     (
@@ -37,6 +47,7 @@ VALUES
         3.45,
         "Fresh passion fruit ice_creams.",
         "./assets/ice_bars/Passion_Fruit.png",
+        "fruits",
         true
     ),
     (
@@ -44,6 +55,7 @@ VALUES
         1.99,
         "Fresh mango ice_creams.",
         "./assets/ice_bars/Mango.png",
+        "fruits",
         true
     ),
     (
@@ -51,6 +63,7 @@ VALUES
         4.49,
         "Ice pop made of hazelnuts with hazelnut, chocolate and wafer swirls, developed exclusively for Lucciano's in Italy.",
         "./assets/ice_bars/King_Nero.png",
+        "berries",
         true
     ),
     (
@@ -58,6 +71,7 @@ VALUES
         3.45,
         "Ice pop made with whipped cream, with chocolate ganache and chocolate cookie swirls, decorated with stracciatella coated cookies.",
         "./assets/ice_bars/Cookies_And_Cream.png",
+        "berries",
         false
     ),
     (
@@ -65,6 +79,7 @@ VALUES
         3.00,
         "Ice pop made of Italian mascarpone with a Patagonian berry swirl.",
         "./assets/ice_bars/Mascarpone_&_Berries.png",
+        "berries",
         false
     ),
     (
@@ -72,6 +87,7 @@ VALUES
         4.49,
         "Peanut icepop without added sugar.",
         "./assets/ice_bars/Peanut_Without_Added_Sugar.png",
+        "berries",
         true
     ),
     (
@@ -79,6 +95,7 @@ VALUES
         3.45,
         "Strawberry whipped cream ice pop, a perfect combination of texture and flavor.",
         "./assets/ice_bars/Strawberry_&_Whipped_Cream.png",
+        "berries",
         false
     ),
     (
@@ -86,6 +103,7 @@ VALUES
         1.99,
         "Whipped cream ice pop, coated with semi- sweet Belgian chocolate and small pieces of caramelized peanuts.",
         "./assets/ice_bars/Whipped_Cream.png",
+        "berries",
         true
     ),
     (
@@ -93,6 +111,7 @@ VALUES
         3.00,
         "Milk caramel ice pop, coated with Belgian white chocolate and small pieces of caramelized peanuts.",
         "./assets/ice_bars/Crispy_Dulce_De_Leche.png",
+        "berries",
         true
     ),
     (
@@ -100,6 +119,7 @@ VALUES
         2.99,
         "Lucciano’s chocolate ice pop, coated with semi-sweet Belgian chocolate with small pieces of caramelized peanuts.",
         "./assets/ice_bars/Crispy_Chocolate.png",
+        "berries",
         true
     ),
     (
@@ -107,6 +127,7 @@ VALUES
         4.49,
         "Strawberry whipped cream ice pop, coated with pink tinted Belgian white chocolate. It is decorated with multicolored sprinkles and white chocolate eyes.",
         "./assets/ice_bars/Fiore_Strawberry.png",
+        "berries",
         false
     ),
     (
@@ -114,6 +135,7 @@ VALUES
         3.00,
         "King flavored ice pop, coated with Belgian white chocolate. The paws are decorated with a fine touch of stracciatella.",
         "./assets/ice_bars/Oli_King.png",
+        "berries",
         false
     ),
     (
@@ -121,6 +143,7 @@ VALUES
         1.99,
         "King flavored ice pop, coated with Belgian white and semi-sweet chocolate. The eyes are made with the same chocolate.",
         "./assets/ice_bars/Smile_King.png",
+        "berries",
         true
     ),
     (
@@ -128,6 +151,7 @@ VALUES
         3.45,
         "Cheesecake icepop with swirls of passion fruit coated with white chocolate.",
         "./assets/ice_bars/Passion_Fruit_Cheesecake.png",
+        "berries",
         true
     ),
     (
@@ -135,6 +159,7 @@ VALUES
         2.99,
         "Red berry sorbet. Mix of blueberries, strawberries, raspberries and blackberries from Patagonia. Coated with white chocolate and decorated with purple lines.",
         "./assets/ice_bars/Red_Berry_Sorbet.png",
+        "berries",
         false
     ),
     (
@@ -142,6 +167,7 @@ VALUES
         4.49,
         "Pistacchio ice pop, a combination of the finest pistacchios from Bronte and Sicily, coated with a Belgian pistacchio-flavored white chocolate.",
         "./assets/ice_bars/Pistacchio.png",
+        "berries",
         true
     ),
     (
@@ -149,6 +175,7 @@ VALUES
         3.00,
         "Milk caramel ice pop with a gianduia chocolate filling, coated with Belgian white chocolate.",
         "./assets/ice_bars/Enzo_Dulce_De_Leche_&_Gianduia.png",
+        "berries",
         false
     ),
     (
@@ -156,6 +183,7 @@ VALUES
         1.99,
         "Whipped cream ice pop with cookies made in Italy for Lucciano’s and chocolate ganache swirls, coated with white chocolate. All decoration details are made by hand.",
         "./assets/ice_bars/Tonio_Cookies_&_Cream.png",
+        "berries",
         true
     ),
     (
@@ -163,6 +191,7 @@ VALUES
         3.00,
         "King flavored ice pop, coated with Italian white chocolate of Belgian origin, tinted with the classic blue and yellow colors. Handmade eyes are used to add the perfect touch!",
         "./assets/ice_bars/Minion.png",
+        "berries",
         true
     ),
     (
@@ -170,6 +199,7 @@ VALUES
         2.99,
         "Chocolate ice_creams, double coated with Belgian white chocolate and milk chocolate, sealed with golden dust., double coated with Belgian white chocolate and milk chocolate, sealed with golden dust.",
         "./assets/ice_bars/Dark_Double_Chocolate.png",
+        "berries",
         true
     ),
     (
@@ -177,6 +207,7 @@ VALUES
         3.00,
         "White chocolate with milk chocolate swirls, double coated with Belgian white chocolate and milk chocolate.",
         "./assets/ice_bars/White_Double_Chocolate.png",
+        "berries",
         false
     ),
     (
@@ -184,6 +215,7 @@ VALUES
         3.45,
         "Milk chocolate ice_creams covered with milk chocolate with no added sugar.",
         "./assets/ice_bars/Icepop_0_Added_Sugar.png",
+        "berries",
         false
     ),
     (
@@ -191,6 +223,7 @@ VALUES
         3.00,
         "Caramel icepop coated with gold chocolate.",
         "./assets/ice_bars/Caramel_Gold.png",
+        "berries",
         false
     ),
     (
@@ -198,6 +231,7 @@ VALUES
         2.99,
         "Vegan 80% chocolate sorbet coated with the same chocolate.",
         "./assets/ice_bars/Sorbet_Supreme_80.png",
+        "berries",
         true
     );
 
@@ -207,8 +241,10 @@ CREATE TABLE IF NOT EXISTS
         id INT AUTO_INCREMENT PRIMARY KEY,
         nombre VARCHAR(50) NOT NULL,
         precio DECIMAL(4, 2) NOT NULL,
+        old_price DECIMAL(4, 2),
         descripcion VARCHAR(300) NOT NULL,
         imagen VARCHAR(100) NOT NULL,
+        attributes VARCHAR(100) NOT NULL,
         stock BOOLEAN NOT NULL
     );
 
@@ -216,167 +252,221 @@ CREATE TABLE IF NOT EXISTS
 DELETE FROM ice_creams;
 
 INSERT INTO
-    ice_creams (nombre, precio, descripcion, imagen, stock)
+    ice_creams (
+        nombre,
+        precio,
+        old_price,
+        descripcion,
+        imagen,
+        attributes,
+        stock
+    )
 VALUES
     (
         "Strawberry",
         3.00,
+        4.00,
         "Made with fresh strawberries from our region.",
         "./assets/ice_creams/Strawberry.png",
+        "berries, discount",
         true
     ),
     (
         "Mango",
         2.99,
+        null,
         "Fresh mango ice-cream.",
         "./assets/ice_creams/Mango.png",
+        "fruits",
         false
     ),
     (
         "Passion Fruit",
         3.45,
+        null,
         "Fresh passion fruit ice-cream",
         "./assets/ice_creams/Passion_Fruit.png",
+        "fruits",
         true
     ),
     (
         "Lime",
         1.99,
+        2.50,
         "Gelato made with freshly sqeezed lime juice.",
         "./assets/ice_creams/Lime.png",
+        "fruits, discount",
         true
     ),
     (
         "Coco Rock",
         4.49,
+        null,
         "Malaysian coconut ice cream with white chocolate, crispy wafers and shredded coconut swirls.",
         "./assets/ice_creams/Coco_Rock.png",
+        "fruits, white-chocolate",
         true
     ),
     (
         "Passion Fruit Cheesecake",
         3.45,
+        4.00,
         "Cheesecake ice-cream with passion fruit marbling.",
         "./assets/ice_creams/Passion_Fruit_Cheesecake.png",
+        "fruits, discount",
         false
     ),
     (
         "Lemon Pie",
         3.00,
+        null,
         "We transformed the famous recipe into an incredible ice cream in its honor.",
         "./assets/ice_creams/Lemon_Pie.png",
+        "fruits",
         false
     ),
     (
         "Mascarpone & Berries",
         4.49,
+        5.00,
         "Exclusive recipe, made in Italy for Lucciano’s with mascarpone cheese combined with swirls of berries from the Argentine Patagonia.",
         "./assets/ice_creams/Mascarpone_&_Berries.png",
+        "berries, discount",
         true
     ),
     (
         "Cookies & Cream",
         3.45,
+        null,
         "Whipped cream ice-cream with cookie swirls, developed exclusively by Lucciano’s in Italy.",
         "./assets/ice_creams/Cookies_&_Cream.png",
+        "white-chocolate, special",
         false
     ),
     (
         "Tiramisú",
         1.99,
+        null,
         "Inspired by the classic Italian dessert with a super creamy mascarpone cheese. With Lucciano’s exclusive Italian cocoa powder and delicious pieces of vanilla sponge cake dipped in coffee liqueur syrup and Colombian coffee.",
         "./assets/ice_creams/Tiramisú.png",
+        "special",
         true
     ),
     (
         "Cherry Vainilla",
         3.00,
+        null,
         "Vainilla cream ice-cream with cherry marbling.",
         "./assets/ice_creams/Cherry_Vainilla.png",
+        "berries",
         true
     ),
     (
         "White Chocolate Pistacchio Crock",
         2.99,
+        null,
         "White chocolate cream ice-cream with crunchy italian pistacchio marbling.",
         "./assets/ice_creams/White_Chocolate_Pistacchio_Crock.png",
+        "white-chocolate, nuts, special",
         true
     ),
     (
         "Nocciola Suprema",
         4.49,
+        6.00,
         "Gelato made with top quality italian pure hazelnuts.",
         "./assets/ice_creams/Nocciola_Suprema.png",
+        "chocolate, special, discount",
         false
     ),
     (
         "King Bueno",
         3.00,
+        null,
         "Hazelnut ice-cream with hazelnut, chocolate and wafers swirls, exclusively developed for Lucciano’s in Italy.",
         "./assets/ice_creams/King_Bueno.png",
+        "white-chocolate, nuts",
         false
     ),
     (
         "Lucciano's Chocolate Hazelnut",
         3.45,
+        null,
         "Lucciano’s chocolate with a chocolate and hazelnut filling, developed exclusively by Lucciano’s in Italy.",
         "./assets/ice_creams/Lucciano's_Chocolate_Hazelnut.png",
+        "chocolate, nuts",
         true
     ),
     (
         "Milk Caramel Chocolate Chip",
         2.99,
+        null,
         "Milk caramel ice cream with semi-sweet Italian Stracciatella.",
         "./assets/ice_creams/Milk_Caramel_Chocolate_Chip.png",
+        "caramel, chocolate, special",
         false
     ),
     (
         "Bombón Praline",
         3.00,
+        null,
         "Gianduia ice-cream with swirls of gianduia cream with wafers and nocciola.",
         "./assets/ice_creams/Bombón_Praline.png",
+        "chocolate, nuts",
         false
     ),
     (
         "Stracciatella",
         1.99,
+        null,
         "Chantilly cream with swirls of belgium stracciatella.",
         "./assets/ice_creams/Stracciatella.png",
+        "white-chocolate",
         true
     ),
     (
         "Sorbet Supreme 80%",
         3.00,
+        null,
         "Vegan 80% chocolate sorbet.",
         "./assets/ice_creams/Sorbet_Supreme_80.png",
+        "chocolate, special",
         true
     ),
     (
         "Banana Splite",
         2.99,
+        null,
         "Made with fresh bananas, with belgian chocolate and milk caramel swirls.",
         "./assets/ice_creams/Banana_Splite.png",
+        "fruits, white-chocolate",
         true
     ),
     (
         "Dulce De Leche",
         3.00,
+        null,
         "Argentinean dulce de leche premium ice cream with swirls of dulce de leche, developed exclusively by Lucciano's in Italy.",
         "./assets/ice_creams/Dulce_De_Leche.png",
+        "caramel, special",
         false
     ),
     (
         "Chocolate Dubai",
         3.45,
+        3.99,
         "Belgian chocolate ice-cream with variegato layers that emulates the combination of pistachio and Kadayif, inspired by the famous Chocolate Dubai.",
         "./assets/ice_creams/Chocolate_Dubai.png",
+        "chocolate, special, discount",
         false
     ),
     (
         "Pistacchio Cheesecake",
         3.00,
+        null,
         "An irresistible Cheesecake ice-cream with a delicious Avella Pistacchio marbling and a crunchy touch of Pistacchio Crumble.",
         "./assets/ice_creams/Pistacchio_Cheesecake.png",
+        "special, nuts",
         false
     );
 
@@ -770,8 +860,6 @@ CREATE TABLE IF NOT EXISTS
         address VARCHAR(100)
     );
 
-DELETE FROM users;
-
 INSERT INTO
     users (
         nombre,
@@ -782,24 +870,20 @@ INSERT INTO
         password,
         address
     )
-VALUES
-    (
-        "root",
-        "root@email.com",
-        "123456789",
-        "2001-11-01",
-        "root",
-        "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
-        "c/ Root Av."
-    ),
-    (
-        "Vadim Elshin",
-        "vadim@email.com",
-        "123456789",
-        "2001-11-01",
-        "KoTvTrysaX",
-        "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
-        "c/ Vadim Av."
+SELECT
+    "root",
+    "root@email.com",
+    "123456789",
+    "2001-11-01",
+    "root",
+    "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+    "c/ Root Av."
+WHERE
+    NOT EXISTS (
+        SELECT
+            *
+        FROM
+            users
     );
 
 COMMIT;

@@ -14,7 +14,7 @@
         if (!$loggedin) {
         ?> <a href="#" class="button btn-block">Cart 🛒</a>
             <a href="#" class="button btn-block">History 📒</a>
-            <a href="index.php?page=login" class="button">Login 🚪</a>
+            <a href="index.php?page=logs" class="button">Login 🚪</a>
         <?php
         } else {
         ?>

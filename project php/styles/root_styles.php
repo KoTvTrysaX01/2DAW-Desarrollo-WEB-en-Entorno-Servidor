@@ -1,14 +1,12 @@
 <style>
-    body {
-        background-image: url(<?php echo "./assets/bg/" . $config['category'] . ".png"; ?>);
-    }
-
     .btn-block {
         background-color: rgb(167, 167, 167);
-        color: rgb(255, 255, 255);;
+        color: rgb(255, 255, 255);
+        ;
     }
-    .btn-block:hover{
-        background-color:rgb(255, 255, 255);
+
+    .btn-block:hover {
+        background-color: rgb(255, 255, 255);
         color: rgb(145, 145, 145)
     }
 </style>
@@ -42,7 +40,24 @@ if ($config['page'] == "home") {
     </style>
     <?php
 } elseif ($config['page'] == "login") {
+    switch ($config['category']) {
+        case "login":
+    ?>
+    
+
+    <?php
+
+    }
 } elseif ($config['page'] == "products") {
+
+    ?>
+    <style>
+        body {
+            background-image: url(<?php echo "./assets/bg/" . $config['category'] . ".png"; ?>);
+        }
+    </style>
+
+    <?php
 
     switch ($config['category']) {
         case "ice_creams":

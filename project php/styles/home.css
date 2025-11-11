@@ -153,11 +153,11 @@ nav ul li a:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 3em;
+    padding: 2em;
     background: var(--hero-bg-color);
     color: var(--hero-text-color);
     font-weight: bold;
-    margin: 2em 5em 0 5em;
+    margin: 1em 4em;
     border-radius: 50px;
 }
 

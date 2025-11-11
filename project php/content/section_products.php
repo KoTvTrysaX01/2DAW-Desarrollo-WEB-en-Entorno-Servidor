@@ -1,26 +1,86 @@
 <?php
-$sqlSelect = "SELECT * FROM " . $config['category'] . " ORDER BY nombre";
-
 $sqlBD = SqlConecta($hostSql, $userSql, $passSql, $basedatosSql);
+
+$where = "";
+$orderby = "";
+$filters = array();
+
+if (isset($_POST['attributes'])) {
+    $filters = explode(", ", $_POST['attributes']);
+}
+
+foreach ($filters as $filter) {
+    switch ($filter) {
+        case "Nombre":
+            $orderby = " ORDER BY nombre ASC ";
+            break;
+        case "Stock":
+            $where = " WHERE stock = 1 ";
+            break;
+        default:
+            if($where == ""){
+                $where = " WHERE attributes LIKE '%" . lcfirst($filter) . "%'"; 
+            }else{
+                $where .= " AND attributes LIKE '%" . lcfirst($filter) . "%'";
+            }
+            break;
+    }
+}
+
+$filter = "";
+$filter = $where . $orderby;
+
+
+
+$sqlSelect = "SELECT * FROM " . $config['category'] . $filter;
+
+echo $sqlSelect;
+
 $sqlCursor = sqlQuery($sqlBD, $sqlSelect);
 $arrayProductos = sqlResultArray($sqlBD, $sqlCursor);
+
+
+$sqlSelect = "SELECT * FROM " . $config['category'] . " ORDER BY LENGTH('attributes')";
+$sqlCursor = sqlQuery($sqlBD, $sqlSelect);
+$arrayResults = sqlResultArray($sqlBD, $sqlCursor);
+$attributes = array();
+for ($i = 0; $i < count($arrayResults); $i++) {
+    $temp_array = explode(", ", $arrayResults[$i]['attributes']);
+    foreach ($temp_array as $x) {
+        if (!in_array($x, $attributes)) {
+            array_push($attributes, $x);
+        }
+    }
+}
+
 SqlDesconecta($sqlBD);
+
+
+
+function filter() {}
+
 ?>
-
-
 
 <section class="food-section">
     <h2>Ice Bars Paradise</h2>
-    <div class="filtros">
-        <button class="filter-button" onclick="myFunction(this)">Fruits</button>
-        <button class="filter-button" onclick="myFunction(this)">Berries</button>
-        <button class="filter-button" onclick="myFunction(this)">Ice Pops</button>
-        <button class="filter-button" onclick="myFunction(this)">Nuts</button>
-        <button class="filter-button" onclick="myFunction(this)">Chocolate</button>
-        <button class="filter-button" onclick="myFunction(this)">0% Sugar</button>
-        <button class="filter-button" onclick="myFunction(this)">Discount</button>
-        <button class="filter-button" onclick="myFunction(this)">Stock</button>
-    </div>
+    <form id="myForm" method="post">
+        <input type="hidden" id="attributes" name="attributes" value="" />
+        <div class="filtros">
+            <button class="filter-button" onclick="myFunction(this)" name="Nombre">Name</button>
+            <button class="filter-button" onclick="myFunction(this)" name="Stock">Stock</button>
+            <!-- <input type="hidden" id="attributes" name="atributes" /> -->
+            <?php
+            foreach ($attributes as $attribute) {
+            ?>
+                <!-- <input type="submit" class="filter-button" onclick="myFunction(this)" name="submit"  value="" /> -->
+                <button class="filter-button" onclick="myFunction(this)" name="<?php echo ucfirst($attribute); ?>"><?php echo ucfirst($attribute); ?></button>
+            <?php
+            }
+            ?>
+        </div>
+        <input class="filter-button" type="submit" name="submit" value="Filter" />
+    </form>
+
     <div class="scroll-container">
         <?php for ($i = 0; $i < count($arrayProductos); $i++) { ?>
             <div class="food-item">

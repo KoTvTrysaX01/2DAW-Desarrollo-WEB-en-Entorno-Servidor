@@ -170,16 +170,17 @@ nav ul li a:hover {
 }
 
 .filtros {
-    padding: 2em 0em;
+    padding: 2vh 0vw;
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content:center;
+    gap: 1%;
 }
 
 .filter-button {
-    width: 9em;
-    font-size: 1em;
-    padding: 0.7em 1em;
+    width: 9vw;
+    font-size: 1.2em;
+    padding: 1vh 0;
     background: var(--button-bg-color);
     color: var(--button-text-color);
     border: none;

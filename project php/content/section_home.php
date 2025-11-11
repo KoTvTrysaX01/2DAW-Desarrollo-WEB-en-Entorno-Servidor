@@ -1,20 +1,18 @@
 <section class="hero">
-    <div>
-        <?php
-        if ($loggedin) {
-        ?>
-            <h1 class="welcome-msg">Welcome <?php echo $_SESSION['usuario'] ?></h1>
-        <?php
-        }
-        ?>
-
-        <h2>All your faves, all in one place. </h2>
-        <p>Discover our wide range of the most exclusive products, handmade creations made with top quality
-            ingredients.
-        </p>
-        <button>Order Now</button>
-    </div>
+    <?php
+    if ($loggedin) {
+    ?>
+        <h1 class="welcome-msg">Welcome <?php echo $_SESSION['usuario'] ?></h1>
+    <?php
+    }
+    ?>
+    <h2>All your faves, all in one place. </h2>
+    <p>Discover our wide range of the most exclusive products, handmade creations made with top quality
+        ingredients.
+    </p>
+    <button>Order Now</button>
 </section>
+
 <section class="restaurants">
     <h2>Today's special offers</h2>
     <div class="carousel">
