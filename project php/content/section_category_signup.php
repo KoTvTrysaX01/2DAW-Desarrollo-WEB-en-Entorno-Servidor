@@ -1,36 +1,7 @@
 <?php
-$valores = array(
-    'nombre' => "",
-    'email' => "",
-    'telefono' => "",
-    'birth_date' => "",
-    'username' => "",
-    'password' => "",
-    'address' => ""
-);
-
-
-
-
-if (isset($_POST['submit'])) {
+if (isset($_POST['signup'])) {
     require_once "dao/include_mysql.php";
     require_once "dao/include_vars.php";
-
-    $valores['nombre'] = $_POST['nombre'];
-    $valores['email'] = $_POST['email'];
-    $valores['telefono'] = $_POST['telefono'];
-    $valores['birth_date'] = $_POST['birth_date'];
-    $valores['username'] = $_POST['username'];
-    $valores['password'] = $_POST['password'];
-    $valores['address'] = $_POST['address'];
-
-    echo $valores['nombre'];
-    echo $valores['email'];
-    echo $valores['telefono'];
-    echo $valores['birth_date'];
-    echo $valores['username'];
-    echo $valores['password'];
-    echo $valores['address'];
 
 
     $sqlBD = sqlConecta($hostSql, $userSql, $passSql, $basedatosSql);
@@ -113,16 +84,12 @@ if (isset($_POST['submit'])) {
                 <textarea placeholder="Enter your full address" rows="3" name="address" required></textarea>
             </div>
 
-            <button type="submit" class="btn" name="submit" onclick="register()">Sign Up</button>
+            <button type="submit" class="btn" name="signup">Sign Up</button>
 
         </form>
         <button class="btn" onclick=getBack()>Go Back</button>
     </div>
     <script>
-        function register() {
-        //    event.preventDefault();
-        }
-
         function checkPassword(field) {
             var password = document.getElementById("password");
             if (field.value != password.value) {

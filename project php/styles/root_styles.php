@@ -2,6 +2,15 @@
     body {
         background-image: url(<?php echo "./assets/bg/" . $config['category'] . ".png"; ?>);
     }
+
+    .btn-block {
+        background-color: rgb(167, 167, 167);
+        color: rgb(255, 255, 255);;
+    }
+    .btn-block:hover{
+        background-color:rgb(255, 255, 255);
+        color: rgb(145, 145, 145)
+    }
 </style>
 
 <?php
@@ -26,16 +35,15 @@ if ($config['page'] == "home") {
             --footer-bg-color: rgb(252, 160, 191);
             --footer-text-color: rgb(255, 255, 255);
         }
+
         body {
-        background-image: url(<?php echo "./assets/bg/" . $config['page'] . ".png"; ?>);
-    }
+            background-image: url(<?php echo "./assets/bg/" . $config['page'] . ".png"; ?>);
+        }
     </style>
     <?php
 } elseif ($config['page'] == "login") {
+} elseif ($config['page'] == "products") {
 
-}
-elseif ($config['page'] == "products") {
-    
     switch ($config['category']) {
         case "ice_creams":
     ?>
@@ -75,8 +83,8 @@ elseif ($config['page'] == "products") {
                     --header-text-color: rgb(196, 72, 0);
 
                     --button-bg-color: rgb(255, 255, 255);
-                    --button-text-color: rgb(204, 75, 0);
-                    --button-bg-active: rgb(126, 46, 0);
+                    --button-text-color: rgba(89, 33, 0, 1);
+                    --button-bg-active: rgba(111, 41, 0, 1);
                     --button-text-active: rgb(255, 255, 255);
 
                     --nav-bg-color: rgba(255, 232, 203, 0.8);

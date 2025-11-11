@@ -1,8 +1,44 @@
 <?php
 include "./dao/include_mysql.php";
 include "./dao/include_vars.php";
-require_once "./dao/crear_bd.php";
-require_once "./dao/crear_tablas.php";
+
+$db = new mysqli($hostSql, $userSql, $passSql, $basedatosSql);
+$db->set_charset("utf8");
+
+$consulta = 'SELECT * FROM users';
+$resultado = $db->query($consulta);
+if ($resultado->num_rows < 2) {
+    require_once "./dao/crear_bd.php";
+    require_once "./dao/crear_tablas.php";
+    $resultado->free();
+}
+
+// if (!isset($_SESSION['usuario'])) {
+//     session_start();
+//     $_SESSION['usuario'] = "";
+//     echo "error";
+//     $loggedin = false;
+// } elseif ($_SESSION['usuario'] != "") {
+//     echo "logged in";
+//     $loggedin = true;
+// }
+
+
+
+session_start();
+$loggedin = false;
+$loggedroot = false;
+if (!isset($_SESSION['usuario'])) {
+    echo "error";
+} else {
+    if ($_SESSION['usuario'] == 'root') {
+        $loggedroot = true;
+        $loggedin = true;
+    } else {
+        echo $_SESSION['usuario'] . " " . "logged in";
+        $loggedin = true;
+    }
+}
 
 
 $config['page'] = "home";
@@ -14,46 +50,7 @@ if (isset($_GET['page'])) {
 if (isset($_GET['category'])) {
     $config['category'] = addslashes(trim($_GET['category']));
 }
-// if ($config['page'] != "home" || $config['page'] != "food") {
-//     $config['page'] = "home";
-// }
 
-// switch ($config['page']) {
-//     case "home":
-//         $config['content'] = "home";
-//         break;
-//     case "ice_creams":
-//         $config['content'] = "food";
-//         break;
-//     case "ice_bars":
-//         $config['content'] = "food";
-//         break;
-//     case "cookies":
-//         $config['content'] = "food";
-//         break;
-//     case "chocolates":
-//         $config['content'] = "food";
-//         break;
-//     case "milkshakes":
-//         $config['content'] = "food";
-//         break;
-//     case "juices":
-//         $config['content'] = "food";
-//         break;
-//     case "smoothies":
-//         $config['content'] = "food";
-//         break;
-//     case "login":
-//         $config['content'] = "login";
-//         break;
-
-//     default:
-//         $config['page'] = "home";
-//         $config['content'] = "home";
-//         break;
-// }
-
-// 
 ?>
 
 
@@ -63,14 +60,6 @@ if (isset($_GET['category'])) {
 
 <body>
     <?php
-    // switch($config['page']){
-    //     case "home":
-
-    //         break;
-    // }
-
-
-
     if ($config['page'] == "login") {
         switch ($config['category']) {
             case "login":
@@ -82,6 +71,11 @@ if (isset($_GET['category'])) {
             default:
                 include "./content/section_login_page.php";
         }
+    } elseif ($config['page'] == "logout") {
+        $_SESSION['usuario'] = null;
+        $loggedin = false;
+        $loggedroot = false;
+        header('Location: index.php');
     } else {
         include "./inc/include_header.php";
         include "./inc/include_nav.php";

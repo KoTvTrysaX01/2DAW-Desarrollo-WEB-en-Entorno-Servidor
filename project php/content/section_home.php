@@ -1,6 +1,14 @@
 <section class="hero">
     <div>
-        <h1>All your faves, all in one place. </h1>
+        <?php
+        if ($loggedin) {
+        ?>
+            <h1 class="welcome-msg">Welcome <?php echo $_SESSION['usuario'] ?></h1>
+        <?php
+        }
+        ?>
+
+        <h2>All your faves, all in one place. </h2>
         <p>Discover our wide range of the most exclusive products, handmade creations made with top quality
             ingredients.
         </p>
