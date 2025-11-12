@@ -421,7 +421,7 @@ sqlDesconecta($sqlBD);
 			// VOLVER
 			$("#btnVolver").on("click", function() {
 				// Recargar los datos iniciales
-				window.location.href = "electronica_crud.php";
+				window.location.href = "table.php";
 			});
 		});
 	</script>

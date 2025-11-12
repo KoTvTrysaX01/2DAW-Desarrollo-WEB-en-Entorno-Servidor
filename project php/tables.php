@@ -1,5 +1,9 @@
 <?php
 
+
+require_once "./dao/include_vars.php";
+require_once "./dao/include_mysql.php";
+
 $config['page'] = "home";
 $config['category'] = "";
 $config['section'] = "";
@@ -42,6 +46,7 @@ if (!isset($_SESSION['usuario'])) {
 <?php include "./inc/include_head.php"; ?>
 
 <body>
+    
     <?php include "./inc/include_header.php"; ?>
     <?php include "./inc/include_nav.php"; ?>
     <?php include "./content/section_table.php"; ?>

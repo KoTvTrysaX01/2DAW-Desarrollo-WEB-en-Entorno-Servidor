@@ -60,6 +60,9 @@ if (isset($_GET['segment'])) {
 
 <body>
     <?php
+    include "./inc/include_header.php";
+    include "./inc/include_nav.php";
+
     if ($config['page'] == "logs") {
         switch ($config['section']) {
 
@@ -80,18 +83,13 @@ if (isset($_GET['segment'])) {
         $loggedroot = false;
         header('Location: index.php');
     } elseif ($config['page'] == "tables") {
-        include "./inc/include_header.php";
-        include "./inc/include_nav.php";
         include "./content/section_tables2.php";
-        include "./inc/include_footer.php";
     } elseif ($config['page'] == "special") {
         include "./content/section_" . $config['segment'] . ".php";
     } else {
-        include "./inc/include_header.php";
-        include "./inc/include_nav.php";
         include "./content/section_" . $config['page'] . ".php";
-        include "./inc/include_footer.php";
     }
+    include "./inc/include_footer.php";
     include "./inc/include_scripts.php";
     ?>
 

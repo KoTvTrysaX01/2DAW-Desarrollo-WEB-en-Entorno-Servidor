@@ -13,7 +13,7 @@ $sqlSelect = "SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TA
 $sqlCursor = sqlQuery($sqlBD, $sqlSelect);
 $tableColumns = sqlResultArray($sqlBD, $sqlCursor);
 
-SqlDesconecta($sqlBD);
+
 
 $myColumns = array();
 foreach ($tableColumns as $columnArray) {
@@ -21,6 +21,34 @@ foreach ($tableColumns as $columnArray) {
         array_push($myColumns, $value);
     }
 }
+
+
+
+
+$borrado = false;
+if (isset($_GET['del'])) {
+    $valores['id'] = addslashes(htmlentities(trim($_GET['del'])));
+    if ($valores['id'] != "") {
+        $sqlDelete = "DELETE FROM ". "{$_GET['section']}" ." WHERE id='" . $valores['id'] . "'";
+        sqlIniTrans($sqlBD);
+        $sqlCursor = sqlQuery($sqlBD, $sqlDelete);
+        if (!$continuaSql) {
+            $numerror = $sqlBD->errno;
+            $menerror = $sqlBD->error;
+            $bdResultado = false;
+            echo "<br>Error SQL: " . $menerror;
+        } else {
+            $bdResultado = true;
+            $borrado = true;
+        }
+        sqlFinTrans($sqlBD);
+        
+    }
+}
+
+
+
+
 ?>
 
 <head>
@@ -83,9 +111,9 @@ foreach ($tableColumns as $columnArray) {
 </head>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-lg-10">
             <div class="table-container">
-                <h2 class="text-center">Table of <?php echo $config['section']?></h2>
+                <h2 class="text-center">Table of <?php echo $config['section'] ?></h2>
 
                 <div class="text-end mb-2">
                     <button class="btn btn-sm btn-add me-1">
@@ -98,8 +126,7 @@ foreach ($tableColumns as $columnArray) {
 
                         <tr>
                             <?php
-                            for($i = 0; $i < count($myColumns); $i++){
-                            // foreach ($myColumns as $column) {
+                            for ($i = 0; $i < count($myColumns); $i++) {
                             ?>
 
                                 <th><?php echo $myColumns[$i]; ?></th>
@@ -111,25 +138,22 @@ foreach ($tableColumns as $columnArray) {
                     </thead>
                     <tbody>
                         <?php
-                        for($i = 0; $i < count($tableArray); $i++){
-                            echo count($tableArray[1]);
-                        // foreach ($tableArray as $dataArray) {
+                        foreach ($tableArray as $dataArray) {
                         ?><tr>
                                 <?php
-                                for($y = 0; $y < count($tableArray[$i]); $y++){
-                                // foreach ($dataArray as $data) {
-                                echo count($tableArray[$i][1]);
-                                ?> <td><?php echo $tableArray[$i][$y]; ?></td><?php
-                                                            }
-                                                                ?>
+                                foreach ($dataArray as $data) {
+
+                                ?> <td class="text-break"><?php echo $data; ?></td><?php
+                                                                                }
+                                                                                    ?>
                                 <td>
                                     <button class="btn btn-sm btn-edit me-1"
-                                        data-id="<?php echo $tableArray[$i][$y]; ?>">
+                                        data-id="<?php echo $dataArray['id']; ?>">
                                         <i class="fas fa-edit"></i> Editar
                                     </button>
                                     <button class="btn btn-sm btn-delete"
-                                        data-id="<?php echo $tableArray[$i][$y]; ?>"
-                                        data-nombre="<?php echo $tableArray[$i][$y]; ?>">
+                                        data-id="<?php echo $dataArray['id']; ?>"
+                                        data-nombre="<?php echo $dataArray['nombre']; ?>">
                                         <i class="fas fa-trash"></i> Borrar
                                     </button>
                                 </td>
@@ -183,18 +207,18 @@ foreach ($tableColumns as $columnArray) {
         $('.btn-edit').click(function() {
             const id = $(this).data('id');
             // alert("Editar "+id);
-            $(location).attr('href', 'electronica_form.php?edit=' + id);
+            $(location).attr('href', 'form.php?section=' + "<?php echo $config['section']; ?>" + '&edit=' + id);
         });
 
         $('.btn-delete').click(function() {
             registroDelete = $(this).data('id');
             nombreDelete = $(this).data('nombre');
-            $('#mensajeConfirm').html("¿Estás seguro de eliminar la electronica " + nombreDelete + "?");
+            $('#mensajeConfirm').html("¿Estás seguro de eliminar la " + nombreDelete + "?");
             $('#confirmModal').modal('show');
         });
 
         $('.btn-add').click(function() {
-            $(location).attr('href', 'electronica_form.php');
+            $(location).attr('href', 'form.php?section=<?php echo $config['section']; ?>');
         });
 
         // Botones del mensaje
@@ -213,7 +237,7 @@ foreach ($tableColumns as $columnArray) {
 
         $('#btn-confirmDelete').click(function() {
             // alert("Regitro eliminado");
-            $(location).attr('href', '<?php echo $_SERVER['PHP_SELF']; ?>?del=' + registroDelete);
+            $(location).attr('href', 'tables.php?section= <?php echo $config['section']; ?>&del=' + registroDelete);
         });
 
 

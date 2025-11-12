@@ -1,4 +1,6 @@
 
+
+
 .hero {
     display: flex;
     flex-direction: column;
@@ -71,10 +73,10 @@
 }
 
 .card {
-    flex: 0 0 8em;
+   
     width: 8em;
     font-size: 3rem;
-    border-radius: .2em;
+    border-radius: 15px;
     text-align: center;
     align-content: center;
 }
@@ -94,8 +96,6 @@
     max-width: 100%;
     height: 50vh;
 }
-
-
 
 
 @keyframes spin {
