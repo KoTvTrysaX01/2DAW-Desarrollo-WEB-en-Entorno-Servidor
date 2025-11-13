@@ -19,25 +19,29 @@ include "./dao/include_config.php";
     include "./inc/include_nav.php";
 
     if (!isset($config['category']) || $config['category'] == "") {
-        include "./content/section_productos.php";
+        header('Location: ' . "index.php");
     } else {
-        switch ($config['category']) {
-            case "ice_creams":
-            case "ice_bars":
-            case "cookies":
-            case "chocolates":
-            case "milkshakes":
-            case "juices":
-            case "smoothies":
-            case "special_offers":
-            case "users":
-            case "reviews":
-            case "history":
-                include "./content/section_products.php";
-                break;
-            default:
-                include "./content/section_productos.php";
-                break;
+        if (!isset($_GET['id'])) {
+            switch ($config['category']) {
+                case "ice_creams":
+                case "ice_bars":
+                case "cookies":
+                case "chocolates":
+                case "milkshakes":
+                case "juices":
+                case "smoothies":
+                case "special_offers":
+                case "users":
+                case "reviews":
+                case "history":
+                    include "./content/section_products.php";
+                    break;
+                default:
+                    header('Location: ' . "index.php");
+                    break;
+            }
+        } else {
+            include "./content/section_producto.php";
         }
     }
 

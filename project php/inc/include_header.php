@@ -19,14 +19,14 @@
         <a href="index.php?category=reviews" class="button">Customer Reviews 🍧</a>
         <?php
         if (!$loggedin) {
-        ?> <a href="#" id="btn-block" class="button">Cart 🛒</a>
+        ?> <a href="index.php?category=cart" class="button">Cart 🛒</a>
             <a href="#" id="btn-block" class=" button">History 📒</a>
             <a href="logs.php" class="button">Login 🚪</a>
         <?php
         } else {
         ?>
-            <a href="special.php?category=cart" class="button">Cart 🛒</a>
-            <a href="special.php?category=history" class="button">History 📒</a>
+            <a href="index.php?category=cart" class="button">Cart 🛒</a>
+            <a href="index.php?category=history" class="button">History 📒</a>
             <a href="index.php?category=logout" class="button">Logout 💨</a>
         <?php
         }

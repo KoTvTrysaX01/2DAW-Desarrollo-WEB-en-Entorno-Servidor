@@ -5,11 +5,11 @@ require_once "./dao/include_vars.php";
 
 $sqlBD = SqlConecta($hostSql, $userSql, $passSql, $basedatosSql);
 
-$sqlSelect = "SELECT * FROM " . $config['section'];
+$sqlSelect = "SELECT * FROM " . $config['category'];
 $sqlCursor = sqlQuery($sqlBD, $sqlSelect);
 $tableArray = sqlResultArray($sqlBD, $sqlCursor);
 
-$sqlSelect = "SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_NAME` ='" . $config['section'] . "'";
+$sqlSelect = "SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_NAME` ='" . $config['category'] . "' AND `COLUMN_NAME` NOT LIKE '%CONNECTION%' AND `COLUMN_NAME` NOT LIKE 'USER'";
 $sqlCursor = sqlQuery($sqlBD, $sqlSelect);
 $tableColumns = sqlResultArray($sqlBD, $sqlCursor);
 
@@ -29,7 +29,7 @@ $borrado = false;
 if (isset($_GET['del'])) {
     $valores['id'] = addslashes(htmlentities(trim($_GET['del'])));
     if ($valores['id'] != "") {
-        $sqlDelete = "DELETE FROM ". "{$_GET['section']}" ." WHERE id='" . $valores['id'] . "'";
+        $sqlDelete = "DELETE FROM " . "{$_GET['category']}" . " WHERE id='" . $valores['id'] . "'";
         sqlIniTrans($sqlBD);
         $sqlCursor = sqlQuery($sqlBD, $sqlDelete);
         if (!$continuaSql) {
@@ -42,78 +42,72 @@ if (isset($_GET['del'])) {
             $borrado = true;
         }
         sqlFinTrans($sqlBD);
-        
+        header('Location: ' . "tables.php?category={$config['category']}");
     }
 }
 
 
 
 
+
 ?>
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electronica</title>
+<!-- Font Awesome para iconos -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    .container {
+        margin: 20px auto;
+    }
 
-    <!-- Font Awesome para iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    .table-container {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-top: 20px;
+    }
 
-    <style>
-        .container {
-            margin: 20px auto;
-        }
+    .table thead {
+        background-color: #0d6efd;
+        color: white;
+    }
 
-        .table-container {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin-top: 20px;
-        }
+    .btn:hover {
+        background-color: #222222;
+        color: white;
+    }
 
-        .table thead {
-            background-color: #0d6efd;
-            color: white;
-        }
+    .btn-add {
+        background-color: #0d6efd;
+        border: none;
+        color: white;
+    }
 
-        .btn:hover {
-            background-color: #222222;
-            color: white;
-        }
+    .btn-edit {
+        background-color: #ffc107;
+        border: none;
+        color: white;
+    }
 
-        .btn-add {
-            background-color: #0d6efd;
-            border: none;
-            color: white;
-        }
+    .btn-delete {
+        background-color: #dc3545;
+        border: none;
+        color: white;
+    }
 
-        .btn-edit {
-            background-color: #ffc107;
-            border: none;
-            color: white;
-        }
-
-        .btn-delete {
-            background-color: #dc3545;
-            border: none;
-            color: white;
-        }
-
-        h2 {
-            color: #0d6efd;
-            margin-bottom: 20px;
-        }
-    </style>
-</head>
+    h2 {
+        color: #0d6efd;
+        margin-bottom: 20px;
+    }
+</style>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-lg-10">
+        <div class="col-xl">
             <div class="table-container">
-                <h2 class="text-center">Table of <?php echo $config['section'] ?></h2>
+                <h2 class="text-center">Table of <?php echo $config['category'] ?></h2>
 
                 <div class="text-end mb-2">
                     <button class="btn btn-sm btn-add me-1">
@@ -133,7 +127,7 @@ if (isset($_GET['del'])) {
                             <?php
                             }
                             ?>
-                            <th>Acciones</th>
+                            <th class="text-center">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -145,6 +139,7 @@ if (isset($_GET['del'])) {
 
                                 ?> <td class="text-break"><?php echo $data; ?></td><?php
                                                                                 }
+
                                                                                     ?>
                                 <td>
                                     <button class="btn btn-sm btn-edit me-1"
@@ -153,7 +148,21 @@ if (isset($_GET['del'])) {
                                     </button>
                                     <button class="btn btn-sm btn-delete"
                                         data-id="<?php echo $dataArray['id']; ?>"
-                                        data-nombre="<?php echo $dataArray['nombre']; ?>">
+                                        data-nombre="<?php
+
+                                                        switch ($config['category']) {
+                                                            case "sells";
+                                                                echo  "selling";
+                                                                break;
+                                                            case "reviews";
+                                                                echo  "review";
+                                                                break;
+                                                            default:
+                                                                echo $dataArray['id_user'];
+                                                                break;
+
+                                                        }
+                                                       ?>">
                                         <i class="fas fa-trash"></i> Borrar
                                     </button>
                                 </td>
@@ -207,7 +216,7 @@ if (isset($_GET['del'])) {
         $('.btn-edit').click(function() {
             const id = $(this).data('id');
             // alert("Editar "+id);
-            $(location).attr('href', 'form.php?section=' + "<?php echo $config['section']; ?>" + '&edit=' + id);
+            $(location).attr('href', 'forms.php?category=' + "<?php echo $config['category']; ?>" + '&edit=' + id);
         });
 
         $('.btn-delete').click(function() {
@@ -218,7 +227,7 @@ if (isset($_GET['del'])) {
         });
 
         $('.btn-add').click(function() {
-            $(location).attr('href', 'form.php?section=<?php echo $config['section']; ?>');
+            $(location).attr('href', 'forms.php?category=<?php echo $config['category']; ?>');
         });
 
         // Botones del mensaje
@@ -237,7 +246,7 @@ if (isset($_GET['del'])) {
 
         $('#btn-confirmDelete').click(function() {
             // alert("Regitro eliminado");
-            $(location).attr('href', 'tables.php?section= <?php echo $config['section']; ?>&del=' + registroDelete);
+            $(location).attr('href', 'tables.php?category= <?php echo $config['category']; ?>&del=' + registroDelete);
         });
 
 

@@ -1,7 +1,7 @@
 <?php
 
 
-
+include "./dao/include_config.php";
 
 ?>
 <!DOCTYPE html>
@@ -17,7 +17,7 @@
     include "./inc/include_nav.php";
 
     if (!isset($config['category']) || $config['category'] == "") {
-        include "./content/section_forms.php";
+        header('Location: ' . "tables.php");
     } else {
         switch ($config['category']) {
             case "ice_creams":
@@ -30,13 +30,19 @@
                 include "./content/forms/form_products.php";
                 break;
             case "special_offers":
-                include "./content/forms/form_special_offers.php.php";
+                include "./content/forms/form_special_offers.php";
                 break;
             case "users":
                 include "./content/forms/form_users.php";
                 break;
+            case "sells":
+                include "./content/forms/form_sells.php";
+                break;
+            case "reviews":
+                include "./content/forms/form_reviews.php";
+                break;
             default:
-                include "./content/section_forms.php";
+                header('Location: ' . "tables.php");
                 break;
         }
     }

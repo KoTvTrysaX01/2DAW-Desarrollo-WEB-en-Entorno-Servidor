@@ -87,11 +87,11 @@ function filter() {}
 
     <div class="scroll-container">
         <?php for ($i = 0; $i < count($arrayProductos); $i++) { ?>
-            <div class="food-item">
-                <img src="<?php echo $arrayProductos[$i]['imagen']; ?>" onclick="location.href='./product/product.html'">
+            <div class="food-item" onclick="location.href='<?php echo 'products.php?category=' . $config['category'] . '&id=' . $arrayProductos[$i]['id'] ?>'">
+                <img src="<?php echo $arrayProductos[$i]['imagen']; ?>">
                 <h3 class="nombre"><?php echo $arrayProductos[$i]['nombre']; ?></h3>
                 <span class="price"><?php echo $arrayProductos[$i]['precio']; ?>€</span>
-                <button class="order-btn" onclick="location.href='../login/los.html'">Order Now</button>
+                <button class="order-btn" onclick="location.href='<?php echo 'products.php?category=' . $config['category'] . '&id=' . $arrayProductos[$i]['id'] ?>'">Order Now</button>
             </div>
         <?php } ?>
     </div>

@@ -1,171 +1,98 @@
 <?php
 
-require_once "./dao/include_mysql.php";
-require_once "./dao/include_vars.php";
-
 $sqlBD = sqlConecta($hostSql, $userSql, $passSql, $basedatosSql);
 
 
 /* INICIAR DE DATOS */
-
-$sqlSelect = "SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_NAME` ='" . $_GET['section'] . "'";
-$sqlCursor = sqlQuery($sqlBD, $sqlSelect);
-$tableColumns = sqlResultArray($sqlBD, $sqlCursor);
-
-$valores = array();
-foreach ($tableColumns as $columnArray) {
-    foreach ($columnArray as $value) {
-        array_push($valores, $value);
-    }
-}
-// print_r($tableColumns);
-
-
-$valores = array_flip($valores);
-
-
-
-
+$valores = array(
+    'id' => "",
+    'products' => "",
+    'total_price' => "",
+    'id_user' => "",
+    'username' => "",
+    'email' => "",
+    'purchase_date' => ""
+);
 
 /* RECOGIDA DE DATOS DE LA BASE DE DATOS */
 $editar = false;
 if (isset($_GET['edit'])) {
-
-    if ($_GET['edit'] != "") {
-
-        $sqlSelect = "SELECT * FROM " . $_GET['section'] . " WHERE id='" . $_GET['edit'] . "'";
-
+    $valores['id'] = addslashes(trim($_GET['edit']));
+    if ($valores['id'] != "") {
+        // SQL select
+        $sqlSelect = "SELECT * FROM {$config['category']} WHERE id='" . $valores['id'] . "'";
         $sqlCursor = sqlQuery($sqlBD, $sqlSelect);
-        $data = sqlObtenerRegistro($sqlBD, $sqlCursor);
+        $products = sqlObtenerRegistro($sqlBD, $sqlCursor);
 
-        foreach ($valores as $key => $value) {
-            $valores[$key] = $data[$key];
+        // Cargar valores
+        if (count($products) > 0) {
+            $valores['products'] = $products['products'];
+            $valores['total_price'] = $products['total_price'];
+            $valores['id_user'] = $products['id_user'];
+            $valores['username'] = $products['username'];
+            $valores['email'] = $products['email'];
+            $valores['purchase_date'] = $products['purchase_date'];
         }
+
         $editar = true;
     }
 }
 
-
 /* INSERT - UPDATE - RECOGIDA DE DATOS DEL FORMULARIO */
 $grabar = false;
 if (isset($_POST['btnGrabar'])) {
-
-    foreach ($valores as $key => $value) {
-        if (isset($_POST[$key])) {
-            $valores[$key] = isset($_POST[$key]);
-        }
+    if (isset($_POST['id'])) {
+        $valores['id'] = addslashes(trim($_POST['id']));
     }
-
-
-
-
-    // if (isset($_POST['id'])) {
-    //     $valores['id'] = addslashes(trim($_POST['id']));
-    // }
-    // if (isset($_POST['nombre'])) {
-    //     $valores['nombre'] = addslashes(trim($_POST['nombre']));
-    // }
-    // if (isset($_POST['categoria'])) {
-    //     $valores['categoria'] = addslashes(trim($_POST['categoria']));
-    // }
-    // if (isset($_POST['precio'])) {
-    //     $valores['precio'] = addslashes(trim($_POST['precio']));
-    // }
-    // if (isset($_POST['fabricante'])) {
-    //     $valores['fabricante'] = addslashes(trim($_POST['fabricante']));
-    // }
-    // if (isset($_POST['stock'])) {
-    //     $valores['stock'] = addslashes(trim($_POST['stock']));
-    // }
+    if (isset($_POST['products'])) {
+        $valores['products'] = addslashes(trim($_POST['products']));
+    }
+    if (isset($_POST['total_price'])) {
+        $valores['total_price'] = addslashes(trim($_POST['total_price']));
+    }
+    if (isset($_POST['id_user'])) {
+        $valores['id_user'] = addslashes(trim($_POST['id_user']));
+    }
+    if (isset($_POST['username'])) {
+        $valores['username'] = addslashes(trim($_POST['username']));
+    }
+    if (isset($_POST['email'])) {
+        $valores['email'] = addslashes(trim($_POST['email']));
+    }
+    if (isset($_POST['purchase_date'])) {
+        $valores['purchase_date'] = addslashes(trim($_POST['purchase_date']));
+    }
 
     $grabar = true;
 }
 
 
-/* VALIDACION */
-if ($grabar) {
-    // Campos obligatorios
-
-    foreach ($valores as $value) {
-        if ($value == null || $value = "") {
-            $grabar = false;
-            echo "Error";
-        }
-    }
-
-    // if (
-    //     ($valores['nombre'] == "") ||
-    //     ($valores['categoria'] == "") ||
-    //     ($valores['precio'] == "") ||
-    //     ($valores['fabricante'] == "") ||
-    //     ($valores['stock'] == "")
-    // ) {
-    //     $grabar = false;
-    //     echo "Obligatorios";
-    // }
-
-    // // Longitudes 
-    // if (
-    //     (strlen($valores['nombre']) < 5) ||
-    //     (strlen($valores['precio']) <= 0) ||
-    //     (strlen($valores['fabricante']) < 4) ||
-    //     (strlen($valores['stock']) == null)
-    // ) {
-    //     $grabar = false;
-    //     echo "Longitudes";
-    // }
-
-    // // Conversiones
-    // $valores['nombre'] = strtoupper($valores['nombre']);
-}
-
 /* PROCESO DE GRABACIÓN*/
-$grabar = true;
 if ($grabar) {
-    $updateString = "";
     if ($valores['id'] != "") {
-        foreach ($valores as $key => $value) {
-            if ($key != "id") {
-                if ($updateString == "") {
-                    $updateString .= "{$key} = '{$value}'";
-                } else {
-
-                    $updateString .= ", {$key} = '{$value}'";
-                }
-            }
-            // $valores[$key] = $data[$key];
-        }
-
-        $sqlIns = "UPDATE {$_GET['section']} SET {$updateString} WHERE 'id' = '{$valores['id']}'";
+        $sqlIns = "UPDATE {$config['category']} 
+							SET 
+                                products='" . $valores['products'] . "',
+								total_price='" . $valores['total_price'] . "',
+								id_user='" . $valores['id_user'] . "',
+								username='" . $valores['username'] . "',
+								email='" . $valores['email'] . "',
+                                purchase_date='" . $valores['purchase_date'] . "'
+							WHERE 
+								id='" . $valores['id'] . "'
+						";
     } else {
         // El id se genera automáticamente porque es AUTO_INCREMENT en MySQL
-        $insertString = "";
-        foreach ($valores as $key => $value) {
-            if ($key != "id") {
-                if ($insertString = "") {
-                    $insertString .= "({$key}";
-                } else {
-
-                    $insertString .= ", {$key}";
-                }
-            }
-            $insertString .= ")";
-        }
-
-        $valuesString = "";
-        foreach ($valores as $key => $value) {
-            if ($key != "id") {
-                if ($valuesString = "") {
-                    $valuesString .= "('{$value}'";
-                } else {
-
-                    $valuesString .= ", '{$value}'";
-                }
-            }
-            $valuesString .= ")";
-        }
-
-        $sqlIns = "INSERT INTO {$_GET['section']} {$insertString} VALUES {$valuesString}";
+        $sqlIns = "INSERT INTO {$config['category']} (products, total_price, id_user, username, email, purchase_date) 
+							VALUES (
+								 '" . $valores['products'] . "',
+								 '" . $valores['total_price'] . "',
+								 '" . $valores['id_user'] . "',
+                                 '" . $valores['username'] . "',
+								 '" . $valores['email'] . "',
+								 '" . $valores['purchase_date'] . "'
+							)
+					";
     }
 
     // echo $sqlIns;
@@ -193,7 +120,7 @@ sqlDesconecta($sqlBD);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $_GET['section']; ?></title>
+    <title>products</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -239,7 +166,7 @@ sqlDesconecta($sqlBD);
             <div class="col-lg-8">
                 <div class="form-container">
                     <h2 class="text-center header-title">
-                        <i class="bi bi-geo-alt-fill me-2"></i>Gestión de <?php echo $_GET['section']; ?>
+                        <i class="bi bi-geo-alt-fill me-2"></i>Gestión de products
                     </h2>
 
                     <!-- Mensaje de éxito al grabar (oculto inicialmente) -->
@@ -249,7 +176,7 @@ sqlDesconecta($sqlBD);
 
                     <!-- Mensaje de éxito al borrar (oculto inicialmente) -->
                     <div class="alert alert-success mt-4" role="alert" id="successDelete" style="display: none;">
-                        <i class="bi bi-check-circle-fill me-2"></i> La electronica $electronica ha sido borrada.
+                        <i class="bi bi-check-circle-fill me-2"></i> La products $products ha sido borrada.
                     </div>
 
 
@@ -259,95 +186,73 @@ sqlDesconecta($sqlBD);
                     </div>
 
 
-
-                    <!-- here's where i gave up -->
-
-                    <form id="<?php echo $_GET['section']; ?>Form"
-                        name="<?php echo $_GET['section']; ?>Form"
+                    <form id="<?php echo $config['category']; ?>Form"
+                        name="<?php echo $config['category']; ?>Form"
                         novalidate
                         enctype="multipart/form-data"
                         method="POST"
                         action="#">
-                        <!-- Campo ID (oculto para nuevas electronica, visible para edición) -->
-
+                        <!-- Campo ID (oculto para nuevas products, visible para edición) -->
                         <div class="mb-3" id="idFieldContainer" style="display: none;">
                             <label for="id" class="form-label">ID</label>
                             <input type="text" class="form-control" id="id" name="id" readonly>
                         </div>
 
-                        <!-- Campo Nombre -->
+                        <!-- Campo products -->
                         <div class="mb-3">
-                            <label for="nombre" class="form-label required-field">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" required
-                                minlength="5" placeholder="Ingrese el nombre">
+                            <label for="products" class="form-label required-field">products</label>
+                            <input type="text" class="form-control" id="products" name="products" required
+                                minlength="3" placeholder="Ingrese el nombre de la products">
                             <div class="invalid-feedback">
-                                El nombre es obligatorio y debe tener al menos 5 caracteres.
+                                El nombre de la products es obligatorio y debe tener al menos 5 caracteres.
                             </div>
                         </div>
 
-                        <!-- Campo Precio -->
+                        <!-- Campo total_price -->
                         <div class="mb-3">
-                            <label for="precio" class="form-label required-field">Precio</label>
-                            <input type="number" min="0" max="1000" step="0.01" class="form-control" id="precio" name="precio" required>
+                            <label for="total_price" class="form-label required-field">total_price</label>
+                            <input type="number" min="0" max="1000" step="0.01" class="form-control" id="total_price" name="total_price" required>
                             </input>
                             <div class="invalid-feedback">
                                 Por favor seleccione un precio adecuado (0-1000).
                             </div>
                         </div>
 
-                        <!-- Campo Old_precio -->
+                        <!-- Campo id_user -->
                         <div class="mb-3">
-                            <label for="old_price" class="form-label required-field">Old price</label>
-                            <input type="number" min="0" max="1000" step="0.01" class="form-control" id="old_price" name="old_price">
+                            <label for="id_user" class="form-label">id_user</label>
+                            <input type="number" min="0" max="1000" class="form-control" id="id_user" name="id_user">
                             </input>
                             <div class="invalid-feedback">
                                 Por favor seleccione un precio adecuado (0-1000).
                             </div>
                         </div>
 
-                        <!-- Campo Descripcion -->
+                        <!-- Campo username -->
                         <div class="mb-3">
-                            <label for="descripcion" class="form-label required-field">Dscripcion</label>
-                            <input type="text" class="form-control" id="descripcion" name="descripcion" required
-                                minlength="4" maxlength="300" placeholder="Ingrese la descripcion">
+                            <label for="username" class="form-label required-field">username</label>
+                            <input type="text" class="form-control" id="username" name="username" required
+                                minlength="4" placeholder="Ingrese la username de la products">
                             <div class="invalid-feedback">
-                                La descripcion es obligatoria y debe tener al menos 4 caracteres.
+                                La username es obligatoria y debe tener al menos 4 caracteres.
                             </div>
                         </div>
 
-
-
-                        <!-- Campo Imagen -->
                         <div class="mb-3">
-                            <label for="imagen" class="form-label required-field">Imagen</label>
-                            <input type="text" class="form-control" id="imagen" name="imagen" required
-                                minlength="4" placeholder="Ingrese la imagen">
+                            <label for="email" class="form-label required-field">email</label>
+                            <input type="email" class="form-control" id="email" name="email" required
+                                minlength="4" placeholder="Ingrese la email de la products">
                             <div class="invalid-feedback">
-                                La Imagen es obligatoria y debe tener al menos 4 caracteres.
+                                La email es obligatoria y debe tener al menos 4 caracteres.
                             </div>
                         </div>
 
-
-                        
-                        <!-- Campo Attributes -->
                         <div class="mb-3">
-                            <label for="attributes" class="form-label required-field">Attributes</label>
-                            <input type="text" class="form-control" id="attributes" name="attributes" required
-                                minlength="4" placeholder="Ingrese la attributes">
+                            <label for="purchase_date" class="form-label required-field">purchase_date</label>
+                            <input type="date" class="form-control" id="purchase_date" name="purchase_date" required
+                                minlength="4" placeholder="Ingrese la attributes de la products">
                             <div class="invalid-feedback">
-                                La attributes es obligatoria y debe tener al menos 4 caracteres.
-                            </div>
-                        </div>
-
-                        <!-- Campo Stock -->
-                        <div class="mb-3">
-                            <label for="stock" class="form-label required-field">Stock</label>
-                            <input type="radio" id="1" name="stock" value="1" <?php if ($valores['stock'] == 1) echo "checked"; ?>>
-                            <label for="1">True</label>
-                            <input type="radio" id="0" name="stock" value="0" <?php if ($valores['stock'] == 0) echo "checked"; ?>>
-                            <label for="0">False</label><br>
-                            <div class="invalid-feedback">
-                                El campo de stocks es obligatorio.
+                                La fabricante es obligatoria y debe tener al menos 4 caracteres.
                             </div>
                         </div>
 
@@ -377,28 +282,27 @@ sqlDesconecta($sqlBD);
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script>
-        // electronica
+        // products
         // Métodos personalizados 
-        function cargarDatosParaEdicion(id, nombre, precio, old_price, descripcion, imagen, attributes, stock) {
+        function cargarDatosParaEdicion(id, products, total_price, id_user, username, email, purchase_date) {
             if (id == "") {
                 $("#idFieldContainer").hide(); // En nuevo registro
-                $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>Nueva Electronica');
+                $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>Nueva products');
             } else {
                 $("#idFieldContainer").show(); // En edición de registro
-                $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>Editar Electronica');
+                $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>Editar products');
             }
             $("#id").val(id);
-            $("#nombre").val(nombre);
-            $("#precio").val(precio);
-            $("#old_price").val(old_price);
-            $("#descripcion").val(descripcion);
-            $("#imagen").val(imagen);
-            $("#attributes").val(attributes);
-            $("#stock").val(stock);
+            $("#products").val(products);
+            $("#total_price").val(total_price);
+            $("#id_user").val(id_user);
+            $("#username").val(username);
+            $("#email").val(email);
+            $("#purchase_date").val(purchase_date);
         }
 
         function cargarDatosParaNuevo() {
-            cargarDatosParaEdicion("", "", "", "", "", "");
+            cargarDatosParaEdicion("", "", "", "", "", "", "");
         }
 
 
@@ -419,11 +323,12 @@ sqlDesconecta($sqlBD);
             <?php if ($editar) { ?>
                 cargarDatosParaEdicion(
                     '<?php echo $valores['id']; ?>',
-                    '<?php echo $valores['nombre']; ?>',
-                    '<?php echo $valores['categoria']; ?>',
-                    '<?php echo $valores['precio']; ?>',
-                    '<?php echo $valores['fabricante']; ?>',
-                    '<?php echo $valores['stock']; ?>'
+                    '<?php echo $valores['products']; ?>',
+                    '<?php echo $valores['total_price']; ?>',
+                    '<?php echo $valores['id_user']; ?>',
+                    '<?php echo $valores['username']; ?>',
+                    '<?php echo $valores['email']; ?>',
+                    '<?php echo $valores['purchase_date']; ?>'
                 );
             <?php } else { ?>
                 cargarDatosParaNuevo();
@@ -440,7 +345,7 @@ sqlDesconecta($sqlBD);
 
 
 
-            const form = $("#<?php echo $_GET['section']; ?>Form");
+            const form = $("#<?php echo $config['category']; ?>Form");
 
             <?php if ($grabar) {
                 if ($bdResultado) {        ?>
@@ -490,7 +395,7 @@ sqlDesconecta($sqlBD);
             // VOLVER
             $("#btnVolver").on("click", function() {
                 // Recargar los datos iniciales
-                window.location.href = "table.php";
+                window.location.href = "tables.php?category=<?php echo $_GET['category']; ?>";
             });
         });
     </script>

@@ -28,7 +28,7 @@
             <?php for ($i = 0; $i < count($arraySpecials); $i++) { ?>
                 <div class="card">
                     <img src="<?php echo $arraySpecials[$i]['imagen']; ?>" alt="<?php echo $arraySpecials[$i]['nombre']; ?>"
-                        onclick="location.href='<?php echo 'products.php?category=' . $arraySpecials[$i]['nombre'] . '&id=' . $arraySpecials[$i]['id'] ?>'">
+                        onclick="location.href='<?php echo 'products.php?category=' . $arraySpecials[$i]['category'] . '&id=' . $arraySpecials[$i]['id'] ?>'">
                 </div>
             <?php } ?>
         </div>
@@ -36,7 +36,7 @@
             <?php for ($i = 0; $i < count($arraySpecials); $i++) { ?>
                 <div class="card">
                     <img src="<?php echo $arraySpecials[$i]['imagen']; ?>" alt="<?php echo $arraySpecials[$i]['nombre']; ?>"
-                        onclick="location.href='<?php echo 'products.php?category=' . $arraySpecials[$i]['nombre'] . '&id=' . $arraySpecials[$i]['id'] ?>'">
+                        onclick="location.href='<?php echo 'products.php?category=' . $arraySpecials[$i]['category'] . '&id=' . $arraySpecials[$i]['id'] ?>'">
                 </div>
             <?php } ?>
         </div>

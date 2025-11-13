@@ -26,10 +26,10 @@ include "./dao/include_config.php";
             include "./content/section_cart.php";
             break;
         case "logout":
-            $_SESSION['usuario'] = "";
             $loggedin = false;
             $loggedroot = false;
-            include "./content/section_home.php";
+            $_SESSION['usuario'] = "";
+            header('Location: ' . "index.php?category=home");
             break;
         default:
             include "./content/section_home.php";

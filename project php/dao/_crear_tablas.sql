@@ -1,20 +1,20 @@
 USE helado_express;
 
 -- Crear la tabla ice_bars
-CREATE TABLE IF NOT EXISTS ice_bars (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(50) NOT NULL,
-    precio DECIMAL(4, 2) NOT NULL,
-    old_price DECIMAL(4, 2),
-    descripcion VARCHAR(300) NOT NULL,
-    imagen VARCHAR(100) NOT NULL,
-    attributes VARCHAR(100) NOT NULL,
-    stock BOOLEAN NOT NULL
-);
+CREATE TABLE IF NOT EXISTS
+    ice_bars (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        nombre VARCHAR(50) NOT NULL,
+        precio DECIMAL(4, 2) NOT NULL,
+        old_price DECIMAL(4, 2),
+        descripcion VARCHAR(300) NOT NULL,
+        imagen VARCHAR(100) NOT NULL,
+        attributes VARCHAR(100) NOT NULL,
+        stock BOOLEAN NOT NULL
+    );
 
 -- Eliminar datos si existen
-DELETE FROM
-    ice_bars;
+DELETE FROM ice_bars;
 
 -- Insertar todas la ice_bars
 INSERT INTO
@@ -264,20 +264,20 @@ VALUES
     );
 
 -- Crear la tabla ice_creams
-CREATE TABLE IF NOT EXISTS ice_creams (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(50) NOT NULL,
-    precio DECIMAL(4, 2) NOT NULL,
-    old_price DECIMAL(4, 2),
-    descripcion VARCHAR(300) NOT NULL,
-    imagen VARCHAR(100) NOT NULL,
-    attributes VARCHAR(100) NOT NULL,
-    stock BOOLEAN NOT NULL
-);
+CREATE TABLE IF NOT EXISTS
+    ice_creams (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        nombre VARCHAR(50) NOT NULL,
+        precio DECIMAL(4, 2) NOT NULL,
+        old_price DECIMAL(4, 2),
+        descripcion VARCHAR(300) NOT NULL,
+        imagen VARCHAR(100) NOT NULL,
+        attributes VARCHAR(100) NOT NULL,
+        stock BOOLEAN NOT NULL
+    );
 
 -- Eliminar datos si existen
-DELETE FROM
-    ice_creams;
+DELETE FROM ice_creams;
 
 INSERT INTO
     ice_creams (
@@ -499,20 +499,20 @@ VALUES
     );
 
 -- Crear la tabla cookies
-CREATE TABLE IF NOT EXISTS cookies (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(50) NOT NULL,
-    precio DECIMAL(4, 2) NOT NULL,
-    old_price DECIMAL(4, 2),
-    descripcion VARCHAR(300) NOT NULL,
-    imagen VARCHAR(100) NOT NULL,
-    attributes VARCHAR(100) NOT NULL,
-    stock BOOLEAN NOT NULL
-);
+CREATE TABLE IF NOT EXISTS
+    cookies (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        nombre VARCHAR(50) NOT NULL,
+        precio DECIMAL(4, 2) NOT NULL,
+        old_price DECIMAL(4, 2),
+        descripcion VARCHAR(300) NOT NULL,
+        imagen VARCHAR(100) NOT NULL,
+        attributes VARCHAR(100) NOT NULL,
+        stock BOOLEAN NOT NULL
+    );
 
 -- Eliminar datos si existen
-DELETE FROM
-    cookies;
+DELETE FROM cookies;
 
 INSERT INTO
     cookies (
@@ -572,20 +572,20 @@ VALUES
     );
 
 -- Crear la tabla chocolate
-CREATE TABLE IF NOT EXISTS chocolates (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(50) NOT NULL,
-    precio DECIMAL(4, 2) NOT NULL,
-    old_price DECIMAL(4, 2),
-    descripcion VARCHAR(300) NOT NULL,
-    imagen VARCHAR(100) NOT NULL,
-    attributes VARCHAR(100) NOT NULL,
-    stock BOOLEAN NOT NULL
-);
+CREATE TABLE IF NOT EXISTS
+    chocolates (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        nombre VARCHAR(50) NOT NULL,
+        precio DECIMAL(4, 2) NOT NULL,
+        old_price DECIMAL(4, 2),
+        descripcion VARCHAR(300) NOT NULL,
+        imagen VARCHAR(100) NOT NULL,
+        attributes VARCHAR(100) NOT NULL,
+        stock BOOLEAN NOT NULL
+    );
 
 -- Eliminar datos si existen
-DELETE FROM
-    chocolates;
+DELETE FROM chocolates;
 
 INSERT INTO
     chocolates (
@@ -710,20 +710,20 @@ VALUES
 COMMIT;
 
 -- Crear la tabla milkshakes
-CREATE TABLE IF NOT EXISTS milkshakes (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(50) NOT NULL,
-    precio DECIMAL(4, 2) NOT NULL,
-    old_price DECIMAL(4, 2),
-    descripcion VARCHAR(300) NOT NULL,
-    imagen VARCHAR(100) NOT NULL,
-    attributes VARCHAR(100) NOT NULL,
-    stock BOOLEAN NOT NULL
-);
+CREATE TABLE IF NOT EXISTS
+    milkshakes (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        nombre VARCHAR(50) NOT NULL,
+        precio DECIMAL(4, 2) NOT NULL,
+        old_price DECIMAL(4, 2),
+        descripcion VARCHAR(300) NOT NULL,
+        imagen VARCHAR(100) NOT NULL,
+        attributes VARCHAR(100) NOT NULL,
+        stock BOOLEAN NOT NULL
+    );
 
 -- Eliminar datos si existen
-DELETE FROM
-    milkshakes;
+DELETE FROM milkshakes;
 
 INSERT INTO
     milkshakes (
@@ -794,20 +794,20 @@ VALUES
 COMMIT;
 
 -- Crear la tabla juices
-CREATE TABLE IF NOT EXISTS juices (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(50) NOT NULL,
-    precio DECIMAL(4, 2) NOT NULL,
-    old_price DECIMAL(4, 2),
-    descripcion VARCHAR(300) NOT NULL,
-    imagen VARCHAR(100) NOT NULL,
-    attributes VARCHAR(100) NOT NULL,
-    stock BOOLEAN NOT NULL
-);
+CREATE TABLE IF NOT EXISTS
+    juices (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        nombre VARCHAR(50) NOT NULL,
+        precio DECIMAL(4, 2) NOT NULL,
+        old_price DECIMAL(4, 2),
+        descripcion VARCHAR(300) NOT NULL,
+        imagen VARCHAR(100) NOT NULL,
+        attributes VARCHAR(100) NOT NULL,
+        stock BOOLEAN NOT NULL
+    );
 
 -- Eliminar datos si existen
-DELETE FROM
-    juices;
+DELETE FROM juices;
 
 INSERT INTO
     juices (
@@ -878,20 +878,20 @@ VALUES
 COMMIT;
 
 -- Crear la tabla smoothies
-CREATE TABLE IF NOT EXISTS smoothies (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(50) NOT NULL,
-    precio DECIMAL(4, 2) NOT NULL,
-    old_price DECIMAL(4, 2),
-    descripcion VARCHAR(300) NOT NULL,
-    imagen VARCHAR(100) NOT NULL,
-    attributes VARCHAR(100) NOT NULL,
-    stock BOOLEAN NOT NULL
-);
+CREATE TABLE IF NOT EXISTS
+    smoothies (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        nombre VARCHAR(50) NOT NULL,
+        precio DECIMAL(4, 2) NOT NULL,
+        old_price DECIMAL(4, 2),
+        descripcion VARCHAR(300) NOT NULL,
+        imagen VARCHAR(100) NOT NULL,
+        attributes VARCHAR(100) NOT NULL,
+        stock BOOLEAN NOT NULL
+    );
 
 -- Eliminar datos si existen
-DELETE FROM
-    smoothies;
+DELETE FROM smoothies;
 
 -- Insertar todas la smoothies
 INSERT INTO
@@ -1023,46 +1023,63 @@ VALUES
         false
     );
 
-CREATE TABLE IF NOT EXISTS history(
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    products VARCHAR(200) NOT NULL,
-    total_price DECIMAL(4, 2) NOT NULL,
-    id_user INT NOT NULL,
-    username VARCHAR(50) NOT NULL,
-    email VARCHAR(50) NOT NULL,
-    purchase_date DATE NOT NULL
-);
+CREATE TABLE IF NOT EXISTS
+    sells (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        products VARCHAR(200) NOT NULL,
+        total_price DECIMAL(5, 2) NOT NULL,
+        id_user INT NOT NULL,
+        username VARCHAR(50) NOT NULL,
+        email VARCHAR(50) NOT NULL,
+        purchase_date DATE NOT NULL
+    );
 
-DELETE FROM
-    history;
+DELETE FROM sells;
 
-CREATE TABLE IF NOT EXISTS reviews(
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    id_user INT NOT NULL,
-    username VARCHAR(50) NOT NULL,
-    review VARCHAR(300) NOT NULL,
-    post_date DATE NOT NULL
-);
+CREATE TABLE IF NOT EXISTS
+    reviews (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        id_user INT NOT NULL,
+        username VARCHAR(50) NOT NULL,
+        review VARCHAR(300) NOT NULL,
+        post_date DATE NOT NULL
+    );
 
-DELETE FROM
-    reviews;
+DELETE FROM reviews;
 
-CREATE TABLE IF NOT EXISTS special_offers(
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(50) NOT NULL,
-    precio DECIMAL(4, 2) NOT NULL,
-    old_price DECIMAL(4, 2),
-    descripcion VARCHAR(300) NOT NULL,
-    imagen VARCHAR(100) NOT NULL,
-    attributes VARCHAR(100) NOT NULL,
-    stock BOOLEAN NOT NULL
-);
+INSERT INTO
+    reviews (
+        id_user,
+        username,
+        review,
+        post_date
+    )
+VALUES
+    (
+        1,
+        "Cool Dude",
+        "This store is awesome!",
+        "2025-01-01"
+    );
 
-DELETE FROM
-    special_offers;
+CREATE TABLE IF NOT EXISTS
+    special_offers (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        category VARCHAR(50) NOT NULL,
+        nombre VARCHAR(50) NOT NULL,
+        precio DECIMAL(4, 2) NOT NULL,
+        old_price DECIMAL(4, 2),
+        descripcion VARCHAR(300) NOT NULL,
+        imagen VARCHAR(100) NOT NULL,
+        attributes VARCHAR(100) NOT NULL,
+        stock BOOLEAN NOT NULL
+    );
+
+DELETE FROM special_offers;
 
 INSERT INTO
     special_offers (
+        category,
         nombre,
         precio,
         old_price,
@@ -1073,61 +1090,67 @@ INSERT INTO
     )
 VALUES
     (
-        "Passion Fruit",
-        3.45,
-        null,
-        "Fresh passion fruit ice_creams.",
-        "./assets/ice_bars/Passion_Fruit.png",
-        "fruits",
+        "ice_creams",
+        "Strawberry",
+        3.00,
+        4.00,
+        "Made with fresh strawberries from our region.",
+        "./assets/ice_creams/Strawberry.png",
+        "berries, discount",
         true
     ),
     (
-        "Watermelon Summer",
+        "ice_bars",
+        "Cookies And Cream",
+        3.45,
+        null,
+        "Ice pop made with whipped cream, with chocolate ganache and chocolate cookie swirls, decorated with stracciatella coated cookies.",
+        "./assets/ice_bars/Cookies_And_Cream.png",
+        "berries",
+        false
+    ),
+    (
+        "cookies",
+        "Caja Semisweet",
         4.49,
         null,
-        "Strawberry whipped cream ice pop, coated with pink tinted Belgian white chocolate. It is decorated with multicolored sprinkles and white chocolate eyes.",
-        "./assets/smoothies/Watermelon_Summer.png",
-        "algo",
-        false
-    ),
-    (
-        "Zumo Cold Pressed Boost HPP",
-        2.74,
-        null,
-        "Zumit's Cold Pressed Boost is a revitalizing drink designed to naturally elevate your energy and well-being.",
-        "./assets/juices/Boost.png",
-        "algo",
-        false
-    ),
-    (
-        "Salted Caramel",
-        4.59,
-        null,
-        "Embark on a journey of indulgence with Zumit's Frappé Salted Caramel, a delicious fusion of sweetness and a hint of salt that will take you to a new dimension of taste. ",
-        "./assets/milkshakes/Salted_Caramel.png",
+        "Descripción",
+        "./assets/cookies/Caja_Semisweet.png",
         "algo",
         true
     ),
     (
-        "Cookies & Cream",
-        3.45,
+        "chocolates",
+        "Chocolate Blanco Con Caramelo Y Avellanas",
+        3.00,
         null,
-        "Whipped cream ice-cream with cookie swirls, developed exclusively by Lucciano’s in Italy.",
-        "./assets/ice_creams/Cookies_&_Cream.png",
-        "white-chocolate, special",
+        "description",
+        "./assets/chocolates/Chocolate_Blanco_Con_Caramelo_Y_Avellanas.png",
+        "algo",
         false
+    ),
+    (
+        "smoothies",
+        "Caribbean Passion",
+        1.99,
+        null,
+        "Fresh mango ice_creams.",
+        "./assets/smoothies/Caribbean_Passion.png",
+        "algo",
+        true
     );
 
-CREATE TABLE IF NOT EXISTS users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(50) NOT NULL,
-    email VARCHAR(50) NOT NULL,
-    telefono VARCHAR(12),
-    birth_date DATE,
-    username VARCHAR(50) NOT NULL,
-    password CHAR(64) NOT NULL,
-    address VARCHAR(100)
-);
+CREATE TABLE IF NOT EXISTS
+    users (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        nombre VARCHAR(50) NOT NULL,
+        email VARCHAR(50) NOT NULL,
+        telefono VARCHAR(12),
+        birth_date DATE,
+        username VARCHAR(50) NOT NULL,
+        password CHAR(64) NOT NULL,
+        address VARCHAR(100)
+    );
 
 INSERT INTO
     users (

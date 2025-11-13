@@ -119,8 +119,8 @@ if ($config['page'] == "index") {
                     --header-text-color: rgb(196, 72, 0);
 
                     --button-bg-color: rgb(255, 255, 255);
-                    --button-text-color: rgba(89, 33, 0, 1);
-                    --button-bg-active: rgba(111, 41, 0, 1);
+                    --button-text-color: rgb(89, 33, 0);
+                    --button-bg-active: rgb(111, 41, 0);
                     --button-text-active: rgb(255, 255, 255);
 
                     --nav-bg-color: rgba(255, 232, 203, 0.8);

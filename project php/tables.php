@@ -1,5 +1,5 @@
 <?php
-
+include "./dao/include_config.php";
 
 
 
@@ -29,6 +29,7 @@
             case "smoothies":
             case "special_offers":
             case "users":
+            case "sells":
             case "reviews":
             case "history":
                 include "./content/section_table.php";

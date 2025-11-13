@@ -8,10 +8,11 @@ $loggedroot = false;
 
 
 if (!isset($_SESSION['usuario'])) {
-    
+
     require_once "./dao/crear_bd.php";
     require_once "./dao/crear_tablas.php";
 
+    $_SESSION['usuario'] = "";
 } else {
     if ($_SESSION['usuario'] === "root") {
         $loggedroot = true;
@@ -29,4 +30,3 @@ $config['category'] = "";
 if (isset($_GET['category'])) {
     $config['category'] = addslashes(trim($_GET['category']));
 }
-
