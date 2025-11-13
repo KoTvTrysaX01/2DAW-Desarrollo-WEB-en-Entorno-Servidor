@@ -21,8 +21,6 @@
     $sqlSelect = "SELECT * FROM special_offers";
     $sqlCursor = sqlQuery($sqlBD, $sqlSelect);
     $arraySpecials = sqlResultArray($sqlBD, $sqlCursor);
-
-    echo count($arraySpecials);
     ?>
 
     <div class="carousel">
@@ -30,7 +28,7 @@
             <?php for ($i = 0; $i < count($arraySpecials); $i++) { ?>
                 <div class="card">
                     <img src="<?php echo $arraySpecials[$i]['imagen']; ?>" alt="<?php echo $arraySpecials[$i]['nombre']; ?>"
-                        onclick="location.href='./categories/product/product.html'">
+                        onclick="location.href='<?php echo 'products.php?category=' . $arraySpecials[$i]['nombre'] . '&id=' . $arraySpecials[$i]['id'] ?>'">
                 </div>
             <?php } ?>
         </div>
@@ -38,7 +36,7 @@
             <?php for ($i = 0; $i < count($arraySpecials); $i++) { ?>
                 <div class="card">
                     <img src="<?php echo $arraySpecials[$i]['imagen']; ?>" alt="<?php echo $arraySpecials[$i]['nombre']; ?>"
-                        onclick="location.href='./categories/product/product.html'">
+                        onclick="location.href='<?php echo 'products.php?category=' . $arraySpecials[$i]['nombre'] . '&id=' . $arraySpecials[$i]['id'] ?>'">
                 </div>
             <?php } ?>
         </div>

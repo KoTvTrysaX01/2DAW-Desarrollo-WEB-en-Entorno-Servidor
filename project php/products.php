@@ -1,6 +1,8 @@
 <?php
 
 
+include "./dao/include_config.php";
+
 
 
 ?>
@@ -17,7 +19,7 @@
     include "./inc/include_nav.php";
 
     if (!isset($config['category']) || $config['category'] == "") {
-        include "./content/section_allTables.php";
+        include "./content/section_productos.php";
     } else {
         switch ($config['category']) {
             case "ice_creams":
@@ -31,10 +33,10 @@
             case "users":
             case "reviews":
             case "history":
-                include "./content/section_table.php";
+                include "./content/section_products.php";
                 break;
             default:
-                include "./content/section_allTables.php";
+                include "./content/section_productos.php";
                 break;
         }
     }

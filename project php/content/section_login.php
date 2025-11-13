@@ -29,7 +29,8 @@ if ($entrar) {
             if ($calculated_hash === $regUsuario['password']) {
 
                 $_SESSION['usuario'] = $regUsuario['nombre'];
-                header('Location: ' . "index.php");
+                echo $_SESSION['usuario'];
+                header('Location: ' . "index.php?category=home");
             }
         }
     }
@@ -46,6 +47,6 @@ if ($entrar) {
             <input type="password" placeholder="Password" name="password" required>
         </div>
         <button type="submit" class="btn" name="login">Login</button>
-        <button class="btn" onclick="location.href='index.php?page=logs'">Go Back</button>
+        <button class="btn" onclick="location.href='logs.php'">Go Back</button>
     </form>
 </div>

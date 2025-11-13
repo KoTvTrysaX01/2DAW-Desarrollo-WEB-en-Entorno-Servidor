@@ -1,5 +1,4 @@
 <style>
-    @import url();
     :root {
         --box-shadow: rgba(0, 0, 0, 0.2);
         --header-bg-color-1: rgb(255, 255, 255);
@@ -20,20 +19,21 @@
     }
 
 
-    .btn-block {
+    #btn-block {
         background-color: rgb(167, 167, 167);
         color: rgb(255, 255, 255);
         ;
     }
 
-    .btn-block:hover {
-        background-color: rgb(255, 255, 255);
-        color: rgb(145, 145, 145)
+    #btn-block:hover {
+        background-color: rgb(255, 255, 255) !important;
+        color: rgb(145, 145, 145) !important; 
     }
 </style>
 
 <?php
-if ($config['page'] == "home") {
+if ($config['page'] == "index") {
+
 ?>
     <style>
         :root {
@@ -60,9 +60,10 @@ if ($config['page'] == "home") {
         }
     </style>
     <?php
-} elseif ($config['page'] == "login") {
+} elseif ($config['page'] == "logs") {
     switch ($config['category']) {
         case "login":
+            break;
     ?>
 
 
@@ -276,3 +277,5 @@ if ($config['page'] == "home") {
     }
 }
 ?>
+
+

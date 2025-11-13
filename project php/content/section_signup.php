@@ -25,57 +25,59 @@ if (isset($_POST['signup'])) {
 
     sqlFinTrans($sqlBD);
 
-    header('Location: ' . "index.php?page=logs&section=login");
+    header('Location: ' . "index.php?category=home");
 } else {
     // echo "error";
 }
 
 
 ?>
-<div class="container">
-    <h1>Sign Up</h1>
-    <form method="post">
-        <!-- Basic Details -->
-        <div class="input-box signup">
-            <label>Full Name</label>
-            <input type="text" name="nombre" placeholder="Enter your name" >
-        </div>
-        <div class="input-box signup">
-            <label>Email</label>
-            <input type="email" name="email" placeholder="Enter your email" required>
-        </div>
-        <div class="input-box signup">
-            <label>Phone Number</label>
-            <input type="tel" name="telefono" placeholder="Enter your phone number" >
-        </div>
-        <div class="input-box signup">
-            <label>Date of Birth</label>
-            <input type="date" name="birth_date">
-        </div>
+<div class="cont-2">
+    <div class="container">
+        <h1>Sign Up</h1>
+        <form method="post">
+            <!-- Basic Details -->
+            <div class="input-box signup">
+                <label>Full Name</label>
+                <input type="text" name="nombre" placeholder="Enter your name">
+            </div>
+            <div class="input-box signup">
+                <label>Email</label>
+                <input type="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="input-box signup">
+                <label>Phone Number</label>
+                <input type="tel" name="telefono" placeholder="Enter your phone number">
+            </div>
+            <div class="input-box signup">
+                <label>Date of Birth</label>
+                <input type="date" name="birth_date">
+            </div>
 
-        <div class="input-box signup">
-            <label>Username</label>
-            <input type="text" name="username" placeholder="Choose a username" required>
-        </div>
-        <div class="input-box signup">
-            <label>Password</label>
-            <input type="password" id="password" name="password" placeholder="Enter password" required>
-        </div>
-        <div class="input-box signup">
-            <label>Confirm Password</label>
-            <input type="password" placeholder="Confirm password" onchange="checkPassword(this)" required>
-        </div>
+            <div class="input-box signup">
+                <label>Username</label>
+                <input type="text" name="username" placeholder="Choose a username" required>
+            </div>
+            <div class="input-box signup">
+                <label>Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter password" required>
+            </div>
+            <div class="input-box signup">
+                <label>Confirm Password</label>
+                <input type="password" placeholder="Confirm password" onchange="checkPassword(this)" required>
+            </div>
 
-        <!-- Delivery Details -->
-        <div class="input-box signup">
-            <label>Address</label>
-            <textarea placeholder="Enter your full address" rows="3" maxlength="100" name="address" ></textarea>
-        </div>
+            <!-- Delivery Details -->
+            <div class="input-box signup">
+                <label>Address</label>
+                <textarea placeholder="Enter your full address" rows="3" maxlength="100" name="address"></textarea>
+            </div>
 
-        <button type="submit" class="btn" name="signup">Sign Up</button>
+            <button type="submit" class="btn" name="signup">Sign Up</button>
 
-    </form>
-    <button class="btn" onclick="location.href='index.php?page=logs'">Go Back</button>
+        </form>
+        <button class="btn" onclick="location.href='logs.php'">Go Back</button>
+    </div>
 </div>
 <script>
     // function checkPassword(field) {
