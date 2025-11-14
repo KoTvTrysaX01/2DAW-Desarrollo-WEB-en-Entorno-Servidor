@@ -8,7 +8,7 @@
         font-family: 'Roboto', sans-serif;
 
         background: url(<?php echo "'./assets/bg/{$config['category']}.png'"; ?>);
-        
+
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -151,6 +151,24 @@ $sqlBD = SqlConecta($hostSql, $userSql, $passSql, $basedatosSql);
 $sqlSelect = "SELECT * FROM  {$config['category']} WHERE id = '{$_GET['id']}'";
 $sqlCursor = sqlQuery($sqlBD, $sqlSelect);
 $arraySpecials = sqlResultArray($sqlBD, $sqlCursor);
+
+
+
+if (isset($_POST['add'])) {
+    $name = $_POST['name'];
+    $quantity = $_POST['quantity'];
+    $price = $_POST['price'] * $_POST['quantity'];
+
+    $product = array(
+        "name" => $name,
+        "quantity" =>$quantity,
+        "price" => $price
+    );
+
+    print_r($product);
+
+    array_push($_SESSION['cart'], $product);
+}
 ?>
 
 
@@ -167,19 +185,26 @@ $arraySpecials = sqlResultArray($sqlBD, $sqlCursor);
 
         <!-- Product Description -->
         <div class="product-description">
-            <span><?php echo $config['category']?></span>
-            <h1><?php echo $arraySpecials[0]['nombre']?></h1>
-            <p><?php echo $arraySpecials[0]['descripcion']?></p>
+            <span><?php echo $config['category'] ?></span>
+            <h1><?php echo $arraySpecials[0]['nombre'] ?></h1>
+            <p><?php echo $arraySpecials[0]['descripcion'] ?></p>
         </div>
 
         <!-- Product Pricing -->
         <div class="product-price">
             <div class="prices">
-                <span class="price-now"><?php echo $arraySpecials[0]['precio']?></span>
-                <span class="price-before"><?php echo $arraySpecials[0]['old_price']?></span>
+                <span class="price-now"><?php echo $arraySpecials[0]['precio'] ?>€</span>
+                <span class="price-before"><?php echo $arraySpecials[0]['old_price'] ?>€</span>
             </div>
 
-            <a href="#" class="cart-btn">Add to cart</a>
+
         </div>
+        <form method="post">
+            <input type="text" name="name" value="<?php echo $arraySpecials[0]['nombre'] ?>" hidden />
+            <input type="number" name="price" value="<?php echo $arraySpecials[0]['precio'] ?>" hidden />
+            <input type="number" min="1" max="10" name="quantity" />
+            <input type="submit" name="add" class="cart-btn" value="Add to cart">
+        </form>
+
     </div>
 </main>

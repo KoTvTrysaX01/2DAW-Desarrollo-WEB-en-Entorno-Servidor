@@ -25,7 +25,7 @@ if (isset($_POST['signup'])) {
 
     sqlFinTrans($sqlBD);
 
-    header('Location: ' . "index.php?category=home");
+    header('Location: ' . "logs.php?category=login");
 } else {
     // echo "error";
 }
@@ -79,31 +79,3 @@ if (isset($_POST['signup'])) {
         <button class="btn" onclick="location.href='logs.php'">Go Back</button>
     </div>
 </div>
-<script>
-    // function checkPassword(field) {
-    //     var password = document.getElementById("password");
-    //     if (field.value != password.value) {
-    //         field.setCustomValidity('Passwords dont match');
-    //         field.reportValidity();
-    //         field.focus();
-    //     }
-    // }
-
-    // // function checkTel(field) {
-    // //     var re = /([\+][0-9]{2,3})?[0-9]{9}/
-    // //     if (!re.test(field.value)) {
-    // //         field.setCustomValidity('Incorrect phone number');
-    // //         field.reportValidity();
-    // //         field.focus();
-    // //     }
-    // // }
-
-    // function getBack() {
-    //     var inputs = document.querySelectorAll('input');
-    //     for (let i = 0; i < inputs.length; i++) {
-    //         inputs[i].required = false;
-    //     }
-    //     document.querySelector("textarea").required = false;
-    //     location.href = "index.php?page=home"
-    // }
-</script>

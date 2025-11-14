@@ -158,7 +158,7 @@ if (isset($_GET['del'])) {
                                                                 echo  "review";
                                                                 break;
                                                             default:
-                                                                echo $dataArray['id_user'];
+                                                                echo $dataArray['nombre'];
                                                                 break;
 
                                                         }

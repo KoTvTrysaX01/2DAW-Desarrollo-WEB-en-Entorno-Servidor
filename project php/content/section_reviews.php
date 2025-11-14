@@ -82,9 +82,22 @@
 
 <?php
 $sqlBD = SqlConecta($hostSql, $userSql, $passSql, $basedatosSql);
-$sqlSelect = "SELECT * FROM  {$config['category']} WHERE 'username' = {$_SESSION['usuairo']}";
+$sqlSelect = "SELECT * FROM  {$config['category']}";
 $sqlCursor = sqlQuery($sqlBD, $sqlSelect);
 $arrayReviews = sqlResultArray($sqlBD, $sqlCursor);
+
+
+
+if (isset($_POST['sbm-review'])) {
+    $sqlBD = sqlConecta($hostSql, $userSql, $passSql, $basedatosSql);
+    sqlIniTrans($sqlBD);
+    $sql = "INSERT INTO reviews (id_user,username,review,post_date)
+    VALUES ('" . 1 . "','" . $_SESSION['usuario'] . "','" . $_POST['review'] . "','" . date("Y-m-d") . "')";
+
+    sqlQuery($sqlBD, $sql);
+
+    sqlFinTrans($sqlBD);
+}
 ?>
 
 <div class="cont-1">
@@ -126,9 +139,9 @@ $arrayReviews = sqlResultArray($sqlBD, $sqlCursor);
                             echo "btn-block";
                         } ?>"
                 class="btn" name="sbm-review" type="submit" <?php
-                                            if (!$loggedin) {
-                                                echo "disabled";
-                                            } ?>>Submit Review</button>
+                                                            if (!$loggedin) {
+                                                                echo "disabled";
+                                                            } ?>>Submit Review</button>
         </form>
 
     </div>

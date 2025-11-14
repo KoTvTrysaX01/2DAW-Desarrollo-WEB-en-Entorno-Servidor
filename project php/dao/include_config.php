@@ -7,8 +7,9 @@ $loggedin = false;
 $loggedroot = false;
 
 
-if (!isset($_SESSION['usuario'])) {
 
+if (!isset($_SESSION['usuario'])) {
+    $_SESSION['cart'] = array();
     require_once "./dao/crear_bd.php";
     require_once "./dao/crear_tablas.php";
 

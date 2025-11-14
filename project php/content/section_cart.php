@@ -68,37 +68,58 @@
     }
 </style>
 
+<?php
+if (isset($_POST['purchase'])) {
+    $sqlBD = sqlConecta($hostSql, $userSql, $passSql, $basedatosSql);
+    sqlIniTrans($sqlBD);
+    $sql = "INSERT INTO sells (products,total_price,id_user,username,email,purchase_date)
+    VALUES ('" . $_POST["products"] . "','" . $_POST["total_price"] . "','" . 1 . "','" . $_SESSION['usuario'] . "','" . "example@mail.com" . "','" . date("Y-m-d") . "')";
+    sqlQuery($sqlBD, $sql);
+
+    sqlFinTrans($sqlBD);
+}
+?>
+
 <div class="cont-1">
     <div class="container">
         <h2>Your Food Cart</h2>
-        <table>
-            <tr>
-                <th>Item</th>
-                <th>Quantity</th>
-                <th>Price</th>
-            </tr>
-            <tr>
-                <td>Margherita Pizza</td>
-                <td>1</td>
-                <td>₹299</td>
-            </tr>
-            <tr>
-                <td>Veg Biryani</td>
-                <td>2</td>
-                <td>₹450</td>
-            </tr>
-            <tr>
-                <td>Cold Coffee</td>
-                <td>1</td>
-                <td>₹150</td>
-            </tr>
-        </table>
+        <form>
+            <table>
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+                <?php
+                $total_price = 0;
+                $array_id = 0;
+                if (isset($_SESSION['cart'])) {
+                    for ($i = 0; $i < count($_SESSION['cart']); $i++) {
+                        $array_id = $i;
+                        echo "<tr>";
 
-        <div class="total">
-            <strong>Total: ₹899</strong>
-        </div>
+                        $total_price .= $_SESSION['cart'][$i]['price'];
+                        echo "<td>" . $_SESSION['cart'][$i]['name'] . "</td>";
+                        echo "<td>" . $_SESSION['cart'][$i]['quantity'] . "</td>";
+                        echo "<td>" . $_SESSION['cart'][$i]['price'] . "</td>";
+                ?>
+                        <td><input type='submit' name='{$array_id}' value='Delete' /></td>
+                <?php
 
-        <button class="btn">Proceed to Checkout</button>
+                        echo "</tr>";
+                    }
+                }
+
+                ?>
+            </table>
+
+            <div class="total">
+                <strong><?php echo $total_price . "€"; ?></strong>
+            </div>
+            <input type="submit" name="purchase" class="btn" value="Proceed to Checkout">
+        </form>
+
     </div>
     <button class="btn-back" onclick="location.href='./index.php?page=home'">Go Back</button>
 </div>
