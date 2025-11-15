@@ -222,7 +222,6 @@ sqlDesconecta($sqlBD);
                             <div class="invalid-feedback">
                                 La post_date es obligatoria y debe tener al menos 4 caracteres.
                             </div>
-        
                         </div>
 
                         <!-- Botones de acción -->

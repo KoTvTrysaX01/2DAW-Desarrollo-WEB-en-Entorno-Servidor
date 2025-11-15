@@ -6,14 +6,10 @@ $sqlBD = sqlConecta($hostSql, $userSql, $passSql, $basedatosSql);
 /* INICIAR DE DATOS */
 $valores = array(
     'id' => "",
-    'products' => "",
-    'total_price' => "",
-    'id_user' => "",
-    'username' => "",
+    'title' => "",
+    'message' => "",
     'email' => "",
-    'tel' => "",
-    'address' => "",
-    'purchase_date' => ""
+    'post_date' => ""
 );
 
 /* RECOGIDA DE DATOS DE LA BASE DE DATOS */
@@ -28,14 +24,10 @@ if (isset($_GET['edit'])) {
 
         // Cargar valores
         if (count($products) > 0) {
-            $valores['products'] = $products['products'];
-            $valores['total_price'] = $products['total_price'];
-            $valores['id_user'] = $products['id_user'];
-            $valores['username'] = $products['username'];
+            $valores['title'] = $products['title'];
+            $valores['message'] = $products['message'];
             $valores['email'] = $products['email'];
-            $valores['tel'] = $products['tel'];
-            $valores['address'] = $products['address'];
-            $valores['purchase_date'] = $products['purchase_date'];
+            $valores['post_date'] = $products['post_date'];
         }
 
         $editar = true;
@@ -45,66 +37,47 @@ if (isset($_GET['edit'])) {
 /* INSERT - UPDATE - RECOGIDA DE DATOS DEL FORMULARIO */
 $grabar = false;
 if (isset($_POST['btnGrabar'])) {
+
+
+
     if (isset($_POST['id'])) {
         $valores['id'] = addslashes(trim($_POST['id']));
     }
-    if (isset($_POST['products'])) {
-        $valores['products'] = addslashes(trim($_POST['products']));
+    if (isset($_POST['title'])) {
+        $valores['title'] = addslashes(trim($_POST['title']));
     }
-    if (isset($_POST['total_price'])) {
-        $valores['total_price'] = addslashes(trim($_POST['total_price']));
-    }
-    if (isset($_POST['id_user'])) {
-        $valores['id_user'] = addslashes(trim($_POST['id_user']));
-    }
-    if (isset($_POST['username'])) {
-        $valores['username'] = addslashes(trim($_POST['username']));
+    if (isset($_POST['message'])) {
+        $valores['message'] = addslashes(trim($_POST['message']));
     }
     if (isset($_POST['email'])) {
         $valores['email'] = addslashes(trim($_POST['email']));
     }
-    if (isset($_POST['tel'])) {
-        $valores['tel'] = addslashes(trim($_POST['tel']));
+    if (isset($_POST['post_date'])) {
+        $valores['post_date'] = addslashes(trim($_POST['post_date']));
     }
-    if (isset($_POST['address'])) {
-        $valores['address'] = addslashes(trim($_POST['address']));
-    }
-    if (isset($_POST['purchase_date'])) {
-        $valores['purchase_date'] = addslashes(trim($_POST['purchase_date']));
-    }
-
     $grabar = true;
 }
-
 
 /* PROCESO DE GRABACIÓN*/
 if ($grabar) {
     if ($valores['id'] != "") {
         $sqlIns = "UPDATE {$config['category']} 
 							SET 
-                                products='" . $valores['products'] . "',
-								total_price='" . $valores['total_price'] . "',
-								id_user='" . $valores['id_user'] . "',
-								username='" . $valores['username'] . "',
+                                title='" . $valores['title'] . "',
+								message='" . $valores['message'] . "',
 								email='" . $valores['email'] . "',
-                                tel='" . $valores['tel'] . "',
-								address='" . $valores['address'] . "',
-                                purchase_date='" . $valores['purchase_date'] . "'
+								post_date='" . $valores['post_date'] . "'
 							WHERE 
 								id='" . $valores['id'] . "'
 						";
     } else {
         // El id se genera automáticamente porque es AUTO_INCREMENT en MySQL
-        $sqlIns = "INSERT INTO {$config['category']} (products, total_price, id_user, username, email, tel, address purchase_date) 
+        $sqlIns = "INSERT INTO {$config['category']} (title, message, email, post_date)
 							VALUES (
-								 '" . $valores['products'] . "',
-								 '" . $valores['total_price'] . "',
-								 '" . $valores['id_user'] . "',
-                                 '" . $valores['username'] . "',
+                                 '" . $valores['title'] . "',
+								 '" . $valores['message'] . "',
 								 '" . $valores['email'] . "',
-                                 '" . $valores['tel'] . "',
-								 '" . $valores['address'] . "',
-								 '" . $valores['purchase_date'] . "'
+								 '" . $valores['post_date'] . "'
 							)
 					";
     }
@@ -212,83 +185,43 @@ sqlDesconecta($sqlBD);
                             <input type="text" class="form-control" id="id" name="id" readonly>
                         </div>
 
-                        <!-- Campo products -->
+                        <!-- Campo Title -->
                         <div class="mb-3">
-                            <label for="products" class="form-label required-field">products</label>
-                            <input type="text" class="form-control" id="products" name="products" required
-                                minlength="3" placeholder="Ingrese el nombre de la products">
+                            <label for="title" class="form-label required-field">Title</label>
+                            <input type="text" class="form-control" id="title" name="title" required
+                                placeholder="Ingrese el title de la products">
                             <div class="invalid-feedback">
                                 El nombre de la products es obligatorio y debe tener al menos 5 caracteres.
                             </div>
                         </div>
 
-                        <!-- Campo total_price -->
+                        <!-- Campo message -->
                         <div class="mb-3">
-                            <label for="total_price" class="form-label required-field">total_price</label>
-                            <input type="number" min="0" max="1000" step="0.01" class="form-control" id="total_price" name="total_price" required>
-                            </input>
+                            <label for="message" class="form-label required-field">Your message</label>
+                            <textarea class="form-control" rows="5" id="message" name="message" minlength="5" maxlength="300" placeholder="Ingrese el message de la products" required></textarea>
+                            <!-- <input type="text"  required
+                                > -->
                             <div class="invalid-feedback">
-                                Por favor seleccione un precio adecuado (0-1000).
-                            </div>
-                        </div>
-
-                        <!-- Campo id_user -->
-                        <div class="mb-3">
-                            <label for="id_user" class="form-label">id_user</label>
-                            <input type="number" min="0" max="1000" class="form-control" id="id_user" name="id_user">
-                            </input>
-                            <div class="invalid-feedback">
-                                Por favor seleccione un precio adecuado (0-1000).
-                            </div>
-                        </div>
-
-                        <!-- Campo username -->
-                        <div class="mb-3">
-                            <label for="username" class="form-label required-field">username</label>
-                            <input type="text" class="form-control" id="username" name="username" required
-                                minlength="4" placeholder="Ingrese la username de la products">
-                            <div class="invalid-feedback">
-                                La username es obligatoria y debe tener al menos 4 caracteres.
+                                El message de la products es obligatorio y debe tener al menos 5 caracteres.
                             </div>
                         </div>
 
                         <!-- Campo email -->
                         <div class="mb-3">
-                            <label for="email" class="form-label required-field">email</label>
+                            <label for="email" class="form-label required-field">Your email</label>
                             <input type="email" class="form-control" id="email" name="email" required
-                                minlength="4" placeholder="Ingrese la email de la products">
+                                minlength="5" maxlength="300" placeholder="Ingrese la email de la products">
                             <div class="invalid-feedback">
                                 La email es obligatoria y debe tener al menos 4 caracteres.
                             </div>
                         </div>
-
-                        <!-- Campo tel -->
+                        
                         <div class="mb-3">
-                            <label for="tel" class="form-label required-field">tel</label>
-                            <input type="tel" class="form-control" id="tel" name="tel" required
-                                minlength="4" placeholder="Ingrese la tel de la products">
+                            <label for="post_date" class="form-label required-field">post_date</label>
+                            <input type="date" class="form-control" id="post_date" name="post_date" required
+                                placeholder="Ingrese la post_date de la products">
                             <div class="invalid-feedback">
-                                La tel es obligatoria y debe tener al menos 4 caracteres.
-                            </div>
-                        </div>
-
-                        <!-- Campo address -->
-                        <div class="mb-3">
-                            <label for="address" class="form-label required-field">address</label>
-                            <textarea class="form-control" id="address" name="address" required
-                                minlength="4" maxlength="300" rows="3" placeholder="Ingrese la address de la products"></textarea>
-                            <div class="invalid-feedback">
-                                La address es obligatoria y debe tener al menos 4 caracteres.
-                            </div>
-                        </div>
-
-                        <!-- Campo purchase date -->
-                        <div class="mb-3">
-                            <label for="purchase_date" class="form-label required-field">purchase_date</label>
-                            <input type="date" class="form-control" id="purchase_date" name="purchase_date" required
-                                minlength="4" placeholder="Ingrese la attributes de la products">
-                            <div class="invalid-feedback">
-                                La fabricante es obligatoria y debe tener al menos 4 caracteres.
+                                La post_date es obligatoria y debe tener al menos 4 caracteres.
                             </div>
                         </div>
 
@@ -320,7 +253,7 @@ sqlDesconecta($sqlBD);
     <script>
         // products
         // Métodos personalizados 
-        function cargarDatosParaEdicion(id, products, total_price, id_user, username, email, tel, address, purchase_date) {
+        function cargarDatosParaEdicion(id, title, message, email, post_date) {
             if (id == "") {
                 $("#idFieldContainer").hide(); // En nuevo registro
                 $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>Nueva products');
@@ -329,18 +262,14 @@ sqlDesconecta($sqlBD);
                 $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>Editar products');
             }
             $("#id").val(id);
-            $("#products").val(products);
-            $("#total_price").val(total_price);
-            $("#id_user").val(id_user);
-            $("#username").val(username);
+            $("#title").val(title);
+            $("#message").val(message);
             $("#email").val(email);
-            $("#tel").val(tel);
-            $("#address").val(address);
-            $("#purchase_date").val(purchase_date);
+            $("#post_date").val(post_date);
         }
 
         function cargarDatosParaNuevo() {
-            cargarDatosParaEdicion("", "", "", "", "", "", "", "", "");
+            cargarDatosParaEdicion("", "", "", "", "");
         }
 
 
@@ -361,14 +290,10 @@ sqlDesconecta($sqlBD);
             <?php if ($editar) { ?>
                 cargarDatosParaEdicion(
                     '<?php echo $valores['id']; ?>',
-                    '<?php echo $valores['products']; ?>',
-                    '<?php echo $valores['total_price']; ?>',
-                    '<?php echo $valores['id_user']; ?>',
-                    '<?php echo $valores['username']; ?>',
+                    '<?php echo $valores['title']; ?>',
+                    '<?php echo $valores['message']; ?>',
                     '<?php echo $valores['email']; ?>',
-                    '<?php echo $valores['tel']; ?>',
-                    '<?php echo $valores['address']; ?>',
-                    '<?php echo $valores['purchase_date']; ?>'
+                    '<?php echo $valores['post_date']; ?>'
                 );
             <?php } else { ?>
                 cargarDatosParaNuevo();

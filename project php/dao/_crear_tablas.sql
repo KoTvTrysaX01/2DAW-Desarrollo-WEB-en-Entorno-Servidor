@@ -1,14 +1,41 @@
 USE helado_express;
 
--- Crear la tabla ice_bars
+-- CREATE TABLE IF NOT EXISTS
+--     products (
+--         id INT AUTO_INCREMENT PRIMARY KEY,
+--         category VARCHAR(50) NOT NULL,
+--         name VARCHAR(50) NOT NULL,
+--         price DECIMAL(4, 2) NOT NULL,
+--         old_price DECIMAL(4, 2),
+--         description VARCHAR(300) NOT NULL,
+--         image VARCHAR(100) NOT NULL,
+--         attributes VARCHAR(100) NOT NULL,
+--         stock BOOLEAN NOT NULL
+--     );
+-- DELETE FROM products;
+
+-- INSERT INTO
+--     products (
+--         category,
+--         name,
+--         price,
+--         old_price,
+--         description,
+--         image,
+--         attributes,
+--         stock
+--     )
+-- VALUES
+
+    -- Crear la tabla ice_bars
 CREATE TABLE IF NOT EXISTS
     ice_bars (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        nombre VARCHAR(50) NOT NULL,
-        precio DECIMAL(4, 2) NOT NULL,
+        name VARCHAR(50) NOT NULL,
+        price DECIMAL(4, 2) NOT NULL,
         old_price DECIMAL(4, 2),
-        descripcion VARCHAR(300) NOT NULL,
-        imagen VARCHAR(100) NOT NULL,
+        description VARCHAR(300) NOT NULL,
+        image VARCHAR(100) NOT NULL,
         attributes VARCHAR(100) NOT NULL,
         stock BOOLEAN NOT NULL
     );
@@ -19,11 +46,11 @@ DELETE FROM ice_bars;
 -- Insertar todas la ice_bars
 INSERT INTO
     ice_bars (
-        nombre,
-        precio,
+        name,
+        price,
         old_price,
-        descripcion,
-        imagen,
+        description,
+        image,
         attributes,
         stock
     )
@@ -267,11 +294,11 @@ VALUES
 CREATE TABLE IF NOT EXISTS
     ice_creams (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        nombre VARCHAR(50) NOT NULL,
-        precio DECIMAL(4, 2) NOT NULL,
+        name VARCHAR(50) NOT NULL,
+        price DECIMAL(4, 2) NOT NULL,
         old_price DECIMAL(4, 2),
-        descripcion VARCHAR(300) NOT NULL,
-        imagen VARCHAR(100) NOT NULL,
+        description VARCHAR(300) NOT NULL,
+        image VARCHAR(100) NOT NULL,
         attributes VARCHAR(100) NOT NULL,
         stock BOOLEAN NOT NULL
     );
@@ -281,11 +308,11 @@ DELETE FROM ice_creams;
 
 INSERT INTO
     ice_creams (
-        nombre,
-        precio,
+        name,
+        price,
         old_price,
-        descripcion,
-        imagen,
+        description,
+        image,
         attributes,
         stock
     )
@@ -502,11 +529,11 @@ VALUES
 CREATE TABLE IF NOT EXISTS
     cookies (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        nombre VARCHAR(50) NOT NULL,
-        precio DECIMAL(4, 2) NOT NULL,
+        name VARCHAR(50) NOT NULL,
+        price DECIMAL(4, 2) NOT NULL,
         old_price DECIMAL(4, 2),
-        descripcion VARCHAR(300) NOT NULL,
-        imagen VARCHAR(100) NOT NULL,
+        description VARCHAR(300) NOT NULL,
+        image VARCHAR(100) NOT NULL,
         attributes VARCHAR(100) NOT NULL,
         stock BOOLEAN NOT NULL
     );
@@ -516,11 +543,11 @@ DELETE FROM cookies;
 
 INSERT INTO
     cookies (
-        nombre,
-        precio,
+        name,
+        price,
         old_price,
-        descripcion,
-        imagen,
+        description,
+        image,
         attributes,
         stock
     )
@@ -575,11 +602,11 @@ VALUES
 CREATE TABLE IF NOT EXISTS
     chocolates (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        nombre VARCHAR(50) NOT NULL,
-        precio DECIMAL(4, 2) NOT NULL,
+        name VARCHAR(50) NOT NULL,
+        price DECIMAL(4, 2) NOT NULL,
         old_price DECIMAL(4, 2),
-        descripcion VARCHAR(300) NOT NULL,
-        imagen VARCHAR(100) NOT NULL,
+        description VARCHAR(300) NOT NULL,
+        image VARCHAR(100) NOT NULL,
         attributes VARCHAR(100) NOT NULL,
         stock BOOLEAN NOT NULL
     );
@@ -589,11 +616,11 @@ DELETE FROM chocolates;
 
 INSERT INTO
     chocolates (
-        nombre,
-        precio,
+        name,
+        price,
         old_price,
-        descripcion,
-        imagen,
+        description,
+        image,
         attributes,
         stock
     )
@@ -713,11 +740,11 @@ COMMIT;
 CREATE TABLE IF NOT EXISTS
     milkshakes (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        nombre VARCHAR(50) NOT NULL,
-        precio DECIMAL(4, 2) NOT NULL,
+        name VARCHAR(50) NOT NULL,
+        price DECIMAL(4, 2) NOT NULL,
         old_price DECIMAL(4, 2),
-        descripcion VARCHAR(300) NOT NULL,
-        imagen VARCHAR(100) NOT NULL,
+        description VARCHAR(300) NOT NULL,
+        image VARCHAR(100) NOT NULL,
         attributes VARCHAR(100) NOT NULL,
         stock BOOLEAN NOT NULL
     );
@@ -727,11 +754,11 @@ DELETE FROM milkshakes;
 
 INSERT INTO
     milkshakes (
-        nombre,
-        precio,
+        name,
+        price,
         old_price,
-        descripcion,
-        imagen,
+        description,
+        image,
         attributes,
         stock
     )
@@ -797,11 +824,11 @@ COMMIT;
 CREATE TABLE IF NOT EXISTS
     juices (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        nombre VARCHAR(50) NOT NULL,
-        precio DECIMAL(4, 2) NOT NULL,
+        name VARCHAR(50) NOT NULL,
+        price DECIMAL(4, 2) NOT NULL,
         old_price DECIMAL(4, 2),
-        descripcion VARCHAR(300) NOT NULL,
-        imagen VARCHAR(100) NOT NULL,
+        description VARCHAR(300) NOT NULL,
+        image VARCHAR(100) NOT NULL,
         attributes VARCHAR(100) NOT NULL,
         stock BOOLEAN NOT NULL
     );
@@ -811,11 +838,11 @@ DELETE FROM juices;
 
 INSERT INTO
     juices (
-        nombre,
-        precio,
+        name,
+        price,
         old_price,
-        descripcion,
-        imagen,
+        description,
+        image,
         attributes,
         stock
     )
@@ -881,11 +908,11 @@ COMMIT;
 CREATE TABLE IF NOT EXISTS
     smoothies (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        nombre VARCHAR(50) NOT NULL,
-        precio DECIMAL(4, 2) NOT NULL,
+        name VARCHAR(50) NOT NULL,
+        price DECIMAL(4, 2) NOT NULL,
         old_price DECIMAL(4, 2),
-        descripcion VARCHAR(300) NOT NULL,
-        imagen VARCHAR(100) NOT NULL,
+        description VARCHAR(300) NOT NULL,
+        image VARCHAR(100) NOT NULL,
         attributes VARCHAR(100) NOT NULL,
         stock BOOLEAN NOT NULL
     );
@@ -896,11 +923,11 @@ DELETE FROM smoothies;
 -- Insertar todas la smoothies
 INSERT INTO
     smoothies (
-        nombre,
-        precio,
+        name,
+        price,
         old_price,
-        descripcion,
-        imagen,
+        description,
+        image,
         attributes,
         stock
     )
@@ -1031,10 +1058,155 @@ CREATE TABLE IF NOT EXISTS
         id_user INT NOT NULL,
         username VARCHAR(50) NOT NULL,
         email VARCHAR(50) NOT NULL,
+        tel VARCHAR(10),
+        address VARCHAR(100),
         purchase_date DATE NOT NULL
     );
 
 DELETE FROM sells;
+
+INSERT INTO
+    sells (
+        products,
+        total_price,
+        id_user,
+        username,
+        email,
+        tel,
+        address,
+        purchase_date
+    )
+VALUES
+    (
+        "Chocolates x 2",
+        7.49,
+        1,
+        "root",
+        "root@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2025-11-14"
+    ),
+    (
+        "Cookies x 3",
+        13.50,
+        1,
+        "root",
+        "root@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2025-11-14"
+    ),
+    (
+        "Ice creams x 2",
+        9,
+        1,
+        "root",
+        "root@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2025-11-14"
+    ),
+    (
+        "Ice Bars x 2",
+        10,
+        1,
+        "root",
+        "root@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2025-11-14"
+    ),
+    (
+        "Smoothies x 5",
+        15,
+        1,
+        "root",
+        "root@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2025-11-14"
+    ),
+    (
+        "Milkshakes x 1",
+        2.50,
+        1,
+        "root",
+        "root@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2025-11-14"
+    ),
+    (
+        "Chocolates x 4",
+        8.50,
+        1,
+        "root",
+        "root@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2025-11-14"
+    ),
+    (
+        "Juices x 2",
+        3.50,
+        1,
+        "root",
+        "root@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2025-11-14"
+    ),
+    (
+        "Cookies x 2",
+        5.50,
+        1,
+        "root",
+        "root@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2025-11-14"
+    ),
+    (
+        "Ice Creams x 2 Cookies x 3",
+        10.50,
+        1,
+        "root",
+        "root@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2025-11-14"
+    ),
+    (
+        "Chocolates x 2 Ice Bars x 1",
+        11.50,
+        1,
+        "root",
+        "root@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2025-11-14"
+    ),
+    (
+        "Cookies x 1 Juices x 3",
+        13.50,
+        1,
+        "root",
+        "root@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2025-11-14"
+    ),
+    (
+        "Ice Creams x 5 Ice Bars x 6",
+        55.50,
+        1,
+        "root",
+        "root@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2025-11-14"
+    );
 
 CREATE TABLE IF NOT EXISTS
     reviews (
@@ -1048,29 +1220,26 @@ CREATE TABLE IF NOT EXISTS
 DELETE FROM reviews;
 
 INSERT INTO
-    reviews (
-        id_user,
-        username,
-        review,
-        post_date
-    )
+    reviews (id_user, username, review, post_date)
 VALUES
     (
-        1,
+        2,
         "Cool Dude",
         "This store is awesome!",
         "2025-01-01"
-    );
+    ),
+    (1, "root", "Tasty!", "2025-02-02"),
+    (1, "Cool Dude", "Very good!", "2025-03-03");
 
 CREATE TABLE IF NOT EXISTS
     special_offers (
         id INT AUTO_INCREMENT PRIMARY KEY,
         category VARCHAR(50) NOT NULL,
-        nombre VARCHAR(50) NOT NULL,
-        precio DECIMAL(4, 2) NOT NULL,
+        name VARCHAR(50) NOT NULL,
+        price DECIMAL(4, 2) NOT NULL,
         old_price DECIMAL(4, 2),
-        descripcion VARCHAR(300) NOT NULL,
-        imagen VARCHAR(100) NOT NULL,
+        description VARCHAR(300) NOT NULL,
+        image VARCHAR(100) NOT NULL,
         attributes VARCHAR(100) NOT NULL,
         stock BOOLEAN NOT NULL
     );
@@ -1080,11 +1249,11 @@ DELETE FROM special_offers;
 INSERT INTO
     special_offers (
         category,
-        nombre,
-        precio,
+        name,
+        price,
         old_price,
-        descripcion,
-        imagen,
+        description,
+        image,
         attributes,
         stock
     )
@@ -1143,33 +1312,19 @@ VALUES
 CREATE TABLE IF NOT EXISTS
     users (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        nombre VARCHAR(50) NOT NULL,
         email VARCHAR(50) NOT NULL,
-        telefono VARCHAR(12),
-        birth_date DATE,
         username VARCHAR(50) NOT NULL,
         password CHAR(64) NOT NULL,
-        address VARCHAR(100)
+        isAdmin BOOLEAN
     );
 
 INSERT INTO
-    users (
-        nombre,
-        email,
-        telefono,
-        birth_date,
-        username,
-        password,
-        address
-    )
+    users (email, username, password, isAdmin)
 SELECT
-    "root",
     "root@email.com",
-    "123456789",
-    "2001-11-01",
     "root",
-    "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
-    "c/ Root Av."
+    "$2y$10$GjfZDDSll.xyzdoNDK15/.j3gj.l./OPk.2NZwZDYMEmh7u204CKG",
+    true
 WHERE
     NOT EXISTS (
         SELECT
@@ -1179,3 +1334,42 @@ WHERE
     );
 
 COMMIT;
+
+CREATE TABLE IF NOT EXISTS
+    mails (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        title VARCHAR(50) NOT NULL,
+        message VARCHAR(300) NOT NULL,
+        email VARCHAR(50) NOT NULL,
+        post_date Date NOT NULL
+    );
+
+DELETE FROM mails;
+
+INSERT INTO
+    mails (title, message, email, post_date)
+VALUES
+    (
+        "About problem",
+        "Lorem Ipsim.",
+        "root@email.com",
+        "2025-11-01"
+    ),
+    (
+        "Something else",
+        "Lorem Ipsim.",
+        "root@email.com",
+        "2025-11-01"
+    ),
+    (
+        "Store review",
+        "Lorem Ipsim.",
+        "root@email.com",
+        "2025-11-01"
+    ),
+    (
+        "Example",
+        "Lorem Ipsim.",
+        "root@email.com",
+        "2025-11-01"
+    );

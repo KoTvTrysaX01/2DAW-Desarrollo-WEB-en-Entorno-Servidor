@@ -1,9 +1,7 @@
 <?php
 
-$sqlBD = sqlConecta($hostSql, $userSql, $passSql, $basedatosSql);
-
-
 /* INICIAR DE DATOS */
+
 $valores = array(
     'id' => "",
     'products' => "",
@@ -16,38 +14,37 @@ $valores = array(
     'purchase_date' => ""
 );
 
-/* RECOGIDA DE DATOS DE LA BASE DE DATOS */
-$editar = false;
-if (isset($_GET['edit'])) {
-    $valores['id'] = addslashes(trim($_GET['edit']));
-    if ($valores['id'] != "") {
-        // SQL select
-        $sqlSelect = "SELECT * FROM {$config['category']} WHERE id='" . $valores['id'] . "'";
-        $sqlCursor = sqlQuery($sqlBD, $sqlSelect);
-        $products = sqlObtenerRegistro($sqlBD, $sqlCursor);
 
-        // Cargar valores
-        if (count($products) > 0) {
-            $valores['products'] = $products['products'];
-            $valores['total_price'] = $products['total_price'];
-            $valores['id_user'] = $products['id_user'];
-            $valores['username'] = $products['username'];
-            $valores['email'] = $products['email'];
-            $valores['tel'] = $products['tel'];
-            $valores['address'] = $products['address'];
-            $valores['purchase_date'] = $products['purchase_date'];
+if (isset($_SESSION['cart'])) {
+    // SQL select
+
+    $productsNams = "";
+    $productsPrice = 0;
+    foreach ($_SESSION['cart'] as $product) {
+
+        if ($productsNams == "") {
+            $productsNams .= "{$product['name']} x {$product['quantity']}";
+        } else {
+            $productsNams .= ", {$product['name']} x {$product['quantity']}";
         }
-
-        $editar = true;
+        $productsPrice += $product['price'];
     }
+
+    $valores['products'] = $productsNams;
+    $valores['total_price'] = $productsPrice;
+    $valores['id_user'] = $_SESSION['user']['id'];
+    $valores['username'] = $_SESSION['user']['username'];
+    $valores['email'] = $_SESSION['user']['email'];
+
+    print_r($valores);
+} else {
+    header('Location: ' . "products.php");
 }
 
-/* INSERT - UPDATE - RECOGIDA DE DATOS DEL FORMULARIO */
+
+/* INSERT - - RECOGIDA DE DATOS DEL FORMULARIO */
 $grabar = false;
 if (isset($_POST['btnGrabar'])) {
-    if (isset($_POST['id'])) {
-        $valores['id'] = addslashes(trim($_POST['id']));
-    }
     if (isset($_POST['products'])) {
         $valores['products'] = addslashes(trim($_POST['products']));
     }
@@ -69,47 +66,27 @@ if (isset($_POST['btnGrabar'])) {
     if (isset($_POST['address'])) {
         $valores['address'] = addslashes(trim($_POST['address']));
     }
-    if (isset($_POST['purchase_date'])) {
-        $valores['purchase_date'] = addslashes(trim($_POST['purchase_date']));
-    }
-
+    $valores['purchase_date'] = date("Y-m-d");
     $grabar = true;
 }
 
-
 /* PROCESO DE GRABACIÓN*/
 if ($grabar) {
-    if ($valores['id'] != "") {
-        $sqlIns = "UPDATE {$config['category']} 
-							SET 
-                                products='" . $valores['products'] . "',
-								total_price='" . $valores['total_price'] . "',
-								id_user='" . $valores['id_user'] . "',
-								username='" . $valores['username'] . "',
-								email='" . $valores['email'] . "',
-                                tel='" . $valores['tel'] . "',
-								address='" . $valores['address'] . "',
-                                purchase_date='" . $valores['purchase_date'] . "'
-							WHERE 
-								id='" . $valores['id'] . "'
-						";
-    } else {
-        // El id se genera automáticamente porque es AUTO_INCREMENT en MySQL
-        $sqlIns = "INSERT INTO {$config['category']} (products, total_price, id_user, username, email, tel, address purchase_date) 
+    $sqlBD = sqlConecta($hostSql, $userSql, $passSql, $basedatosSql);
+
+    // El id se genera automáticamente porque es AUTO_INCREMENT en MySQL
+    $sqlIns = "INSERT INTO sells (products, total_price, id_user, username, email, tel, address, purchase_date)
 							VALUES (
-								 '" . $valores['products'] . "',
+                                 '" . $valores['products'] . "',
 								 '" . $valores['total_price'] . "',
 								 '" . $valores['id_user'] . "',
                                  '" . $valores['username'] . "',
 								 '" . $valores['email'] . "',
-                                 '" . $valores['tel'] . "',
-								 '" . $valores['address'] . "',
+								 '" . $valores['tel'] . "',
+                                 '" . $valores['address'] . "',
 								 '" . $valores['purchase_date'] . "'
 							)
 					";
-    }
-
-    // echo $sqlIns;
     sqlIniTrans($sqlBD);
     $sqlCursor = sqlQuery($sqlBD, $sqlIns);
     $numerror = "";
@@ -123,9 +100,15 @@ if ($grabar) {
         $bdResultado = true;    // Grabación realizada
     }
     sqlFinTrans($sqlBD);
+    sqlDesconecta($sqlBD);
+    $_SESSION['cart'] = array();
+
+
+    echo '<script>alert("Thanks for the purchase!")</script>';
+    header("Refresh: 1;" . "index.php?category=home");
 }
 
-sqlDesconecta($sqlBD);
+
 
 ?>
 <!DOCTYPE html>
@@ -134,7 +117,7 @@ sqlDesconecta($sqlBD);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>products</title>
+    <products>products</products>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -155,7 +138,7 @@ sqlDesconecta($sqlBD);
             margin-top: 20px;
         }
 
-        .header-title {
+        .header-products {
             color: #0d6efd;
             border-bottom: 2px solid #0d6efd;
             padding-bottom: 10px;
@@ -179,7 +162,7 @@ sqlDesconecta($sqlBD);
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="form-container">
-                    <h2 class="text-center header-title">
+                    <h2 class="text-center header-products">
                         <i class="bi bi-geo-alt-fill me-2"></i>Gestión de products
                     </h2>
 
@@ -215,7 +198,7 @@ sqlDesconecta($sqlBD);
                         <!-- Campo products -->
                         <div class="mb-3">
                             <label for="products" class="form-label required-field">products</label>
-                            <input type="text" class="form-control" id="products" name="products" required
+                            <input type="text" class="form-control" id="products" name="products" readonly
                                 minlength="3" placeholder="Ingrese el nombre de la products">
                             <div class="invalid-feedback">
                                 El nombre de la products es obligatorio y debe tener al menos 5 caracteres.
@@ -225,17 +208,7 @@ sqlDesconecta($sqlBD);
                         <!-- Campo total_price -->
                         <div class="mb-3">
                             <label for="total_price" class="form-label required-field">total_price</label>
-                            <input type="number" min="0" max="1000" step="0.01" class="form-control" id="total_price" name="total_price" required>
-                            </input>
-                            <div class="invalid-feedback">
-                                Por favor seleccione un precio adecuado (0-1000).
-                            </div>
-                        </div>
-
-                        <!-- Campo id_user -->
-                        <div class="mb-3">
-                            <label for="id_user" class="form-label">id_user</label>
-                            <input type="number" min="0" max="1000" class="form-control" id="id_user" name="id_user">
+                            <input type="number" min="0" max="1000" step="0.01" class="form-control" id="total_price" name="total_price" readonly>
                             </input>
                             <div class="invalid-feedback">
                                 Por favor seleccione un precio adecuado (0-1000).
@@ -282,16 +255,6 @@ sqlDesconecta($sqlBD);
                             </div>
                         </div>
 
-                        <!-- Campo purchase date -->
-                        <div class="mb-3">
-                            <label for="purchase_date" class="form-label required-field">purchase_date</label>
-                            <input type="date" class="form-control" id="purchase_date" name="purchase_date" required
-                                minlength="4" placeholder="Ingrese la attributes de la products">
-                            <div class="invalid-feedback">
-                                La fabricante es obligatoria y debe tener al menos 4 caracteres.
-                            </div>
-                        </div>
-
                         <!-- Botones de acción -->
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
                             <button type="button" class="btn btn-warning btn-action" id="btnVolver">
@@ -320,28 +283,20 @@ sqlDesconecta($sqlBD);
     <script>
         // products
         // Métodos personalizados 
-        function cargarDatosParaEdicion(id, products, total_price, id_user, username, email, tel, address, purchase_date) {
-            if (id == "") {
-                $("#idFieldContainer").hide(); // En nuevo registro
-                $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>Nueva products');
-            } else {
-                $("#idFieldContainer").show(); // En edición de registro
-                $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>Editar products');
-            }
+        function cargarDatosParaEdicion(id, products, total_price, id_user, username, email) {
+            $("#idFieldContainer").hide(); // En nuevo registro
+            $(".header-products").html('<i class="bi bi-pencil-square me-2"></i>Nueva products');
+
             $("#id").val(id);
             $("#products").val(products);
             $("#total_price").val(total_price);
             $("#id_user").val(id_user);
             $("#username").val(username);
             $("#email").val(email);
-            $("#tel").val(tel);
-            $("#address").val(address);
-            $("#purchase_date").val(purchase_date);
+
         }
 
-        function cargarDatosParaNuevo() {
-            cargarDatosParaEdicion("", "", "", "", "", "", "", "", "");
-        }
+
 
 
         // MENSAJES
@@ -358,21 +313,14 @@ sqlDesconecta($sqlBD);
         }
 
         function refrescarDatos() {
-            <?php if ($editar) { ?>
-                cargarDatosParaEdicion(
-                    '<?php echo $valores['id']; ?>',
-                    '<?php echo $valores['products']; ?>',
-                    '<?php echo $valores['total_price']; ?>',
-                    '<?php echo $valores['id_user']; ?>',
-                    '<?php echo $valores['username']; ?>',
-                    '<?php echo $valores['email']; ?>',
-                    '<?php echo $valores['tel']; ?>',
-                    '<?php echo $valores['address']; ?>',
-                    '<?php echo $valores['purchase_date']; ?>'
-                );
-            <?php } else { ?>
-                cargarDatosParaNuevo();
-            <?php } ?>
+            cargarDatosParaEdicion(
+                '<?php echo $valores['id']; ?>',
+                '<?php echo $valores['products']; ?>',
+                '<?php echo $valores['total_price']; ?>',
+                '<?php echo $valores['id_user']; ?>',
+                '<?php echo $valores['username']; ?>',
+                '<?php echo $valores['email']; ?>',
+            )
         }
 
         // Al cargar el documento

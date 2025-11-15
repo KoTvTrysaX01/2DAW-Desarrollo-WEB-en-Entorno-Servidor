@@ -6,11 +6,11 @@ $sqlBD = sqlConecta($hostSql, $userSql, $passSql, $basedatosSql);
 /* INICIAR DE DATOS */
 $valores = array(
     'id' => "",
-    'nombre' => "",
-    'precio' => "",
+    'name' => "",
+    'price' => "",
     'old_price' => "",
-    'descripcion' => "",
-    'imagen' => "",
+    'description' => "",
+    'image' => "",
     'attributes' => "",
     'stock' => ""
 );
@@ -27,11 +27,11 @@ if (isset($_GET['edit'])) {
 
         // Cargar valores
         if (count($products) > 0) {
-            $valores['nombre'] = $products['nombre'];
-            $valores['precio'] = $products['precio'];
+            $valores['name'] = $products['name'];
+            $valores['price'] = $products['price'];
             $valores['old_price'] = $products['old_price'];
-            $valores['descripcion'] = $products['descripcion'];
-            $valores['imagen'] = $products['imagen'];
+            $valores['description'] = $products['description'];
+            $valores['image'] = $products['image'];
             $valores['attributes'] = $products['attributes'];
             $valores['stock'] = $products['stock'];
         }
@@ -46,23 +46,23 @@ if (isset($_POST['btnGrabar'])) {
     if (isset($_POST['id'])) {
         $valores['id'] = addslashes(trim($_POST['id']));
     }
-    if (isset($_POST['nombre'])) {
-        $valores['nombre'] = addslashes(trim($_POST['nombre']));
+    if (isset($_POST['name'])) {
+        $valores['name'] = addslashes(trim($_POST['name']));
     }
-    if (isset($_POST['precio'])) {
-        $valores['precio'] = addslashes(trim($_POST['precio']));
+    if (isset($_POST['price'])) {
+        $valores['price'] = addslashes(trim($_POST['price']));
     }
     if (isset($_POST['old_price'])) {
         $valores['old_price'] = addslashes(trim($_POST['old_price']));
     }
-    if (isset($_POST['descripcion'])) {
-        $valores['descripcion'] = addslashes(trim($_POST['descripcion']));
+    if (isset($_POST['description'])) {
+        $valores['description'] = addslashes(trim($_POST['description']));
     }
-    if (isset($_POST['imagen'])) {
-        $valores['imagen'] = addslashes(trim($_POST['imagen']));
+    if (isset($_POST['image'])) {
+        $valores['image'] = addslashes(trim($_POST['image']));
     }
     if (isset($_POST['attributes'])) {
-        $valores['imagen'] = addslashes(trim($_POST['imagen']));
+        $valores['image'] = addslashes(trim($_POST['image']));
     }
     if (isset($_POST['stock'])) {
         $valores['stock'] = addslashes(trim($_POST['stock']));
@@ -76,9 +76,9 @@ if (isset($_POST['btnGrabar'])) {
 if ($grabar) {
     // Campos obligatorios
     // if (
-    //     ($valores['nombre'] == "") ||
+    //     ($valores['name'] == "") ||
     //     ($valores['categoria'] == "") ||
-    //     ($valores['precio'] == "") ||
+    //     ($valores['price'] == "") ||
     //     ($valores['fabricante'] == "") ||
     //     ($valores['stock'] == "")
     // ) {
@@ -88,8 +88,8 @@ if ($grabar) {
 
     // // Longitudes 
     // if (
-    //     (strlen($valores['nombre']) < 5) ||
-    //     (strlen($valores['precio']) <= 0) ||
+    //     (strlen($valores['name']) < 5) ||
+    //     (strlen($valores['price']) <= 0) ||
     //     (strlen($valores['fabricante']) < 4) ||
     //     (strlen($valores['stock']) == null)
     // ) {
@@ -98,7 +98,7 @@ if ($grabar) {
     // }
 
     // Conversiones
-    $valores['nombre'] = strtoupper($valores['nombre']);
+    $valores['name'] = strtoupper($valores['name']);
 }
 
 /* PROCESO DE GRABACIÓN*/
@@ -106,11 +106,11 @@ if ($grabar) {
     if ($valores['id'] != "") {
         $sqlIns = "UPDATE {$config['category']} 
 							SET 
-								nombre='" . $valores['nombre'] . "',
-								precio='" . $valores['precio'] . "',
+								name='" . $valores['name'] . "',
+								price='" . $valores['price'] . "',
 								old_price='" . $valores['old_price'] . "',
-								descripcion='" . $valores['descripcion'] . "',
-                                imagen='" . $valores['imagen'] . "',
+								description='" . $valores['description'] . "',
+                                image='" . $valores['image'] . "',
                                 attributes='" . $valores['attributes'] . "',
                                 stock='" . $valores['stock'] . "'
 							WHERE 
@@ -118,13 +118,13 @@ if ($grabar) {
 						";
     } else {
         // El id se genera automáticamente porque es AUTO_INCREMENT en MySQL
-        $sqlIns = "INSERT INTO {$config['category']} (nombre, precio, old_price, descripcion, imagen, attributes, stock) 
+        $sqlIns = "INSERT INTO {$config['category']} (name, price, old_price, description, image, attributes, stock) 
 							VALUES (
-								 '" . $valores['nombre'] . "',
-								 '" . $valores['precio'] . "',
+								 '" . $valores['name'] . "',
+								 '" . $valores['price'] . "',
 								 '" . $valores['old_price'] . "',
-								 '" . $valores['descripcion'] . "',
-                                 '" . $valores['imagen'] . "',
+								 '" . $valores['description'] . "',
+                                 '" . $valores['image'] . "',
 								 '" . $valores['attributes'] . "',
 								 '" . $valores['stock'] . "'
 							)
@@ -234,23 +234,23 @@ sqlDesconecta($sqlBD);
                             <input type="text" class="form-control" id="id" name="id" readonly>
                         </div>
 
-                        <!-- Campo Nombre -->
+                        <!-- Campo name -->
                         <div class="mb-3">
-                            <label for="nombre" class="form-label required-field">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" required
-                                minlength="5" placeholder="Ingrese el nombre de la products">
+                            <label for="name" class="form-label required-field">name</label>
+                            <input type="text" class="form-control" id="name" name="name" required
+                                minlength="5" placeholder="Ingrese el name de la products">
                             <div class="invalid-feedback">
-                                El nombre de la products es obligatorio y debe tener al menos 5 caracteres.
+                                El name de la products es obligatorio y debe tener al menos 5 caracteres.
                             </div>
                         </div>
 
                         <!-- Campo Precio -->
                         <div class="mb-3">
-                            <label for="precio" class="form-label required-field">Precio</label>
-                            <input type="number" min="0" max="1000" step="0.01" class="form-control" id="precio" name="precio" required>
+                            <label for="price" class="form-label required-field">Precio</label>
+                            <input type="number" min="0" max="1000" step="0.01" class="form-control" id="price" name="price" required>
                             </input>
                             <div class="invalid-feedback">
-                                Por favor seleccione un precio adecuado (0-1000).
+                                Por favor seleccione un price adecuado (0-1000).
                             </div>
                         </div>
 
@@ -260,24 +260,24 @@ sqlDesconecta($sqlBD);
                             <input type="number" min="0" max="1000" step="0.01" class="form-control" id="old_price" name="old_price">
                             </input>
                             <div class="invalid-feedback">
-                                Por favor seleccione un precio adecuado (0-1000).
+                                Por favor seleccione un price adecuado (0-1000).
                             </div>
                         </div>
 
                         <!-- Campo Fabricante -->
                         <div class="mb-3">
-                            <label for="descripcion" class="form-label required-field">descripcion</label>
-                            <input type="text" class="form-control" id="descripcion" name="descripcion" required
-                                minlength="4" placeholder="Ingrese la descripcion de la products">
+                            <label for="description" class="form-label required-field">description</label>
+                            <input type="text" class="form-control" id="description" name="description" required
+                                minlength="4" placeholder="Ingrese la description de la products">
                             <div class="invalid-feedback">
                                 La fabricante es obligatoria y debe tener al menos 4 caracteres.
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="imagen" class="form-label required-field">imagen</label>
-                            <input type="text" class="form-control" id="imagen" name="imagen" required
-                                minlength="4" placeholder="Ingrese la imagen de la products">
+                            <label for="image" class="form-label required-field">image</label>
+                            <input type="text" class="form-control" id="image" name="image" required
+                                minlength="4" placeholder="Ingrese la image de la products">
                             <div class="invalid-feedback">
                                 La fabricante es obligatoria y debe tener al menos 4 caracteres.
                             </div>
@@ -332,7 +332,7 @@ sqlDesconecta($sqlBD);
     <script>
         // products
         // Métodos personalizados 
-        function cargarDatosParaEdicion(id, nombre, precio, old_price, descripcion, imagen, attributes,stock) {
+        function cargarDatosParaEdicion(id, name, price, old_price, description, image, attributes,stock) {
             if (id == "") {
                 $("#idFieldContainer").hide(); // En nuevo registro
                 $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>Nueva products');
@@ -341,11 +341,11 @@ sqlDesconecta($sqlBD);
                 $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>Editar products');
             }
             $("#id").val(id);
-            $("#nombre").val(nombre);
-            $("#precio").val(precio);
+            $("#name").val(name);
+            $("#price").val(price);
             $("#old_price").val(old_price);
-            $("#descripcion").val(descripcion);
-            $("#imagen").val(imagen);
+            $("#description").val(description);
+            $("#image").val(image);
             $("#attributes").val(attributes);
             $("#stock").val(stock);
         }
@@ -372,11 +372,11 @@ sqlDesconecta($sqlBD);
             <?php if ($editar) { ?>
                 cargarDatosParaEdicion(
                     '<?php echo $valores['id']; ?>',
-                    '<?php echo $valores['nombre']; ?>',
-                    '<?php echo $valores['precio']; ?>',
+                    '<?php echo $valores['name']; ?>',
+                    '<?php echo $valores['price']; ?>',
                     '<?php echo $valores['old_price']; ?>',
-                    '<?php echo $valores['descripcion']; ?>',
-                    '<?php echo $valores['imagen']; ?>',
+                    '<?php echo $valores['description']; ?>',
+                    '<?php echo $valores['image']; ?>',
                     '<?php echo $valores['attributes']; ?>',
                     '<?php echo $valores['stock']; ?>'
                 );

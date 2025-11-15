@@ -21,17 +21,17 @@ include "./dao/include_config.php";
         if (isset($config['category'])) {
             switch ($config['category']) {
                 case "login":
-                    include "./content/section_login.php";
+                    include "./content/logs/section_login.php";
                     break;
                 case "signup":
-                    include "./content/section_signup.php";
+                    include "./content/logs/section_signup.php";
                     break;
                 default:
-                    include "./content/section_logs.php";
+                    include "./content/logs/section_logs.php";
                     break;
             }
         } else {
-            include "./content/section_logs.php";
+            include "./content/logs/section_logs.php";
         }
 
 

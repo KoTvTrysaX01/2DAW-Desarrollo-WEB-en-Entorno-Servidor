@@ -34,14 +34,14 @@ include "./dao/include_config.php";
                 case "users":
                 case "reviews":
                 case "history":
-                    include "./content/section_products.php";
+                    include "./content/products/section_products.php";
                     break;
                 default:
                     header('Location: ' . "index.php");
                     break;
             }
         } else {
-            include "./content/section_producto.php";
+            include "./content/products/section_product.php";
         }
     }
 

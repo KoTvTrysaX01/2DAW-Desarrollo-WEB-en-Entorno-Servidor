@@ -41,6 +41,9 @@ include "./dao/include_config.php";
             case "reviews":
                 include "./content/forms/form_reviews.php";
                 break;
+            case "mails":
+                include "./content/forms/form_mail.php";
+                break;
             default:
                 header('Location: ' . "tables.php");
                 break;

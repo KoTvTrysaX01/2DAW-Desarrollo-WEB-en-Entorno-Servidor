@@ -8,17 +8,25 @@ $loggedroot = false;
 
 
 
-if (!isset($_SESSION['usuario'])) {
+if (!isset($_SESSION['user'])) {
     $_SESSION['cart'] = array();
     require_once "./dao/crear_bd.php";
     require_once "./dao/crear_tablas.php";
 
-    $_SESSION['usuario'] = "";
+    $_SESSION['user'] = array(
+        "id" => "",
+        "username" => "",
+        "email" => "",
+        "isAdmin" => ""
+    );
+
+    $_SESSION['user'] = "";
 } else {
-    if ($_SESSION['usuario'] === "root") {
+    if(isset($_SESSION['user']['username']) && isset($_SESSION['user']['isAdmin']))
+    if ($_SESSION['user']['isAdmin']) {
         $loggedroot = true;
         $loggedin = true;
-    } elseif ($_SESSION['usuario'] != "") {
+    } elseif ($_SESSION['user']['username'] != "") {
         $loggedin = true;
     }
 }

@@ -1,0 +1,44 @@
+<section class="hero">
+    <?php
+    if ($loggedin) {
+    ?>
+        <h1 class="welcome-msg">Welcome <?php echo $_SESSION['user']['username'] ?></h1>
+    <?php
+    }
+    ?>
+    <h2>All your faves, all in one place. </h2>
+    <p>Discover our wide range of the most exclusive products, handmade creations made with top quality
+        ingredients.
+    </p>
+    <button>Order Now</button>
+</section>
+
+<section class="restaurants">
+    <h2>Today's special offers</h2>
+
+    <?php
+    $sqlBD = SqlConecta($hostSql, $userSql, $passSql, $basedatosSql);
+    $sqlSelect = "SELECT * FROM special_offers";
+    $sqlCursor = sqlQuery($sqlBD, $sqlSelect);
+    $arraySpecials = sqlResultArray($sqlBD, $sqlCursor);
+    ?>
+
+    <div class="carousel">
+        <div class="group">
+            <?php for ($i = 0; $i < count($arraySpecials); $i++) { ?>
+                <div class="card">
+                    <img src="<?php echo $arraySpecials[$i]['image']; ?>" alt="<?php echo $arraySpecials[$i]['name']; ?>"
+                        onclick="location.href='<?php echo 'products.php?category=' . $arraySpecials[$i]['category'] . '&id=' . $arraySpecials[$i]['id'] ?>'">
+                </div>
+            <?php } ?>
+        </div>
+        <div aria-hidden class="group">
+            <?php for ($i = 0; $i < count($arraySpecials); $i++) { ?>
+                <div class="card">
+                    <img src="<?php echo $arraySpecials[$i]['image']; ?>" alt="<?php echo $arraySpecials[$i]['name']; ?>"
+                        onclick="location.href='<?php echo 'products.php?category=' . $arraySpecials[$i]['category'] . '&id=' . $arraySpecials[$i]['id'] ?>'">
+                </div>
+            <?php } ?>
+        </div>
+    </div>
+</section>

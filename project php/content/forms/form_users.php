@@ -6,13 +6,10 @@ $sqlBD = sqlConecta($hostSql, $userSql, $passSql, $basedatosSql);
 /* INICIAR DE DATOS */
 $valores = array(
     'id' => "",
-    'nombre' => "",
     'email' => "",
-    'telefono' => "",
-    'birth_date' => "",
     'username' => "",
     'password' => "",
-    'address' => ""
+    'isAdmin' => ""
 );
 
 /* RECOGIDA DE DATOS DE LA BASE DE DATOS */
@@ -27,13 +24,10 @@ if (isset($_GET['edit'])) {
 
         // Cargar valores
         if (count($products) > 0) {
-            $valores['nombre'] = $products['nombre'];
             $valores['email'] = $products['email'];
-            $valores['telefono'] = $products['telefono'];
-            $valores['birth_date'] = $products['birth_date'];
             $valores['username'] = $products['username'];
             $valores['password'] = $products['password'];
-            $valores['address'] = $products['address'];
+            $valores['isAdmin'] = $products['isAdmin'];
         }
 
         $editar = true;
@@ -46,17 +40,8 @@ if (isset($_POST['btnGrabar'])) {
     if (isset($_POST['id'])) {
         $valores['id'] = addslashes(trim($_POST['id']));
     }
-    if (isset($_POST['nombre'])) {
-        $valores['nombre'] = addslashes(trim($_POST['nombre']));
-    }
     if (isset($_POST['email'])) {
         $valores['email'] = addslashes(trim($_POST['email']));
-    }
-    if (isset($_POST['telefono'])) {
-        $valores['telefono'] = addslashes(trim($_POST['telefono']));
-    }
-    if (isset($_POST['birth_date'])) {
-        $valores['birth_date'] = addslashes(trim($_POST['birth_date']));
     }
     if (isset($_POST['username'])) {
         $valores['username'] = addslashes(trim($_POST['username']));
@@ -64,8 +49,8 @@ if (isset($_POST['btnGrabar'])) {
     if (isset($_POST['password'])) {
         $valores['password'] = addslashes(trim($_POST['password']));
     }
-    if (isset($_POST['address'])) {
-        $valores['address'] = addslashes(trim($_POST['address']));
+    if (isset($_POST['isAdmin'])) {
+        $valores['isAdmin'] = addslashes(trim($_POST['isAdmin']));
     }
 
     $grabar = true;
@@ -75,7 +60,7 @@ if (isset($_POST['btnGrabar'])) {
 /* VALIDACION */
 if ($grabar) {
 
-    $valores['nombre'] = strtoupper($valores['nombre']);
+    $valores['username'] = strtoupper($valores['username']);
 }
 
 /* PROCESO DE GRABACIÓN*/
@@ -83,27 +68,21 @@ if ($grabar) {
     if ($valores['id'] != "") {
         $sqlIns = "UPDATE {$config['category']} 
 							SET 
-								nombre='" . $valores['nombre'] . "',
 								email='" . $valores['email'] . "',
-								telefono='" . $valores['telefono'] . "',
-								birth_date='" . $valores['birth_date'] . "',
                                 username='" . $valores['username'] . "',
                                 password='" . $valores['password'] . "',
-                                address='" . $valores['address'] . "'
+                                isAdmin='" . $valores['isAdmin'] . "'
 							WHERE 
 								id='" . $valores['id'] . "'
 						";
     } else {
         // El id se genera automáticamente porque es AUTO_INCREMENT en MySQL
-        $sqlIns = "INSERT INTO {$config['category']} (nombre, email, telefono, birth_date, username, password, address) 
+        $sqlIns = "INSERT INTO {$config['category']} (email, username, password, isAdmin) 
 							VALUES (
-								 '" . $valores['nombre'] . "',
 								 '" . $valores['email'] . "',
-								 '" . $valores['telefono'] . "',
-								 '" . $valores['birth_date'] . "',
                                  '" . $valores['username'] . "',
-								 '" . $valores['password'] . "',
-								 '" . $valores['address'] . "'
+								 '" . password_hash($valores['password'], PASSWORD_DEFAULT)  . "',
+								 '" . $valores['isAdmin'] . "'
 							)
 					";
     }
@@ -211,19 +190,9 @@ sqlDesconecta($sqlBD);
                             <input type="text" class="form-control" id="id" name="id" readonly>
                         </div>
 
-                        <!-- Campo Nombre -->
-                        <div class="mb-3">
-                            <label for="nombre" class="form-label required-field">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" required
-                                placeholder="Ingrese el nombre de la products">
-                            <div class="invalid-feedback">
-                                El nombre de la products es obligatorio y debe tener al menos 5 caracteres.
-                            </div>
-                        </div>
-
                         <!-- Campo email -->
                         <div class="mb-3">
-                            <label for="email" class="form-label required-field">email</label>
+                            <label for="email" class="form-label required-field">Email</label>
                             <input type="email" class="form-control" id="email" name="email" required
                                 placeholder="Ingrese la email de la products">
                             <div class="invalid-feedback">
@@ -231,26 +200,7 @@ sqlDesconecta($sqlBD);
                             </div>
                         </div>
 
-                        <div class="mb-3">
-                            <label for="telefono" class="form-label required-field">telefono</label>
-                            <input type="tel" class="form-control" id="telefono" name="telefono" required
-                                placeholder="Ingrese la telefono de la products">
-                            <div class="invalid-feedback">
-                                La fabricante es obligatoria y debe tener al menos 4 caracteres.
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="birth_date" class="form-label required-field">birth_date</label>
-                            <input type="date" class="form-control" id="birth_date" name="birth_date" required
-                                placeholder="Ingrese la birth_date de la products">
-                            <div class="invalid-feedback">
-                                La fabricante es obligatoria y debe tener al menos 4 caracteres.
-                            </div>
-                        </div>
-
-
-
+                        <!-- Campo username -->
                         <div class="mb-3">
                             <label for="username" class="form-label required-field">Username</label>
                             <input type="text" class="form-control" id="username" name="username" required
@@ -260,8 +210,9 @@ sqlDesconecta($sqlBD);
                             </div>
                         </div>
 
+                        <!-- Campo password -->
                         <div class="mb-3">
-                            <label for="password" class="form-label required-field">password</label>
+                            <label for="password" class="form-label required-field">Password</label>
                             <input type="text" class="form-control" id="password" name="password" required
                                 placeholder="Ingrese el password de la products">
                             <div class="invalid-feedback">
@@ -269,12 +220,15 @@ sqlDesconecta($sqlBD);
                             </div>
                         </div>
 
+                        <!-- Campo isAdmin -->
                         <div class="mb-3">
-                            <label for="address" class="form-label required-field">Address</label>
-                            <input type="text" class="form-control" id="address" name="address" required
-                                placeholder="Ingrese el address de la products">
+                            <label for="isAdmin" class="form-label required-field">isAdmin</label>
+                            <input type="radio" id="1" name="isAdmin" value="1" <?php if ($valores['isAdmin'] == 1) echo "checked"; ?>>
+                            <label for="1">True</label>
+                            <input type="radio" id="0" name="isAdmin" value="0" <?php if ($valores['isAdmin'] == 0) echo "checked"; ?>>
+                            <label for="0">False</label><br>
                             <div class="invalid-feedback">
-                                El address de la products es obligatorio y debe tener al menos 5 caracteres.
+                                El campo de isAdmin es obligatorio.
                             </div>
                         </div>
 
@@ -306,7 +260,7 @@ sqlDesconecta($sqlBD);
     <script>
         // products
         // Métodos personalizados 
-        function cargarDatosParaEdicion(id, nombre, email, telefono, birth_date, username, password, address) {
+        function cargarDatosParaEdicion(id, nombre, email, telefono, birth_date, username, password, isAdmin) {
             if (id == "") {
                 $("#idFieldContainer").hide(); // En nuevo registro
                 $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>Nueva products');
@@ -321,7 +275,7 @@ sqlDesconecta($sqlBD);
             $("#birth_date").val(birth_date);
             $("#username").val(username);
             $("#password").val(password);
-            $("#address").val(address);
+            $("#isAdmin").val(isAdmin);
         }
 
         function cargarDatosParaNuevo() {
@@ -352,7 +306,7 @@ sqlDesconecta($sqlBD);
                     '<?php echo $valores['birth_date']; ?>',
                     '<?php echo $valores['username']; ?>',
                     '<?php echo $valores['password']; ?>',
-                    '<?php echo $valores['address']; ?>'
+                    '<?php echo $valores['isAdmin']; ?>'
                 );
             <?php } else { ?>
                 cargarDatosParaNuevo();
