@@ -6,6 +6,7 @@ $sqlBD = sqlConecta($hostSql, $userSql, $passSql, $basedatosSql);
 /* INICIAR DE DATOS */
 $valores = array(
     'id' => "",
+    'category' => "",
     'name' => "",
     'price' => "",
     'old_price' => "",
@@ -21,12 +22,13 @@ if (isset($_GET['edit'])) {
     $valores['id'] = addslashes(trim($_GET['edit']));
     if ($valores['id'] != "") {
         // SQL select
-        $sqlSelect = "SELECT * FROM {$config['category']} WHERE id='" . $valores['id'] . "'";
+        $sqlSelect = "SELECT * FROM products WHERE id='" . $valores['id'] . "'";
         $sqlCursor = sqlQuery($sqlBD, $sqlSelect);
         $products = sqlObtenerRegistro($sqlBD, $sqlCursor);
 
         // Cargar valores
         if (count($products) > 0) {
+            $valores['category'] = $products['category'];
             $valores['name'] = $products['name'];
             $valores['price'] = $products['price'];
             $valores['old_price'] = $products['old_price'];
@@ -45,6 +47,9 @@ $grabar = false;
 if (isset($_POST['btnGrabar'])) {
     if (isset($_POST['id'])) {
         $valores['id'] = addslashes(trim($_POST['id']));
+    }
+    if (isset($_POST['category'])) {
+        $valores['category'] = addslashes(trim($_POST['category']));
     }
     if (isset($_POST['name'])) {
         $valores['name'] = addslashes(trim($_POST['name']));
@@ -71,41 +76,12 @@ if (isset($_POST['btnGrabar'])) {
     $grabar = true;
 }
 
-
-/* VALIDACION */
-if ($grabar) {
-    // Campos obligatorios
-    // if (
-    //     ($valores['name'] == "") ||
-    //     ($valores['categoria'] == "") ||
-    //     ($valores['price'] == "") ||
-    //     ($valores['fabricante'] == "") ||
-    //     ($valores['stock'] == "")
-    // ) {
-    //     $grabar = false;
-    //     echo "Obligatorios";
-    // }
-
-    // // Longitudes 
-    // if (
-    //     (strlen($valores['name']) < 5) ||
-    //     (strlen($valores['price']) <= 0) ||
-    //     (strlen($valores['fabricante']) < 4) ||
-    //     (strlen($valores['stock']) == null)
-    // ) {
-    //     $grabar = false;
-    //     echo "Longitudes";
-    // }
-
-    // Conversiones
-    $valores['name'] = strtoupper($valores['name']);
-}
-
 /* PROCESO DE GRABACIÓN*/
 if ($grabar) {
     if ($valores['id'] != "") {
-        $sqlIns = "UPDATE {$config['category']} 
+        $sqlIns = "UPDATE products
 							SET 
+                                category='" . $valores['category'] . "',
 								name='" . $valores['name'] . "',
 								price='" . $valores['price'] . "',
 								old_price='" . $valores['old_price'] . "',
@@ -118,8 +94,9 @@ if ($grabar) {
 						";
     } else {
         // El id se genera automáticamente porque es AUTO_INCREMENT en MySQL
-        $sqlIns = "INSERT INTO {$config['category']} (name, price, old_price, description, image, attributes, stock) 
+        $sqlIns = "INSERT INTO products (category, name, price, old_price, description, image, attributes, stock) 
 							VALUES (
+                                 '" . $valores['category'] . "',
 								 '" . $valores['name'] . "',
 								 '" . $valores['price'] . "',
 								 '" . $valores['old_price'] . "',
@@ -222,8 +199,8 @@ sqlDesconecta($sqlBD);
                     </div>
 
 
-                    <form id="<?php echo $config['category'];?>Form"
-                        name="<?php echo $config['category'];?>Form"
+                    <form id="<?php echo $config['category']; ?>Form"
+                        name="<?php echo $config['category']; ?>Form"
                         novalidate
                         enctype="multipart/form-data"
                         method="POST"
@@ -234,61 +211,79 @@ sqlDesconecta($sqlBD);
                             <input type="text" class="form-control" id="id" name="id" readonly>
                         </div>
 
-                        <!-- Campo name -->
+                        <!-- Campo Category -->
                         <div class="mb-3">
-                            <label for="name" class="form-label required-field">name</label>
+                            <label for="category" class="form-label required-field">Category</label>
+                            <select class="form-select" id="category" name="category" required>
+                                <option value="" selected disabled>Select the product's category.</option>
+                                <option value="ice_creams">Ice Creams</option>
+                                <option value="ice_bars">Ice Bars</option>
+                                <option value="cookies">Cookies</option>
+                                <option value="chocolates">Chocolates</option>
+                                <option value="milkshakes">Milkshakes</option>
+                                <option value="juices">Juices</option>
+                                <option value="smoothies">Smoothies</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                You must select the product's category.
+                            </div>
+                        </div>
+
+                        <!-- Campo Name -->
+                        <div class="mb-3">
+                            <label for="name" class="form-label required-field">Product Name</label>
                             <input type="text" class="form-control" id="name" name="name" required
-                                minlength="5" placeholder="Ingrese el name de la products">
+                                minlength="5" placeholder="Write Product's name">
                             <div class="invalid-feedback">
-                                El name de la products es obligatorio y debe tener al menos 5 caracteres.
+                                The name is required and must be at least 5 letter length.
                             </div>
                         </div>
 
-                        <!-- Campo Precio -->
+                        <!-- Campo Price -->
                         <div class="mb-3">
-                            <label for="price" class="form-label required-field">Precio</label>
-                            <input type="number" min="0" max="1000" step="0.01" class="form-control" id="price" name="price" required>
+                            <label for="price" class="form-label required-field">Price</label>
+                            <input type="number" min="0" max="1000" step="0.01" class="form-control" id="price" name="price" placeholder="Write Product's price" required>
                             </input>
                             <div class="invalid-feedback">
-                                Por favor seleccione un price adecuado (0-1000).
+                                Please indicate an adequate price.
                             </div>
                         </div>
 
-                        <!-- Campo Old price -->
+                        <!-- Campo Old Price -->
                         <div class="mb-3">
-                            <label for="old_price" class="form-label">old_price</label>
-                            <input type="number" min="0" max="1000" step="0.01" class="form-control" id="old_price" name="old_price">
+                            <label for="old_price" class="form-label">Old Price</label>
+                            <input type="number" min="0" max="1000" step="0.01" class="form-control" id="old_price" name="old_price" placeholder="Write Product's old price">
                             </input>
                             <div class="invalid-feedback">
-                                Por favor seleccione un price adecuado (0-1000).
+                                Please indicate an adequate price.
                             </div>
                         </div>
 
-                        <!-- Campo Fabricante -->
+                        <!-- Campo Description -->
                         <div class="mb-3">
-                            <label for="description" class="form-label required-field">description</label>
+                            <label for="description" class="form-label required-field">Description</label>
                             <input type="text" class="form-control" id="description" name="description" required
-                                minlength="4" placeholder="Ingrese la description de la products">
+                                minlength="10" placeholder="Write Product's description">
                             <div class="invalid-feedback">
-                                La fabricante es obligatoria y debe tener al menos 4 caracteres.
+                                The description is required and must be at least 10 letter length.
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="image" class="form-label required-field">image</label>
+                            <label for="image" class="form-label required-field">Image Source</label>
                             <input type="text" class="form-control" id="image" name="image" required
-                                minlength="4" placeholder="Ingrese la image de la products">
+                                minlength="6" placeholder="Write Product's image source">
                             <div class="invalid-feedback">
-                                La fabricante es obligatoria y debe tener al menos 4 caracteres.
+                                The image source is required and must be at least 6 letter length.
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="attributes" class="form-label required-field">attributes</label>
+                            <label for="attributes" class="form-label required-field">Attributes</label>
                             <input type="text" class="form-control" id="attributes" name="attributes" required
-                                minlength="4" placeholder="Ingrese la attributes de la products">
+                                minlength="4" placeholder="Write Product's attributes">
                             <div class="invalid-feedback">
-                                La fabricante es obligatoria y debe tener al menos 4 caracteres.
+                                The attributes are required and must be at least 4 letter length.
                             </div>
                         </div>
 
@@ -300,20 +295,20 @@ sqlDesconecta($sqlBD);
                             <input type="radio" id="0" name="stock" value="0" <?php if ($valores['stock'] == 0) echo "checked"; ?>>
                             <label for="0">False</label><br>
                             <div class="invalid-feedback">
-                                El campo de stocks es obligatorio.
+                                The stock is required.
                             </div>
                         </div>
 
                         <!-- Botones de acción -->
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
                             <button type="button" class="btn btn-warning btn-action" id="btnVolver">
-                                <i class="bi bi-arrow-left-circle me-1"></i> Volver
+                                <i class="bi bi-arrow-left-circle me-1"></i> Go Back
                             </button>
                             <button type="button" class="btn btn-secondary btn-action" id="btnCancelar">
-                                <i class="bi bi-x-circle me-1"></i> Cancelar
+                                <i class="bi bi-x-circle me-1"></i> Cancel
                             </button>
                             <button id="btnGrabar" name="btnGrabar" type="submit" class="btn btn-primary btn-action">
-                                <i class="bi bi-check-circle me-1"></i> Grabar
+                                <i class="bi bi-check-circle me-1"></i> Save
                             </button>
                         </div>
                     </form>
@@ -332,15 +327,16 @@ sqlDesconecta($sqlBD);
     <script>
         // products
         // Métodos personalizados 
-        function cargarDatosParaEdicion(id, name, price, old_price, description, image, attributes,stock) {
+        function cargarDatosParaEdicion(id, category, name, price, old_price, description, image, attributes, stock) {
             if (id == "") {
                 $("#idFieldContainer").hide(); // En nuevo registro
-                $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>Nueva products');
+                $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>New Product');
             } else {
                 $("#idFieldContainer").show(); // En edición de registro
-                $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>Editar products');
+                $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>Edit Product');
             }
             $("#id").val(id);
+            $("#category").val(category);
             $("#name").val(name);
             $("#price").val(price);
             $("#old_price").val(old_price);
@@ -351,7 +347,7 @@ sqlDesconecta($sqlBD);
         }
 
         function cargarDatosParaNuevo() {
-            cargarDatosParaEdicion("", "", "", "", "", "", "", "");
+            cargarDatosParaEdicion("", "", "", "", "", "", "", "", "");
         }
 
 
@@ -372,6 +368,7 @@ sqlDesconecta($sqlBD);
             <?php if ($editar) { ?>
                 cargarDatosParaEdicion(
                     '<?php echo $valores['id']; ?>',
+                    '<?php echo $valores['category']; ?>',
                     '<?php echo $valores['name']; ?>',
                     '<?php echo $valores['price']; ?>',
                     '<?php echo $valores['old_price']; ?>',
@@ -395,7 +392,7 @@ sqlDesconecta($sqlBD);
 
 
 
-            const form = $("#<?php echo $config['category'];?>Form");
+            const form = $("#<?php echo $config['category']; ?>Form");
 
             <?php if ($grabar) {
                 if ($bdResultado) {        ?>
@@ -407,27 +404,11 @@ sqlDesconecta($sqlBD);
             ?>
 
 
-            /*
-            		// Convertir Categoría a mayúsculas automáticamente en Javascript
-            		$("#categoria").on("input", function () {
-            			$(this).val($(this).val().toUpperCase());
-            		});
-            */
-
-
             // SUBMIT - GRABAR
             form.on("submit", function(event) {
                 if (!form[0].checkValidity()) { // No se han validado los valores de los campos
                     event.preventDefault(); // Evita envío del formulario
                     event.stopPropagation(); // Evita que continue el evento a etiquetas padres del DOM
-
-                    // Campos con mensaje variable
-                    // const categoria = $("#categoria");
-                    // if (categoria[0].validity.patternMismatch) {
-                    // 	categoria.next(".invalid-feedback").text("Debe teclear al menos 3 letras.");
-                    // } else {
-                    // 	categoria.next(".invalid-feedback").text("El Categoría es obligatorio.");
-                    // }
 
                     // Activar validación de campos y mensaje de error
                     form.addClass("was-validated");
@@ -445,7 +426,7 @@ sqlDesconecta($sqlBD);
             // VOLVER
             $("#btnVolver").on("click", function() {
                 // Recargar los datos iniciales
-                window.location.href = "tables.php?category=<?php echo $_GET['category'];?>";
+                window.location.href = "tables.php?category=<?php echo $_GET['category']; ?>";
             });
         });
     </script>

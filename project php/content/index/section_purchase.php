@@ -35,8 +35,6 @@ if (isset($_SESSION['cart'])) {
     $valores['id_user'] = $_SESSION['user']['id'];
     $valores['username'] = $_SESSION['user']['username'];
     $valores['email'] = $_SESSION['user']['email'];
-
-    print_r($valores);
 } else {
     header('Location: ' . "products.php");
 }
@@ -105,7 +103,7 @@ if ($grabar) {
 
 
     echo '<script>alert("Thanks for the purchase!")</script>';
-    header("Refresh: 1;" . "index.php?category=home");
+    header("Refresh: 0.1;" . "index.php?category=home");
 }
 
 
@@ -163,7 +161,7 @@ if ($grabar) {
             <div class="col-lg-8">
                 <div class="form-container">
                     <h2 class="text-center header-products">
-                        <i class="bi bi-geo-alt-fill me-2"></i>Gestión de products
+                        <i class="bi bi-geo-alt-fill me-2"></i>Gestión de Purchases
                     </h2>
 
                     <!-- Mensaje de éxito al grabar (oculto inicialmente) -->
@@ -195,76 +193,76 @@ if ($grabar) {
                             <input type="text" class="form-control" id="id" name="id" readonly>
                         </div>
 
-                        <!-- Campo products -->
+                        <!-- Campo Products -->
                         <div class="mb-3">
-                            <label for="products" class="form-label required-field">products</label>
+                            <label for="products" class="form-label required-field">Selected Products</label>
                             <input type="text" class="form-control" id="products" name="products" readonly
-                                minlength="3" placeholder="Ingrese el nombre de la products">
+                                minlength="7">
                             <div class="invalid-feedback">
-                                El nombre de la products es obligatorio y debe tener al menos 5 caracteres.
+                                The products' name is required and must be 7 letters long.
                             </div>
                         </div>
 
                         <!-- Campo total_price -->
                         <div class="mb-3">
-                            <label for="total_price" class="form-label required-field">total_price</label>
+                            <label for="total_price" class="form-label required-field">Total Price</label>
                             <input type="number" min="0" max="1000" step="0.01" class="form-control" id="total_price" name="total_price" readonly>
                             </input>
                             <div class="invalid-feedback">
-                                Por favor seleccione un precio adecuado (0-1000).
+                                The price is required and must be bigger than 0.
                             </div>
                         </div>
 
                         <!-- Campo username -->
                         <div class="mb-3">
-                            <label for="username" class="form-label required-field">username</label>
+                            <label for="username" class="form-label required-field">Your name</label>
                             <input type="text" class="form-control" id="username" name="username" required
-                                minlength="4" placeholder="Ingrese la username de la products">
+                                minlength="4" placeholder="Write your name">
                             <div class="invalid-feedback">
-                                La username es obligatoria y debe tener al menos 4 caracteres.
+                                The username is required and must be 4 letters long.
                             </div>
                         </div>
 
                         <!-- Campo email -->
                         <div class="mb-3">
-                            <label for="email" class="form-label required-field">email</label>
+                            <label for="email" class="form-label required-field">Your email</label>
                             <input type="email" class="form-control" id="email" name="email" required
-                                minlength="4" placeholder="Ingrese la email de la products">
+                                minlength="4" placeholder="Write your email">
                             <div class="invalid-feedback">
-                                La email es obligatoria y debe tener al menos 4 caracteres.
+                                The email is required and must be 4 letters long.
                             </div>
                         </div>
 
                         <!-- Campo tel -->
                         <div class="mb-3">
-                            <label for="tel" class="form-label required-field">tel</label>
+                            <label for="tel" class="form-label required-field">Your Telephone</label>
                             <input type="tel" class="form-control" id="tel" name="tel" required
-                                minlength="4" placeholder="Ingrese la tel de la products">
+                                minlength="8" placeholder="Write your telephone">
                             <div class="invalid-feedback">
-                                La tel es obligatoria y debe tener al menos 4 caracteres.
+                                The telehpone is required and must be 8 letters long.
                             </div>
                         </div>
 
                         <!-- Campo address -->
                         <div class="mb-3">
-                            <label for="address" class="form-label required-field">address</label>
+                            <label for="address" class="form-label required-field">Your Address</label>
                             <textarea class="form-control" id="address" name="address" required
-                                minlength="4" maxlength="300" rows="3" placeholder="Ingrese la address de la products"></textarea>
+                                minlength="5" maxlength="300" rows="3" placeholder="Write your address"></textarea>
                             <div class="invalid-feedback">
-                                La address es obligatoria y debe tener al menos 4 caracteres.
+                                The address is required and must be 5 letters long.
                             </div>
                         </div>
 
                         <!-- Botones de acción -->
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
                             <button type="button" class="btn btn-warning btn-action" id="btnVolver">
-                                <i class="bi bi-arrow-left-circle me-1"></i> Volver
+                                <i class="bi bi-arrow-left-circle me-1"></i> Go Back
                             </button>
                             <button type="button" class="btn btn-secondary btn-action" id="btnCancelar">
-                                <i class="bi bi-x-circle me-1"></i> Cancelar
+                                <i class="bi bi-x-circle me-1"></i> Cancel
                             </button>
                             <button id="btnGrabar" name="btnGrabar" type="submit" class="btn btn-primary btn-action">
-                                <i class="bi bi-check-circle me-1"></i> Grabar
+                                <i class="bi bi-check-circle me-1"></i> Save
                             </button>
                         </div>
                     </form>
@@ -285,7 +283,7 @@ if ($grabar) {
         // Métodos personalizados 
         function cargarDatosParaEdicion(id, products, total_price, id_user, username, email) {
             $("#idFieldContainer").hide(); // En nuevo registro
-            $(".header-products").html('<i class="bi bi-pencil-square me-2"></i>Nueva products');
+            $(".header-products").html('<i class="bi bi-pencil-square me-2"></i>New Purchase');
 
             $("#id").val(id);
             $("#products").val(products);

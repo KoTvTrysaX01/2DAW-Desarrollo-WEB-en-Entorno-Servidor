@@ -5,7 +5,7 @@ session_start();
 
 $loggedin = false;
 $loggedroot = false;
-
+$startCarousel = false;
 
 
 if (!isset($_SESSION['user'])) {

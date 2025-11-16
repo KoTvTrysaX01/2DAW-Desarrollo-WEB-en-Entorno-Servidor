@@ -1,8 +1,5 @@
 <?php
-
 $sqlBD = sqlConecta($hostSql, $userSql, $passSql, $basedatosSql);
-
-
 /* INICIAR DE DATOS */
 $valores = array(
     'id' => "",
@@ -187,53 +184,53 @@ sqlDesconecta($sqlBD);
 
                         <!-- Campo user_id -->
                         <div class="mb-3">
-                            <label for="id_user" class="form-label required-field">id_user</label>
+                            <label for="id_user" class="form-label required-field">User's ID</label>
                             <input type="number" class="form-control" id="id_user" name="id_user" required
-                                placeholder="Ingrese el id_user de la products">
+                                placeholder="Write User's ID">
                             <div class="invalid-feedback">
-                                El nombre de la products es obligatorio y debe tener al menos 5 caracteres.
+                                The user's ID is required.
                             </div>
                         </div>
 
                         <!-- Campo username -->
                         <div class="mb-3">
-                            <label for="username" class="form-label required-field">username</label>
-                            <input type="text" class="form-control" id="username" name="username" required
-                                placeholder="Ingrese el username de la products">
+                            <label for="username" class="form-label required-field">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" minlength="4" required
+                                placeholder="Write User's username">
                             <div class="invalid-feedback">
-                                El username de la products es obligatorio y debe tener al menos 5 caracteres.
+                                The username is required and must be at leat 4 letter length.
                             </div>
                         </div>
 
                         <!-- Campo review -->
                         <div class="mb-3">
-                            <label for="review" class="form-label required-field">review</label>
+                            <label for="review" class="form-label required-field">Review</label>
                             <input type="text" class="form-control" id="review" name="review" required
-                                minlength="4" placeholder="Ingrese la review de la products">
+                                minlength="5" placeholder="Write User's review">
                             <div class="invalid-feedback">
-                                La review es obligatoria y debe tener al menos 4 caracteres.
+                                The review is required and must be at leat 5 letter length.
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="post_date" class="form-label required-field">post_date</label>
+                            <label for="post_date" class="form-label required-field">Post Date</label>
                             <input type="date" class="form-control" id="post_date" name="post_date" required
                                placeholder="Ingrese la post_date de la products">
                             <div class="invalid-feedback">
-                                La post_date es obligatoria y debe tener al menos 4 caracteres.
+                                The post date is required.
                             </div>
                         </div>
 
                         <!-- Botones de acción -->
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
                             <button type="button" class="btn btn-warning btn-action" id="btnVolver">
-                                <i class="bi bi-arrow-left-circle me-1"></i> Volver
+                                <i class="bi bi-arrow-left-circle me-1"></i> Go Back
                             </button>
                             <button type="button" class="btn btn-secondary btn-action" id="btnCancelar">
-                                <i class="bi bi-x-circle me-1"></i> Cancelar
+                                <i class="bi bi-x-circle me-1"></i> Cancel
                             </button>
                             <button id="btnGrabar" name="btnGrabar" type="submit" class="btn btn-primary btn-action">
-                                <i class="bi bi-check-circle me-1"></i> Grabar
+                                <i class="bi bi-check-circle me-1"></i> Save
                             </button>
                         </div>
                     </form>
@@ -255,10 +252,10 @@ sqlDesconecta($sqlBD);
         function cargarDatosParaEdicion(id, id_user, username, review, post_date) {
             if (id == "") {
                 $("#idFieldContainer").hide(); // En nuevo registro
-                $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>Nueva products');
+                $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>New Review');
             } else {
                 $("#idFieldContainer").show(); // En edición de registro
-                $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>Editar products');
+                $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>Edit Review');
             }
             $("#id").val(id);
             $("#id_user").val(id_user);
@@ -320,28 +317,11 @@ sqlDesconecta($sqlBD);
             }
             ?>
 
-
-            /*
-            		// Convertir Categoría a mayúsculas automáticamente en Javascript
-            		$("#categoria").on("input", function () {
-            			$(this).val($(this).val().toUpperCase());
-            		});
-            */
-
-
             // SUBMIT - GRABAR
             form.on("submit", function(event) {
                 if (!form[0].checkValidity()) { // No se han validado los valores de los campos
                     event.preventDefault(); // Evita envío del formulario
                     event.stopPropagation(); // Evita que continue el evento a etiquetas padres del DOM
-
-                    // Campos con mensaje variable
-                    // const categoria = $("#categoria");
-                    // if (categoria[0].validity.patternMismatch) {
-                    // 	categoria.next(".invalid-feedback").text("Debe teclear al menos 3 letras.");
-                    // } else {
-                    // 	categoria.next(".invalid-feedback").text("El Categoría es obligatorio.");
-                    // }
 
                     // Activar validación de campos y mensaje de error
                     form.addClass("was-validated");

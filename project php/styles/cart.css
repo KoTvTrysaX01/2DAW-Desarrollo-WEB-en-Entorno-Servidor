@@ -1,0 +1,74 @@
+    :root {
+        --header-bg-color-1: rgb(255, 255, 255);
+        --header-bg-color-2: rgb(255, 181, 209);
+    }
+
+    .cont-1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        margin: 3vh;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        padding: 20px;
+        width: 70vw;
+        height: 51vh;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: 2em 0em;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    th,
+    td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+    }
+
+    th {
+        background: #ff5722;
+        color: white;
+    }
+
+    .btn {
+        background: #ff5722;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .btn:hover,
+    .btn-back:hover {
+        background: #e64a19;
+    }
+
+    .total {
+        font-size: 18px;
+        margin-top: 15px;
+    }
+
+    .btn-back {
+        background: #ff5722;
+        color: white;
+        border: none;
+        padding: 1em 3em;
+        font-size: 1.2em;
+        border-radius: 15px;
+        cursor: pointer;
+    }

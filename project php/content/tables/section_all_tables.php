@@ -101,17 +101,15 @@
         background-color: rgb(255, 0, 0);
     }
 
-    .special_offers {
+    .all_products {
         background-color: rgba(234, 0, 255, 1);
         color: rgba(255, 255, 255, 1);
     }
 
-    .special_offers:hover {
+    .all_products:hover {
         color: rgba(234, 0, 255, 1);
         background-color: rgba(255, 255, 255, 1);
     }
-
-
 
     .sells {
         background-color: rgba(85, 0, 255, 1);
@@ -155,15 +153,15 @@
 </style>
 
 <div class="container-grid">
+    <div class="col all_products" onclick="location.href='tables.php?category=all_products'">All Products</div>
     <div class="col ice_creams" onclick="location.href='tables.php?category=ice_creams'">Ice Creams</div>
     <div class="col ice_bars" onclick="location.href='tables.php?category=ice_bars'">Ice Bars</div>
     <div class="col cookies" onclick="location.href='tables.php?category=cookies'">Cookies</div>
-    <div class="col chocolates" onclick="location.href='tables.php?category=chocolates'">Chocolates</div>
 
+    <div class="col chocolates" onclick="location.href='tables.php?category=chocolates'">Chocolates</div>
     <div class="col milkshakes" onclick="location.href='tables.php?category=milkshakes'">Milkshakes</div>
     <div class="col juices" onclick="location.href='tables.php?category=juices'">Juices</div>
     <div class="col smoothies" onclick="location.href='tables.php?category=smoothies'">Smoothies</div>
-    <div class="col special_offers" onclick="location.href='tables.php?category=special_offers'">Special Offers</div>
 
     <div class="col sells" onclick="location.href='tables.php?category=sells'">Sells</div>
     <div class="col reviews" onclick="location.href='tables.php?category=reviews'">Reviews</div>

@@ -153,7 +153,7 @@ sqlDesconecta($sqlBD);
             <div class="col-lg-8">
                 <div class="form-container">
                     <h2 class="text-center header-title">
-                        <i class="bi bi-geo-alt-fill me-2"></i>Gestión de products
+                        <i class="bi bi-geo-alt-fill me-2"></i>Gestión de Mails
                     </h2>
 
                     <!-- Mensaje de éxito al grabar (oculto inicialmente) -->
@@ -188,53 +188,53 @@ sqlDesconecta($sqlBD);
                         <!-- Campo Title -->
                         <div class="mb-3">
                             <label for="title" class="form-label required-field">Title</label>
-                            <input type="text" class="form-control" id="title" name="title" required
-                                placeholder="Ingrese el title de la products">
+                            <input type="text" class="form-control" id="title" name="title" minlength="5" required
+                                placeholder="Write mail's title">
                             <div class="invalid-feedback">
-                                El nombre de la products es obligatorio y debe tener al menos 5 caracteres.
+                                The title is required and must be at least 5 letter length.
                             </div>
                         </div>
 
                         <!-- Campo message -->
                         <div class="mb-3">
-                            <label for="message" class="form-label required-field">Your message</label>
-                            <textarea class="form-control" rows="5" id="message" name="message" minlength="5" maxlength="300" placeholder="Ingrese el message de la products" required></textarea>
+                            <label for="message" class="form-label required-field">Message</label>
+                            <textarea class="form-control" rows="5" id="message" name="message" minlength="10" maxlength="300" placeholder="Write mail's message" required></textarea>
                             <!-- <input type="text"  required
                                 > -->
                             <div class="invalid-feedback">
-                                El message de la products es obligatorio y debe tener al menos 5 caracteres.
+                                The message is required and must be at least 10 letter length.
                             </div>
                         </div>
 
                         <!-- Campo email -->
                         <div class="mb-3">
-                            <label for="email" class="form-label required-field">Your email</label>
+                            <label for="email" class="form-label required-field">Email</label>
                             <input type="email" class="form-control" id="email" name="email" required
-                                minlength="5" maxlength="300" placeholder="Ingrese la email de la products">
+                                minlength="5" maxlength="300" placeholder="Write email">
                             <div class="invalid-feedback">
-                                La email es obligatoria y debe tener al menos 4 caracteres.
+                                The email is required and must be at least 5 letter length.
                             </div>
                         </div>
                         
                         <div class="mb-3">
-                            <label for="post_date" class="form-label required-field">post_date</label>
+                            <label for="post_date" class="form-label required-field">Post Date</label>
                             <input type="date" class="form-control" id="post_date" name="post_date" required
                                 placeholder="Ingrese la post_date de la products">
                             <div class="invalid-feedback">
-                                La post_date es obligatoria y debe tener al menos 4 caracteres.
+                                You must select post date.
                             </div>
                         </div>
 
                         <!-- Botones de acción -->
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
                             <button type="button" class="btn btn-warning btn-action" id="btnVolver">
-                                <i class="bi bi-arrow-left-circle me-1"></i> Volver
+                                <i class="bi bi-arrow-left-circle me-1"></i> Go Back
                             </button>
                             <button type="button" class="btn btn-secondary btn-action" id="btnCancelar">
-                                <i class="bi bi-x-circle me-1"></i> Cancelar
+                                <i class="bi bi-x-circle me-1"></i> Cancel
                             </button>
                             <button id="btnGrabar" name="btnGrabar" type="submit" class="btn btn-primary btn-action">
-                                <i class="bi bi-check-circle me-1"></i> Grabar
+                                <i class="bi bi-check-circle me-1"></i> Save
                             </button>
                         </div>
                     </form>
@@ -256,10 +256,10 @@ sqlDesconecta($sqlBD);
         function cargarDatosParaEdicion(id, title, message, email, post_date) {
             if (id == "") {
                 $("#idFieldContainer").hide(); // En nuevo registro
-                $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>Nueva products');
+                $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>New Mail');
             } else {
                 $("#idFieldContainer").show(); // En edición de registro
-                $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>Editar products');
+                $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>Edit Mail');
             }
             $("#id").val(id);
             $("#title").val(title);
@@ -321,28 +321,11 @@ sqlDesconecta($sqlBD);
             }
             ?>
 
-
-            /*
-            		// Convertir Categoría a mayúsculas automáticamente en Javascript
-            		$("#categoria").on("input", function () {
-            			$(this).val($(this).val().toUpperCase());
-            		});
-            */
-
-
             // SUBMIT - GRABAR
             form.on("submit", function(event) {
                 if (!form[0].checkValidity()) { // No se han validado los valores de los campos
                     event.preventDefault(); // Evita envío del formulario
                     event.stopPropagation(); // Evita que continue el evento a etiquetas padres del DOM
-
-                    // Campos con mensaje variable
-                    // const categoria = $("#categoria");
-                    // if (categoria[0].validity.patternMismatch) {
-                    // 	categoria.next(".invalid-feedback").text("Debe teclear al menos 3 letras.");
-                    // } else {
-                    // 	categoria.next(".invalid-feedback").text("El Categoría es obligatorio.");
-                    // }
 
                     // Activar validación de campos y mensaje de error
                     form.addClass("was-validated");

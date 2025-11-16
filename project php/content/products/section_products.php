@@ -9,20 +9,18 @@ if (isset($_POST['attributes'])) {
     $filters = explode(", ", $_POST['attributes']);
 }
 
-print_r($filters);
-
 foreach ($filters as $filter) {
     switch ($filter) {
         case "Name":
-            $orderby = " ORDER BY nombre ASC ";
+            $orderby = " ORDER BY name ASC ";
             break;
         case "Stock":
-            $where = " WHERE stock = 1 ";
+            $where = " AND stock = 1 ";
             break;
         default:
             if ($filter != "") {
                 if ($where == "") {
-                    $where = " WHERE attributes LIKE '%" . lcfirst($filter) . "%'";
+                    $where = " AND attributes LIKE '%" . lcfirst($filter) . "%'";
                 } else {
                     $where .= " AND attributes LIKE '%" . lcfirst($filter) . "%'";
                 }
@@ -34,17 +32,15 @@ foreach ($filters as $filter) {
 $filter = "";
 $filter = $where . $orderby;
 
+$sqlSelect = "SELECT * FROM products WHERE category = '{$config['category']}' {$filter}";
 
-
-$sqlSelect = "SELECT * FROM " . $config['category'] . $filter;
-
-echo $sqlSelect;
+// echo $sqlSelect;
 
 $sqlCursor = sqlQuery($sqlBD, $sqlSelect);
 $arrayProductos = sqlResultArray($sqlBD, $sqlCursor);
 
 
-$sqlSelect = "SELECT * FROM " . $config['category'] . " ORDER BY LENGTH('attributes')";
+$sqlSelect = "SELECT * FROM products WHERE category = '{$config['category']}' ORDER BY LENGTH('attributes')";
 $sqlCursor = sqlQuery($sqlBD, $sqlSelect);
 $arrayResults = sqlResultArray($sqlBD, $sqlCursor);
 $attributes = array();
@@ -59,10 +55,6 @@ for ($i = 0; $i < count($arrayResults); $i++) {
 
 SqlDesconecta($sqlBD);
 
-
-
-function filter() {}
-
 ?>
 
 <section class="food-section">
@@ -72,11 +64,9 @@ function filter() {}
         <div class="filtros">
             <button class="filter-button" onclick="myFunction(this)" name="Name">Name</button>
             <button class="filter-button" onclick="myFunction(this)" name="Stock">Stock</button>
-            <!-- <input type="hidden" id="attributes" name="atributes" /> -->
             <?php
             foreach ($attributes as $attribute) {
             ?>
-                <!-- <input type="submit" class="filter-button" onclick="myFunction(this)" name="submit"  value="" /> -->
                 <button class="filter-button <?php if(in_array(ucfirst($attribute), $filters)){echo "filtered";}?>" onclick="myFunction(this)" name="<?php echo ucfirst($attribute); ?>"><?php echo ucfirst($attribute); ?></button>
             <?php
             }

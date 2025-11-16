@@ -12,19 +12,6 @@ body {
     align-items: center;
 }
 
-.cont-1 {
-    margin: 5vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.cont-2 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .container {
     display: flex;
     flex-direction: column;
@@ -36,7 +23,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
-    width: 50vw;
+    width: 40vw;
 }
 
 .container h1 {
@@ -92,7 +79,7 @@ body {
     background: #ff5722;
     color: white;
     border: none;
-    width: 80%;
+    width: 50%;
     padding: 1.5%;
     border-radius: 5px;
     cursor: pointer;

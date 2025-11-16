@@ -28,31 +28,30 @@ if (isset($_POST['signup'])) {
 
 
 ?>
-<div class="cont-2">
-    <div class="container">
-        <h1>Sign Up</h1>
-        <form method="post">
-            <!-- Basic Details -->
-            <div class="input-box signup">
-                <label>Email</label>
-                <input type="email" name="email" placeholder="Enter your email" required>
-            </div>
-            <div class="input-box signup">
-                <label>Username</label>
-                <input type="text" name="username" placeholder="Choose a username" required>
-            </div>
-            <div class="input-box signup">
-                <label>Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter password" required>
-            </div>
-            <div class="input-box signup">
-                <label>Confirm Password</label>
-                <input type="password" placeholder="Confirm password" onchange="checkPassword(this)" required>
-            </div>
 
-            <button type="submit" class="btn" name="signup">Sign Up</button>
+<div class="container">
+    <h1>Sign Up</h1>
+    <form method="post">
+        <!-- Basic Details -->
+        <div class="input-box signup">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="input-box signup">
+            <label>Username</label>
+            <input type="text" name="username" placeholder="Choose a username" required>
+        </div>
+        <div class="input-box signup">
+            <label>Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter password" required>
+        </div>
+        <div class="input-box signup">
+            <label>Confirm Password</label>
+            <input type="password" placeholder="Confirm password" onchange="checkPassword(this)" required>
+        </div>
 
-        </form>
-        <button class="btn" onclick="location.href='logs.php'">Go Back</button>
-    </div>
+        <button type="submit" class="btn" name="signup">Sign Up</button>
+
+    </form>
+    <button class="btn" onclick="location.href='logs.php'">Go Back</button>
 </div>

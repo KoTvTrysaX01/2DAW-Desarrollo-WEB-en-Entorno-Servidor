@@ -1,5 +1,8 @@
 <section class="hero">
     <?php
+    // Shows a welcome message if the user is logged in to the site.
+
+    // Known bug. If restart session multiple times, items' quantity will increase.
     if ($loggedin) {
     ?>
         <h1 class="welcome-msg">Welcome <?php echo $_SESSION['user']['username'] ?></h1>
@@ -10,35 +13,37 @@
     <p>Discover our wide range of the most exclusive products, handmade creations made with top quality
         ingredients.
     </p>
-    <button>Order Now</button>
+    <button onclick="location.href='products.php?category=ice_creams'">Order Now</button>
 </section>
 
 <section class="restaurants">
     <h2>Today's special offers</h2>
-
     <?php
-    $sqlBD = SqlConecta($hostSql, $userSql, $passSql, $basedatosSql);
-    $sqlSelect = "SELECT * FROM special_offers";
-    $sqlCursor = sqlQuery($sqlBD, $sqlSelect);
-    $arraySpecials = sqlResultArray($sqlBD, $sqlCursor);
+    // Displays products that have the "special offer" attribute.
+    if (!$startCarousel) {
+        $sqlBD = SqlConecta($hostSql, $userSql, $passSql, $basedatosSql);
+        $sqlSelect = "SELECT * FROM products WHERE attributes LIKE '%special offer%'";
+        $sqlCursor = sqlQuery($sqlBD, $sqlSelect);
+        $arraySpecials = sqlResultArray($sqlBD, $sqlCursor);
     ?>
-
-    <div class="carousel">
-        <div class="group">
-            <?php for ($i = 0; $i < count($arraySpecials); $i++) { ?>
-                <div class="card">
-                    <img src="<?php echo $arraySpecials[$i]['image']; ?>" alt="<?php echo $arraySpecials[$i]['name']; ?>"
-                        onclick="location.href='<?php echo 'products.php?category=' . $arraySpecials[$i]['category'] . '&id=' . $arraySpecials[$i]['id'] ?>'">
-                </div>
-            <?php } ?>
+        <div class="carousel">
+            <div class="group">
+                <?php for ($i = 0; $i < count($arraySpecials); $i++) { ?>
+                    <div class="card">
+                        <img src="<?php echo $arraySpecials[$i]['image']; ?>" alt="<?php echo $arraySpecials[$i]['name']; ?>"
+                            onclick="location.href='<?php echo 'products.php?category=' . $arraySpecials[$i]['category'] . '&id=' . $arraySpecials[$i]['id'] ?>'">
+                    </div>
+                <?php } ?>
+            </div>
+            <div aria-hidden class="group">
+                <?php for ($i = 0; $i < count($arraySpecials); $i++) { ?>
+                    <div class="card">
+                        <img src="<?php echo $arraySpecials[$i]['image']; ?>" alt="<?php echo $arraySpecials[$i]['name']; ?>"
+                            onclick="location.href='<?php echo 'products.php?category=' . $arraySpecials[$i]['category'] . '&id=' . $arraySpecials[$i]['id'] ?>'">
+                    </div>
+            <?php }
+                $startCarousel = true;
+            } ?>
+            </div>
         </div>
-        <div aria-hidden class="group">
-            <?php for ($i = 0; $i < count($arraySpecials); $i++) { ?>
-                <div class="card">
-                    <img src="<?php echo $arraySpecials[$i]['image']; ?>" alt="<?php echo $arraySpecials[$i]['name']; ?>"
-                        onclick="location.href='<?php echo 'products.php?category=' . $arraySpecials[$i]['category'] . '&id=' . $arraySpecials[$i]['id'] ?>'">
-                </div>
-            <?php } ?>
-        </div>
-    </div>
 </section>

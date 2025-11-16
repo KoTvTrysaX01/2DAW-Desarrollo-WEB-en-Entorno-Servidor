@@ -16,7 +16,7 @@
         <?php
         }
         ?>
-        <a href="index.php?category=reviews" class="button">Customer Reviews 🍧</a>
+        <a href="index.php?category=review" class="button">Customer Reviews 🍧</a>
         <a href="index.php?category=contact" class="button">Contact Us ✉️</a>
         <?php
         if (!$loggedin) {

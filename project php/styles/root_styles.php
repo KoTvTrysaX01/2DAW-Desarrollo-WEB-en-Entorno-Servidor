@@ -27,7 +27,7 @@
 
     #btn-block:hover {
         background-color: rgb(255, 255, 255) !important;
-        color: rgb(145, 145, 145) !important; 
+        color: rgb(145, 145, 145) !important;
     }
 </style>
 
@@ -63,8 +63,21 @@ if ($config['page'] == "index") {
 } elseif ($config['page'] == "logs") {
     switch ($config['category']) {
         case "login":
-            break;
     ?>
+            <link rel="stylesheet" href="./styles/login.css">
+        <?php
+            break;
+        case "signup":
+        ?>
+            <link rel="stylesheet" href="./styles/signup.css">
+        <?php
+            break;
+        default
+        ?>
+            <link rel="stylesheet" href="./styles/logs.css">
+            <?php
+            break;
+            ?>
 
 
     <?php
@@ -277,5 +290,3 @@ if ($config['page'] == "index") {
     }
 }
 ?>
-
-

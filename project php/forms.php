@@ -27,6 +27,7 @@ include "./dao/include_config.php";
             case "milkshakes":
             case "juices":
             case "smoothies":
+            case "all_products":
                 include "./content/forms/form_products.php";
                 break;
             case "special_offers":

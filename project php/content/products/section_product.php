@@ -148,27 +148,37 @@
 </style>
 <?php
 $sqlBD = SqlConecta($hostSql, $userSql, $passSql, $basedatosSql);
-$sqlSelect = "SELECT * FROM  {$config['category']} WHERE id = '{$_GET['id']}'";
+$sqlSelect = "SELECT * FROM products WHERE id = '{$_GET['id']}'";
 $sqlCursor = sqlQuery($sqlBD, $sqlSelect);
 $arraySpecials = sqlResultArray($sqlBD, $sqlCursor);
 
-echo $sqlSelect;
-print_r($arraySpecials);
-
 if (isset($_POST['add'])) {
+    $id = $_POST['id'];
     $name = $_POST['name'];
-    $quantity = $_POST['quantity'];
+    $quantity = (int)$_POST['quantity'];
     $price = $_POST['price'] * $_POST['quantity'];
 
     $product = array(
+        "id" => $id,
         "name" => $name,
-        "quantity" =>$quantity,
+        "quantity" => $quantity,
         "price" => $price
     );
 
-    print_r($product);
+    $sameProduct = false;
 
-    array_push($_SESSION['cart'], $product);
+    for ($i = 0; $i < count($_SESSION['cart']); $i++) {
+        if ($_SESSION['cart'][$i]['id'] == $product['id']) {
+            $_SESSION['cart'][$i]['quantity'] += $product['quantity'];
+            $_SESSION['cart'][$i]['price'] = $product['price'] * $_SESSION['cart'][$i]['quantity'];
+            $sameProduct = true;
+            break;
+        }
+    }
+    if (!$sameProduct) {
+        array_push($_SESSION['cart'], $product);
+    }
+    // print_r($_SESSION['cart']);
 }
 ?>
 
@@ -201,6 +211,7 @@ if (isset($_POST['add'])) {
 
         </div>
         <form method="post">
+            <input type="id" name="id" value="<?php echo $arraySpecials[0]['id'] ?>" hidden />
             <input type="text" name="name" value="<?php echo $arraySpecials[0]['name'] ?>" hidden />
             <input type="number" name="price" value="<?php echo $arraySpecials[0]['price'] ?>" hidden />
             <input type="number" min="1" max="10" value="1" name="quantity" />

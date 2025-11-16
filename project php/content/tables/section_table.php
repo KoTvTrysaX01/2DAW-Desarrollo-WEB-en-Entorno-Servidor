@@ -1,19 +1,49 @@
 <?php
-require_once "./dao/include_mysql.php";
-require_once "./dao/include_vars.php";
 
+$var_sql1 = "";
+$var_sql2 = "";
+$var_sql3 = "";
+switch ($config['category']) {
+    case "users":
+        $var_sql1 = "SELECT * FROM {$config['category']}";
+        $var_sql2 = "SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_NAME` ='users' AND `COLUMN_NAME` NOT LIKE '%CONNECTION%' AND `COLUMN_NAME` NOT LIKE 'USER'";
+        $var_sql3 = "{$config['category']} WHERE ";
+        break;
+    case "sells":
+        $var_sql1 = "SELECT * FROM {$config['category']}";
+        $var_sql2 = "SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_NAME` ='sells'";
+        $var_sql3 = "{$config['category']} WHERE ";
+        break;
+    case "reviews":
+        $var_sql1 = "SELECT * FROM {$config['category']}";
+        $var_sql2 = "SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_NAME` ='reviews'";
+        $var_sql3 = "{$config['category']} WHERE ";
+        break;
+    case "mails":
+        $var_sql1 = "SELECT * FROM {$config['category']}";
+        $var_sql2 = "SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_NAME` ='mails'";
+        $var_sql3 = "{$config['category']} WHERE ";
+        break;
+    case "all_products":
+        $var_sql1 = "SELECT * FROM products";
+        $var_sql2 = "SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_NAME` ='products'";
+        $var_sql3 = "products WHERE ";
+        break;
+    default:
+        $var_sql1 = "SELECT * FROM products WHERE category = '{$config['category']}'";
+        $var_sql2 = "SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_NAME` ='products'";
+        $var_sql3 = "products WHERE ";
+        break;
+}
 
 $sqlBD = SqlConecta($hostSql, $userSql, $passSql, $basedatosSql);
 
-$sqlSelect = "SELECT * FROM " . $config['category'];
-$sqlCursor = sqlQuery($sqlBD, $sqlSelect);
+$sqlSelect = "SELECT * FROM {$var_sql1}";
+$sqlCursor = sqlQuery($sqlBD, $var_sql1);
 $tableArray = sqlResultArray($sqlBD, $sqlCursor);
 
-$sqlSelect = "SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_NAME` ='" . $config['category'] . "' AND `COLUMN_NAME` NOT LIKE '%CONNECTION%' AND `COLUMN_NAME` NOT LIKE 'USER'";
-$sqlCursor = sqlQuery($sqlBD, $sqlSelect);
+$sqlCursor = sqlQuery($sqlBD, $var_sql2);
 $tableColumns = sqlResultArray($sqlBD, $sqlCursor);
-
-
 
 $myColumns = array();
 foreach ($tableColumns as $columnArray) {
@@ -22,14 +52,11 @@ foreach ($tableColumns as $columnArray) {
     }
 }
 
-
-
-
 $borrado = false;
 if (isset($_GET['del'])) {
     $valores['id'] = addslashes(htmlentities(trim($_GET['del'])));
     if ($valores['id'] != "") {
-        $sqlDelete = "DELETE FROM " . "{$_GET['category']}" . " WHERE id='" . $valores['id'] . "'";
+        $sqlDelete = "DELETE FROM {$var_sql3} id='{$valores['id']}'";
         sqlIniTrans($sqlBD);
         $sqlCursor = sqlQuery($sqlBD, $sqlDelete);
         if (!$continuaSql) {
@@ -127,7 +154,7 @@ if (isset($_GET['del'])) {
                             <?php
                             }
                             ?>
-                            <th class="text-center">Acciones</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -165,9 +192,8 @@ if (isset($_GET['del'])) {
                                                             default:
                                                                 echo $dataArray['name'];
                                                                 break;
-
                                                         }
-                                                       ?>">
+                                                        ?>">
                                         <i class="fas fa-trash"></i> Borrar
                                     </button>
                                 </td>

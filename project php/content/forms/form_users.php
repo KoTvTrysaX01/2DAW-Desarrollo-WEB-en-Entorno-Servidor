@@ -18,7 +18,7 @@ if (isset($_GET['edit'])) {
     $valores['id'] = addslashes(trim($_GET['edit']));
     if ($valores['id'] != "") {
         // SQL select
-        $sqlSelect = "SELECT * FROM {$config['category']} WHERE id='" . $valores['id'] . "'";
+        $sqlSelect = "SELECT * FROM users WHERE id='" . $valores['id'] . "'";
         $sqlCursor = sqlQuery($sqlBD, $sqlSelect);
         $products = sqlObtenerRegistro($sqlBD, $sqlCursor);
 
@@ -66,7 +66,7 @@ if ($grabar) {
 /* PROCESO DE GRABACIÓN*/
 if ($grabar) {
     if ($valores['id'] != "") {
-        $sqlIns = "UPDATE {$config['category']} 
+        $sqlIns = "UPDATE users 
 							SET 
 								email='" . $valores['email'] . "',
                                 username='" . $valores['username'] . "',
@@ -77,7 +77,7 @@ if ($grabar) {
 						";
     } else {
         // El id se genera automáticamente porque es AUTO_INCREMENT en MySQL
-        $sqlIns = "INSERT INTO {$config['category']} (email, username, password, isAdmin) 
+        $sqlIns = "INSERT INTO users (email, username, password, isAdmin) 
 							VALUES (
 								 '" . $valores['email'] . "',
                                  '" . $valores['username'] . "',
@@ -194,9 +194,9 @@ sqlDesconecta($sqlBD);
                         <div class="mb-3">
                             <label for="email" class="form-label required-field">Email</label>
                             <input type="email" class="form-control" id="email" name="email" required
-                                placeholder="Ingrese la email de la products">
+                                placeholder="Write user's email" minlength="5">
                             <div class="invalid-feedback">
-                                La email es obligatoria y debe tener al menos 4 caracteres.
+                                The email is required and must be at leat 5 letter length.
                             </div>
                         </div>
 
@@ -204,9 +204,9 @@ sqlDesconecta($sqlBD);
                         <div class="mb-3">
                             <label for="username" class="form-label required-field">Username</label>
                             <input type="text" class="form-control" id="username" name="username" required
-                                placeholder="Ingrese el username de la products">
+                                placeholder="Write user's username" minlength="4">
                             <div class="invalid-feedback">
-                                El username de la products es obligatorio y debe tener al menos 5 caracteres.
+                                The username is required and must be at leat 4 letter length.
                             </div>
                         </div>
 
@@ -214,9 +214,9 @@ sqlDesconecta($sqlBD);
                         <div class="mb-3">
                             <label for="password" class="form-label required-field">Password</label>
                             <input type="text" class="form-control" id="password" name="password" required
-                                placeholder="Ingrese el password de la products">
+                                placeholder="Write user's hash password" minlength="10">
                             <div class="invalid-feedback">
-                                El password de la products es obligatorio y debe tener al menos 5 caracteres.
+                                The password is required and must be at leat 10 letter length.
                             </div>
                         </div>
 
@@ -235,13 +235,13 @@ sqlDesconecta($sqlBD);
                         <!-- Botones de acción -->
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
                             <button type="button" class="btn btn-warning btn-action" id="btnVolver">
-                                <i class="bi bi-arrow-left-circle me-1"></i> Volver
+                                <i class="bi bi-arrow-left-circle me-1"></i> Go Back
                             </button>
                             <button type="button" class="btn btn-secondary btn-action" id="btnCancelar">
-                                <i class="bi bi-x-circle me-1"></i> Cancelar
+                                <i class="bi bi-x-circle me-1"></i> Cancel
                             </button>
                             <button id="btnGrabar" name="btnGrabar" type="submit" class="btn btn-primary btn-action">
-                                <i class="bi bi-check-circle me-1"></i> Grabar
+                                <i class="bi bi-check-circle me-1"></i> Save
                             </button>
                         </div>
                     </form>
@@ -260,26 +260,23 @@ sqlDesconecta($sqlBD);
     <script>
         // products
         // Métodos personalizados 
-        function cargarDatosParaEdicion(id, nombre, email, telefono, birth_date, username, password, isAdmin) {
+        function cargarDatosParaEdicion(id, email, username, password, isAdmin) {
             if (id == "") {
                 $("#idFieldContainer").hide(); // En nuevo registro
-                $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>Nueva products');
+                $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>New User');
             } else {
                 $("#idFieldContainer").show(); // En edición de registro
-                $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>Editar products');
+                $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>Edit User');
             }
             $("#id").val(id);
-            $("#nombre").val(nombre);
             $("#email").val(email);
-            $("#telefono").val(telefono);
-            $("#birth_date").val(birth_date);
             $("#username").val(username);
             $("#password").val(password);
             $("#isAdmin").val(isAdmin);
         }
 
         function cargarDatosParaNuevo() {
-            cargarDatosParaEdicion("", "", "", "", "", "", "", "");
+            cargarDatosParaEdicion("", "", "", "", "");
         }
 
 
@@ -300,10 +297,7 @@ sqlDesconecta($sqlBD);
             <?php if ($editar) { ?>
                 cargarDatosParaEdicion(
                     '<?php echo $valores['id']; ?>',
-                    '<?php echo $valores['nombre']; ?>',
                     '<?php echo $valores['email']; ?>',
-                    '<?php echo $valores['telefono']; ?>',
-                    '<?php echo $valores['birth_date']; ?>',
                     '<?php echo $valores['username']; ?>',
                     '<?php echo $valores['password']; ?>',
                     '<?php echo $valores['isAdmin']; ?>'
@@ -334,28 +328,11 @@ sqlDesconecta($sqlBD);
             }
             ?>
 
-
-            /*
-            		// Convertir Categoría a mayúsculas automáticamente en Javascript
-            		$("#categoria").on("input", function () {
-            			$(this).val($(this).val().toUpperCase());
-            		});
-            */
-
-
             // SUBMIT - GRABAR
             form.on("submit", function(event) {
                 if (!form[0].checkValidity()) { // No se han validado los valores de los campos
                     event.preventDefault(); // Evita envío del formulario
                     event.stopPropagation(); // Evita que continue el evento a etiquetas padres del DOM
-
-                    // Campos con mensaje variable
-                    // const categoria = $("#categoria");
-                    // if (categoria[0].validity.patternMismatch) {
-                    // 	categoria.next(".invalid-feedback").text("Debe teclear al menos 3 letras.");
-                    // } else {
-                    // 	categoria.next(".invalid-feedback").text("El Categoría es obligatorio.");
-                    // }
 
                     // Activar validación de campos y mensaje de error
                     form.addClass("was-validated");

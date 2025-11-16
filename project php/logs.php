@@ -16,7 +16,6 @@ include "./dao/include_config.php";
     // include "./inc/include_header.php";
     // include "./inc/include_nav.php";
     ?>
-    <div class="cont-1">
         <?php
         if (isset($config['category'])) {
             switch ($config['category']) {
@@ -37,9 +36,8 @@ include "./dao/include_config.php";
 
 
         // include "./inc/include_footer.php";
-        // include "./inc/include_scripts.php";
+        include "./inc/include_scripts.php";
         ?>
-        </div>
 </body>
 
 </html>

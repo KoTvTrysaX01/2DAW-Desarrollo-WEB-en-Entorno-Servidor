@@ -1,36 +1,9 @@
 USE helado_express;
 
--- CREATE TABLE IF NOT EXISTS
---     products (
---         id INT AUTO_INCREMENT PRIMARY KEY,
---         category VARCHAR(50) NOT NULL,
---         name VARCHAR(50) NOT NULL,
---         price DECIMAL(4, 2) NOT NULL,
---         old_price DECIMAL(4, 2),
---         description VARCHAR(300) NOT NULL,
---         image VARCHAR(100) NOT NULL,
---         attributes VARCHAR(100) NOT NULL,
---         stock BOOLEAN NOT NULL
---     );
--- DELETE FROM products;
-
--- INSERT INTO
---     products (
---         category,
---         name,
---         price,
---         old_price,
---         description,
---         image,
---         attributes,
---         stock
---     )
--- VALUES
-
-    -- Crear la tabla ice_bars
 CREATE TABLE IF NOT EXISTS
-    ice_bars (
+    products (
         id INT AUTO_INCREMENT PRIMARY KEY,
+        category VARCHAR(50) NOT NULL,
         name VARCHAR(50) NOT NULL,
         price DECIMAL(4, 2) NOT NULL,
         old_price DECIMAL(4, 2),
@@ -40,12 +13,9 @@ CREATE TABLE IF NOT EXISTS
         stock BOOLEAN NOT NULL
     );
 
--- Eliminar datos si existen
-DELETE FROM ice_bars;
-
--- Insertar todas la ice_bars
 INSERT INTO
-    ice_bars (
+    products (
+        category,
         name,
         price,
         old_price,
@@ -55,269 +25,9 @@ INSERT INTO
         stock
     )
 VALUES
+    -- !!!!!!!!!! ICE CREAMS !!!!!!!!!!
     (
-        "Strawberry",
-        3.00,
-        null,
-        "Ice pop made with fresh strawberries from our region.",
-        "./assets/ice_bars/Strawberry.png",
-        "berries",
-        true
-    ),
-    (
-        "Lemon",
-        2.99,
-        null,
-        "Ice pop made with freshly squeezed lemon juice.",
-        "./assets/ice_bars/Lemon.png",
-        "fruits",
-        false
-    ),
-    (
-        "Passion Fruit",
-        3.45,
-        null,
-        "Fresh passion fruit ice_creams.",
-        "./assets/ice_bars/Passion_Fruit.png",
-        "fruits",
-        true
-    ),
-    (
-        "Mango",
-        1.99,
-        null,
-        "Fresh mango ice_creams.",
-        "./assets/ice_bars/Mango.png",
-        "fruits",
-        true
-    ),
-    (
-        "King Nero",
-        4.49,
-        null,
-        "Ice pop made of hazelnuts with hazelnut, chocolate and wafer swirls, developed exclusively for Lucciano's in Italy.",
-        "./assets/ice_bars/King_Nero.png",
-        "berries",
-        true
-    ),
-    (
-        "Cookies And Cream",
-        3.45,
-        null,
-        "Ice pop made with whipped cream, with chocolate ganache and chocolate cookie swirls, decorated with stracciatella coated cookies.",
-        "./assets/ice_bars/Cookies_And_Cream.png",
-        "berries",
-        false
-    ),
-    (
-        "Mascarpone & Berries",
-        3.00,
-        null,
-        "Ice pop made of Italian mascarpone with a Patagonian berry swirl.",
-        "./assets/ice_bars/Mascarpone_&_Berries.png",
-        "berries",
-        false
-    ),
-    (
-        "Peanut Without Added Sugar",
-        4.49,
-        null,
-        "Peanut icepop without added sugar.",
-        "./assets/ice_bars/Peanut_Without_Added_Sugar.png",
-        "berries",
-        true
-    ),
-    (
-        "Strawberry & Whipped Cream",
-        3.45,
-        null,
-        "Strawberry whipped cream ice pop, a perfect combination of texture and flavor.",
-        "./assets/ice_bars/Strawberry_&_Whipped_Cream.png",
-        "berries",
-        false
-    ),
-    (
-        "Whipped Cream",
-        1.99,
-        null,
-        "Whipped cream ice pop, coated with semi- sweet Belgian chocolate and small pieces of caramelized peanuts.",
-        "./assets/ice_bars/Whipped_Cream.png",
-        "berries",
-        true
-    ),
-    (
-        "Crispy Dulce De Leche",
-        3.00,
-        null,
-        "Milk caramel ice pop, coated with Belgian white chocolate and small pieces of caramelized peanuts.",
-        "./assets/ice_bars/Crispy_Dulce_De_Leche.png",
-        "berries",
-        true
-    ),
-    (
-        "Crispy Chocolate",
-        2.99,
-        null,
-        "Lucciano’s chocolate ice pop, coated with semi-sweet Belgian chocolate with small pieces of caramelized peanuts.",
-        "./assets/ice_bars/Crispy_Chocolate.png",
-        "berries",
-        true
-    ),
-    (
-        "Fiore Strawberry",
-        4.49,
-        null,
-        "Strawberry whipped cream ice pop, coated with pink tinted Belgian white chocolate. It is decorated with multicolored sprinkles and white chocolate eyes.",
-        "./assets/ice_bars/Fiore_Strawberry.png",
-        "berries",
-        false
-    ),
-    (
-        "Oli King",
-        3.00,
-        null,
-        "King flavored ice pop, coated with Belgian white chocolate. The paws are decorated with a fine touch of stracciatella.",
-        "./assets/ice_bars/Oli_King.png",
-        "berries",
-        false
-    ),
-    (
-        "Smile King",
-        1.99,
-        null,
-        "King flavored ice pop, coated with Belgian white and semi-sweet chocolate. The eyes are made with the same chocolate.",
-        "./assets/ice_bars/Smile_King.png",
-        "berries",
-        true
-    ),
-    (
-        "Passion Fruit Cheesecake",
-        3.45,
-        3.90,
-        "Cheesecake icepop with swirls of passion fruit coated with white chocolate.",
-        "./assets/ice_bars/Passion_Fruit_Cheesecake.png",
-        "berries",
-        true
-    ),
-    (
-        "Red Berry Sorbet",
-        2.99,
-        null,
-        "Red berry sorbet. Mix of blueberries, strawberries, raspberries and blackberries from Patagonia. Coated with white chocolate and decorated with purple lines.",
-        "./assets/ice_bars/Red_Berry_Sorbet.png",
-        "berries",
-        false
-    ),
-    (
-        "Pistacchio",
-        4.49,
-        null,
-        "Pistacchio ice pop, a combination of the finest pistacchios from Bronte and Sicily, coated with a Belgian pistacchio-flavored white chocolate.",
-        "./assets/ice_bars/Pistacchio.png",
-        "berries",
-        true
-    ),
-    (
-        "Enzo Dulce De Leche & Gianduia",
-        3.00,
-        null,
-        "Milk caramel ice pop with a gianduia chocolate filling, coated with Belgian white chocolate.",
-        "./assets/ice_bars/Enzo_Dulce_De_Leche_&_Gianduia.png",
-        "berries",
-        false
-    ),
-    (
-        "Tonio Cookies & Cream",
-        1.99,
-        null,
-        "Whipped cream ice pop with cookies made in Italy for Lucciano’s and chocolate ganache swirls, coated with white chocolate. All decoration details are made by hand.",
-        "./assets/ice_bars/Tonio_Cookies_&_Cream.png",
-        "berries",
-        true
-    ),
-    (
-        "Minion",
-        3.00,
-        4.00,
-        "King flavored ice pop, coated with Italian white chocolate of Belgian origin, tinted with the classic blue and yellow colors. Handmade eyes are used to add the perfect touch!",
-        "./assets/ice_bars/Minion.png",
-        "berries",
-        true
-    ),
-    (
-        "Dark Double Chocolate",
-        2.99,
-        null,
-        "Chocolate ice_creams, double coated with Belgian white chocolate and milk chocolate, sealed with golden dust., double coated with Belgian white chocolate and milk chocolate, sealed with golden dust.",
-        "./assets/ice_bars/Dark_Double_Chocolate.png",
-        "berries",
-        true
-    ),
-    (
-        "White Double Chocolate",
-        3.00,
-        null,
-        "White chocolate with milk chocolate swirls, double coated with Belgian white chocolate and milk chocolate.",
-        "./assets/ice_bars/White_Double_Chocolate.png",
-        "berries",
-        false
-    ),
-    (
-        "Icepop 0% Added Sugar",
-        3.45,
-        null,
-        "Milk chocolate ice_creams covered with milk chocolate with no added sugar.",
-        "./assets/ice_bars/Icepop_0_Added_Sugar.png",
-        "berries",
-        false
-    ),
-    (
-        "Caramel Gold",
-        3.00,
-        null,
-        "Caramel icepop coated with gold chocolate.",
-        "./assets/ice_bars/Caramel_Gold.png",
-        "berries",
-        false
-    ),
-    (
-        "Sorbet Supreme 80%",
-        2.99,
-        3.50,
-        "Vegan 80% chocolate sorbet coated with the same chocolate.",
-        "./assets/ice_bars/Sorbet_Supreme_80.png",
-        "berries",
-        true
-    );
-
--- Crear la tabla ice_creams
-CREATE TABLE IF NOT EXISTS
-    ice_creams (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(50) NOT NULL,
-        price DECIMAL(4, 2) NOT NULL,
-        old_price DECIMAL(4, 2),
-        description VARCHAR(300) NOT NULL,
-        image VARCHAR(100) NOT NULL,
-        attributes VARCHAR(100) NOT NULL,
-        stock BOOLEAN NOT NULL
-    );
-
--- Eliminar datos si existen
-DELETE FROM ice_creams;
-
-INSERT INTO
-    ice_creams (
-        name,
-        price,
-        old_price,
-        description,
-        image,
-        attributes,
-        stock
-    )
-VALUES
-    (
+        "ice_creams",
         "Strawberry",
         3.00,
         4.00,
@@ -327,6 +37,7 @@ VALUES
         true
     ),
     (
+        "ice_creams",
         "Mango",
         2.99,
         null,
@@ -336,6 +47,7 @@ VALUES
         false
     ),
     (
+        "ice_creams",
         "Passion Fruit",
         3.45,
         null,
@@ -345,6 +57,7 @@ VALUES
         true
     ),
     (
+        "ice_creams",
         "Lime",
         1.99,
         2.50,
@@ -354,6 +67,7 @@ VALUES
         true
     ),
     (
+        "ice_creams",
         "Coco Rock",
         4.49,
         null,
@@ -363,6 +77,7 @@ VALUES
         true
     ),
     (
+        "ice_creams",
         "Passion Fruit Cheesecake",
         3.45,
         4.00,
@@ -372,6 +87,7 @@ VALUES
         false
     ),
     (
+        "ice_creams",
         "Lemon Pie",
         3.00,
         null,
@@ -381,6 +97,7 @@ VALUES
         false
     ),
     (
+        "ice_creams",
         "Mascarpone & Berries",
         4.49,
         5.00,
@@ -390,6 +107,7 @@ VALUES
         true
     ),
     (
+        "ice_creams",
         "Cookies & Cream",
         3.45,
         null,
@@ -399,6 +117,7 @@ VALUES
         false
     ),
     (
+        "ice_creams",
         "Tiramisú",
         1.99,
         null,
@@ -408,6 +127,7 @@ VALUES
         true
     ),
     (
+        "ice_creams",
         "Cherry Vainilla",
         3.00,
         null,
@@ -417,6 +137,7 @@ VALUES
         true
     ),
     (
+        "ice_creams",
         "White Chocolate Pistacchio Crock",
         2.99,
         null,
@@ -426,6 +147,7 @@ VALUES
         true
     ),
     (
+        "ice_creams",
         "Nocciola Suprema",
         4.49,
         6.00,
@@ -435,6 +157,7 @@ VALUES
         false
     ),
     (
+        "ice_creams",
         "King Bueno",
         3.00,
         null,
@@ -444,6 +167,7 @@ VALUES
         false
     ),
     (
+        "ice_creams",
         "Lucciano's Chocolate Hazelnut",
         3.45,
         null,
@@ -453,6 +177,7 @@ VALUES
         true
     ),
     (
+        "ice_creams",
         "Milk Caramel Chocolate Chip",
         2.99,
         null,
@@ -462,6 +187,7 @@ VALUES
         false
     ),
     (
+        "ice_creams",
         "Bombón Praline",
         3.00,
         null,
@@ -471,6 +197,7 @@ VALUES
         false
     ),
     (
+        "ice_creams",
         "Stracciatella",
         1.99,
         null,
@@ -480,15 +207,17 @@ VALUES
         true
     ),
     (
+        "ice_creams",
         "Sorbet Supreme 80%",
         3.00,
         null,
         "Vegan 80% chocolate sorbet.",
         "./assets/ice_creams/Sorbet_Supreme_80.png",
-        "chocolate, special",
+        "chocolate, special, special offer",
         true
     ),
     (
+        "ice_creams",
         "Banana Splite",
         2.99,
         null,
@@ -498,6 +227,7 @@ VALUES
         true
     ),
     (
+        "ice_creams",
         "Dulce De Leche",
         3.00,
         null,
@@ -507,6 +237,7 @@ VALUES
         false
     ),
     (
+        "ice_creams",
         "Chocolate Dubai",
         3.45,
         3.99,
@@ -516,6 +247,7 @@ VALUES
         false
     ),
     (
+        "ice_creams",
         "Pistacchio Cheesecake",
         3.00,
         null,
@@ -523,109 +255,322 @@ VALUES
         "./assets/ice_creams/Pistacchio_Cheesecake.png",
         "special, nuts",
         false
-    );
-
--- Crear la tabla cookies
-CREATE TABLE IF NOT EXISTS
-    cookies (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(50) NOT NULL,
-        price DECIMAL(4, 2) NOT NULL,
-        old_price DECIMAL(4, 2),
-        description VARCHAR(300) NOT NULL,
-        image VARCHAR(100) NOT NULL,
-        attributes VARCHAR(100) NOT NULL,
-        stock BOOLEAN NOT NULL
-    );
-
--- Eliminar datos si existen
-DELETE FROM cookies;
-
-INSERT INTO
-    cookies (
-        name,
-        price,
-        old_price,
-        description,
-        image,
-        attributes,
-        stock
-    )
-VALUES
+    ),
+    -- !!!!!!!!!! ICE BARS !!!!!!!!!!
     (
+        "ice_bars",
+        "Strawberry",
+        3.00,
+        null,
+        "Ice pop made with fresh strawberries from our region.",
+        "./assets/ice_bars/Strawberry.png",
+        "berries, ice pop",
+        true
+    ),
+    (
+        "ice_bars",
+        "Lemon",
+        2.99,
+        null,
+        "Ice pop made with freshly squeezed lemon juice.",
+        "./assets/ice_bars/Lemon.png",
+        "fruits",
+        true
+    ),
+    (
+        "ice_bars",
+        "Passion Fruit",
+        3.45,
+        null,
+        "Fresh passion fruit ice_creams.",
+        "./assets/ice_bars/Passion_Fruit.png",
+        "fruits, ice pop",
+        true
+    ),
+    (
+        "ice_bars",
+        "Mango",
+        1.99,
+        null,
+        "Fresh mango ice_creams.",
+        "./assets/ice_bars/Mango.png",
+        "fruits, ice pop",
+        true
+    ),
+    (
+        "ice_bars",
+        "King Nero",
+        4.49,
+        null,
+        "Ice pop made of hazelnuts with hazelnut, chocolate and wafer swirls, developed exclusively for Lucciano's in Italy.",
+        "./assets/ice_bars/King_Nero.png",
+        "chocolate",
+        true
+    ),
+    (
+        "ice_bars",
+        "Cookies And Cream",
+        3.45,
+        null,
+        "Ice pop made with whipped cream, with chocolate ganache and chocolate cookie swirls, decorated with stracciatella coated cookies.",
+        "./assets/ice_bars/Cookies_And_Cream.png",
+        "chocolate, cookies",
+        false
+    ),
+    (
+        "ice_bars",
+        "Mascarpone & Berries",
+        3.00,
+        null,
+        "Ice pop made of Italian mascarpone with a Patagonian berry swirl.",
+        "./assets/ice_bars/Mascarpone_&_Berries.png",
+        "berries",
+        false
+    ),
+    (
+        "ice_bars",
+        "Peanut Without Added Sugar",
+        4.49,
+        null,
+        "Peanut icepop without added sugar.",
+        "./assets/ice_bars/Peanut_Without_Added_Sugar.png",
+        "special, nuts",
+        true
+    ),
+    (
+        "ice_bars",
+        "Strawberry & Whipped Cream",
+        3.45,
+        null,
+        "Strawberry whipped cream ice pop, a perfect combination of texture and flavor.",
+        "./assets/ice_bars/Strawberry_&_Whipped_Cream.png",
+        "berries",
+        false
+    ),
+    (
+        "ice_bars",
+        "Whipped Cream",
+        1.99,
+        null,
+        "Whipped cream ice pop, coated with semi- sweet Belgian chocolate and small pieces of caramelized peanuts.",
+        "./assets/ice_bars/Whipped_Cream.png",
+        "chocolate, nuts, caramel, special offer",
+        true
+    ),
+    (
+        "ice_bars",
+        "Crispy Dulce De Leche",
+        3.00,
+        null,
+        "Milk caramel ice pop, coated with Belgian white chocolate and small pieces of caramelized peanuts.",
+        "./assets/ice_bars/Crispy_Dulce_De_Leche.png",
+        "white-chocolate, nuts, caramel",
+        true
+    ),
+    (
+        "ice_bars",
+        "Crispy Chocolate",
+        2.99,
+        null,
+        "Lucciano’s chocolate ice pop, coated with semi-sweet Belgian chocolate with small pieces of caramelized peanuts.",
+        "./assets/ice_bars/Crispy_Chocolate.png",
+        "chocolate, nuts, caramel",
+        true
+    ),
+    (
+        "ice_bars",
+        "Fiore Strawberry",
+        4.49,
+        null,
+        "Strawberry whipped cream ice pop, coated with pink tinted Belgian white chocolate. It is decorated with multicolored sprinkles and white chocolate eyes.",
+        "./assets/ice_bars/Fiore_Strawberry.png",
+        "special, berries",
+        false
+    ),
+    (
+        "ice_bars",
+        "Oli King",
+        3.00,
+        null,
+        "King flavored ice pop, coated with Belgian white chocolate. The paws are decorated with a fine touch of stracciatella.",
+        "./assets/ice_bars/Oli_King.png",
+        "special, chocolate, white-chocolate",
+        false
+    ),
+    (
+        "ice_bars",
+        "Smile King",
+        1.99,
+        null,
+        "King flavored ice pop, coated with Belgian white and semi-sweet chocolate. The eyes are made with the same chocolate.",
+        "./assets/ice_bars/Smile_King.png",
+        "special, chocolate, white-chocolate",
+        true
+    ),
+    (
+        "ice_bars",
+        "Passion Fruit Cheesecake",
+        3.45,
+        3.90,
+        "Cheesecake icepop with swirls of passion fruit coated with white chocolate.",
+        "./assets/ice_bars/Passion_Fruit_Cheesecake.png",
+        "fruits, white-chocolate, discount",
+        true
+    ),
+    (
+        "ice_bars",
+        "Red Berry Sorbet",
+        2.99,
+        null,
+        "Red berry sorbet. Mix of blueberries, strawberries, raspberries and blackberries from Patagonia. Coated with white chocolate and decorated with purple lines.",
+        "./assets/ice_bars/Red_Berry_Sorbet.png",
+        "white-chocolate, berries",
+        false
+    ),
+    (
+        "ice_bars",
+        "Pistacchio",
+        4.49,
+        null,
+        "Pistacchio ice pop, a combination of the finest pistacchios from Bronte and Sicily, coated with a Belgian pistacchio-flavored white chocolate.",
+        "./assets/ice_bars/Pistacchio.png",
+        "nuts, white-chocolate",
+        true
+    ),
+    (
+        "ice_bars",
+        "Enzo Dulce De Leche & Gianduia",
+        3.00,
+        null,
+        "Milk caramel ice pop with a gianduia chocolate filling, coated with Belgian white chocolate.",
+        "./assets/ice_bars/Enzo_Dulce_De_Leche_&_Gianduia.png",
+        "special, white-chocolate",
+        false
+    ),
+    (
+        "ice_bars",
+        "Tonio Cookies & Cream",
+        1.99,
+        null,
+        "Whipped cream ice pop with cookies made in Italy for Lucciano’s and chocolate ganache swirls, coated with white chocolate. All decoration details are made by hand.",
+        "./assets/ice_bars/Tonio_Cookies_&_Cream.png",
+        "special, cookies",
+        true
+    ),
+    (
+        "ice_bars",
+        "Minion",
+        3.00,
+        4.00,
+        "King flavored ice pop, coated with Italian white chocolate of Belgian origin, tinted with the classic blue and yellow colors. Handmade eyes are used to add the perfect touch!",
+        "./assets/ice_bars/Minion.png",
+        "special, white-chocolate, discount",
+        true
+    ),
+    (
+        "ice_bars",
+        "Dark Double Chocolate",
+        2.99,
+        null,
+        "Chocolate ice_creams, double coated with Belgian white chocolate and milk chocolate, sealed with golden dust., double coated with Belgian white chocolate and milk chocolate, sealed with golden dust.",
+        "./assets/ice_bars/Dark_Double_Chocolate.png",
+        "white-chocolate, chocolate, special",
+        true
+    ),
+    (
+        "ice_bars",
+        "White Double Chocolate",
+        3.00,
+        null,
+        "White chocolate with milk chocolate swirls, double coated with Belgian white chocolate and milk chocolate.",
+        "./assets/ice_bars/White_Double_Chocolate.png",
+        "chocolate",
+        false
+    ),
+    (
+        "ice_bars",
+        "Icepop 0% Added Sugar",
+        3.45,
+        null,
+        "Milk chocolate ice_creams covered with milk chocolate with no added sugar.",
+        "./assets/ice_bars/Icepop_0_Added_Sugar.png",
+        "chocolate, special",
+        false
+    ),
+    (
+        "ice_bars",
+        "Caramel Gold",
+        3.00,
+        null,
+        "Caramel icepop coated with gold chocolate.",
+        "./assets/ice_bars/Caramel_Gold.png",
+        "chocolate",
+        false
+    ),
+    (
+        "ice_bars",
+        "Sorbet Supreme 80%",
+        2.99,
+        3.50,
+        "Vegan 80% chocolate sorbet coated with the same chocolate.",
+        "./assets/ice_bars/Sorbet_Supreme_80.png",
+        "chocolate, special, discount",
+        true
+    ),
+    -- !!!!!!!! COOKIES !!!!!!!!
+    (
+        "cookies",
         "Caja Dark Chocolate 70%",
         4.99,
         null,
         "Descripción",
         "./assets/cookies/Caja_Dark_Chocolate_70.png",
-        "algo",
+        "dark-chocolate",
         true
     ),
     (
+        "cookies",
         "Caja Mix Box",
         5.99,
         null,
         "Descripción",
         "./assets/cookies/Caja_Mix_Box.png",
-        "algo",
+        "special, nuts, white-chocolate, dark-chocolate, caramel",
         true
     ),
     (
+        "cookies",
         "Caja Semisweet",
         4.49,
-        null,
+        5.00,
         "Descripción",
         "./assets/cookies/Caja_Semisweet.png",
-        "algo",
+        "caramel, discount",
         true
     ),
     (
+        "cookies",
         "Caja White Chocolate",
         3.99,
         null,
         "Descripción",
         "./assets/cookies/Caja_White_Chocolate.png",
-        "algo",
+        "white-chocolate, special offer",
         true
     ),
     (
+        "cookies",
         "Caja White Chocolate & Walnut",
         5.49,
         null,
         "Descripción",
         "./assets/cookies/Caja_White_Chocolate_&_Walnut.png",
-        "algo",
+        "white-chocolate, nuts, caramel",
         true
-    );
-
--- Crear la tabla chocolate
-CREATE TABLE IF NOT EXISTS
-    chocolates (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(50) NOT NULL,
-        price DECIMAL(4, 2) NOT NULL,
-        old_price DECIMAL(4, 2),
-        description VARCHAR(300) NOT NULL,
-        image VARCHAR(100) NOT NULL,
-        attributes VARCHAR(100) NOT NULL,
-        stock BOOLEAN NOT NULL
-    );
-
--- Eliminar datos si existen
-DELETE FROM chocolates;
-
-INSERT INTO
-    chocolates (
-        name,
-        price,
-        old_price,
-        description,
-        image,
-        attributes,
-        stock
-    )
-VALUES
+    ),
+    -- !!!!!!!! CHOCOLATES !!!!!!!!
     (
+        "chocolates",
         "Chocolate 54% Con Avellanas",
         3.00,
         null,
@@ -635,418 +580,366 @@ VALUES
         true
     ),
     (
+        "chocolates",
         "Chocolate Blanco",
         2.99,
         null,
         "description",
         "./assets/chocolates/Chocolate_Blanco.png",
-        "algo",
+        "nuts, milk",
         false
     ),
     (
+        "chocolates",
         "Chocolate Blanco Con Caramelo Y Avellanas",
         3.00,
         null,
         "description",
         "./assets/chocolates/Chocolate_Blanco_Con_Caramelo_Y_Avellanas.png",
-        "algo",
+        "white",
         false
     ),
     (
+        "chocolates",
         "Chocolate Blanco Sin Azucar",
         3.45,
         null,
         "description",
         "./assets/chocolates/Chocolate_Blanco_Sin_Azucar.png",
-        "algo",
+        "white, caramel, nuts",
         true
     ),
     (
+        "chocolates",
         "Chocolate Con Leche",
         1.99,
         null,
         "description",
         "./assets/chocolates/Chocolate_Con_Leche.png",
-        "algo",
+        "white, special",
         true
     ),
     (
+        "chocolates",
         "Chocolate Con Leche Con Almendras",
         3.45,
         null,
         "description",
         "./assets/chocolates/Chocolate_Con_Leche_Con_Almendras.png",
-        "algo",
+        "milk",
         false
     ),
     (
+        "chocolates",
         "Chocolate Con Leche Con Avellanas",
         4.49,
         null,
         "description",
         "./assets/chocolates/Chocolate_Con_Leche_Con_Avellanas.png",
-        "algo",
+        "milk, nuts",
         true
     ),
     (
+        "chocolates",
         "Chocolate Con Leche Con Dulce De Leche",
         4.49,
         null,
         "description",
         "./assets/chocolates/Chocolate_Con_Leche_Con_DDL.png",
-        "algo",
+        "milk, nuts",
         true
     ),
     (
+        "chocolates",
         "Chocolate Con Leche Sin Azucar",
         3.45,
         null,
         "description",
         "./assets/chocolates/Chocolate_Con_Leche_Sin_Azucar.png",
-        "algo",
+        "milk, special, special offer",
         false
     ),
     (
+        "chocolates",
         "Chocolate Dark 70%",
         3.00,
         null,
         "description",
         "./assets/chocolates/Chocolate_Dark_70.png",
-        "algo",
+        "dark",
         false
     ),
     (
+        "chocolates",
         "Chocolate Fruto Del Bosque",
         4.49,
         null,
         "description",
         "./assets/chocolates/Chocolate_Fruto_Del_Bosque.png",
-        "algo",
+        "berries, special",
         true
     ),
     (
+        "chocolates",
         "Chocolate Pistacchio Caramelizado",
         3.45,
         null,
         "description",
         "./assets/chocolates/Chocolate_Pistacchio_Caramelizado.png",
-        "algo",
+        "special, caramel, nuts",
         false
-    );
-
-COMMIT;
-
--- Crear la tabla milkshakes
-CREATE TABLE IF NOT EXISTS
-    milkshakes (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(50) NOT NULL,
-        price DECIMAL(4, 2) NOT NULL,
-        old_price DECIMAL(4, 2),
-        description VARCHAR(300) NOT NULL,
-        image VARCHAR(100) NOT NULL,
-        attributes VARCHAR(100) NOT NULL,
-        stock BOOLEAN NOT NULL
-    );
-
--- Eliminar datos si existen
-DELETE FROM milkshakes;
-
-INSERT INTO
-    milkshakes (
-        name,
-        price,
-        old_price,
-        description,
-        image,
-        attributes,
-        stock
-    )
-VALUES
+    ),
+    -- !!!!!!!! MILKSHAKES !!!!!!!!
     (
+        "milkshakes",
         "Bananalicious",
         1.99,
         null,
         "Add a tropical touch to your Horeca menu with our Bananalicious Milkshake. The combination of the smooth, sweet flavor of 100% natural banana with a delicate hint of vanilla makes it an irresistible choice for your customers.",
         "./assets/milkshakes/Bananalicious.png",
-        "algo",
+        "fruits, vanilla",
         true
     ),
     (
+        "milkshakes",
         "Cookies & Dreams",
         2.39,
         null,
         "Immerse yourself in a world of pure indulgence with Zumit's Frappé Cookies & Cream, a drink that promises to turn every sip into a moment of unforgettable pleasure.",
         "./assets/milkshakes/Cookies_&_Dreams.png",
-        "algo",
+        "chocolate, cookies",
         false
     ),
     (
+        "milkshakes",
         "Pure Chocolate",
         2.99,
         null,
         "Immerse yourself in an incomparable taste experience with Zumit's Mocha Frappé. An iced drink that combines the richness of dark chocolate, the intensity of coffee and the creaminess of milk, all in a perfectly balanced blend ready to enjoy in the blink of an eye.",
         "./assets/milkshakes/Pure_Chocolate.png",
-        "algo",
+        "chocolate, caramel",
         false
     ),
     (
+        "milkshakes",
         "Salted Caramel",
         4.59,
         null,
         "Embark on a journey of indulgence with Zumit's Frappé Salted Caramel, a delicious fusion of sweetness and a hint of salt that will take you to a new dimension of taste. ",
         "./assets/milkshakes/Salted_Caramel.png",
-        "algo",
+        "special, caramel, special offer",
         true
     ),
     (
+        "milkshakes",
         "Smooth Mocha",
         2.99,
         null,
         "Immerse yourself in an incomparable taste experience with Zumit's Mocha Frappé. An iced drink that combines the richness of dark chocolate, the intensity of coffee and the creaminess of milk, all in a perfectly balanced blend ready to enjoy in the blink of an eye.",
         "./assets/milkshakes/Smooth_Mocha.png",
-        "algo",
+        "coffee, chocolate",
         false
     ),
     (
+        "milkshakes",
         "Strawberry Fantasy",
         3.99,
         null,
         "Zumit's Strawberry & Vanilla milkshake captures the essence of two classic flavours in a harmonious drink that promises to delight customers in any establishment.",
         "./assets/milkshakes/Strawberry_Fantasy.png",
-        "algo",
+        "berries",
         true
-    );
-
-COMMIT;
-
--- Crear la tabla juices
-CREATE TABLE IF NOT EXISTS
-    juices (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(50) NOT NULL,
-        price DECIMAL(4, 2) NOT NULL,
-        old_price DECIMAL(4, 2),
-        description VARCHAR(300) NOT NULL,
-        image VARCHAR(100) NOT NULL,
-        attributes VARCHAR(100) NOT NULL,
-        stock BOOLEAN NOT NULL
-    );
-
--- Eliminar datos si existen
-DELETE FROM juices;
-
-INSERT INTO
-    juices (
-        name,
-        price,
-        old_price,
-        description,
-        image,
-        attributes,
-        stock
-    )
-VALUES
+    ),
+    -- !!!!!!!! JUICES !!!!!!!!
     (
+        "juices",
         "Zumo De Naranja 100% Natural HPP",
         1.64,
         null,
         "Zumit HPP Squeezed Orange Juice is the quintessence of simplicity and purity, offering a fresh and authentic taste in every bottle.",
         "./assets/juices/Naranja.png",
-        "algo",
+        "orange",
         true
     ),
     (
+        "juices",
         "Zumo Cold Pressed Antiox HPP",
         2.74,
         null,
         "Discover the revitalising power of Zumit's Cold Pressed Antiox, a drink that combines natural flavours and antioxidant benefits in every sip.",
         "./assets/juices/Antiox.png",
-        "algo",
+        "cold-pressed",
         false
     ),
     (
+        "juices",
         "Zumo Cold Pressed Green Power HPP",
         2.74,
         null,
         "Zumit's Cold Pressed Green Power is an invigorating drink that combines the best of vegetables and fruits in a single bottle, designed to deliver a boost of energy and nutrition.",
         "./assets/juices/Green_Power.png",
-        "algo",
+        "cold-pressed",
         false
     ),
     (
+        "juices",
         "Zumo Cold Pressed Energy HPP",
         2.74,
         null,
         "Zumit Cold Pressed Energy is your perfect ally for those moments when you need a natural and healthy boost.",
         "./assets/juices/Energy.png",
-        "algo",
+        "cold-pressed",
         true
     ),
     (
+        "juices",
         "Zumo Cold Pressed Boost HPP",
         2.74,
         null,
         "Zumit's Cold Pressed Boost is a revitalizing drink designed to naturally elevate your energy and well-being.",
         "./assets/juices/Boost.png",
-        "algo",
+        "cold-pressed",
         false
     ),
     (
+        "juices",
         "Zumo De Naranja Recién Exprimada",
         3.50,
         null,
         "Zumit's HPP Squeezed Orange Juice offers a fresh and authentic taste in every bottle.",
         "./assets/juices/Naranja_2_litros.png",
-        "algo",
+        "special, orange",
         true
-    );
-
-COMMIT;
-
--- Crear la tabla smoothies
-CREATE TABLE IF NOT EXISTS
-    smoothies (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(50) NOT NULL,
-        price DECIMAL(4, 2) NOT NULL,
-        old_price DECIMAL(4, 2),
-        description VARCHAR(300) NOT NULL,
-        image VARCHAR(100) NOT NULL,
-        attributes VARCHAR(100) NOT NULL,
-        stock BOOLEAN NOT NULL
-    );
-
--- Eliminar datos si existen
-DELETE FROM smoothies;
-
--- Insertar todas la smoothies
-INSERT INTO
-    smoothies (
-        name,
-        price,
-        old_price,
-        description,
-        image,
-        attributes,
-        stock
-    )
-VALUES
+    ),
+    -- !!!!!!!! SMOOTHIES !!!!!!!!
     (
+        "smoothies",
         "Aguacate Mix",
         3.00,
         null,
         "Ice pop made with fresh strawberries from our region.",
         "./assets/smoothies/Aguacate_Mix.png",
-        "algo",
+        "fruits, vegetables",
         true
     ),
     (
+        "smoothies",
         "Berries Paradies",
         2.99,
         null,
         "Ice pop made with freshly squeezed lemon juice.",
         "./assets/smoothies/Berries_Paradies.png",
-        "algo",
+        "berries",
         false
     ),
     (
+        "smoothies",
         "Blue Lightning",
         3.45,
         null,
         "Fresh passion fruit ice_creams.",
         "./assets/smoothies/Blue_Lightning.png",
-        "algo",
+        "fruits",
         true
     ),
     (
+        "smoothies",
         "Caribbean Passion",
         1.99,
         null,
         "Fresh mango ice_creams.",
         "./assets/smoothies/Caribbean_Passion.png",
-        "algo",
+        "fruits",
         true
     ),
     (
+        "smoothies",
         "Colada Jungle",
         4.49,
         null,
         "Ice pop made of hazelnuts with hazelnut, chocolate and wafer swirls, developed exclusively for Lucciano's in Italy.",
         "./assets/smoothies/Colada_Jungle.png",
-        "algo",
+        "fruits",
         true
     ),
     (
+        "smoothies",
         "Delightful",
         3.45,
         null,
         "Ice pop made with whipped cream, with chocolate ganache and chocolate cookie swirls, decorated with stracciatella coated cookies.",
         "./assets/smoothies/Delightful.png",
-        "algo",
+        "fruits, berries",
         false
     ),
     (
+        "smoothies",
         "Dragon Fruit_Mix",
         3.00,
         null,
         "Ice pop made of Italian mascarpone with a Patagonian berry swirl.",
         "./assets/smoothies/Dragon_Fruit_Mix.png",
-        "algo",
+        "fruits, berries",
         false
     ),
     (
+        "smoothies",
         "Ginger Boost",
         4.49,
         null,
         "Peanut icepop without added sugar.",
         "./assets/smoothies/Ginger_Boost.png",
-        "algo",
+        "fruits",
         true
     ),
     (
+        "smoothies",
         "Green Power",
         3.45,
         null,
         "Strawberry whipped cream ice pop, a perfect combination of texture and flavor.",
         "./assets/smoothies/Green_Power.png",
-        "algo",
+        "vegetables, fruits",
         false
     ),
     (
+        "smoothies",
         "Squeeze Nature",
         1.99,
         null,
         "Whipped cream ice pop, coated with semi- sweet Belgian chocolate and small pieces of caramelized peanuts.",
         "./assets/smoothies/Squeeze_Nature.png",
-        "algo",
+        "vegetables, fruits,",
         true
     ),
     (
+        "smoothies",
         "Tropical Heaven",
         3.00,
         null,
         "Milk caramel ice pop, coated with Belgian white chocolate and small pieces of caramelized peanuts.",
         "./assets/smoothies/Tropical_Heaven.png",
-        "algo",
+        "fruits",
         true
     ),
     (
+        "smoothies",
         "Vitality",
         2.99,
-        null,
+        3.50,
         "Lucciano’s chocolate ice pop, coated with semi-sweet Belgian chocolate with small pieces of caramelized peanuts.",
         "./assets/smoothies/Vitality.png",
-        "algo",
+        "berries, fruits, discount",
         true
     ),
     (
+        "smoothies",
         "Watermelon Summer",
         4.49,
         null,
         "Strawberry whipped cream ice pop, coated with pink tinted Belgian white chocolate. It is decorated with multicolored sprinkles and white chocolate eyes.",
         "./assets/smoothies/Watermelon_Summer.png",
-        "algo",
+        "berries, fruits, special offer",
         false
     );
 
@@ -1135,7 +1028,7 @@ VALUES
         "root@email.com",
         "123456789",
         "c/ Root Av",
-        "2025-11-14"
+        "2025-04-14"
     ),
     (
         "Chocolates x 4",
@@ -1145,7 +1038,7 @@ VALUES
         "root@email.com",
         "123456789",
         "c/ Root Av",
-        "2025-11-14"
+        "2025-07-14"
     ),
     (
         "Juices x 2",
@@ -1155,7 +1048,7 @@ VALUES
         "root@email.com",
         "123456789",
         "c/ Root Av",
-        "2025-11-14"
+        "2025-05-14"
     ),
     (
         "Cookies x 2",
@@ -1165,7 +1058,7 @@ VALUES
         "root@email.com",
         "123456789",
         "c/ Root Av",
-        "2025-11-14"
+        "2025-05-23"
     ),
     (
         "Ice Creams x 2 Cookies x 3",
@@ -1175,7 +1068,7 @@ VALUES
         "root@email.com",
         "123456789",
         "c/ Root Av",
-        "2025-11-14"
+        "2023-11-14"
     ),
     (
         "Chocolates x 2 Ice Bars x 1",
@@ -1185,7 +1078,7 @@ VALUES
         "root@email.com",
         "123456789",
         "c/ Root Av",
-        "2025-11-14"
+        "2025-11-11"
     ),
     (
         "Cookies x 1 Juices x 3",
@@ -1195,7 +1088,7 @@ VALUES
         "root@email.com",
         "123456789",
         "c/ Root Av",
-        "2025-11-14"
+        "2015-10-14"
     ),
     (
         "Ice Creams x 5 Ice Bars x 6",
@@ -1205,7 +1098,298 @@ VALUES
         "root@email.com",
         "123456789",
         "c/ Root Av",
-        "2025-11-14"
+        "2021-11-14"
+    ),
+    (
+        "Chocolates x 2",
+        7.49,
+        2,
+        "reis",
+        "reis@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2025-01-14"
+    ),
+    (
+        "Cookies x 3",
+        13.50,
+        2,
+        "reis",
+        "reis@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2015-11-11"
+    ),
+    (
+        "Ice creams x 2",
+        9,
+        2,
+        "reis",
+        "reis@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2025-11-10"
+    ),
+    (
+        "Ice Bars x 2",
+        10,
+        2,
+        "reis",
+        "reis@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2015-11-14"
+    ),
+    (
+        "Smoothies x 5",
+        15,
+        2,
+        "reis",
+        "reis@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2015-11-14"
+    ),
+    (
+        "Milkshakes x 1",
+        2.50,
+        2,
+        "reis",
+        "reis@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2024-12-14"
+    ),
+    (
+        "Chocolates x 4",
+        8.50,
+        2,
+        "reis",
+        "reis@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2022-11-24"
+    ),
+    (
+        "Juices x 2",
+        3.50,
+        2,
+        "reis",
+        "reis@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2021-11-15"
+    ),
+    (
+        "Cookies x 2",
+        5.50,
+        2,
+        "reis",
+        "reis@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2023-11-11"
+    ),
+    (
+        "Ice Creams x 2 Cookies x 3",
+        10.50,
+        2,
+        "reis",
+        "reis@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2025-11-12"
+    ),
+    (
+        "Chocolates x 2 Ice Bars x 1",
+        11.50,
+        2,
+        "reis",
+        "reis@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2025-10-14"
+    ),
+    (
+        "Cookies x 1 Juices x 3",
+        13.50,
+        2,
+        "reis",
+        "reis@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2023-11-14"
+    ),
+    (
+        "Ice Creams x 5 Ice Bars x 6",
+        55.50,
+        2,
+        "reis",
+        "reis@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2024-11-14"
+    ),
+    (
+        "Chocolates x 2",
+        7.49,
+        2,
+        "reis",
+        "reis@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2025-01-14"
+    ),
+    (
+        "Cookies x 3",
+        13.50,
+        2,
+        "reis",
+        "reis@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2015-11-11"
+    ),
+    (
+        "Ice creams x 2",
+        9,
+        2,
+        "reis",
+        "reis@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2025-11-10"
+    ),
+    (
+        "Ice Bars x 2",
+        10,
+        2,
+        "reis",
+        "reis@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2015-11-14"
+    ),
+    (
+        "Smoothies x 5",
+        15,
+        2,
+        "reis",
+        "reis@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2015-11-14"
+    ),
+    (
+        "Milkshakes x 1",
+        2.50,
+        2,
+        "reis",
+        "reis@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2024-12-14"
+    ),
+    (
+        "Chocolates x 4",
+        8.50,
+        2,
+        "reis",
+        "reis@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2022-11-24"
+    ),
+    (
+        "Juices x 2",
+        3.50,
+        3,
+        "vadim",
+        "vadim@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2021-11-15"
+    ),
+    (
+        "Cookies x 2",
+        5.50,
+        3,
+        "vadim",
+        "vadim@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2023-11-11"
+    ),
+    (
+        "Ice Creams x 2 Cookies x 3",
+        10.50,
+        3,
+        "vadim",
+        "vadim@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2025-11-12"
+    ),
+    (
+        "Chocolates x 2 Ice Bars x 1",
+        11.50,
+        3,
+        "vadim",
+        "vadim@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2025-10-14"
+    ),
+    (
+        "Cookies x 1 Juices x 3",
+        13.50,
+        3,
+        "vadim",
+        "vadim@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2023-11-14"
+    ),
+    (
+        "Ice Creams x 5 Ice Bars x 6",
+        55.50,
+        3,
+        "vadim",
+        "vadim@email.com",
+        "123456789",
+        "c/ Root Av",
+        "2024-11-14"
+    );
+
+CREATE TABLE IF NOT EXISTS
+    users (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        email VARCHAR(50) NOT NULL,
+        username VARCHAR(50) NOT NULL,
+        password CHAR(64) NOT NULL,
+        isAdmin BOOLEAN
+    );
+
+INSERT INTO
+    users (email, username, password, isAdmin)
+VALUES
+    (
+        "root@email.com",
+        "root",
+        "$2y$10$GjfZDDSll.xyzdoNDK15/.j3gj.l./OPk.2NZwZDYMEmh7u204CKG",
+        true
+    ),
+    (
+        "reis@email.com",
+        "Reis",
+        "$2y$10$2TQgx4LC9827JY4f8zbjYOjeiPH.8voF83heJ77sIsnn0gWn9unSe",
+        true
+    ),
+    (
+        "vadim@email.com",
+        "Vadim",
+        "$2y$10$sGI86HHtVZ9PxTCVEYyffOOtsVIjQflYhh56is6C2q.TvBBYXZ9Za",
+        false
     );
 
 CREATE TABLE IF NOT EXISTS
@@ -1222,118 +1406,9 @@ DELETE FROM reviews;
 INSERT INTO
     reviews (id_user, username, review, post_date)
 VALUES
-    (
-        2,
-        "Cool Dude",
-        "This store is awesome!",
-        "2025-01-01"
-    ),
+    (3, "vadim", "This store is awesome!", "2025-01-01"),
     (1, "root", "Tasty!", "2025-02-02"),
-    (1, "Cool Dude", "Very good!", "2025-03-03");
-
-CREATE TABLE IF NOT EXISTS
-    special_offers (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        category VARCHAR(50) NOT NULL,
-        name VARCHAR(50) NOT NULL,
-        price DECIMAL(4, 2) NOT NULL,
-        old_price DECIMAL(4, 2),
-        description VARCHAR(300) NOT NULL,
-        image VARCHAR(100) NOT NULL,
-        attributes VARCHAR(100) NOT NULL,
-        stock BOOLEAN NOT NULL
-    );
-
-DELETE FROM special_offers;
-
-INSERT INTO
-    special_offers (
-        category,
-        name,
-        price,
-        old_price,
-        description,
-        image,
-        attributes,
-        stock
-    )
-VALUES
-    (
-        "ice_creams",
-        "Strawberry",
-        3.00,
-        4.00,
-        "Made with fresh strawberries from our region.",
-        "./assets/ice_creams/Strawberry.png",
-        "berries, discount",
-        true
-    ),
-    (
-        "ice_bars",
-        "Cookies And Cream",
-        3.45,
-        null,
-        "Ice pop made with whipped cream, with chocolate ganache and chocolate cookie swirls, decorated with stracciatella coated cookies.",
-        "./assets/ice_bars/Cookies_And_Cream.png",
-        "berries",
-        false
-    ),
-    (
-        "cookies",
-        "Caja Semisweet",
-        4.49,
-        null,
-        "Descripción",
-        "./assets/cookies/Caja_Semisweet.png",
-        "algo",
-        true
-    ),
-    (
-        "chocolates",
-        "Chocolate Blanco Con Caramelo Y Avellanas",
-        3.00,
-        null,
-        "description",
-        "./assets/chocolates/Chocolate_Blanco_Con_Caramelo_Y_Avellanas.png",
-        "algo",
-        false
-    ),
-    (
-        "smoothies",
-        "Caribbean Passion",
-        1.99,
-        null,
-        "Fresh mango ice_creams.",
-        "./assets/smoothies/Caribbean_Passion.png",
-        "algo",
-        true
-    );
-
-CREATE TABLE IF NOT EXISTS
-    users (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        email VARCHAR(50) NOT NULL,
-        username VARCHAR(50) NOT NULL,
-        password CHAR(64) NOT NULL,
-        isAdmin BOOLEAN
-    );
-
-INSERT INTO
-    users (email, username, password, isAdmin)
-SELECT
-    "root@email.com",
-    "root",
-    "$2y$10$GjfZDDSll.xyzdoNDK15/.j3gj.l./OPk.2NZwZDYMEmh7u204CKG",
-    true
-WHERE
-    NOT EXISTS (
-        SELECT
-            *
-        FROM
-            users
-    );
-
-COMMIT;
+    (3, "vadim", "Very good!", "2025-03-03");
 
 CREATE TABLE IF NOT EXISTS
     mails (
@@ -1359,17 +1434,19 @@ VALUES
         "Something else",
         "Lorem Ipsim.",
         "root@email.com",
-        "2025-11-01"
+        "2025-01-01"
     ),
     (
         "Store review",
         "Lorem Ipsim.",
         "root@email.com",
-        "2025-11-01"
+        "2025-02-01"
     ),
     (
         "Example",
         "Lorem Ipsim.",
         "root@email.com",
-        "2025-11-01"
+        "2025-03-01"
     );
+
+COMMIT;

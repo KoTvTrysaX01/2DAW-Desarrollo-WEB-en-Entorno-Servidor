@@ -22,7 +22,7 @@ if (isset($_GET['edit'])) {
     $valores['id'] = addslashes(trim($_GET['edit']));
     if ($valores['id'] != "") {
         // SQL select
-        $sqlSelect = "SELECT * FROM {$config['category']} WHERE id='" . $valores['id'] . "'";
+        $sqlSelect = "SELECT * FROM sells WHERE id='" . $valores['id'] . "'";
         $sqlCursor = sqlQuery($sqlBD, $sqlSelect);
         $products = sqlObtenerRegistro($sqlBD, $sqlCursor);
 
@@ -80,7 +80,7 @@ if (isset($_POST['btnGrabar'])) {
 /* PROCESO DE GRABACIÓN*/
 if ($grabar) {
     if ($valores['id'] != "") {
-        $sqlIns = "UPDATE {$config['category']} 
+        $sqlIns = "UPDATE sells
 							SET 
                                 products='" . $valores['products'] . "',
 								total_price='" . $valores['total_price'] . "',
@@ -95,7 +95,7 @@ if ($grabar) {
 						";
     } else {
         // El id se genera automáticamente porque es AUTO_INCREMENT en MySQL
-        $sqlIns = "INSERT INTO {$config['category']} (products, total_price, id_user, username, email, tel, address purchase_date) 
+        $sqlIns = "INSERT INTO sells (products, total_price, id_user, username, email, tel, address, purchase_date) 
 							VALUES (
 								 '" . $valores['products'] . "',
 								 '" . $valores['total_price'] . "',
@@ -212,96 +212,96 @@ sqlDesconecta($sqlBD);
                             <input type="text" class="form-control" id="id" name="id" readonly>
                         </div>
 
-                        <!-- Campo products -->
+                        <!-- Campo Products -->
                         <div class="mb-3">
-                            <label for="products" class="form-label required-field">products</label>
+                            <label for="products" class="form-label required-field">Sold Products</label>
                             <input type="text" class="form-control" id="products" name="products" required
-                                minlength="3" placeholder="Ingrese el nombre de la products">
+                                minlength="6" placeholder="Write sold products' names">
                             <div class="invalid-feedback">
-                                El nombre de la products es obligatorio y debe tener al menos 5 caracteres.
+                                The products are required and must be at leat 6 letter length.
                             </div>
                         </div>
 
                         <!-- Campo total_price -->
                         <div class="mb-3">
-                            <label for="total_price" class="form-label required-field">total_price</label>
-                            <input type="number" min="0" max="1000" step="0.01" class="form-control" id="total_price" name="total_price" required>
+                            <label for="total_price" class="form-label required-field">Total Price</label>
+                            <input type="number" min="0" max="1000" step="0.01" class="form-control" id="total_price" name="total_price" required placeholder="Write products' total price">
                             </input>
                             <div class="invalid-feedback">
-                                Por favor seleccione un precio adecuado (0-1000).
+                                Please indicate an adequate price.
                             </div>
                         </div>
 
                         <!-- Campo id_user -->
                         <div class="mb-3">
-                            <label for="id_user" class="form-label">id_user</label>
-                            <input type="number" min="0" max="1000" class="form-control" id="id_user" name="id_user">
+                            <label for="id_user" class="form-label">User's ID</label>
+                            <input type="number" min="0" max="100" class="form-control" id="id_user" name="id_user" placeholder="Write user's ID">
                             </input>
                             <div class="invalid-feedback">
-                                Por favor seleccione un precio adecuado (0-1000).
+                                Please indicate an adequate ID.
                             </div>
                         </div>
 
                         <!-- Campo username -->
                         <div class="mb-3">
-                            <label for="username" class="form-label required-field">username</label>
+                            <label for="username" class="form-label required-field">Username</label>
                             <input type="text" class="form-control" id="username" name="username" required
-                                minlength="4" placeholder="Ingrese la username de la products">
+                                minlength="4" placeholder="Write user's username">
                             <div class="invalid-feedback">
-                                La username es obligatoria y debe tener al menos 4 caracteres.
+                                The username is required and must be at leat 4 letter length.
                             </div>
                         </div>
 
                         <!-- Campo email -->
                         <div class="mb-3">
-                            <label for="email" class="form-label required-field">email</label>
+                            <label for="email" class="form-label required-field">Email</label>
                             <input type="email" class="form-control" id="email" name="email" required
-                                minlength="4" placeholder="Ingrese la email de la products">
+                                minlength="4" placeholder="Write user's email">
                             <div class="invalid-feedback">
-                                La email es obligatoria y debe tener al menos 4 caracteres.
+                                The email is required and must be at leat 4 letter length.
                             </div>
                         </div>
 
                         <!-- Campo tel -->
                         <div class="mb-3">
-                            <label for="tel" class="form-label required-field">tel</label>
+                            <label for="tel" class="form-label required-field">Telephone</label>
                             <input type="tel" class="form-control" id="tel" name="tel" required
-                                minlength="4" placeholder="Ingrese la tel de la products">
+                                minlength="8" placeholder="Write user's telephone">
                             <div class="invalid-feedback">
-                                La tel es obligatoria y debe tener al menos 4 caracteres.
+                                The telephone is required and must be at leat 8 letter length.
                             </div>
                         </div>
 
                         <!-- Campo address -->
                         <div class="mb-3">
-                            <label for="address" class="form-label required-field">address</label>
+                            <label for="address" class="form-label required-field">Address</label>
                             <textarea class="form-control" id="address" name="address" required
-                                minlength="4" maxlength="300" rows="3" placeholder="Ingrese la address de la products"></textarea>
+                                minlength="10" maxlength="300" rows="3" placeholder="Write user's address"></textarea>
                             <div class="invalid-feedback">
-                                La address es obligatoria y debe tener al menos 4 caracteres.
+                                The address is required and must be at leat 10 letter length.
                             </div>
                         </div>
 
                         <!-- Campo purchase date -->
                         <div class="mb-3">
-                            <label for="purchase_date" class="form-label required-field">purchase_date</label>
+                            <label for="purchase_date" class="form-label required-field">Selling Date</label>
                             <input type="date" class="form-control" id="purchase_date" name="purchase_date" required
-                                minlength="4" placeholder="Ingrese la attributes de la products">
+                                minlength="4">
                             <div class="invalid-feedback">
-                                La fabricante es obligatoria y debe tener al menos 4 caracteres.
+                                The purchase date is required.
                             </div>
                         </div>
 
                         <!-- Botones de acción -->
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
                             <button type="button" class="btn btn-warning btn-action" id="btnVolver">
-                                <i class="bi bi-arrow-left-circle me-1"></i> Volver
+                                <i class="bi bi-arrow-left-circle me-1"></i> Go Back
                             </button>
                             <button type="button" class="btn btn-secondary btn-action" id="btnCancelar">
-                                <i class="bi bi-x-circle me-1"></i> Cancelar
+                                <i class="bi bi-x-circle me-1"></i> Cancel
                             </button>
                             <button id="btnGrabar" name="btnGrabar" type="submit" class="btn btn-primary btn-action">
-                                <i class="bi bi-check-circle me-1"></i> Grabar
+                                <i class="bi bi-check-circle me-1"></i> Save
                             </button>
                         </div>
                     </form>
@@ -323,10 +323,10 @@ sqlDesconecta($sqlBD);
         function cargarDatosParaEdicion(id, products, total_price, id_user, username, email, tel, address, purchase_date) {
             if (id == "") {
                 $("#idFieldContainer").hide(); // En nuevo registro
-                $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>Nueva products');
+                $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>New Sell');
             } else {
                 $("#idFieldContainer").show(); // En edición de registro
-                $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>Editar products');
+                $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>Edit Sell');
             }
             $("#id").val(id);
             $("#products").val(products);
@@ -396,28 +396,11 @@ sqlDesconecta($sqlBD);
             }
             ?>
 
-
-            /*
-            		// Convertir Categoría a mayúsculas automáticamente en Javascript
-            		$("#categoria").on("input", function () {
-            			$(this).val($(this).val().toUpperCase());
-            		});
-            */
-
-
             // SUBMIT - GRABAR
             form.on("submit", function(event) {
                 if (!form[0].checkValidity()) { // No se han validado los valores de los campos
                     event.preventDefault(); // Evita envío del formulario
                     event.stopPropagation(); // Evita que continue el evento a etiquetas padres del DOM
-
-                    // Campos con mensaje variable
-                    // const categoria = $("#categoria");
-                    // if (categoria[0].validity.patternMismatch) {
-                    // 	categoria.next(".invalid-feedback").text("Debe teclear al menos 3 letras.");
-                    // } else {
-                    // 	categoria.next(".invalid-feedback").text("El Categoría es obligatorio.");
-                    // }
 
                     // Activar validación de campos y mensaje de error
                     form.addClass("was-validated");

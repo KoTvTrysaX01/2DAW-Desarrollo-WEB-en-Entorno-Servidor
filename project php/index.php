@@ -16,7 +16,7 @@ include "./dao/include_config.php";
     include "./inc/include_nav.php";
 
     switch ($config['category']) {
-        case "reviews":
+        case "review":
             include "./content/index/section_reviews.php";
             break;
         case "history":

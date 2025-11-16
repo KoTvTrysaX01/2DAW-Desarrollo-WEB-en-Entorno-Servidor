@@ -1,3 +1,3 @@
 <footer>
-    <p>&copy; 2025 Foodie Express. All rights reserved.</p>
+    <p>&copy; 2025 Helado Express. All rights reserved.</p>
 </footer>

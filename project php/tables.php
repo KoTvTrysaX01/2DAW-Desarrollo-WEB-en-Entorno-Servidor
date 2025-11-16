@@ -20,6 +20,7 @@ include "./dao/include_config.php";
         include "./content/tables/section_all_tables.php";
     } else {
         switch ($config['category']) {
+            case "all_products":
             case "ice_creams":
             case "ice_bars":
             case "cookies":
@@ -27,7 +28,6 @@ include "./dao/include_config.php";
             case "milkshakes":
             case "juices":
             case "smoothies":
-            case "special_offers":
             case "users":
             case "sells":
             case "reviews":
