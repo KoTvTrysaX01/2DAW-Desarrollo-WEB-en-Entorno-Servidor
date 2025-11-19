@@ -23,6 +23,7 @@ if (isset($_GET['edit'])) {
     if ($valores['id'] != "") {
         // SQL select
         $sqlSelect = "SELECT * FROM products WHERE id='" . $valores['id'] . "'";
+
         $sqlCursor = sqlQuery($sqlBD, $sqlSelect);
         $products = sqlObtenerRegistro($sqlBD, $sqlCursor);
 
@@ -37,7 +38,6 @@ if (isset($_GET['edit'])) {
             $valores['attributes'] = $products['attributes'];
             $valores['stock'] = $products['stock'];
         }
-
         $editar = true;
     }
 }
@@ -63,11 +63,20 @@ if (isset($_POST['btnGrabar'])) {
     if (isset($_POST['description'])) {
         $valores['description'] = addslashes(trim($_POST['description']));
     }
-    if (isset($_POST['image'])) {
-        $valores['image'] = addslashes(trim($_POST['image']));
+    // if (isset($_POST['image'])) {
+    //     $valores['image'] = addslashes(trim($_POST['image']));
+    // }
+    if (!isset($_FILES["image"]) && $_FILES["image"]["error"] != 0) {
+        echo "Eror: couldn't load the image";
+    } else {
+        $target_dir = "./assets/{$config['category']}/";
+        $target_file = $target_dir . basename($_FILES["image"]["name"]);
+        move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+
+        $valores['image'] = $target_dir . basename($_FILES["image"]["name"]);
     }
     if (isset($_POST['attributes'])) {
-        $valores['image'] = addslashes(trim($_POST['image']));
+        $valores['attributes'] = addslashes(trim($_POST['attributes']));
     }
     if (isset($_POST['stock'])) {
         $valores['stock'] = addslashes(trim($_POST['stock']));
@@ -269,15 +278,24 @@ sqlDesconecta($sqlBD);
                             </div>
                         </div>
 
-                        <div class="mb-3">
+                        <!-- Campo Image -->
+                        <!-- <div class="mb-3">
                             <label for="image" class="form-label required-field">Image Source</label>
                             <input type="text" class="form-control" id="image" name="image" required
                                 minlength="6" placeholder="Write Product's image source">
                             <div class="invalid-feedback">
                                 The image source is required and must be at least 6 letter length.
                             </div>
+                        </div> -->
+                        <div class="mb-3">
+                            <label for="image" class="form-label required-field">Image Source</label>
+                            <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
+                            <!-- <div class="invalid-feedback">
+                                The image source is required and must be at least 6 letter length.
+                            </div> -->
                         </div>
 
+                        <!-- Campo Attributes -->
                         <div class="mb-3">
                             <label for="attributes" class="form-label required-field">Attributes</label>
                             <input type="text" class="form-control" id="attributes" name="attributes" required
@@ -327,7 +345,7 @@ sqlDesconecta($sqlBD);
     <script>
         // products
         // Métodos personalizados 
-        function cargarDatosParaEdicion(id, category, name, price, old_price, description, image, attributes, stock) {
+        function cargarDatosParaEdicion(id, category, name, price, old_price, description, attributes, stock) {
             if (id == "") {
                 $("#idFieldContainer").hide(); // En nuevo registro
                 $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>New Product');
@@ -335,19 +353,21 @@ sqlDesconecta($sqlBD);
                 $("#idFieldContainer").show(); // En edición de registro
                 $(".header-title").html('<i class="bi bi-pencil-square me-2"></i>Edit Product');
             }
+
+
+
             $("#id").val(id);
             $("#category").val(category);
             $("#name").val(name);
             $("#price").val(price);
             $("#old_price").val(old_price);
             $("#description").val(description);
-            $("#image").val(image);
             $("#attributes").val(attributes);
             $("#stock").val(stock);
         }
 
         function cargarDatosParaNuevo() {
-            cargarDatosParaEdicion("", "", "", "", "", "", "", "", "");
+            cargarDatosParaEdicion("", "", "", "", "", "", "", "");
         }
 
 
@@ -373,9 +393,12 @@ sqlDesconecta($sqlBD);
                     '<?php echo $valores['price']; ?>',
                     '<?php echo $valores['old_price']; ?>',
                     '<?php echo $valores['description']; ?>',
-                    '<?php echo $valores['image']; ?>',
+                    // '<?php //echo $valores['image']; 
+                        ?>',
                     '<?php echo $valores['attributes']; ?>',
                     '<?php echo $valores['stock']; ?>'
+
+
                 );
             <?php } else { ?>
                 cargarDatosParaNuevo();
@@ -426,6 +449,8 @@ sqlDesconecta($sqlBD);
             // VOLVER
             $("#btnVolver").on("click", function() {
                 // Recargar los datos iniciales
+                console.log("algo");
+
                 window.location.href = "tables.php?category=<?php echo $_GET['category']; ?>";
             });
         });

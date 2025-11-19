@@ -3,7 +3,15 @@
 if (isset($_POST['delete'])) {
     array_splice($_SESSION['cart'], $_POST['id'], 1);
 }
+
+
+// Known bug. If try access the cart after loggin in, the cart products might not display correctly. Deletting them and start over would be the solution
+
 ?>
+
+
+
+
 
 <div class="cont-1">
     <div class="container">

@@ -174,6 +174,9 @@ if (isset($_GET['del'])) {
                                         <i class="fas fa-edit"></i> Editar
                                     </button>
                                     <button class="btn btn-sm btn-delete"
+                                        <?php if($config['category'] == 'users' && $dataArray['isAdmin']){
+                                            echo "hidden";
+                                        } ?>
                                         data-id="<?php echo $dataArray['id']; ?>"
                                         data-nombre="<?php
 
