@@ -20,7 +20,7 @@ Para comprar un producto y utilizar otras funciones del sitio, el usuario __DEBE
 
 Para acceder a la sección privada del sitio, el usuario debe registrarse introduciendo su nombre de usuario, correo electrónico y contraseña, o iniciar sesión utilizando la información correcta(vadim@email.com 123). Tras iniciar sesión, se mostrará un mensaje de bienvenida al usuario en la página principal. Allí puede:
     
-    1. comprar un producto del carrito. Tras hacer clic en el botón, se le presentará un formulario con información sobre el artículo, sus datos personales y campos para su número de teléfono y dirección.
+    1. comprar un producto del carrito. Tras hacer clic en el botón, se le presentará un formulario con información sobre el artículo, sus datos personales y campos para su número de teléfono y dirección. ACTUALIZACIÓN: tras enviar el formulario, el usuario recibirá un correo electrónico con la información del pedido.
     2. consultar los últimos 10 pedidos en tu historial de compras. Si tienes más de 10 pedidos, puedes verlos todos haciendo clic en el botón.
     3. enviar su reseña. Estará disponible para todos los usuarios del sitio.
 
