@@ -12,6 +12,7 @@ CREATE TABLE IF NOT EXISTS
         attributes VARCHAR(100) NOT NULL,
         stock BOOLEAN NOT NULL
     );
+DELETE FROM products;
 
 INSERT INTO
     products (

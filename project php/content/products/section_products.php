@@ -19,11 +19,7 @@ foreach ($filters as $filter) {
             break;
         default:
             if ($filter != "") {
-                if ($where == "") {
-                    $where = " AND attributes LIKE '%" . lcfirst($filter) . "%'";
-                } else {
-                    $where .= " AND attributes LIKE '%" . lcfirst($filter) . "%'";
-                }
+                $where .= " AND attributes LIKE '%" . lcfirst($filter) . "%'";
             }
             break;
     }
@@ -67,7 +63,9 @@ SqlDesconecta($sqlBD);
             <?php
             foreach ($attributes as $attribute) {
             ?>
-                <button class="filter-button <?php if(in_array(ucfirst($attribute), $filters)){echo "filtered";}?>" onclick="myFunction(this)" name="<?php echo ucfirst($attribute); ?>"><?php echo ucfirst($attribute); ?></button>
+                <button class="filter-button <?php if (in_array(ucfirst($attribute), $filters)) {
+                                                    echo "filtered";
+                                                } ?>" onclick="myFunction(this)" name="<?php echo ucfirst($attribute); ?>"><?php echo ucfirst($attribute); ?></button>
             <?php
             }
             ?>

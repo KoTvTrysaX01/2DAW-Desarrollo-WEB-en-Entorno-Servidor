@@ -66,14 +66,18 @@ if (isset($_POST['btnGrabar'])) {
     // if (isset($_POST['image'])) {
     //     $valores['image'] = addslashes(trim($_POST['image']));
     // }
+
+    
     if (!isset($_FILES["image"]) && $_FILES["image"]["error"] != 0) {
         echo "Eror: couldn't load the image";
     } else {
         $target_dir = "./assets/{$config['category']}/";
         $target_file = $target_dir . basename($_FILES["image"]["name"]);
-        move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
 
-        $valores['image'] = $target_dir . basename($_FILES["image"]["name"]);
+
+        // Known bug. Sometimes method cannot read name of the destiny file correctly. For some reason
+        move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+        $valores['image'] = $target_file;
     }
     if (isset($_POST['attributes'])) {
         $valores['attributes'] = addslashes(trim($_POST['attributes']));

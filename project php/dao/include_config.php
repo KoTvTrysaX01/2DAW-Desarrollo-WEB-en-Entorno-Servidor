@@ -1,6 +1,8 @@
 <?php
 include "./dao/include_mysql.php";
 include "./dao/include_vars.php";
+
+include "./content/mails/PHPMailer.php";
 session_start();
 
 $loggedin = false;
