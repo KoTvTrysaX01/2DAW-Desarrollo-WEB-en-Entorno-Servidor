@@ -101,6 +101,9 @@ if ($grabar) {
     $_SESSION['cart'] = array();
 
 
+    sendMail($valores['products'], $valores['total_price'], $valores['username'], $valores['email'], $valores['address'], $valores['purchase_date']);
+
+
     echo '<script>alert("Thanks for the purchase!")</script>';
     header("Refresh: 0.1;" . "index.php?category=home");
 }
@@ -378,7 +381,7 @@ if ($grabar) {
             // VOLVER
             $("#btnVolver").on("click", function() {
                 // Recargar los datos iniciales
-                window.location.href = "tables.php?category=<?php echo $_GET['category']; ?>";
+                window.location.href = "index.php?category=cart";
             });
         });
     </script>

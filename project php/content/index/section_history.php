@@ -2,7 +2,7 @@
 
 // Searches for sales by user ID
 $sqlBD = SqlConecta($hostSql, $userSql, $passSql, $basedatosSql);
-$sqlSelect = "SELECT * FROM sells WHERE id_user = '{$_SESSION['user']['id']}' ORDER BY purchase_date DESC";
+$sqlSelect = "SELECT * FROM sells WHERE id_user = '{$_SESSION['user']['id']}' ORDER BY purchase_date DESC, id DESC";
 $sqlCursor = sqlQuery($sqlBD, $sqlSelect);
 $arrayHistory = sqlResultArray($sqlBD, $sqlCursor);
 
