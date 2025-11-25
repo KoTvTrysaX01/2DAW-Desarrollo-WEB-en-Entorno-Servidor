@@ -1,0 +1,35 @@
+    
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background-color: var(--primary-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+    }
+    
+    .feature-icon i {
+      font-size: 24px;
+      color: white;
+    }
+    
+    .benefit-card {
+      transition: transform 0.3s;
+      height: 100%;
+    }
+    
+    .benefit-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .service-list li {
+      margin-bottom: 10px;
+      padding-left: 10px;
+    }
+    
+   
+    .img-fluid-rounded {
+      border-radius: 10px;
+    }
