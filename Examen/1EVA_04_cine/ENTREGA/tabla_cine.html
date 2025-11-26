@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Películas</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="extension/bootstrap/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="extension/font-awesome/all.min.css">
+    
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-12">
+                <!-- Título con estilo -->
+                <h1 class="page-title text-center mb-4"><i class="fas fa-film me-3 clapperboard-icon"></i>Catálogo de Películas</h1>
+
+                <!-- Card con Tabla -->
+                <div class="card card-custom">
+                    <div class="card-header card-header-custom text-center">
+                        <h3 class="card-title mb-0"><i class="fas fa-ticket-alt me-2"></i>Las Mejores Películas de la Década</h3>
+                        <p class="mb-0 mt-2 opacity-75">Críticas, puntuaciones y datos técnicos</p>
+                    </div>
+                    
+                    <div class="card-body p-0">
+                        <!-- Tabla Responsive -->
+                        <div class="table-responsive">
+                            <table class="table table-custom table-hover mb-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="text-center">#</th>
+                                        <th scope="col">Película</th>
+                                        <th scope="col" class="text-center">Año</th>
+                                        <th scope="col" class="text-center">Género</th>
+                                        <th scope="col" class="text-center">Duración</th>
+                                        <th scope="col" class="text-center">Rating</th>
+                                        <th scope="col" class="text-center">Premios</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Fila 1 -->
+                                    <tr class="movie-row-top">
+                                        <th scope="row" class="text-center">1</th>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="movie-poster poster-1 me-3">
+                                                    DUNE
+                                                </div>
+                                                <div>
+                                                    <div class="movie-title">Dune: Parte Dos</div>
+                                                    <div class="movie-director">Denis Villeneuve</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="year-badge">2024</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="genre-badge genre-scifi">Ciencia Ficción</span>
+                                        </td>
+                                        <td class="text-center duration">166 min</td>
+                                        <td class="text-center">
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                            </div>
+                                            <div class="rating-number">8.9/10</div>
+                                        </td>
+                                        <td class="text-center">
+                                            <i class="fas fa-trophy oscar-winner me-1"></i>
+                                            <span>6 Oscars</span>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Fila 2 -->
+                                    <tr class="movie-row-top">
+                                        <th scope="row" class="text-center">2</th>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="movie-poster poster-2 me-3">
+                                                    OPP
+                                                </div>
+                                                <div>
+                                                    <div class="movie-title">Oppenheimer</div>
+                                                    <div class="movie-director">Christopher Nolan</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="year-badge">2023</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="genre-badge genre-drama">Drama Histórico</span>
+                                        </td>
+                                        <td class="text-center duration">180 min</td>
+                                        <td class="text-center">
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <div class="rating-number">9.1/10</div>
+                                        </td>
+                                        <td class="text-center">
+                                            <i class="fas fa-trophy oscar-winner me-1"></i>
+                                            <span>7 Oscars</span>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Fila 3 -->
+                                    <tr>
+                                        <th scope="row" class="text-center">3</th>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="movie-poster poster-3 me-3">
+                                                    AQ
+                                                </div>
+                                                <div>
+                                                    <div class="movie-title">El hombre de agua</div>
+                                                    <div class="movie-director">Guillermo del Toro</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="year-badge">2023</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="genre-badge genre-drama">Drama Fantástico</span>
+                                        </td>
+                                        <td class="text-center duration">119 min</td>
+                                        <td class="text-center">
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                            <div class="rating-number">8.2/10</div>
+                                        </td>
+                                        <td class="text-center">
+                                            <i class="fas fa-trophy oscar-winner me-1"></i>
+                                            <span>4 Oscars</span>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Fila 4 -->
+                                    <tr>
+                                        <th scope="row" class="text-center">4</th>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="movie-poster poster-4 me-3">
+                                                    EEAAO
+                                                </div>
+                                                <div>
+                                                    <div class="movie-title">Todo en todas lados al mismo tiempo</div>
+                                                    <div class="movie-director">Daniel Kwan, Daniel Scheinert</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="year-badge">2022</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="genre-badge genre-accion">Acción/Ciencia Ficción</span>
+                                        </td>
+                                        <td class="text-center duration">139 min</td>
+                                        <td class="text-center">
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                            </div>
+                                            <div class="rating-number">8.7/10</div>
+                                        </td>
+                                        <td class="text-center">
+                                            <i class="fas fa-trophy oscar-winner me-1"></i>
+                                            <span>7 Oscars</span>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Fila 5 -->
+                                    <tr>
+                                        <th scope="row" class="text-center">5</th>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="movie-poster poster-5 me-3">
+                                                    DUNE
+                                                </div>
+                                                <div>
+                                                    <div class="movie-title">Dune</div>
+                                                    <div class="movie-director">Denis Villeneuve</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="year-badge">2021</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="genre-badge genre-scifi">Ciencia Ficción</span>
+                                        </td>
+                                        <td class="text-center duration">155 min</td>
+                                        <td class="text-center">
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                            <div class="rating-number">8.3/10</div>
+                                        </td>
+                                        <td class="text-center">
+                                            <i class="fas fa-trophy oscar-winner me-1"></i>
+                                            <span>6 Oscars</span>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Fila 6 -->
+                                    <tr>
+                                        <th scope="row" class="text-center">6</th>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="movie-poster poster-6 me-3">
+                                                    P
+                                                </div>
+                                                <div>
+                                                    <div class="movie-title">Parásitos</div>
+                                                    <div class="movie-director">Bong Joon-ho</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="year-badge">2019</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="genre-badge genre-drama">Drama/Thriller</span>
+                                        </td>
+                                        <td class="text-center duration">132 min</td>
+                                        <td class="text-center">
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <div class="rating-number">9.2/10</div>
+                                        </td>
+                                        <td class="text-center">
+                                            <i class="fas fa-trophy oscar-winner me-1"></i>
+                                            <span>4 Oscars</span>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Fila 7 -->
+                                    <tr>
+                                        <th scope="row" class="text-center">7</th>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="movie-poster poster-7 me-3">
+                                                    M
+                                                </div>
+                                                <div>
+                                                    <div class="movie-title">Midsommar: El terror no espera la noche</div>
+                                                    <div class="movie-director">Ari Aster</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="year-badge">2019</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="genre-badge genre-terror">Drama/Terror</span>
+                                        </td>
+                                        <td class="text-center duration">148 min</td>
+                                        <td class="text-center">
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                            <div class="rating-number">7.9/10</div>
+                                        </td>
+                                        <td class="text-center">
+                                            <i class="fas fa-award oscar-nominee me-1"></i>
+                                            <span>Nominada</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Información adicional -->
+                <div class="mt-4 text-center text-muted">
+                    <small><i class="fas fa-info-circle me-1"></i>Datos actualizados a Noviembre 2023 - Fuente: IMDb y Box Office Mojo</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="extension/bootstrap/bootstrap.bundle.min.js"></script>
+</body>
+</html>
