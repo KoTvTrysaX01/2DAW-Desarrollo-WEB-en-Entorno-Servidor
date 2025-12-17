@@ -1,0 +1,21 @@
+
+package com.example.demo.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+@RequestMapping("/sumar")
+public class ControladorSumar {
+
+    @ResponseBody
+    @GetMapping("/{num1}/{num2}")
+    public String getMethodParam(@PathVariable Integer num1, @PathVariable Integer num2) {
+        return String.valueOf(num1 + num2);
+    }
+
+    
+}
