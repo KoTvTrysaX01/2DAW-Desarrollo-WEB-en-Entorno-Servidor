@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DEMO</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>DEMO THYMELEAF</h1>
+        <div>
+            <p>Sin parámetros</p>
+            <a href="/demosaludo"/>/demosaludo (index.html)</a><br>
+			
+            <p>Con parámetros en el query (@RequestParam)</p>
+            <a href="/demosaludo/hola"/>/demosaludo/hola (hola.html) sin parámetro da error</a><br>
+            <a href="/demosaludo/hola?name=Juan"/>/demosaludo/hola?name=Juan (hola.html)</a><br>
+            <a href="/demosaludo/hello"/>/demosaludo/hello (hola.html) usa valor por defecto</a><br>
+            <a href="/demosaludo/hello?name=Miguel"/>/demosaludo/hello?name=Miguel (hola.html)</a><br>
+			
+            <p>Con parámetros en el path (@PathVariable)</p>
+            <a href="/demosaludo/hola/Elena "/>/demosaludo/hola/Elena  (hola.html)</a><br>
+			
+			
+        </div>
+    </body>
+</html>
