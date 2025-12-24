@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Mostrar Array</title>
+        <style>
+            table {
+                border-collapse: collapse;
+                border:1px solid black;
+                background-color: #dddddd;
+                width:440px;
+                text-align:center;
+            }
+            td, th {
+                width:40px;
+                border: 1px solid black;
+            }
+            .cabecera {
+                background-color: orange;
+                font-weight:bold;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th class="cabecera"> </th>
+                <th class="cabecera" th:each="i: ${#numbers.sequence(0, 9)}" th:text="${i}"></th>
+            </tr>
+            <tr th:each="i: ${#numbers.sequence(0, 9)}">
+                <td class="cabecera" th:text="${i}"></td>
+                <td th:each="celda : ${matriz[__${i}__]}" th:text="${celda}"></td>
+            </tr>
+        </table>
+    </body>
+</html>
