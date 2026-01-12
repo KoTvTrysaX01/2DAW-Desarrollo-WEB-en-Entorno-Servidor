@@ -63,4 +63,9 @@ public class UserController {
         return userService.findByNameLike(cadena);
     }
 
+    @GetMapping("/users/email/dominio")
+    public List<User> showUsersConDominio(@RequestParam String valor) {
+        return userService.findByEmailLike(valor);
+    }
+
 }

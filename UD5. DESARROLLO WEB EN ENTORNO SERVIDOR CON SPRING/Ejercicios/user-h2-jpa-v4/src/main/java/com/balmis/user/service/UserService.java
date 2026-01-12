@@ -40,4 +40,8 @@ public class UserService {
     public List<User> findByNameLike(String cadena) {
         return userRepository.findByNameLike(cadena);
     }
+
+    public List<User> findByEmailLike(String valor) {
+        return userRepository.findByEmailLike(valor);
+    }
 }
