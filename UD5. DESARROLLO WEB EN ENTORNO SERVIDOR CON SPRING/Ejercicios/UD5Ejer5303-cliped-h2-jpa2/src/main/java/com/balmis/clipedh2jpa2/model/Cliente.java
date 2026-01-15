@@ -27,8 +27,8 @@ import lombok.ToString;
 @AllArgsConstructor         // => Constructor con todos los argumentos
 @NoArgsConstructor          // => Constructor sin argumentos
 @Data                       // => @Getter + @Setter + @ToString + @EqualsAndHashCode + @RequiredArgsConstructor
-@ToString(exclude = "Pedidos")           // Excluir del toString para evitar recursividad
-@EqualsAndHashCode(exclude = "Pedidos")  // Excluir de equals y hashCode para evitar recursividad
+@ToString(exclude = "Pedido")           // Excluir del toString para evitar recursividad
+@EqualsAndHashCode(exclude = "Pedido")  // Excluir de equals y hashCode para evitar recursividad
 
 // JPA
 @Entity
@@ -63,8 +63,8 @@ public class Cliente implements Serializable {
     @Column(name = "direccion", nullable = false, unique = true)
     private String direccion;
 
-    @OneToMany(mappedBy = "Pedidos", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonIgnoreProperties("Pedidos")  
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnoreProperties("cliente")  
     private Set<Pedido> pedidos = new HashSet<>();
     
 }

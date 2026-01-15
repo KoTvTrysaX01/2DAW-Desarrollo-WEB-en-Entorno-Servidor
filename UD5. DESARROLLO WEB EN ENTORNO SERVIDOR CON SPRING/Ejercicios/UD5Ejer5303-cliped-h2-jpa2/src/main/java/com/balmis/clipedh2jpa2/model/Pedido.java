@@ -1,6 +1,7 @@
 package com.balmis.clipedh2jpa2.model;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -46,7 +47,7 @@ public class Pedido implements Serializable {
     @NotBlank(message = "La fecha es obligatorio")
     @Size(min=1, max=20, message = "La fecha no puede tener más de 20 caracteres")
     @Column(name = "fecha", nullable = false, unique = false) 
-    private String fecha;
+    private Date fecha;
 
     
     @NotBlank(message = "El producto es obligatorio")
