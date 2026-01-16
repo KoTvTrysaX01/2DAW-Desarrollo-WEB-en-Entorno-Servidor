@@ -16,32 +16,32 @@ public class PedidoController {
     @Autowired
     private PedidoService pedidoService;
     
-    // http://localhost:8080/userh2jpa2v1/h2-console          = Consola de H2
+    // http://localhost:8080/clipedh2jpa2/h2-console          = Consola de H2
     
-    // http://localhost:8080/userh2jpa2v1                     = /static/index.html
-    // http://localhost:8080/userh2jpa2v1/static-noexiste     = gestionado por GlobalExceptionHandler
-    // http://localhost:8080/userh2jpa2v1/users/api-noexiste  = gestionado por GlobalExceptionHandler
+    // http://localhost:8080/clipedh2jpa2                     = /static/index.html
+    // http://localhost:8080/clipedh2jpa2/static-noexiste     = gestionado por GlobalExceptionHandler
+    // http://localhost:8080/clipedh2jpa2/users/api-noexiste  = gestionado por GlobalExceptionHandler
     
-    // http://localhost:8080/userh2jpa2v1/users
+    // http://localhost:8080/clipedh2jpa2/pedidos
     @GetMapping("/pedidos")
     public List<Pedido> showUsers() {
         return pedidoService.findAll();
     }
     
     
-    // http://localhost:8080/userh2jpa2v1/users/2
+    // http://localhost:8080/clipedh2jpa2/pedidos/2
     @GetMapping("/pedidos/{id}")
     public Pedido detailsUser(@PathVariable int id) {
         return pedidoService.findById(id); 
     }
 
-    // http://localhost:8080/userh2jpa2v1/users/mayor/7
+    // http://localhost:8080/clipedh2jpa2/pedidos/mayor/7
     @GetMapping("/pedidos/mayor/{id}")
     public List<Pedido> showUsersMayores(@PathVariable int id) {
         return pedidoService.findByIdGrThan(id);
     }
     
-    // http://localhost:8080/userh2jpa2v1/users/count
+    // http://localhost:8080/clipedh2jpa2/pedidos/count
     @GetMapping("/pedidos/count")    
     public Map<String, Object> countUsers() {
         Map<String, Object> obj = new HashMap<>();

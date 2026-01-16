@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -24,25 +25,26 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 // LOMBOK
-@AllArgsConstructor         // => Constructor con todos los argumentos
-@NoArgsConstructor          // => Constructor sin argumentos
-@Data                       // => @Getter + @Setter + @ToString + @EqualsAndHashCode + @RequiredArgsConstructor
-@ToString(exclude = "Pedido")           // Excluir del toString para evitar recursividad
-@EqualsAndHashCode(exclude = "Pedido")  // Excluir de equals y hashCode para evitar recursividad
+@AllArgsConstructor // => Constructor con todos los argumentos
+@NoArgsConstructor // => Constructor sin argumentos
+@Data // => @Getter + @Setter + @ToString + @EqualsAndHashCode +
+      // @RequiredArgsConstructor
+@ToString(exclude = "pedido") // Excluir del toString para evitar recursividad
+@EqualsAndHashCode(exclude = "pedido") // Excluir de equals y hashCode para evitar recursividad
 
 // JPA
 @Entity
 @Table(name = "Clientes")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Cliente implements Serializable {
-        
-    private static final long serialVersionUID = 1L; 
-    
+
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-    
+
     @NotBlank(message = "El nombre es obligatorio")
     @Size(min = 1, max = 100, message = "El nombre debe tener entre 1 y 100 caracteres")
     @Column(name = "nombre", nullable = false, unique = true)
@@ -64,9 +66,11 @@ public class Cliente implements Serializable {
     private String direccion;
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonIgnoreProperties("cliente")  
+    @JsonIgnoreProperties("cliente")
     private Set<Pedido> pedidos = new HashSet<>();
-    
+
+    @JsonProperty("pedidosCount")
+    public int getPedidosCount() {
+        return pedidos != null ? pedidos.size() : 0;
+    }
 }
-
-

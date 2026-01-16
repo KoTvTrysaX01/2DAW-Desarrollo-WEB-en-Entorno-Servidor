@@ -37,7 +37,7 @@ public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
 
     // Consulta con SQL 
     @Query(value = "SELECT * FROM Clientes WHERE id = :id", nativeQuery = true)
-    Cliente findSqlById(@Param("id") int userId);
+    Cliente findSqlById(@Param("id") int clienteId);
 
     // Consulta con SQL 
     @Query(value = "SELECT COUNT(*) as Clientes FROM Clientes", nativeQuery = true)

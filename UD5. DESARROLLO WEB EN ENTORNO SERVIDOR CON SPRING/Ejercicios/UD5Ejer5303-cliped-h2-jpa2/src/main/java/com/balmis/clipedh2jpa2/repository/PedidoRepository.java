@@ -39,7 +39,7 @@ public interface PedidoRepository extends JpaRepository<Pedido, Integer> {
     
     // Consulta con SQL 
     @Query(value = "SELECT * FROM Pedidos WHERE id = :id", nativeQuery = true)
-    Pedido findSqlById(@Param("id") int userId);
+    Pedido findSqlById(@Param("id") int pedidoId);
 
     // Consulta con SQL 
     @Query(value = "SELECT COUNT(*) as Pedidos FROM Pedidos", nativeQuery = true)

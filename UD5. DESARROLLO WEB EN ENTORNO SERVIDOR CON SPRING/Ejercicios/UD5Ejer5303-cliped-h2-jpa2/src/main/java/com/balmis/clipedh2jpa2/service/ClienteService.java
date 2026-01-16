@@ -13,25 +13,25 @@ import com.balmis.clipedh2jpa2.repository.ClienteRepository;
 public class ClienteService {
     
     @Autowired
-    public ClienteRepository roleRepository;
+    public ClienteRepository clienteRepository;
     
     // ************************
     // Métodos públicos
     // ************************  
     public List<Cliente> findAll() {
-        return roleRepository.findSqlAll();
+        return clienteRepository.findSqlAll();
     }
     
-    public Cliente findById(int userId) {
-        return roleRepository.findSqlById(userId);
+    public Cliente findById(int clienteId) {
+        return clienteRepository.findSqlById(clienteId);
     }
 
     public Long count() {
-        return roleRepository.count();
+        return clienteRepository.count();
     }    
     
-    public List<Cliente> findByIdGrThan(int userId) {
-        return roleRepository.findSqlByIdGrThan(userId);
+    public List<Cliente> findByIdGrThan(int clienteId) {
+        return clienteRepository.findSqlByIdGrThan(clienteId);
     }    
 }
 

@@ -62,7 +62,7 @@ public class Pedido implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cliente_id", referencedColumnName = "id")
-    @JsonIgnoreProperties("Clientes")  
+    @JsonIgnoreProperties("pedidos")  
     private Cliente cliente;    
     
 }

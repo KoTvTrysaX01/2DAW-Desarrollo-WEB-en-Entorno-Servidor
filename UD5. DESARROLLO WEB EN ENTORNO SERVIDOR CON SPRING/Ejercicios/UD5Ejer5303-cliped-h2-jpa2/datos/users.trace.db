@@ -46,3 +46,427 @@ CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NO
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
 Table "PEDIDOS" already exists; SQL statement:
 CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:09:54.425116+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:09:54.438118+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:11:09.104552+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:11:09.107551+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:11:40.106855+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:11:40.110857+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:12:29.815690+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:12:29.818696+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:14:42.432717+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:14:42.436753+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:15:02.846066+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:15:02.852067+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:17:11.647092+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:17:11.649087+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:17:46.171770+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:17:46.173768+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:17:58.440990+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:17:58.442988+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:18:37.010416+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:18:37.041413+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:18:54.236038+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:18:54.243037+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:19:19.573846+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:19:19.575844+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:22:10.498394+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:22:10.501388+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:22:32.620903+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:22:32.622900+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:23:40.118708+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:23:40.121706+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:23:53.204235+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:23:53.206233+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:24:02.205880+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:24:02.207881+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:24:15.190886+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:24:15.192914+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:24:24.237669+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:24:24.239665+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:27:07.246915+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:27:07.249915+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:28:32.637122+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:28:32.639117+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:32:13.753144+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:32:13.755141+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:33:04.040048+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:33:04.052056+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:34:14.439988+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:34:14.442990+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:38:00.722345+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:38:00.724358+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:38:09.671654+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:38:09.674684+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:38:27.751696+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:38:27.753698+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:40:14.401243+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:40:14.403239+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:40:29.410062+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:40:29.412085+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:41:17.595135+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:41:17.598135+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:43:23.064371+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:43:23.068368+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:43:52.310178+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:43:52.312175+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:44:12.365451+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:44:12.367446+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:44:39.499211+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:44:39.504279+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:44:54.550059+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:44:54.554058+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:45:07.677265+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:45:07.679263+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:51:08.504921+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:51:08.507931+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:51:19.522504+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:51:19.524501+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:52:08.837729+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:52:08.839724+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:52:25.871386+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:52:25.873407+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:52:38.006986+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:52:38.008985+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:52:50.102923+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:52:50.104920+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:52:53.205044+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:52:53.207042+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:52:57.173758+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:52:57.175757+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:53:03.157559+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:53:03.159557+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:53:16.121666+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:53:16.123662+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:53:39.156021+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:53:39.159018+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 08:53:51.277522+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 08:53:51.279533+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 09:34:22.715631+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 09:34:22.729629+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 09:36:09.407379+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 09:36:09.410377+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 09:36:26.994389+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 09:36:26.997390+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 09:36:40.265119+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 09:36:40.270124+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]
+2026-01-16 09:37:09.058808+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENTES" ya existe
+Table "CLIENTES" already exists; SQL statement:
+CREATE TABLE Clientes ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, telefono VARCHAR(20), direccion VARCHAR(100) ) [42101-240]
+2026-01-16 09:37:09.061814+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PEDIDOS" ya existe
+Table "PEDIDOS" already exists; SQL statement:
+CREATE TABLE Pedidos ( id INT AUTO_INCREMENT PRIMARY KEY, cliente_id INT NOT NULL, fecha DATE NOT NULL, producto VARCHAR(100) NOT NULL, cantidad INT NOT NULL, FOREIGN KEY (cliente_id) REFERENCES Clientes(id) ) [42101-240]

@@ -17,26 +17,26 @@ public class ClienteController {
     private ClienteService clienteService;
 
 
-    // http://localhost:8080/userh2jpa2v1/roles
+    // http://localhost:8080/clipedh2jpa2/clientes
     @GetMapping("/clientes")
     public List<Cliente> showRoles() {
         return clienteService.findAll();
     }    
     
     
-    // http://localhost:8080/userh2jpa2v1/roles/2
+    // http://localhost:8080/clipedh2jpa2/clientes/2
     @GetMapping("/clientes/{id}")
     public Cliente detailsUser(@PathVariable int id) {
         return clienteService.findById(id); 
     }
 
-    // http://localhost:8080/userh2jpa2v1/roles/mayor/7
+    // http://localhost:8080/clipedh2jpa2/clientes/mayor/3
     @GetMapping("/clientes/mayor/{id}")
     public List<Cliente> showUsersMayores(@PathVariable int id) {
         return clienteService.findByIdGrThan(id);
     }
     
-    // http://localhost:8080/userh2jpa2v1/roles/count
+    // http://localhost:8080/clipedh2jpa2/clientes/count
     @GetMapping("/clientes/count")    
     public Map<String, Object> countUsers() {
         Map<String, Object> obj = new HashMap<>();

@@ -13,25 +13,25 @@ import com.balmis.clipedh2jpa2.repository.PedidoRepository;
 public class PedidoService {
     
     @Autowired
-    public PedidoRepository userRepository;
+    public PedidoRepository pedidoRepository;
     
     // ************************
     // Métodos públicos
     // ************************  
     public List<Pedido> findAll() {
-        return userRepository.findSqlAll();
+        return pedidoRepository.findSqlAll();
     }
     
-    public Pedido findById(int userId) {
-        return userRepository.findSqlById(userId);
+    public Pedido findById(int pedidoId) {
+        return pedidoRepository.findSqlById(pedidoId);
     }
 
     public Long count() {
-        return userRepository.count();
+        return pedidoRepository.count();
     }    
     
-    public List<Pedido> findByIdGrThan(int userId) {
-        return userRepository.findSqlByIdGrThan(userId);
+    public List<Pedido> findByIdGrThan(int pedidoId) {
+        return pedidoRepository.findSqlByIdGrThan(pedidoId);
     }
     
     
