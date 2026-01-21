@@ -1,0 +1,284 @@
+{
+	"info": {
+		"_postman_id": "1665c4e0-3557-4c76-b09e-bedd5561d66d",
+		"name": "bdfrutas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/api/frutas",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/bdfrutas/api/frutas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bdfrutas",
+						"api",
+						"frutas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/frutas/2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/bdfrutas/api/frutas/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bdfrutas",
+						"api",
+						"frutas",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/frutas/nombre?valor=za",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/bdfrutas/api/frutas/nombre?contiene=za",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bdfrutas",
+						"api",
+						"frutas",
+						"nombre"
+					],
+					"query": [
+						{
+							"key": "contiene",
+							"value": "za"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/frutas/count",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/bdfrutas/api/frutas/count",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bdfrutas",
+						"api",
+						"frutas",
+						"count"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/frutas",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 0,\r\n    \"nombre\": \"piña\",\r\n    \"kg\": 7,\r\n    \"precio\": 1.93\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/bdfrutas/api/frutas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bdfrutas",
+						"api",
+						"frutas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/frutas/4",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/bdfrutas/api/frutas/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bdfrutas",
+						"api",
+						"frutas",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/frutas",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 4,\r\n    \"nombre\": \"piña\",\r\n    \"kg\": 4,\r\n    \"precio\": 1.95\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/bdfrutas/api/frutas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bdfrutas",
+						"api",
+						"frutas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/frutas",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/bdfrutas/api/frutas/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bdfrutas",
+						"api",
+						"frutas",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

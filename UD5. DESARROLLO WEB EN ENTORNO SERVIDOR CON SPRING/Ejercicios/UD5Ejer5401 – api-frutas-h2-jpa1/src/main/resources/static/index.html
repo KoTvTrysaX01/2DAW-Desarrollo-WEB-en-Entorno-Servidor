@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>API Rest Frutas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            table {
+                border:1px solid black;
+                border-collapse:collapse;                
+            }
+            table td,
+            table th {
+                border:1px solid black;
+                padding:5px 10px;
+            }
+            table th {
+                background-color:orange;
+            }
+            .cabecera {
+                font-weight: bold;
+                background-color:#dddddd;
+            }
+            .rotulo {
+                font-weight: bold;
+                background-color:#f2deac;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>API Rest</h1>       
+        <table>
+            <tr>
+                <td class="rotulo">SGBD</td>
+                <td>H2 Database</td>
+            </tr>                
+            <tr>
+                <td class="rotulo">Base de Datos</td>
+                <td>Memoria o Fichero</td>
+            </tr>  
+            <tr>
+                <td class="rotulo">Tabla</td>
+                <td>frutas</td>
+            </tr>  
+
+            <tr>
+                <td class="rotulo">Content-Type</td>
+                <td>application/json</td>
+            </tr>  
+            <tr>
+                <td class="rotulo">Accept</td>
+                <td>application/json</td>
+            </tr>  
+        </table>
+
+         <br><br> 
+
+        <table>
+            <tr>
+                <th>MÉTODO</th>
+                <th>PATH</th>
+            </tr>
+            <tr>
+                <td class="cabecera">GET</td>
+                <td><a href="/bdfrutas/api/frutas">/bdfrutas/api/frutas</a></td>
+            </tr>
+            <tr>
+                <td class="cabecera">GET</td>
+                <td>
+                    /bdfrutas/api/frutas/{id}<br>
+                    <a href="/bdfrutas/api/frutas/2">/bdfrutas/api/frutas/2</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="cabecera">GET</td>
+                <td>
+                    /bdfrutas/api/frutas/nombre?contiene={string}<br>
+                    <a href="/bdfrutas/api/frutas/nombre?contiene=za">/bdfrutas/api/frutas/nombre?contiene=za</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="cabecera">POST</td>
+                <td>/bdfrutas/api/frutas</td>
+            </tr>
+            <tr>
+                <td class="cabecera">PUT</td>
+                <td>/bdfrutas/api/frutas</td>
+            </tr>
+            <tr>
+                <td class="cabecera">DELETE</td>
+                <td>/bdfrutas/api/frutas/{id}</td>
+            </tr>
+
+        </table>
+    </body>
+</html>
