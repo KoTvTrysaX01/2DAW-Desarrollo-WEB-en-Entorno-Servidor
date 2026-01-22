@@ -23,12 +23,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "*")  // Permite CORS desde cualquier origen
+@CrossOrigin(origins = "*") // Permite CORS desde cualquier origen
 public class FrutaController {
 
     @Autowired
     private FrutaService frutaService;
-
 
     @GetMapping("/frutas")
     public ResponseEntity<List<Fruta>> showAll() {
@@ -37,7 +36,6 @@ public class FrutaController {
                 .body(frutaService.findAll());
     }
 
-
     @GetMapping("/frutas/{id}")
     public ResponseEntity<Fruta> showById(@PathVariable int id) {
         Fruta fruta = frutaService.findById(id);
@@ -45,7 +43,7 @@ public class FrutaController {
         if (fruta == null) {
             return ResponseEntity
                     .status(HttpStatus.NOT_FOUND)
-                    .body(null);  // 404 Not Found
+                    .body(null); // 404 Not Found
         } else {
             return ResponseEntity
                     .status(HttpStatus.OK)
@@ -76,48 +74,47 @@ public class FrutaController {
         return response;
     }
 
-
-
-
-
-        @PostMapping("/frutas")
+    @PostMapping("/frutas")
     public ResponseEntity<Map<String, Object>> create(
             @Valid @RequestBody Fruta fruta) {
-        
+
         ResponseEntity<Map<String, Object>> response;
-        
+
         if (fruta == null) {
             Map<String, Object> map = new HashMap<>();
             map.put("error", "El cuerpo de la solicitud no puede estar vacío");
-            
+
             response = ResponseEntity
-                            .status(HttpStatus.BAD_REQUEST)
-                            .body(map);                
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(map);
         } else {
 
             if (fruta.getNombre() == null || fruta.getNombre().trim().isEmpty() ||
-                fruta.getKg() < 0 ||
-                fruta.getPrecio() < 0) {
+                    fruta.getKg() < 0 ||
+                    fruta.getPrecio() < 0) {
 
                 Map<String, Object> map = new HashMap<>();
-                String error="";
+                String error = "";
                 if (fruta.getNombre() == null || fruta.getNombre().trim().isEmpty()) {
-                    if (!error.equals("")) error += " - ";
+                    if (!error.equals(""))
+                        error += " - ";
                     error += "El campo 'nombre' es obligatorio";
                 }
-                if (fruta.getKg()<0) {
-                    if (!error.equals("")) error += " - ";
+                if (fruta.getKg() < 0) {
+                    if (!error.equals(""))
+                        error += " - ";
                     error += "El campo 'kg' debe ser positivo";
                 }
-                if (fruta.getPrecio()<0) {
-                    if (!error.equals("")) error += " - ";
+                if (fruta.getPrecio() < 0) {
+                    if (!error.equals(""))
+                        error += " - ";
                     error += "El campo 'precio' debe ser positivo";
                 }
                 map.put("error", error);
-                                
+
                 response = ResponseEntity
-                            .status(HttpStatus.BAD_REQUEST)
-                            .body(map);                
+                        .status(HttpStatus.BAD_REQUEST)
+                        .body(map);
             } else {
                 System.out.println(fruta);
                 Fruta objPost = frutaService.save(fruta);
@@ -125,13 +122,85 @@ public class FrutaController {
                 Map<String, Object> map = new HashMap<>();
                 map.put("mensaje", "Fruta creado con éxito");
                 map.put("insertRealizado", objPost);
-                
+
                 response = ResponseEntity
-                                .status(HttpStatus.CREATED)
-                                .body(map);
+                        .status(HttpStatus.CREATED)
+                        .body(map);
             }
         }
-        
+
+        return response;
+    }
+
+    @PutMapping("/frutas")
+    public ResponseEntity<Map<String, Object>> update(
+            @Valid @RequestBody Fruta fruta) {
+
+        ResponseEntity<Map<String, Object>> response;
+
+        if (fruta == null) {
+            Map<String, Object> map = new HashMap<>();
+            map.put("error", "El cuerpo de la solicitud no puede estar vacío");
+
+            response = ResponseEntity.status(HttpStatus.BAD_REQUEST).body(map);
+        } else {
+            int id = fruta.getId();
+            Fruta existingObj = frutaService.findById(id);
+
+            if (existingObj == null) {
+                Map<String, Object> map = new HashMap<>();
+                map.put("error", "Fruta no encontrado");
+                map.put("id", id);
+
+                response = ResponseEntity.status(HttpStatus.NOT_FOUND).body(map);
+            } else {
+
+                // Actualizar campos si están presentes
+                if (fruta.getNombre() != null) {
+                    existingObj.setNombre(fruta.getNombre());
+                }
+                if (fruta.getKg() >= 0) {
+                    existingObj.setKg(fruta.getKg());
+                }
+                if (fruta.getPrecio() >= 0) {
+                    existingObj.setPrecio(fruta.getPrecio());
+                }
+
+                Fruta objPut = frutaService.save(existingObj);
+
+                Map<String, Object> map = new HashMap<>();
+                map.put("mensaje", "Empleado actualizado con éxito");
+                map.put("updateRealizado", objPut);
+
+                response = ResponseEntity.status(HttpStatus.OK).body(map);
+            }
+        }
+
+        return response;
+    }
+
+    @DeleteMapping("/frutas/{id}")
+    public ResponseEntity<Map<String, Object>> delete(@PathVariable int id) {
+
+        ResponseEntity<Map<String, Object>> response;
+
+        Fruta existingObj = frutaService.findById(id);
+        if (existingObj == null) {
+            Map<String, Object> map = new HashMap<>();
+            map.put("error", "Empleado no encontrado");
+            map.put("id", id);
+
+            response = ResponseEntity.status(HttpStatus.NOT_FOUND).body(map);
+        } else {
+
+            frutaService.deleteById(id);
+
+            Map<String, Object> map = new HashMap<>();
+            map.put("mensaje", "Empleado eliminado con éxito");
+            map.put("deletedRealizado", existingObj);
+
+            response = ResponseEntity.status(HttpStatus.OK).body(map);
+        }
         return response;
     }
 
