@@ -1,0 +1,669 @@
+{
+	"info": {
+		"_postman_id": "ae83e2bb-27e5-4082-9711-9de499e0c7df",
+		"name": "bdtransportistas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Vehiculos",
+			"item": [
+				{
+					"name": "/api/vehiculos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/bdtransportistas/api/vehiculos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bdtransportistas",
+								"api",
+								"vehiculos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/vehiculos/2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/bdtransportistas/api/vehiculos/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bdtransportistas",
+								"api",
+								"vehiculos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/vehiculos/matricula/1234DEF",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/bdtransportistas/api/vehiculos/matricula/1234DEF",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bdtransportistas",
+								"api",
+								"vehiculos",
+								"matricula",
+								"1234DEF"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/vehiculos/count",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/bdtransportistas/api/vehiculos/count",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bdtransportistas",
+								"api",
+								"vehiculos",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/vehiculos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\": 0,\r\n        \"matricula\": \"5221KLJ\",\r\n        \"tipo\": \"Tráiler\",\r\n        \"capacidadCarga\": 24000.0\r\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:8080/bdtransportistas/api/vehiculos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bdtransportistas",
+								"api",
+								"vehiculos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/vehiculos/7",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/bdtransportistas/api/vehiculos/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bdtransportistas",
+								"api",
+								"vehiculos",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/vehiculos",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\": 7,\r\n        \"matricula\": \"9221KLJ\",\r\n        \"tipo\": \"Tráiler\",\r\n        \"capacidadCarga\": 28000.0\r\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:8080/bdtransportistas/api/vehiculos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bdtransportistas",
+								"api",
+								"vehiculos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/vehiculos",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/bdtransportistas/api/vehiculos/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bdtransportistas",
+								"api",
+								"vehiculos",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transportistas",
+			"item": [
+				{
+					"name": "/api/transportistas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/bdtransportistas/api/transportistas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bdtransportistas",
+								"api",
+								"transportistas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/transportistas/2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/bdtransportistas/api/transportistas/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bdtransportistas",
+								"api",
+								"transportistas",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/transportistas/matricula/1234DEF",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/bdtransportistas/api/transportistas/matricula/1234DEF",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bdtransportistas",
+								"api",
+								"transportistas",
+								"matricula",
+								"1234DEF"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/transportistas/nombre?contiene=ro",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/bdtransportistas/api/transportistas/nombre?contiene=ro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bdtransportistas",
+								"api",
+								"transportistas",
+								"nombre"
+							],
+							"query": [
+								{
+									"key": "contiene",
+									"value": "ro"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/transportistas/count",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/bdtransportistas/api/transportistas/count",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bdtransportistas",
+								"api",
+								"transportistas",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/transportistas",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"id\": 0,\r\n    \"nombre\": \"Jesús Romero\",\r\n    \"tipoLicencia\": \"C+E\",\r\n    \"experiencia\": 10\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/bdtransportistas/api/transportistas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bdtransportistas",
+								"api",
+								"transportistas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/transportistas/7",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/bdtransportistas/api/transportistas/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bdtransportistas",
+								"api",
+								"transportistas",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/transportistas",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"id\": 7,\r\n    \"nombre\": \"Jesús Romero\",\r\n    \"tipoLicencia\": \"C+E\",\r\n    \"experiencia\": 12\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/bdtransportistas/api/transportistas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bdtransportistas",
+								"api",
+								"transportistas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/transportistas/7/asignar/vehiculo/6",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/bdtransportistas/api/transportistas/7/asignar/vehiculo/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bdtransportistas",
+								"api",
+								"transportistas",
+								"7",
+								"asignar",
+								"vehiculo",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/transportistas/7/desasignar/vehiculo",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/bdtransportistas/api/transportistas/7/desasignar/vehiculo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bdtransportistas",
+								"api",
+								"transportistas",
+								"7",
+								"desasignar",
+								"vehiculo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/transportistas/7",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/bdtransportistas/api/transportistas/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bdtransportistas",
+								"api",
+								"transportistas",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

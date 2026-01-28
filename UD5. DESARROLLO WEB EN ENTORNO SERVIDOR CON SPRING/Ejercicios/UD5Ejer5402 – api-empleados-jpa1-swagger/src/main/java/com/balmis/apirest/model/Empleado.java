@@ -42,7 +42,7 @@ public class Empleado implements Serializable {
     @Column(name = "nombre", nullable = false, unique = true) 
     private String nombre;
 
-    @Schema(description = "Departamento del empleado", example = "2 Desarrollo de Aplicaciones Web")
+    @Schema(description = "Departamento del empleado", example = "DesarrolloWeb")
     @NotBlank(message = "El departamento es obligatorio")
     @Size(min=1, max=20, message = "El departamento no puede tener más de 20 caracteres")
     @Column(name = "dep", nullable = false, unique = false) 

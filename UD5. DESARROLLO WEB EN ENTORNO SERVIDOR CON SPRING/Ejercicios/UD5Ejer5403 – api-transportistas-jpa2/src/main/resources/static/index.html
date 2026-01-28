@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>API Rest Transportistas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            table {
+                border:1px solid black;
+                border-collapse:collapse;                
+            }
+            table td,
+            table th {
+                border:1px solid black;
+                padding:5px 10px;
+            }
+            table th {
+                background-color:orange;
+            }
+            .cabecera {
+                font-weight: bold;
+                background-color:#dddddd;
+            }
+            .rotulo {
+                font-weight: bold;
+                background-color:#f2deac;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>API Rest</h1>       
+        <table>
+            <tr>
+                <td class="rotulo">SGBD</td>
+                <td>H2 Database</td>
+            </tr>                
+            <tr>
+                <td class="rotulo">Base de Datos</td>
+                <td>Memoria RAM</td>
+            </tr>  
+            <tr>
+                <td class="rotulo">Tablas</td>
+                <td>
+                    transportistas<br>
+                    vehiculos
+                </td>
+                    
+            </tr>  
+
+            <tr>
+                <td class="rotulo">Content-Type</td>
+                <td>application/json</td>
+            </tr>  
+            <tr>
+                <td class="rotulo">Accept</td>
+                <td>application/json</td>
+            </tr>  
+        </table>
+
+         <br><br> 
+
+        <table>
+            <tr>
+                <th colspan="2">TRANSPORTISTAS</th>
+            </tr>
+            <tr>
+                <th>MÉTODO</th>
+                <th>PATH</th>
+            </tr>
+            <tr>
+                <td class="cabecera">GET</td>
+                <td><a href="/bdtransportistas/api/transportistas">/bdtransportistas/api/transportistas</a></td>
+            </tr>
+            <tr>
+                <td class="cabecera">GET</td>
+                <td>
+                    /bdtransportistas/api/transportistas/{id}<br>
+                    <a href="/bdtransportistas/api/transportistas/2">/bdtransportistas/api/transportistas/2</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="cabecera">GET</td>
+                <td>
+                    /bdtransportistas/api/transportistas/matricula/{matricula}<br>
+                    <a href="/bdtransportistas/api/transportistas/matricula/1234DEF">/bdtransportistas/api/transportistas/matricula/1234DEF</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="cabecera">GET</td>
+                <td>
+                    /bdtransportistas/api/transportistas/nombre?contiene={string}<br>
+                    <a href="/bdtransportistas/api/transportistas/nombre?contiene=ro">/bdtransportistas/api/transportistas/nombre?contiene=ro</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="cabecera">GET</td>
+                <td>
+                    /bdtransportistas/api/transportistas/count<br>
+                    <a href="/bdtransportistas/api/transportistas/count">/bdtransportistas/api/transportistas/count</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="cabecera">POST</td>
+                <td>/bdtransportistas/api/transportistas</td>
+            </tr>
+            <tr>
+                <td class="cabecera">PUT</td>
+                <td>/bdtransportistas/api/transportistas</td>
+            </tr>
+            <tr>
+                <td class="cabecera">PUT</td>
+                <td>/bdtransportistas/api/transportistas/{traId}/asignar/vehiculo/{vehId}</td>
+            </tr>
+            <tr>
+                <td class="cabecera">PUT</td>
+                <td>/bdtransportistas/api/transportistas/{traId}/desasignar/vehiculo</td>
+            </tr>
+            <tr>
+                <td class="cabecera">DELETE</td>
+                <td>/bdtransportistas/api/transportistas/{id}</td>
+            </tr>
+
+        </table>
+         
+         <br><br> 
+         
+         
+        <table>
+            <tr>
+                <th colspan="2">VEHÍCULOS</th>
+            </tr>
+            <tr>
+                <th>MÉTODO</th>
+                <th>PATH</th>
+            </tr>
+            <tr>
+                <td class="cabecera">GET</td>
+                <td><a href="/bdtransportistas/api/vehiculos">/bdtransportistas/api/vehiculos</a></td>
+            </tr>
+            <tr>
+                <td class="cabecera">GET</td>
+                <td>
+                    /bdtransportistas/api/vehiculos/{id}<br>
+                    <a href="/bdtransportistas/api/vehiculos/2">/bdtransportistas/api/vehiculos/2</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="cabecera">GET</td>
+                <td>
+                    /bdtransportistas/api/vehiculos/matricula/{matricula}<br>
+                    <a href="/bdtransportistas/api/vehiculos/matricula/1234DEF">/bdtransportistas/api/vehiculos/matricula/1234DEF</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="cabecera">GET</td>
+                <td>
+                    /bdtransportistas/api/vehiculos/count<br>
+                    <a href="/bdtransportistas/api/vehiculos/count">/bdtransportistas/api/vehiculos/count</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="cabecera">POST</td>
+                <td>/bdtransportistas/api/vehiculos</td>
+            </tr>
+            <tr>
+                <td class="cabecera">PUT</td>
+                <td>/bdtransportistas/api/vehiculos</td>
+            </tr>
+            <tr>
+                <td class="cabecera">DELETE</td>
+                <td>/bdtransportistas/api/vehiculos/{id}</td>
+            </tr>
+
+        </table>        
+
+        <br><br> 
+        <br><br> 
+    </body>
+</html>

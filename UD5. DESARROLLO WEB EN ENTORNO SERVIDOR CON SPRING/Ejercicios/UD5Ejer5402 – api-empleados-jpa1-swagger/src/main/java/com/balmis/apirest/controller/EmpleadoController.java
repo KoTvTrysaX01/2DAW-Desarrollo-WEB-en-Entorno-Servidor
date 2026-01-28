@@ -142,6 +142,21 @@ public class EmpleadoController {
     // ****************************************************************************
     // INSERT (POST)
     // http://localhost:8080/bdempleados/api/empleados
+    // SWAGGER
+    @Operation(summary = "Crear un nuevo empleado", description = "Registra un nuevo empleado en el sistema con los datos proporcionados")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "Empleado creado con éxito", content = @Content(mediaType = "application/json", examples = @ExampleObject(value = """
+                    {
+                       "mensaje": "string",
+                       "insertUser": {}
+                    }
+                    """))),
+            @ApiResponse(responseCode = "400", description = "Datos de entrada inválidos", content = @Content(mediaType = "application/json", examples = @ExampleObject(value = """
+                    {
+                      "error": "string"
+                    }
+                    """)))
+    })
     @PostMapping("/empleados")
     public ResponseEntity<Map<String, Object>> create(
             @Valid @RequestBody Empleado empleado) {
@@ -182,7 +197,7 @@ public class EmpleadoController {
                 if (empleado.getEdad() < 0) {
                     if (!error.equals(""))
                         error += " - ";
-                    error += "El campo 'precio' debe ser positivo";
+                    error += "El campo 'edad' debe ser positivo";
                 }
                 map.put("error", error);
 
@@ -209,6 +224,26 @@ public class EmpleadoController {
     // ****************************************************************************
     // UPDATE (PUT)
     // http://localhost:8080/bdempleados/api/empleados
+    // SWAGGER
+    @Operation(summary = "Actualizar un empleado existente", description = "Reemplaza completamente los datos de un empleado identificado por su ID")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "Empleado actualizado con éxito", content = @Content(mediaType = "application/json", examples = @ExampleObject(value = """
+                    {
+                       "mensaje": "string",
+                       "updatedUser": {}
+                    }
+                    """))),
+            @ApiResponse(responseCode = "400", description = "Datos de actualización inválidos", content = @Content(mediaType = "application/json", examples = @ExampleObject(value = """
+                    {
+                      "error": "string"
+                    }
+                    """))),
+            @ApiResponse(responseCode = "404", description = "Empleado no encontrado", content = @Content(mediaType = "application/json", examples = @ExampleObject(value = """
+                    {
+                      "error": "string"
+                    }
+                    """)))
+    })
     @PutMapping("/empleados")
     public ResponseEntity<Map<String, Object>> update(
             @Valid @RequestBody Empleado empleado) {
@@ -262,6 +297,21 @@ public class EmpleadoController {
     // ****************************************************************************
     // DELETE
     // http://localhost:8080/bdempleados/api/empleados/16
+    // SWAGGER
+    @Operation(summary = "Eliminar empleado por ID", description = "Elimina un empleado específico del sistema")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "Empleado eliminado con éxito", content = @Content(mediaType = "application/json", examples = @ExampleObject(value = """
+                    {
+                       "mensaje": "string",
+                       "deletedUser": {}
+                    }
+                    """))),
+            @ApiResponse(responseCode = "404", description = "Empleado no encontrado", content = @Content(mediaType = "application/json", examples = @ExampleObject(value = """
+                    {
+                      "error": "string"
+                    }
+                    """)))
+    })
     @DeleteMapping("/empleados/{id}")
     public ResponseEntity<Map<String, Object>> delete(@PathVariable int id) {
 
